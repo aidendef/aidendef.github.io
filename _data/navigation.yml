@@ -1,4 +1,8 @@
-- title: Blog
+- title: All
   url: /
+# - title: Computer
+#   url: /computer
+# - title: Life
+#   url: /life
 - title: About
   url: /about/
