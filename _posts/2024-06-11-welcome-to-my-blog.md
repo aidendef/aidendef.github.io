@@ -3,12 +3,12 @@ title: "첫 블로그 글"
 date: 2024-06-11 10:00:00 +0900
 categories: [private, blog]
 tags: [blog]
-header:
-  teaser: /assets/images/teaser.webp
 sidebar:
   nav: "docs"
 toc: true 
 toc_sticky: true
+header:
+  teaser: /assets/images/teaser.webp
 ---
 
 ## 안녕하세요
