@@ -1,7 +1,7 @@
 ---
 layout: home
 author_profile: false
-permalink: /recent
+permalink: /recent/
 sidebar:
   nav: "docs"
 ---
