@@ -149,12 +149,9 @@ Knowledge Base가 수행하는 전반적인 흐름은 아래와 같습니다:
 2.  **Knowledge Base 구성**  
     Bedrock 콘솔에서 Knowledge Base를 생성하면서:
     
-    *   연결할 S3 버킷 및 프리픽스 지정
-        
-    *   사용할 임베딩 모델 (예: `amazon.titan-embed-text-v1`)
-        
-    *   벡터 저장소 (예: OpenSearch domain)
-        
+    *   연결할 S3 버킷 및 프리픽스 지정        
+    *   사용할 임베딩 모델 (예: `amazon.titan-embed-text-v1`)        
+    *   벡터 저장소 (예: OpenSearch domain)        
     *   사용할 응답 모델 (예: Claude 3)
         
 3.  **자동 임베딩 생성 및 저장**  
@@ -170,17 +167,13 @@ Knowledge Base가 수행하는 전반적인 흐름은 아래와 같습니다:
 ### 특징 및 장점
 
 *   **클릭 기반 구성**  
-    AWS 콘솔 또는 `CreateKnowledgeBase` API를 통해 몇 단계로 빠르게 설정 가능
-    
+    AWS 콘솔 또는 `CreateKnowledgeBase` API를 통해 몇 단계로 빠르게 설정 가능    
 *   **자동화된 문서 파싱 및 인덱싱**  
-    별도의 Lambda나 Glue job 없이도 PDF, DOCX 등 다양한 문서를 자동 분석 및 처리
-    
+    별도의 Lambda나 Glue job 없이도 PDF, DOCX 등 다양한 문서를 자동 분석 및 처리    
 *   **출처 기반 응답**  
     Claude 등 LLM의 생성 응답에 사용된 문서 chunk의 **source URI** 또는 **chunk ID**가 포함되어 신뢰도 향상
-    
 *   **보안 및 권한 통합**  
     IAM 기반 접근 제어, S3 정책, OpenSearch 정책 등이 함께 작동
-    
 *   **API 기반 통합**  
     AWS SDK 또는 Bedrock Runtime API를 통해 챗봇, 내부 서비스 등과 손쉽게 연동 가능
     
@@ -215,14 +208,10 @@ Bedrock Knowledge Base는 S3에 문서를 업로드하면 임베딩부터 응답
 모든 과정은 콘솔이 아닌 cdk형태로 만들어 cloud formation으로 업로드하는 방식으로 제작을 진행하였다.
 #### ■ 흐름 설명
 
-*   사용자가 프론트엔드에서 파일을 업로드하면, 프리사인 URL을 이용해 \*\*`raw-files-bucket`\*\*에 직접 저장됩니다.
-    
-*   업로드 완료 후, Lambda에 의해 SQS 메시지가 트리거되어 **`doc-extract` Lambda**가 실행됩니다.
-    
-*   이 Lambda는 파일 유형을 검사한 뒤:
-    
-    *   `.docx`, `.pptx` 등 비PDF 문서는 **LibreOffice 기반 Docker Lambda**에서 PDF로 변환
-        
+*   사용자가 프론트엔드에서 파일을 업로드하면, 프리사인 URL을 이용해 \*\*`raw-files-bucket`\*\*에 직접 저장됩니다.    
+*   업로드 완료 후, Lambda에 의해 SQS 메시지가 트리거되어 **`doc-extract` Lambda**가 실행됩니다.    
+*   이 Lambda는 파일 유형을 검사한 뒤:    
+    *   `.docx`, `.pptx` 등 비PDF 문서는 **LibreOffice 기반 Docker Lambda**에서 PDF로 변환        
     *   이미 PDF일 경우, 그대로 복사만 수행
         
 
@@ -241,23 +230,17 @@ Bedrock Knowledge Base는 S3에 문서를 업로드하면 임베딩부터 응답
 
 #### ■ 흐름 설명
 
-*   PDF 파일을 대상으로 **PyMuPDF**를 사용해 텍스트를 페이지 단위로 추출합니다.
-    
-*   추출된 텍스트는 다음 기준으로 문단 단위로 분할(chunking)합니다:
-    
-    *   한 chunk는 최대 500 tokens 수준
-        
-    *   각 chunk에는 **소속 파일 ID, 페이지 번호, chunk 번호** 포함
-        
+*   PDF 파일을 대상으로 **PyMuPDF**를 사용해 텍스트를 페이지 단위로 추출합니다.    
+*   추출된 텍스트는 다음 기준으로 문단 단위로 분할(chunking)합니다:    
+    *   한 chunk는 최대 500 tokens 수준        
+    *   각 chunk에는 **소속 파일 ID, 페이지 번호, chunk 번호** 포함        
 *   이 결과는 `.jsonl` 형태로 저장되며, 다음 단계 임베딩 처리를 위해 전달됩니다.
     
 
 #### ■ 사용된 기술 및 고려사항
 
-*   PyMuPDF 기반 추출 (한국어 PDF 인식률 높음)
-    
-*   page-break 및 heading 인식 기능 고려
-    
+*   PyMuPDF 기반 추출 (한국어 PDF 인식률 높음)    
+*   page-break 및 heading 인식 기능 고려    
 *   각 chunk에 대한 메타데이터 구조는 다음과 같음:
     
 
@@ -276,12 +259,9 @@ Bedrock Knowledge Base는 S3에 문서를 업로드하면 임베딩부터 응답
 
 #### ■ 흐름 설명
 
-*   생성된 각 chunk는 `doc-embed` Lambda를 통해 **Amazon Bedrock의 Titan Embed 모델**에 요청하여 벡터 임베딩을 생성합니다.
-    
-*   결과로 받은 벡터는 다음 필드와 함께 OpenSearch에 저장됩니다:
-    
-    *   `chunkId`, `fileId`, `page`, `content`, `embedding`
-        
+*   생성된 각 chunk는 `doc-embed` Lambda를 통해 **Amazon Bedrock의 Titan Embed 모델**에 요청하여 벡터 임베딩을 생성합니다.    
+*   결과로 받은 벡터는 다음 필드와 함께 OpenSearch에 저장됩니다:    
+    *   `chunkId`, `fileId`, `page`, `content`, `embedding`        
 *   OpenSearch는 `k-NN` 벡터 인덱스를 기반으로 구성되어, 유사도 검색에 최적화되어 있습니다.
     
 
@@ -300,14 +280,10 @@ Bedrock Knowledge Base는 S3에 문서를 업로드하면 임베딩부터 응답
 
 #### ■ 흐름 설명
 
-*   사용자가 API Gateway를 통해 질의하면, `query_send` Lambda가 실행됩니다.
-    
-*   입력 질의에 대해 Titan 임베딩 모델을 사용해 임베딩 생성
-    
-*   OpenSearch에서 top-k 관련 chunk 검색
-    
-*   검색된 chunk들을 context로 Claude 3.5 Sonnet에 전달해 응답 생성
-    
+*   사용자가 API Gateway를 통해 질의하면, `query_send` Lambda가 실행됩니다.    
+*   입력 질의에 대해 Titan 임베딩 모델을 사용해 임베딩 생성    
+*   OpenSearch에서 top-k 관련 chunk 검색    
+*   검색된 chunk들을 context로 Claude 3.5 Sonnet에 전달해 응답 생성    
 *   응답에는 사용된 chunk들의 출처(citation: 파일명 / 페이지 / chunk 번호)를 포함합니다.
     
 
