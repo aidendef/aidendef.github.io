@@ -10,7 +10,7 @@ toc: true
 toc_sticky: true
 classes: wide
 header:
-  teaser: /assets/images/post_img/ChatGPT Image 2025년 5월 12일 오후 03_17_30.png
+  teaser: /assets/images/post_img/Knowledge-Bases-feat-img.png
 ---
 
 ## 1. 들어가며
