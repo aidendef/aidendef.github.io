@@ -8,7 +8,7 @@ sidebar:
   nav: "docs"
 toc: true
 toc_sticky: true
-# classes: wide
+classes: wide
 header:
   teaser: /assets/images/post_img/Knowledge-Bases-feat-img.png
 excerpt : 직접 AWS 완전관리형 서비스 따라만들어보자
