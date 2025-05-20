@@ -4,6 +4,7 @@ title: "Humans to Mars"
 permalink: /
 <!-- entries_layout: grid -->
 classes: wide
+paginate: true
 header:
   overlay_image: /assets/images/teaser.webp
   overlay_filter: 0.4
@@ -20,3 +21,5 @@ excerpt: "AI, Cloud, IT 전반적인 기술 블로그"
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
+
+{% include paginator.html %}
