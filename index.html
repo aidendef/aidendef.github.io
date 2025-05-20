@@ -1,5 +1,5 @@
 ---
-layout: archive
+layout: home
 title: "Humans to Mars"
 permalink: /
 <!-- entries_layout: grid -->
@@ -17,6 +17,6 @@ excerpt: "AI, Cloud, IT 전반적인 기술 블로그"
 {% assign posts = site.posts %}
 <div class="entries-grid">
   {% for post in posts %}
-    {% include archive-single.html %}
+    {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
