@@ -1,0 +1,1926 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-05-20T06:50:40+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리</title><link href="https://aidendef.github.io//cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/" rel="alternate" type="text/html" title="ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리" /><published>2025-05-19T15:00:00+00:00</published><updated>2025-05-19T15:00:00+00:00</updated><id>https://aidendef.github.io//cloud/ALB,%20NLB,%20CLB,%20GWLB%20%E2%80%93%20AWS%20%EB%A1%9C%EB%93%9C%20%EB%B0%B8%EB%9F%B0%EC%84%9C%20%EC%99%84%EC%A0%84%20%EC%A0%95%EB%A6%AC</id><content type="html" xml:base="https://aidendef.github.io//cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/"><![CDATA[<h2 id="1-들어가며">1. 들어가며</h2>
+
+<p>AWS에서 서비스를 운영하다 보면, 로드 밸런서는 거의 필수다.<br />
+하지만 ELB 안에도 종류가 4가지나 있어서 처음 접하면 헷갈리기 쉽다.</p>
+
+<ul>
+  <li>웹 서비스엔 ALB?</li>
+  <li>게임 서버엔 NLB?</li>
+  <li>옛날 시스템은 CLB?</li>
+  <li>방화벽 연결엔 GWLB?</li>
+</ul>
+
+<p>이번 글에서는 AWS의 로드 밸런서 종류를 한 번에 정리해보고, 각 로드 밸런서가 어떤 상황에 적합한지 사례를 들어가며 설명해보려고 한다.</p>
+
+<hr />
+
+<h2 id="2-전체-비교표로-빠르게-보기">2. 전체 비교표로 빠르게 보기</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>종류</th>
+      <th>풀네임</th>
+      <th>계층</th>
+      <th>주요 목적</th>
+      <th>특징 요약</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ALB</td>
+      <td>Application Load Balancer</td>
+      <td>L7</td>
+      <td>HTTP/HTTPS 트래픽 처리</td>
+      <td>경로/호스트 기반 라우팅, 웹 앱에 특화</td>
+    </tr>
+    <tr>
+      <td>NLB</td>
+      <td>Network Load Balancer</td>
+      <td>L4</td>
+      <td>TCP/UDP 기반 초고속 통신</td>
+      <td>정적 IP, TLS 종료 가능, 초고성능</td>
+    </tr>
+    <tr>
+      <td>CLB</td>
+      <td>Classic Load Balancer</td>
+      <td>L4/L7</td>
+      <td>구형 아키텍처 호환</td>
+      <td>과거 시스템 유지용, 기능 제한적</td>
+    </tr>
+    <tr>
+      <td>GWLB</td>
+      <td>Gateway Load Balancer</td>
+      <td>L3/L4</td>
+      <td>보안 장비 트래픽 미러링 등 연동</td>
+      <td>서드파티 방화벽, IDS 등과 연동 용도</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="3-alb--application-load-balancer">3. ALB – Application Load Balancer</h2>
+
+<p><img src="/assets/images/post_img/Application_Load_Balancer.png" alt="Application_Load_Balancer" /></p>
+
+<p>웹 애플리케이션에 특화된 L7 로드 밸런서이다.<br />
+HTTP, HTTPS 트래픽에 대해 경로 기반 또는 호스트 기반 라우팅이 가능하다.</p>
+
+<h3 id="주요-특징">주요 특징</h3>
+<ul>
+  <li>L7 (Application Layer)에서 동작</li>
+  <li><code class="language-plaintext highlighter-rouge">/api</code> → A 서비스, <code class="language-plaintext highlighter-rouge">/admin</code> → B 서비스처럼 경로 기반 분기 가능</li>
+  <li>WebSocket, HTTP/2 지원</li>
+  <li>대상 그룹: EC2, Lambda, Fargate, IP 등 유연</li>
+</ul>
+
+<h3 id="사용-예시">사용 예시</h3>
+<ul>
+  <li>REST API 서버</li>
+  <li>마이크로서비스 기반 아키텍처</li>
+  <li>정적 리소스와 동적 컨텐츠를 분리해서 배포할 때</li>
+</ul>
+
+<hr />
+
+<h2 id="4-nlb--network-load-balancer">4. NLB – Network Load Balancer</h2>
+
+<p><img src="/assets/images/post_img/Network_Load_Balancer.png" alt="Network_Load_Balancer" /></p>
+
+<p>초당 수백만 요청을 처리할 수 있는 L4 로드 밸런서이다.<br />
+게임 서버나 실시간 서비스에 적합하다.</p>
+
+<h3 id="주요-특징-1">주요 특징</h3>
+<ul>
+  <li>L4 (Transport Layer)에서 TCP/UDP 트래픽 처리</li>
+  <li>정적 IP 할당 가능</li>
+  <li>TLS 종료 가능 (SSL 인증서 적용)</li>
+  <li>초고속 처리: ALB보다 훨씬 빠름</li>
+</ul>
+
+<h3 id="사용-예시-1">사용 예시</h3>
+<ul>
+  <li>온라인 게임 서버</li>
+  <li>금융 시스템</li>
+  <li>WebRTC 기반 서비스, 실시간 IoT 통신</li>
+</ul>
+
+<hr />
+
+<h2 id="5-clb--classic-load-balancer">5. CLB – Classic Load Balancer</h2>
+
+<p><img src="/assets/images/post_img/Classic_Load_Balancer.png" alt="Classic_Load_Balancer" /></p>
+
+<p>예전부터 AWS에서 제공하던 로드 밸런서로, ALB/NLB 이전 세대이다.<br />
+L4/L7 모두 지원하지만 기능은 제한적이다.</p>
+
+<h3 id="주요-특징-2">주요 특징</h3>
+<ul>
+  <li>L4 + L7 혼합 지원</li>
+  <li>HTTP 헤더 기반 라우팅은 어려움</li>
+  <li>더 이상 신규 권장되지 않음 (기존 유지용)</li>
+</ul>
+
+<h3 id="사용-예시-2">사용 예시</h3>
+<ul>
+  <li>구형 시스템 유지보수</li>
+  <li>마이그레이션 전까지 임시 유지</li>
+</ul>
+
+<hr />
+
+<h2 id="6-gwlb--gateway-load-balancer">6. GWLB – Gateway Load Balancer</h2>
+
+<p><img src="/assets/images/post_img/Gateway_Load_Balancer.png" alt="Gateway_Load_Balancer" /></p>
+
+<p>L3/L4 계층에서 네트워크 장비와 트래픽을 중계해주는 로드 밸런서이다.<br />
+가상 방화벽, IDS/IPS 같은 보안 장비 연동용으로 사용된다.</p>
+
+<h3 id="주요-특징-3">주요 특징</h3>
+<ul>
+  <li>L3 (Network Layer)에서 동작</li>
+  <li>패킷 미러링 및 VPC 트래픽 가시화</li>
+  <li>서드파티 네트워크 장비와 연동 가능 (Fortinet, Palo Alto 등)</li>
+</ul>
+
+<h3 id="사용-예시-3">사용 예시</h3>
+<ul>
+  <li>EC2 기반 가상 방화벽 연동</li>
+  <li>기업 보안 솔루션 통합</li>
+  <li>VPC 내부 트래픽 모니터링</li>
+</ul>
+
+<hr />
+
+<h2 id="7-어떤-걸-언제-써야-할까">7. 어떤 걸 언제 써야 할까?</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>상황</th>
+      <th>추천 로드 밸런서</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>웹 서비스, REST API</td>
+      <td>ALB</td>
+    </tr>
+    <tr>
+      <td>초고속, 실시간 통신</td>
+      <td>NLB</td>
+    </tr>
+    <tr>
+      <td>옛날 시스템 유지</td>
+      <td>CLB</td>
+    </tr>
+    <tr>
+      <td>보안 장비 연동</td>
+      <td>GWLB</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="8-마무리하며">8. 마무리하며</h2>
+
+<p>로드 밸런서 선택은 단순히 트래픽을 분산시키는 것 이상의 결정이다.<br />
+어떤 계층에서 동작하느냐, 어떤 기능이 필요한지에 따라 ALB, NLB, GWLB 중 선택이 갈리게 된다.<br />
+CLB는 이제 유지보수 목적으로만 사용하고, 신규 시스템에는 사용을 피하는 것이 좋다.</p>]]></content><author><name>Your Name</name></author><category term="cloud" /><category term="AWS" /><category term="ALB" /><category term="NLB" /><category term="CLB" /><category term="GWLB" /><category term="로드밸런서" /><summary type="html"><![CDATA[AWS 로드 밸런서 4종 완전 비교. 어떤 상황에 어떤 걸 써야 할까?]]></summary></entry><entry><title type="html">AWS Summit Seoul 2025 탐방기</title><link href="https://aidendef.github.io//cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/" rel="alternate" type="text/html" title="AWS Summit Seoul 2025 탐방기" /><published>2025-05-18T15:00:00+00:00</published><updated>2025-05-18T15:00:00+00:00</updated><id>https://aidendef.github.io//cloud/AWS%202025%20Summit%20%ED%83%90%EB%B0%A9%EA%B8%B0</id><content type="html" xml:base="https://aidendef.github.io//cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/"><![CDATA[<h2 id="1-클라우드의-끝이-아닌-시작점">1. 클라우드의 끝이 아닌, 시작점</h2>
+
+<p><strong>이번 서밋에서 AWS는 더 이상 단순한 인프라 기업이 아니었다.</strong><br />
+AI, 서버리스, 지속 가능성까지… 그들의 새로운 ‘무기’는 기존의 패러다임을 완전히 전복시키는 인상을 주었다. 특히 AWS가 강조한 방향성은 ‘모든 기업이 생성형 AI를 바로 실무에 도입할 수 있는 실용성 중심’이었다.</p>
+
+<p><img src="/assets/images/post_img/summit_일정.png" alt="강연일정" /></p>
+
+<p>대표적인 키노트와 세션 주제들은 하나같이 생성형 AI에 집중되어 있었다. 단순한 개념 소개가 아닌, <strong>기업에서 AI를 어떻게 도입하고 프로덕션 워크플로우에 연결하는지에 대한 실질적인 전략</strong>이 강조되었다.</p>
+
+<p>예전엔 AWS Summit이 ‘기술자들을 위한 축제’였다면, 이번 2025년 행사는 <strong>AI 시대의 비즈니스 전략가들을 위한 로드맵 발표회</strong>였다.</p>
+
+<hr />
+
+<h2 id="2-사람-열기-그리고-기대">2. 사람, 열기, 그리고 기대</h2>
+
+<p><img src="/assets/images/post_img/IMG_4627 (2).gif" alt="등록장" /></p>
+
+<p>5월 14일 오전 9시, 코엑스에 도착하자마자 가장 먼저 마주한 것은 <strong>대기 줄과 EDM이 울려 퍼지는 DJ 부스</strong>였다. 예상은 했지만 그 규모와 열기는 여전히 압도적이었다. 등록 부스는 마치 음악 페스티벌의 입구 같았고, 기술 행사의 고정관념을 깨뜨리기에 충분했다.</p>
+
+<p>런치 쿠폰, 네임택을 수령한 뒤 행사장을 돌아보며 곳곳의 부스와 세션을 둘러보기 시작했다.<br />
+AWS의 주요 파트너사뿐만 아니라 다양한 업종의 참가 기업들이 자신들의 클라우드 및 AI 도입 사례를 적극적으로 소개하고 있었다.</p>
+
+<p><img src="/assets/images/post_img/IMG_4647.JPG" alt="참가기업위치" />
+<img src="/assets/images/post_img/IMG_4648.JPG" alt="참가 스폰서 기업 목록" /></p>
+
+<p>산업군도 매우 다양했다. 제조, 금융, 교육, 엔터테인먼트까지 전방위적으로 클라우드가 확산되고 있다는 것을 실감할 수 있었다. 특히, 모든 기업이 <strong>단순한 ‘클라우드 이전’이 아닌 ‘AI 기반 혁신’을 목표로 하고 있음</strong>이 느껴졌다.</p>
+
+<hr />
+
+<h2 id="3-내가-서밋에-참여한-이유">3. 내가 서밋에 참여한 이유</h2>
+
+<p>이번 서밋 참가 목적은 두 가지였다.</p>
+
+<p><strong>첫째</strong>, 회사에서 준비한 생성형 AI 부스 운영을 지원하기 위해서였다.<br />
+직접 데모를 시연하고, 방문객들과 AI 기술에 대한 질의응답을 진행하면서 느낀 것은 <strong>생성형 AI가 더 이상 기술자들만의 언어가 아니라는 점</strong>이다. 일반 관람객, 대학생, 그리고 스타트업 관계자들까지 대부분 LLM, 벡터 DB, RAG 같은 개념에 익숙해 있었다.</p>
+
+<p><strong>둘째</strong>, 다른 기업들은 지금 어떤 기술을, 어떤 방식으로 실험하고 있는지를 알아보기 위해서였다.<br />
+이번 행사에서는 단순한 제품 설명이 아니라 <strong>문제 해결 중심의 사례 발표</strong>가 많았는데, 이 점이 특히 유익했다.<br />
+어떤 회사는 AI를 통해 콜센터 자동화의 정확도를 높였고, 어떤 회사는 백오피스 문서 처리 시스템을 완전히 재구성했으며, 어떤 회사는 내부 지식 검색 시스템에 RAG를 도입하고 있었다.</p>
+
+<hr />
+
+<h2 id="4-행사장의-생생한-풍경">4. 행사장의 생생한 풍경</h2>
+
+<p><img src="/assets/images/post_img/IMG_4649.JPG" alt="행사장소 목록" /><br />
+<img src="/assets/images/post_img/IMG_4650.JPG" alt="Hall B의 위치" /></p>
+
+<p>Hall B를 중심으로 세션이 배치되었고, 부스와 키노트 공간이 유기적으로 연결되어 있어 관람 동선이 편리했다.<br />
+특히 Keynote Stage 옆 부스들에서는 생성형 AI, 보안, DevOps, Sustainability 관련 기술 시연이 이뤄졌고, <strong>데모를 기반으로 직접 묻고 듣는 공간</strong>으로 적극 활용되었다.</p>
+
+<p>전시 구역에서 가장 많은 주목을 받은 기술은 단연 AI 기반 문서 요약, 이미지 생성, 코딩 보조 기능이었다. Bedrock 기반 모델과 파트너 모델들에 대한 체험형 시연도 관람객들의 발걸음을 멈추게 했다.</p>
+
+<hr />
+
+<h2 id="5-현장에서-느낀-세-가지">5. 현장에서 느낀 세 가지</h2>
+
+<p>이번 AWS Summit을 통해 얻은 핵심 인사이트는 다음과 같다.</p>
+
+<ol>
+  <li><strong>AI는 더 이상 ‘기술’이 아니라 ‘기반’이다</strong>
+    <ul>
+      <li>단순한 도입 단계를 넘어서 이제는 <strong>운영 최적화와 비용 관리까지 포함된 실전 전개 단계</strong>로 넘어가고 있다.</li>
+    </ul>
+  </li>
+  <li><strong>기술 친화도는 상상 이상으로 높아졌다</strong>
+    <ul>
+      <li>부스를 방문한 많은 이들이 AI/ML 관련 용어와 개념에 익숙했고, <strong>이미 파일럿을 진행 중이거나 도입을 검토 중</strong>인 경우가 많았다.</li>
+    </ul>
+  </li>
+  <li><strong>AWS는 이제 ‘기술’을 팔지 않는다. ‘경험’과 ‘성공 시나리오’를 판다.</strong>
+    <ul>
+      <li>모든 세션, 부스, 키노트에서 공통적으로 느낀 점은 <strong>문제 중심의 접근</strong>과 <strong>고객 사례 중심의 설득</strong>이었다. 단순한 기능 설명보다 “우리는 이 문제를 이렇게 해결했다”는 서사가 강력한 메시지를 전달했다.</li>
+    </ul>
+  </li>
+</ol>
+
+<hr />
+
+<h2 id="6-마치며">6. 마치며</h2>
+
+<p>AWS Summit은 매년 열리지만, 올해처럼 메시지가 강하고 방향이 명확했던 해는 드물었다.<br />
+특히 생성형 AI에 대한 AWS의 접근 방식은 단순한 추격자라기보다 <strong>생태계를 설계하는 메이커</strong>의 시선이었다.</p>
+
+<p>클라우드 기술을 뛰어넘어 <strong>AI 기반 기업 운영을 고민하는 조직</strong>이라면, 이 서밋은 기술 쇼케이스를 넘어 <strong>비즈니스 전략을 재정비하는 계기</strong>가 되었을 것이다.</p>
+
+<hr />
+
+<blockquote>
+  <p>“기술은 툴이 아니라 방향이다.<br />
+AWS는 이번 서밋에서 그 방향을 명확하게 보여줬다.”</p>
+</blockquote>]]></content><author><name>Your Name</name></author><category term="cloud" /><category term="AWS" /><category term="2025" /><category term="Summit" /><category term="코엑스" /><summary type="html"><![CDATA[AWS는 어떤 것을 밀고 있나?]]></summary></entry><entry><title type="html">AWS Bedrock 지식기반을 A to Z 모두 구현해보기</title><link href="https://aidendef.github.io//cloud/ai/business/AWS-Bedrock-%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84-A-to-Z-%EB%AA%A8%EB%91%90-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0/" rel="alternate" type="text/html" title="AWS Bedrock 지식기반을 A to Z 모두 구현해보기" /><published>2025-05-11T15:00:00+00:00</published><updated>2025-05-11T15:00:00+00:00</updated><id>https://aidendef.github.io//cloud/ai/business/AWS%20Bedrock%20%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84%20A%20to%20Z%20%EB%AA%A8%EB%91%90%20%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0</id><content type="html" xml:base="https://aidendef.github.io//cloud/ai/business/AWS-Bedrock-%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84-A-to-Z-%EB%AA%A8%EB%91%90-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0/"><![CDATA[<h2 id="1-들어가며">1. 들어가며</h2>
+
+<p>최근 다양한 기업들이 사내 문서 기반 지식 검색 시스템, 즉 RAG(Retrieval-Augmented Generation) 기반의 챗봇을 도입하고 있다. [<a href="https://www.gartner.com/en/articles">Gartner 보고서 보기</a>, 
+<a href="https://www.accenture.com/us-en/insights/artificial-intelligence">Accenture AI 인사이트</a>, 
+<a href="https://www.mckinsey.com/featured-insights/generative-ai">McKinsey: 생성형 AI의 경제적 잠재력</a>, 
+<a href="https://antique-skipjack-fdd.notion.site/AWS-GenAI-17876a71128680798755e8b90bd1a89f">AWS GenAI 공개 고객 사례집</a>]</p>
+
+<p><img src="/assets/images/post_img/awsgenai.png" alt="AWS Gen AI 사례모음" /></p>
+
+<p>특히 <a href="https://docs.aws.amazon.com/ko_kr/bedrock/latest/userguide/what-is-bedrock.html">AWS Bedrock</a>은 Amazon Titan, Claude, Command 등을 통합 제공하며, LLM 기반 지식 응답 시스템을 완전관리형으로 구성할 수 있는 매우 강력한 플랫폼이다.</p>
+
+<p>실제로 Bedrock에서는 Knowledge Base 기능을 통해 콘솔에서 클릭 몇 번으로 지식기반 챗봇을 만들 수 있다.
+S3 버킷, Amazon OpenSearch, RDS 등 다양한 데이터 소스를 연결하면, 문서 임베딩과 검색 인덱싱 과정이 자동으로 처리되고, Claude 모델 기반의 응답까지 즉시 받을 수 있다.
+별도의 Lambda나 서버 인프라를 쉽게 설정이 가능하고 출처 인용이 포함된 고품질 응답을 빠르게 생성할 수 있다는 점은 분명한 장점이다.</p>
+
+<p>하지만 이번 글에서는 이러한 완전관리형 서비스가 내부적으로 어떤 과정을 거치는지 직접 구현해보는 것을 목표로 삼았다.
+파일 업로드부터 문서 변환, 텍스트 추출, chunk 임베딩, OpenSearch 저장, <a href="https://docs.aws.amazon.com/ko_kr/bedrock/latest/userguide/what-is-bedrock.html">AWS Bedrock</a>을 활용한 Claude 응답 생성까지의 전체 파이프라인을 AWS의 여러 서비스를 조합해 수동으로 구성했다.</p>
+
+<p>이 과정을 통해 Bedrock의 Knowledge Base 기능이 내부적으로 수행하는 동작들을 명확히 이해하고,
+직접 구축한 RAG 파이프라인과 완전관리형 Knowledge Base를 비교 분석해보려 한다.</p>
+
+<h2 id="2-전체-구성-아키텍처">2. 전체 구성 아키텍처</h2>
+
+<p>이번 프로젝트는 AWS Bedrock의 Knowledge Base에서 제공하는 완전관리형 RAG 구조를 모방해, 개별 AWS 서비스를 조합하여 Lambda 기반의 지식기반 질의응답 시스템을 직접 구성한 형태다.</p>
+
+<p>전체 플로우는 다음과 같이 문서 업로드 → PDF 변환 및 텍스트 추출 → 임베딩 → OpenSearch 저장 → 질의응답으로 구성되어 있으며, 모든 단계는 서버리스형(<del>서버있는</del>) Lambda 함수와 이벤트 기반으로 연결되어 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> [사용자]
+     │
+     ▼
+S3 presigned URL (원본 업로드) ───────────▶ S3 
+                                (raw-files-bucket)
+                                         │
+                                         ▼
+                               [Lambda] doc-extract
+                              (파일 유형 검사 및 PDF 변환)
+                                         │
+                                         ▼
+                            텍스트 추출 + chunk 생성
+                          (문단 단위 + 페이지 번호 포함)
+                                         │
+                                         ▼
+                         Bedrock (Titan) - 임베딩 생성
+                                         │
+                                         ▼
+                        [Lambda] doc-embed → OpenSearch 저장
+                                         │
+                                         ▼
+                                  파일 상태 업데이트 
+                              (DynamoDB: files 테이블)
+                                         │
+                                         │
+                                       사용자
+                                         │
+                                         │
+                                사용자 질의 요청 (API Gateway)
+                                         │
+                                         ▼
+                         [Lambda] query_send (RAG 응답 처리)
+                          └─ Claude 3.5 Sonnet 기반 응답 생성
+                          └─ 관련 chunk citation 포함
+
+</code></pre></div></div>
+
+<h3 id="사용된-주요-서비스">사용된 주요 서비스</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>서비스</th>
+      <th>역할</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>S3</strong></td>
+      <td>원본 파일 및 변환 PDF 저장 (raw &amp; converted 버킷 분리)</td>
+    </tr>
+    <tr>
+      <td><strong>Lambda</strong></td>
+      <td>문서 처리 및 질의응답 전체 로직 수행 (<code class="language-plaintext highlighter-rouge">extract</code>, <code class="language-plaintext highlighter-rouge">embed</code>, <code class="language-plaintext highlighter-rouge">query_send</code>)</td>
+    </tr>
+    <tr>
+      <td><strong>Bedrock (Titan, Claude)</strong></td>
+      <td>텍스트 임베딩 생성 및 질의에 대한 응답 생성</td>
+    </tr>
+    <tr>
+      <td><strong>OpenSearch</strong></td>
+      <td>문서 chunk 벡터 저장 및 유사도 기반 검색</td>
+    </tr>
+    <tr>
+      <td><strong>DynamoDB</strong></td>
+      <td>파일 및 세션 상태 관리 (<code class="language-plaintext highlighter-rouge">lexora-files</code>, <code class="language-plaintext highlighter-rouge">lexora-query-sessions</code>)</td>
+    </tr>
+    <tr>
+      <td><strong>API Gateway</strong></td>
+      <td>사용자 요청 엔드포인트 제공</td>
+    </tr>
+    <tr>
+      <td><strong>CloudWatch Logs</strong></td>
+      <td>각 Lambda 디버깅 및 오류 추적용 로깅</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="주요-특징">주요 특징</h3>
+
+<ul>
+  <li>
+    <p>완전 자동 파이프라인: 사용자는 파일을 업로드하기만 하면, 내부적으로 PDF 변환, 텍스트 추출, chunk화, 임베딩 저장까지 모든 처리가 자동으로 이루어짐</p>
+  </li>
+  <li>
+    <p>출처 추적 기반 RAG 응답: 질의 시 Claude 모델을 통해 생성된 응답에 대해 관련 문서 출처(파일명 / chunk 번호 / 페이지 번호)를 포함</p>
+  </li>
+  <li>
+    <p>세션 기반 대화 흐름 유지: DynamoDB의 query-sessions 테이블을 통해 대화 문맥 유지</p>
+  </li>
+</ul>
+
+<h2 id="3-bedrock-knowledge-base--완전관리형-구조-소개">3. Bedrock Knowledge Base – 완전관리형 구조 소개</h2>
+
+<p>AWS Bedrock의 <strong>Knowledge Base</strong>는 생성형 AI 응답 시스템을 손쉽게 구축할 수 있도록 도와주는 <strong>완전관리형 RAG 서비스</strong>입니다. 별도의 서버 구축이나 인프라 설계 없이도, 콘솔 상에서 몇 번의 클릭만으로 다음과 같은 복잡한 과정을 자동화할 수 있습니다:</p>
+
+<p><img src="/assets/images/post_img/Knowledge_Base.png" alt="Knowledge_Base" /></p>
+
+<p>위 그림은 콘솔에서 지식기반 사용하는 방법</p>
+
+<h3 id="주요-구성-요소">주요 구성 요소</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>구성 요소</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>데이터 소스 연결</strong></td>
+      <td>S3, Amazon Aurora, OpenSearch 등 다양한 문서 저장소와 직접 연결 가능</td>
+    </tr>
+    <tr>
+      <td><strong>임베딩 모델 선택</strong></td>
+      <td>Amazon Titan Text Embedding 모델을 기반으로 자동 임베딩 생성</td>
+    </tr>
+    <tr>
+      <td><strong>벡터 저장소 구성</strong></td>
+      <td>사용자가 지정한 OpenSearch Service를 벡터 저장소로 활용</td>
+    </tr>
+    <tr>
+      <td><strong>질의 모델 선택</strong></td>
+      <td>Claude, Command 등 Bedrock 내 다양한 LLM 중 선택 가능</td>
+    </tr>
+    <tr>
+      <td><strong>API 호출</strong></td>
+      <td>생성된 Knowledge Base에 대해 API로 질의 응답 수행 가능</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><img src="/assets/images/post_img/bedrock_moelcatalog.png" alt="bedrock_moelcatalog" /></p>
+
+<p>ap-northeast-2 서울 리전에서 현재 사용할 수 있는 모델의 종류는 157개가 있습니다.</p>
+<hr />
+
+<h3 id="내부-동작-방식">내부 동작 방식</h3>
+
+<p>Knowledge Base가 수행하는 전반적인 흐름은 아래와 같습니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[사용자] 
+    └▶ S3 버킷에 문서 업로드
+        └▶ Bedrock Knowledge Base에서 자동 감지
+            └▶ Titan Embedding 모델을 통해 텍스트 임베딩 생성
+                └▶ 지정된 OpenSearch에 벡터 저장
+                    └▶ 질의 발생 시 관련 chunk 검색 + LLM 응답 생성
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="사용자-관점에서의-구성-흐름">사용자 관점에서의 구성 흐름</h3>
+
+<ol>
+  <li>
+    <p><strong>S3 문서 업로드</strong><br />
+콘솔 또는 API를 통해 <code class="language-plaintext highlighter-rouge">.pdf</code>, <code class="language-plaintext highlighter-rouge">.txt</code>, <code class="language-plaintext highlighter-rouge">.docx</code> 등의 문서를 S3에 업로드합니다.</p>
+  </li>
+  <li>
+    <p><strong>Knowledge Base 구성</strong><br />
+Bedrock 콘솔에서 Knowledge Base를 생성하면서:</p>
+
+    <ul>
+      <li>연결할 S3 버킷 및 프리픽스 지정</li>
+      <li>사용할 임베딩 모델 (예: <code class="language-plaintext highlighter-rouge">amazon.titan-embed-text-v1</code>)</li>
+      <li>벡터 저장소 (예: OpenSearch domain)</li>
+      <li>사용할 응답 모델 (예: Claude 3)</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>자동 임베딩 생성 및 저장</strong><br />
+업로드된 문서들은 자동으로 분할(chunking)되고, Titan 임베딩 모델을 통해 벡터화되어 OpenSearch에 저장됩니다.</p>
+  </li>
+  <li>
+    <p><strong>질의 응답 처리</strong><br />
+이후 사용자 질의가 들어오면 Bedrock은 유사한 chunk를 검색하고, 선택된 LLM(예: Claude)으로 답변을 생성합니다.<br />
+이때 응답에는 <strong>관련 문서 출처 정보</strong>도 함께 포함됩니다.</p>
+  </li>
+</ol>
+
+<hr />
+
+<h3 id="특징-및-장점">특징 및 장점</h3>
+
+<ul>
+  <li><strong>클릭 기반 구성</strong><br />
+AWS 콘솔 또는 <code class="language-plaintext highlighter-rouge">CreateKnowledgeBase</code> API를 통해 몇 단계로 빠르게 설정 가능</li>
+  <li><strong>자동화된 문서 파싱 및 인덱싱</strong><br />
+별도의 Lambda나 Glue job 없이도 PDF, DOCX 등 다양한 문서를 자동 분석 및 처리</li>
+  <li><strong>출처 기반 응답</strong><br />
+Claude 등 LLM의 생성 응답에 사용된 문서 chunk의 <strong>source URI</strong> 또는 <strong>chunk ID</strong>가 포함되어 신뢰도 향상</li>
+  <li><strong>보안 및 권한 통합</strong><br />
+IAM 기반 접근 제어, S3 정책, OpenSearch 정책 등이 함께 작동</li>
+  <li><strong>API 기반 통합</strong><br />
+AWS SDK 또는 Bedrock Runtime API를 통해 챗봇, 내부 서비스 등과 손쉽게 연동 가능</li>
+</ul>
+
+<hr />
+
+<h3 id="사용-예시">사용 예시</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Knowledge Base에서 생성된 KB ID를 통해 질의</span>
+POST /knowledge-base/query
+<span class="o">{</span>
+  <span class="s2">"knowledgeBaseId"</span>: <span class="s2">"kb-xxxxxxxx"</span>,
+  <span class="s2">"input"</span>: <span class="s2">"퇴사자 보안 정책은 어떻게 관리하나요?"</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>→ Claude 모델이 OpenSearch에서 관련 문서를 검색하고, 관련 출처와 함께 자연어 답변을 생성합니다.</p>
+
+<h2 id="4-수동-구현-rag-파이프라인-상세-단계">4. 수동 구현: RAG 파이프라인 상세 단계</h2>
+<p>Bedrock Knowledge Base는 S3에 문서를 업로드하면 임베딩부터 응답 생성까지 자동으로 수행합니다. 하지만 이 장에서는 그 내부 흐름을 <strong>AWS 서비스 조합으로 수동 구현한 방식</strong>을 단계별로 설명합니다.</p>
+
+<p>이 방식은 실제 프로덕션 환경에서 <strong>커스터마이징</strong>이 필요할 때 유용하며, Bedrock의 추상화된 기능을 명확하게 이해하는 데도 도움이 됩니다.</p>
+
+<p>모든 과정은 콘솔이 아닌 cdk형태로 만들어 cloud formation으로 업로드하는 방식으로 제작을 진행하였다.</p>
+
+<hr />
+
+<h3 id="41-파일-업로드-및-pdf-변환">4.1. 파일 업로드 및 PDF 변환</h3>
+
+<p>모든 과정은 콘솔이 아닌 cdk형태로 만들어 cloud formation으로 업로드하는 방식으로 제작을 진행하였다.</p>
+<h4 id="-흐름-설명">■ 흐름 설명</h4>
+
+<ul>
+  <li>사용자가 프론트엔드에서 파일을 업로드하면, 프리사인 URL을 이용해 **<code class="language-plaintext highlighter-rouge">raw-files-bucket</code>**에 직접 저장됩니다.</li>
+  <li>업로드 완료 후, Lambda에 의해 SQS 메시지가 트리거되어 <strong><code class="language-plaintext highlighter-rouge">doc-extract</code> Lambda</strong>가 실행됩니다.</li>
+  <li>이 Lambda는 파일 유형을 검사한 뒤:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">.docx</code>, <code class="language-plaintext highlighter-rouge">.pptx</code> 등 비PDF 문서는 <strong>LibreOffice 기반 Docker Lambda</strong>에서 PDF로 변환</li>
+      <li>이미 PDF일 경우, 그대로 복사만 수행</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="-사용된-서비스">■ 사용된 서비스</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>서비스</th>
+      <th>역할</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S3 (<code class="language-plaintext highlighter-rouge">raw-files-bucket</code>)</td>
+      <td>사용자 원본 업로드 버킷</td>
+    </tr>
+    <tr>
+      <td>S3 (<code class="language-plaintext highlighter-rouge">converted-files-bucket</code>)</td>
+      <td>PDF 변환 결과 저장</td>
+    </tr>
+    <tr>
+      <td>Lambda (<code class="language-plaintext highlighter-rouge">doc-extract</code>)</td>
+      <td>파일 변환 및 추출 시작 처리</td>
+    </tr>
+    <tr>
+      <td>SQS</td>
+      <td>업로드 완료 후 Lambda 호출을 위한 이벤트 트리거</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="42-텍스트-추출-및-chunk-생성">4.2. 텍스트 추출 및 Chunk 생성</h3>
+
+<h4 id="-흐름-설명-1">■ 흐름 설명</h4>
+
+<ul>
+  <li>PDF 파일을 대상으로 <strong>PyMuPDF</strong>를 사용해 텍스트를 페이지 단위로 추출합니다.</li>
+  <li>추출된 텍스트는 다음 기준으로 문단 단위로 분할(chunking)합니다:
+    <ul>
+      <li>한 chunk는 최대 500 tokens 수준</li>
+      <li>각 chunk에는 <strong>소속 파일 ID, 페이지 번호, chunk 번호</strong> 포함</li>
+    </ul>
+  </li>
+  <li>이 결과는 <code class="language-plaintext highlighter-rouge">.jsonl</code> 형태로 저장되며, 다음 단계 임베딩 처리를 위해 전달됩니다.</li>
+</ul>
+
+<h4 id="-사용된-기술-및-고려사항">■ 사용된 기술 및 고려사항</h4>
+
+<ul>
+  <li>PyMuPDF 기반 추출 (한국어 PDF 인식률 높음)</li>
+  <li>page-break 및 heading 인식 기능 고려</li>
+  <li>각 chunk에 대한 메타데이터 구조는 다음과 같음:</li>
+</ul>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"chunkId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fileId-3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"fileId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc123"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"이 문단은 PDF 5페이지에서 추출된 문단입니다."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<hr />
+
+<h3 id="43-임베딩-생성-및-opensearch-저장">4.3. 임베딩 생성 및 OpenSearch 저장</h3>
+
+<h4 id="-흐름-설명-2">■ 흐름 설명</h4>
+
+<ul>
+  <li>생성된 각 chunk는 <code class="language-plaintext highlighter-rouge">doc-embed</code> Lambda를 통해 <strong>Amazon Bedrock의 Titan Embed 모델</strong>에 요청하여 벡터 임베딩을 생성합니다.</li>
+  <li>결과로 받은 벡터는 다음 필드와 함께 OpenSearch에 저장됩니다:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">chunkId</code>, <code class="language-plaintext highlighter-rouge">fileId</code>, <code class="language-plaintext highlighter-rouge">page</code>, <code class="language-plaintext highlighter-rouge">content</code>, <code class="language-plaintext highlighter-rouge">embedding</code></li>
+    </ul>
+  </li>
+  <li>OpenSearch는 <code class="language-plaintext highlighter-rouge">k-NN</code> 벡터 인덱스를 기반으로 구성되어, 유사도 검색에 최적화되어 있습니다.</li>
+</ul>
+
+<h4 id="-사용된-서비스-1">■ 사용된 서비스</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>서비스</th>
+      <th>역할</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bedrock (<code class="language-plaintext highlighter-rouge">amazon.titan-embed-text-v2:0</code>)</td>
+      <td>텍스트 임베딩 생성</td>
+    </tr>
+    <tr>
+      <td>Lambda (<code class="language-plaintext highlighter-rouge">doc-embed</code>)</td>
+      <td>chunk → 벡터 임베딩 처리</td>
+    </tr>
+    <tr>
+      <td>OpenSearch</td>
+      <td>벡터 기반 검색 인덱싱 저장소</td>
+    </tr>
+    <tr>
+      <td>DynamoDB (<code class="language-plaintext highlighter-rouge">lexora-files</code>)</td>
+      <td>처리 상태 <code class="language-plaintext highlighter-rouge">embedded</code>로 업데이트</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="44-사용자-질의-및-claude-기반-응답">4.4. 사용자 질의 및 Claude 기반 응답</h3>
+
+<h4 id="-흐름-설명-3">■ 흐름 설명</h4>
+
+<ul>
+  <li>사용자가 API Gateway를 통해 질의하면, <code class="language-plaintext highlighter-rouge">query_send</code> Lambda가 실행됩니다.</li>
+  <li>입력 질의에 대해 Titan 임베딩 모델을 사용해 임베딩 생성</li>
+  <li>OpenSearch에서 top-k 관련 chunk 검색</li>
+  <li>검색된 chunk들을 context로 Claude 3.5 Sonnet에 전달해 응답 생성</li>
+  <li>응답에는 사용된 chunk들의 출처(citation: 파일명 / 페이지 / chunk 번호)를 포함합니다.</li>
+</ul>
+
+<h4 id="-사용된-서비스-2">■ 사용된 서비스</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>서비스</th>
+      <th>역할</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API Gateway</td>
+      <td>사용자 질의 수신</td>
+    </tr>
+    <tr>
+      <td>Lambda (<code class="language-plaintext highlighter-rouge">query_send</code>)</td>
+      <td>질의 처리 및 RAG 응답 생성</td>
+    </tr>
+    <tr>
+      <td>Bedrock (Claude 3.5 Sonnet)</td>
+      <td>자연어 응답 생성</td>
+    </tr>
+    <tr>
+      <td>DynamoDB (<code class="language-plaintext highlighter-rouge">lexora-query-sessions</code>)</td>
+      <td>대화 세션 및 흐름 유지</td>
+    </tr>
+    <tr>
+      <td>OpenSearch</td>
+      <td>유사 chunk 검색</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="-실제-동작-화면">■ 실제 동작 화면</h4>
+
+<p><img src="/assets/images/post_img/bedrock_example.png" alt="alt text" /></p>
+
+<p>파일 ID를 등록하고 프롬프트를 기입하여 해당 파일의 임베딩된 텍스트(벡터) 중 가장 유사한 청크들을 가져와서 현재 프롬프트와 함께 Claude 모델에 질의를 진행한 결과입니다.</p>
+
+<p>답변을 파싱하기 쉽도록 json형태와 마크다운을 함께 사용하여 추출을 진행하였습니다.</p>
+
+<h2 id="5-완전관리형-knowledge-base-vs-수동-구현-비교">5. 완전관리형 Knowledge Base vs 수동 구현 비교</h2>
+
+<p>이전 장에서 설명한 것처럼 AWS Bedrock의 Knowledge Base는 많은 과정을 자동화해주지만, 사용자가 직접 AWS 서비스 조합으로 수동 구현하면 더 높은 수준의 커스터마이징이 가능합니다.<br />
+이 장에서는 <strong>두 방식의 기능, 유연성, 운영 부담 등을 항목별로 비교</strong>합니다.</p>
+
+<h3 id="51-기능-및-아키텍처-비교">5.1 기능 및 아키텍처 비교</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>Bedrock Knowledge Base (완전관리형)</th>
+      <th>수동 구현 (Lambda 기반 RAG)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>구성 방식</td>
+      <td>콘솔 클릭 또는 API 기반 설정</td>
+      <td>S3 + Lambda + Bedrock + OpenSearch 조합</td>
+    </tr>
+    <tr>
+      <td>문서 처리</td>
+      <td>자동 임베딩 및 인덱싱</td>
+      <td>PDF 변환, 텍스트 추출, chunk 생성 수동 구현</td>
+    </tr>
+    <tr>
+      <td>임베딩 모델</td>
+      <td>Titan만 사용 가능</td>
+      <td>Titan 외 다른 모델(Bedrock, 외부 API) 선택 가능</td>
+    </tr>
+    <tr>
+      <td>벡터 저장소</td>
+      <td>OpenSearch 고정</td>
+      <td>OpenSearch 외 Pinecone, Faiss 등도 가능</td>
+    </tr>
+    <tr>
+      <td>응답 모델</td>
+      <td>Claude, Command 등 선택</td>
+      <td>Claude, GPT, Gemini 등 확장 가능</td>
+    </tr>
+    <tr>
+      <td>응답 포맷</td>
+      <td>고정(JSON + 출처 포함)</td>
+      <td>원하는 포맷으로 파싱 가능 (예: 마크다운, 하이라이트 등)</td>
+    </tr>
+    <tr>
+      <td>보안 제어</td>
+      <td>IAM, S3 정책 기반</td>
+      <td>IAM + 사용자 인증 로직 커스터마이징 가능</td>
+    </tr>
+    <tr>
+      <td>확장성</td>
+      <td>제한적 (콘솔 UI 중심)</td>
+      <td>유연하게 구성 가능 (멀티 파일 필터링, 접근 권한 분리 등)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="52-사용성-vs-유연성">5.2 사용성 vs 유연성</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>Knowledge Base</th>
+      <th>수동 구현 방식</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>초기 구축 난이도</td>
+      <td>매우 쉬움</td>
+      <td>중간~높음 (Lambda, S3, API 연동 필요)</td>
+    </tr>
+    <tr>
+      <td>커스터마이징</td>
+      <td>낮음 (제공 범위 내 제한)</td>
+      <td>매우 높음 (세부 로직 자유 구성 가능)</td>
+    </tr>
+    <tr>
+      <td>운영 편의성</td>
+      <td>매우 좋음 (Fully Managed)</td>
+      <td>직접 모니터링/로깅 구성 필요</td>
+    </tr>
+    <tr>
+      <td>장애 대응</td>
+      <td>AWS 내부 처리</td>
+      <td>에러 핸들링/로그 추적 직접 설계 필요</td>
+    </tr>
+    <tr>
+      <td>비용 구조</td>
+      <td>단순 (Bedrock 호출 기반)</td>
+      <td>Lambda, S3, OpenSearch, API Gateway 등 종합 고려</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="53-선택-기준-정리">5.3 선택 기준 정리</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>상황</th>
+      <th>추천 방식</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>빠르게 PoC를 만들어야 할 때</strong></td>
+      <td>Knowledge Base</td>
+    </tr>
+    <tr>
+      <td><strong>기획/디자인 없이도 즉시 챗봇 만들고 싶을 때</strong></td>
+      <td>Knowledge Base</td>
+    </tr>
+    <tr>
+      <td><strong>PDF 외 다양한 문서 포맷이나 규칙 기반 문서 처리 필요</strong></td>
+      <td>수동 구현</td>
+    </tr>
+    <tr>
+      <td><strong>출처 포맷, UI 응답 커스터마이징이 필요할 때</strong></td>
+      <td>수동 구현</td>
+    </tr>
+    <tr>
+      <td><strong>모델 확장(GPT 등)이나 다중 파일 필터링/검색 기능이 필요할 때</strong></td>
+      <td>수동 구현</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="6-마무리하며--느낀-점">6. 마무리하며 – 느낀 점</h2>
+
+<p>이번 프로젝트를 통해 AWS Bedrock의 Knowledge Base가 제공하는 완전관리형 구조가 얼마나 강력하고 간편한지 직접 체감할 수 있었다. 클릭 몇 번만으로 PDF 문서를 업로드하고, LLM 기반의 답변을 받을 수 있다는 점은 단순한 데모 이상의 실용성을 제공한다.</p>
+
+<p>반면, 수동 구현을 통해 각 단계를 직접 구성해보면서 Knowledge Base가 내부적으로 처리하고 있는 다양한 과정을 명확히 이해할 수 있었다. 특히 PDF 변환, 텍스트 추출, 임베딩 생성, 벡터 검색, 응답 생성 등 각각의 단계를 세밀하게 제어할 수 있다는 점은 실제 서비스 환경에서 매우 큰 장점이 된다.</p>]]></content><author><name>Your Name</name></author><category term="cloud" /><category term="ai" /><category term="Business" /><category term="AWS" /><category term="AI" /><category term="Bedrock" /><category term="RAG" /><category term="Retrieval-Augmented Generation" /><category term="LLM" /><category term="Knowledge Base" /><category term="지식기반" /><summary type="html"><![CDATA[직접 AWS 완전관리형 서비스 따라만들어보자]]></summary></entry><entry><title type="html">이쁨 받는 AWS 아키텍처 만들어보자</title><link href="https://aidendef.github.io//cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-AWS-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90/" rel="alternate" type="text/html" title="이쁨 받는 AWS 아키텍처 만들어보자" /><published>2025-05-11T15:00:00+00:00</published><updated>2025-05-11T15:00:00+00:00</updated><id>https://aidendef.github.io//cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98%20%EA%B8%B0%EC%B4%88%20AWS%20%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98%20%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90</id><content type="html" xml:base="https://aidendef.github.io//cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-AWS-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90/"><![CDATA[<h2 id="1-들어가며">1. 들어가며</h2>
+
+<p>클라우드 환경에서의 아키텍처 설계는 단순히 서비스를 배치하는 것을 넘어, 확장성, 안정성, 비용 효율성까지 고려한 종합 설계이다.
+하지만 처음 시작할 때는 수많은 AWS 서비스들 사이에서 무엇을 선택해야 할지, 어떻게 조합해야 할지 막막할 수밖에 없다.</p>
+
+<p>이 글에서는 복잡한 이론 대신, 실제 현업에서도 이쁨(?) 받는 AWS 아키텍처를 만드는 실전 방식을 공유하려고 합니다.
+단순히 구성도를 예쁘게 그리는 것이 아니라, 기능적으로 명확하고 운영팀과 개발팀 모두가 이해하기 쉬운 구조를 목표로 해보려고 한다.</p>
+
+<p><img src="/assets/images/post_img/archi-sample.png" alt="샘플" /></p>
+
+<h2 id="2-실전에서-통하는-aws-아키텍처-설계-7가지-원칙">2. 실전에서 통하는 AWS 아키텍처 설계 7가지 원칙</h2>
+
+<h3 id="21-요구사항-기반-설계">2.1 요구사항 기반 설계</h3>
+
+<p>좋은 아키텍처는 멋진 기술 스택에서 나오지 않는다. <strong>비즈니스와 사용자 요구사항을 얼마나 정확히 반영했는가</strong>에서 시작된다.</p>
+
+<p>아키텍처 설계 초기에 가장 먼저 할 일은 <strong>“이 시스템이 풀고자 하는 문제는 무엇인가?”</strong>를 구체적으로 정의하는 것이다. 예를 들어 교육 플랫폼을 만든다면 단순한 로그인/회원가입 시스템만이 아니라 <strong>“학생의 현재 지식 수준을 분석하고, 다음 학습 단계를 예측할 수 있어야 한다”</strong>는 요구가 핵심이 될 수 있다.</p>
+
+<p>이때 다음과 같은 세 가지 질문을 던져야 한다.</p>
+
+<ol>
+  <li><strong>누가 사용하는가?</strong>
+    <ul>
+      <li>학생인가? 교사인가? 관리자인가?</li>
+    </ul>
+  </li>
+  <li><strong>무엇을 기대하는가?</strong>
+    <ul>
+      <li>진단 평가인가? 실시간 피드백인가? 학습 경로 추천인가?</li>
+    </ul>
+  </li>
+  <li><strong>어떤 흐름으로 동작해야 하나?</strong>
+    <ul>
+      <li>사용자가 처음 접속한 순간부터, 결과를 받아보기까지의 흐름을 그려봐야 한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>요구사항을 제대로 이해하면, 그에 맞춰 아키텍처도 달라진다. 예를 들어, 실시간 응답이 중요한 경우에는 API Gateway + Lambda 구조에 캐싱 계층(ElastiCache)을 두는 것이 적절하고, 대용량 분석이 중심이라면 Athena, Glue, EMR이 전면에 나와야 한다.</p>
+
+<p><strong>요구사항을 기능과 비기능으로 나누어 정리해두면</strong>, 아키텍처 판단 기준이 훨씬 명확해진다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>구분</th>
+      <th>내용</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>기능 요구사항</td>
+      <td>학습 경로 추천, 진단 분석, 실시간 피드백</td>
+    </tr>
+    <tr>
+      <td>비기능 요구사항</td>
+      <td>높은 가용성, 낮은 응답 시간, 확장성, 보안</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>요약하자면, <strong>요구사항 기반 설계란 복잡한 기술 용어 대신 ‘무엇을 왜 하려는지’에 집중하는 방식이다.</strong> AWS의 수많은 서비스를 선택하기 전에, 어떤 문제를 풀려는지 먼저 정의해야 한다.</p>
+
+<h3 id="22-계층-분리-및-최소-책임-원칙-적용">2.2 계층 분리 및 최소 책임 원칙 적용</h3>
+
+<p>서비스가 커질수록 유지보수가 어려워지는 가장 큰 이유는 <strong>모든 계층이 서로 얽혀 있기 때문</strong>이다.<br />
+이런 상황을 방지하려면 시스템을 명확히 나눠야 한다. 흔히 말하는 <strong>“계층 분리”</strong>는 단순한 구성도상의 분리가 아니라, <strong>책임의 분리</strong>를 의미한다.</p>
+
+<hr />
+
+<h4 id="1-왜-계층을-나눠야-할까">1) 왜 계층을 나눠야 할까?</h4>
+<ul>
+  <li>프론트엔드와 백엔드가 서로 독립적으로 개발되도록</li>
+  <li>인증/권한 로직이 비즈니스 로직과 섞이지 않도록</li>
+  <li>데이터 저장소 변경이 전체 시스템에 영향을 주지 않도록</li>
+</ul>
+
+<p>예를 들어 Lambda 함수가 API 요청도 받고, 인증도 하고, DB 저장까지 다 한다면 하나가 실패했을 때 디버깅도 어렵고 확장성도 떨어진다.</p>
+
+<hr />
+
+<h4 id="2-어떻게-나눠야-할까">2) 어떻게 나눠야 할까?</h4>
+
+<p>아래는 대표적인 계층 분리 방식이다:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>계층</th>
+      <th>역할</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>프론트엔드 계층</strong></td>
+      <td>사용자 인터페이스 제공 (S3 + CloudFront)</td>
+    </tr>
+    <tr>
+      <td><strong>API 계층</strong></td>
+      <td>클라이언트와 서버 간 통신 처리 (API Gateway + Lambda)</td>
+    </tr>
+    <tr>
+      <td><strong>비즈니스 로직 계층</strong></td>
+      <td>도메인 핵심 로직 구현 (Lambda 또는 ECS/Fargate)</td>
+    </tr>
+    <tr>
+      <td><strong>데이터 저장 계층</strong></td>
+      <td>상태 저장 및 조회 (DynamoDB, RDS, S3 등)</td>
+    </tr>
+    <tr>
+      <td><strong>AI/ML 계층</strong></td>
+      <td>예측, 추천, 요약 등 모델 활용 (Bedrock, SageMaker)</td>
+    </tr>
+    <tr>
+      <td><strong>분석 및 ETL 계층</strong></td>
+      <td>로그 수집, 배치 처리, 분석 (Glue, Athena, EMR 등)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="3-srp-single-responsibility-principle-적용">3) SRP (Single Responsibility Principle) 적용</h4>
+
+<p>각 계층 안에서도 <strong>하나의 책임만 수행</strong>하도록 세분화하는 것이 핵심이다. 예를 들어:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">회원가입</code> Lambda는 오직 회원 가입만 처리해야 한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">학습 진단</code> Lambda는 진단 로직만 포함해야 한다. 인증 검증은 따로 처리해야 한다.</li>
+</ul>
+
+<p>이렇게 구성하면 오류가 나더라도 해당 책임 범위 안에서만 해결하면 된다.</p>
+
+<hr />
+
+<h4 id="4-실전에서-적용하는-팁">4) 실전에서 적용하는 팁</h4>
+
+<ul>
+  <li><strong>API Gateway → Lambda 매핑은 1:1</strong>을 유지하자<br />
+하나의 Lambda에 여러 엔드포인트를 몰아넣는 순간, SRP가 무너진다.</li>
+  <li><strong>Lambda가 너무 커지면 컨테이너로 전환을 고려하자</strong><br />
+Fargate/ECS로 나누고, 내부는 모듈화해서 관리</li>
+  <li><strong>모든 Lambda는 CloudWatch 로그 외에 X-Ray 트레이싱도 추가하자</strong><br />
+계층 간 성능 병목이 보인다.</li>
+</ul>
+
+<hr />
+
+<p>요약하자면, <strong>계층 분리란 아키텍처를 단순화하는 기술이 아니라, 팀 전체의 유지보수 비용을 줄이는 구조적 전략이다.</strong><br />
+AWS에서는 이 구조를 자연스럽게 녹여낼 수 있는 서비스들이 많으니, 역할에 맞는 서비스를 택하면 된다.</p>
+
+<h3 id="23-서버리스-우선-전략">2.3 서버리스 우선 전략</h3>
+
+<p>초기 서비스 설계 시 <strong>서버리스 아키텍처를 우선 고려하는 것</strong>은, 비용과 운영 복잡도를 동시에 줄일 수 있는 가장 강력한 전략 중 하나다.</p>
+
+<p>서버리스는 단순히 EC2 대신 Lambda를 쓰는 걸 의미하는 게 아니라, <strong>인프라 관리 부담 없이 핵심 로직 구현에 집중하는 구조</strong>를 말한다.</p>
+
+<hr />
+
+<h4 id="1-왜-서버리스를-우선으로-생각해야-할까">1) 왜 서버리스를 우선으로 생각해야 할까?</h4>
+
+<ul>
+  <li><strong>관리할 인프라가 없다:</strong> EC2처럼 서버 설치, 패치, 유지보수 필요 없음</li>
+  <li><strong>초기 비용이 낮다:</strong> 사용한 만큼만 과금되기 때문에 테스트/베타 단계에서 특히 유리</li>
+  <li><strong>자동 확장:</strong> 트래픽 급증에도 대응 가능</li>
+  <li><strong>빠른 배포와 롤백:</strong> 코드 하나 바꾸고 바로 배포 가능 (CI/CD와 찰떡)</li>
+</ul>
+
+<hr />
+
+<h4 id="2-aws에서-서버리스로-가능한-구성">2) AWS에서 서버리스로 가능한 구성</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>목적</th>
+      <th>서버리스 서비스</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API 처리</td>
+      <td>API Gateway + Lambda</td>
+    </tr>
+    <tr>
+      <td>사용자 인증</td>
+      <td>Amazon Cognito</td>
+    </tr>
+    <tr>
+      <td>파일 저장</td>
+      <td>Amazon S3</td>
+    </tr>
+    <tr>
+      <td>메시지 큐</td>
+      <td>Amazon SQS</td>
+    </tr>
+    <tr>
+      <td>이벤트 기반 워크플로우</td>
+      <td>Amazon EventBridge + Step Functions</td>
+    </tr>
+    <tr>
+      <td>데이터베이스</td>
+      <td>Amazon DynamoDB</td>
+    </tr>
+    <tr>
+      <td>모델 추론</td>
+      <td>Amazon Bedrock (서버리스 추론 API)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>이 조합만으로도 완전한 SaaS, 학습 플랫폼, 데이터 파이프라인까지 구축할 수 있다.</p>
+
+<hr />
+
+<h4 id="3-서버리스-설계-시-유의할-점">3) 서버리스 설계 시 유의할 점</h4>
+
+<ul>
+  <li><strong>콜드 스타트 고려:</strong> 특히 VPC 내부에서 실행하는 Lambda는 초기 지연이 있을 수 있음<br />
+→ 해결: Lambda SnapStart, Arm 기반 Lambda, 내부 호출에선 Provisioned Concurrency 설정</li>
+  <li><strong>짧은 실행 시간에 최적화된 로직 작성 필요:</strong><br />
+Lambda는 최대 15분 제한이 있으므로, 긴 작업은 Step Functions나 Fargate로 위임</li>
+  <li><strong>비동기 설계에 익숙해져야 함:</strong><br />
+SQS, SNS, EventBridge 등으로 이벤트 흐름을 연결하는 방식이 기본</li>
+</ul>
+
+<hr />
+
+<h4 id="4-서버리스가-적합하지-않은-상황">4) 서버리스가 적합하지 않은 상황</h4>
+
+<ul>
+  <li><strong>지속적으로 CPU/메모리를 점유해야 하는 작업</strong></li>
+  <li><strong>고성능 GPU 기반의 학습/추론</strong></li>
+  <li><strong>밀리초 단위 응답이 필요한 초저지연 API</strong></li>
+</ul>
+
+<p>이런 경우에는 EC2, ECS, EKS 등 컨테이너 기반 구성이 적합하다.</p>
+
+<hr />
+
+<p>서버리스 우선 전략은 <strong>작은 팀, 빠른 시작, 명확한 기능</strong>이 핵심일 때 강력한 무기다.<br />
+AWS는 이를 위해 수많은 관리형 서비스를 제공하고 있으니, <strong>직접 서버를 띄우는 일은 정말 필요할 때만 하자.</strong></p>
+
+<h3 id="24-데이터-흐름-기반-설계">2.4 데이터 흐름 기반 설계</h3>
+
+<p>많은 시스템 설계가 <strong>기능 중심</strong>으로 시작되지만, 시간이 지나면 <strong>데이터 흐름</strong>이 구조의 복잡성을 좌우하게 된다.<br />
+그래서 초기부터 “<strong>어떤 데이터가, 어디서 생성되어, 어디로 흘러가는가</strong>”를 기준으로 아키텍처를 잡아야 한다.</p>
+
+<hr />
+
+<h4 id="1-데이터-흐름이-중요한-이유">1) 데이터 흐름이 중요한 이유</h4>
+
+<ul>
+  <li><strong>기능보다 데이터가 오래 남는다:</strong> 기능은 변경되거나 제거되지만, 데이터는 보존되어야 하고 분석 대상이 된다.</li>
+  <li><strong>복잡성은 데이터 이동에서 생긴다:</strong> 특히 AI/ML 시스템이나 분석 시스템에선 데이터가 수집→저장→처리→활용으로 이어지는 전체 흐름이 중요하다.</li>
+  <li><strong>보안과 규정 준수도 흐름을 기준으로 설계해야 한다:</strong> 예: 개인정보가 어떤 경로를 거치는지 명확히 해야 DLP(Data Loss Prevention)나 암호화 포인트를 설정할 수 있음.</li>
+</ul>
+
+<hr />
+
+<h4 id="2-실제-예시-학습-플랫폼의-데이터-흐름">2) 실제 예시: 학습 플랫폼의 데이터 흐름</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>사용자 행동 → API Gateway → Lambda → DynamoDB 저장
+                                      ↓
+                         Amazon EventBridge
+                                      ↓
+                     Glue/EMR로 ETL 처리
+                                      ↓
+               Athena + QuickSight로 시각화
+</code></pre></div></div>
+
+<p>여기서 중요한 건, 단순히 “어디에 저장할까?”가 아니라<br />
+→ <strong>어떤 데이터가 언제 생성되고, 누가 이 데이터를 쓰는가?</strong></p>
+
+<hr />
+
+<h4 id="3-흐름-중심-설계-체크리스트">3) 흐름 중심 설계 체크리스트</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>체크포인트</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>생성</td>
+      <td>데이터는 언제, 어떤 이벤트에서 생성되는가?</td>
+    </tr>
+    <tr>
+      <td>저장</td>
+      <td>정형/비정형 여부에 따라 적절한 저장소인가? (RDS, S3, DynamoDB 등)</td>
+    </tr>
+    <tr>
+      <td>처리</td>
+      <td>실시간/배치/스케줄 중 어떤 방식인가?</td>
+    </tr>
+    <tr>
+      <td>활용</td>
+      <td>이 데이터를 누가, 어떻게 활용하는가? (API 응답, 모델 학습, 분석 리포트 등)</td>
+    </tr>
+    <tr>
+      <td>수명주기</td>
+      <td>언제까지 보관되고, 어떻게 삭제되는가?</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="4-aws에서-활용할-수-있는-흐름-설계-도구들">4) AWS에서 활용할 수 있는 흐름 설계 도구들</h4>
+
+<ul>
+  <li><strong>EventBridge:</strong> 데이터 흐름 중심 이벤트 라우팅</li>
+  <li><strong>Step Functions:</strong> 흐름을 시각적으로 구성하고 상태 기반 전환</li>
+  <li><strong>Kinesis / MSK:</strong> 실시간 데이터 스트림 처리</li>
+  <li><strong>Glue Data Catalog:</strong> 데이터 계보 및 흐름 추적</li>
+</ul>
+
+<hr />
+
+<p>데이터 흐름 기반 설계는 <strong>“무엇을 만들까?”가 아니라 “어떤 데이터가 어떻게 움직이는가?”를 먼저 생각하는 설계 방식</strong>이다.<br />
+이 접근법을 쓰면 기능 변경에도 데이터 기반 구조는 유지되기 때문에 확장성과 유연성이 높아진다.</p>
+
+<h3 id="25-보안-및-운영-관점-포함">2.5 보안 및 운영 관점 포함</h3>
+
+<p>AWS 아키텍처에서 <strong>보안(Security)</strong>과 <strong>운영(Operations)</strong>은 설계의 마지막이 아니라 <strong>처음부터 함께 고려해야 할 기본 조건</strong>이다.<br />
+개발자 입장에서 기능 구현에 집중하다 보면 보안과 운영은 뒷전이 되기 쉬운데, 이는 나중에 큰 장애나 사고로 돌아온다.</p>
+
+<hr />
+
+<h4 id="1-보안은-기능이-아니라-기준이다">1) 보안은 “기능”이 아니라 “기준”이다</h4>
+
+<p>보안은 단일 기능이 아니라, <strong>모든 계층에 스며들어 있어야 하는 기준</strong>이다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>계층</th>
+      <th>고려 사항</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S3</td>
+      <td>퍼블릭 접근 차단, 버킷 정책 최소화, 암호화 기본</td>
+    </tr>
+    <tr>
+      <td>Lambda</td>
+      <td>VPC 내부 실행 여부, IAM Role 최소 권한 원칙 적용</td>
+    </tr>
+    <tr>
+      <td>API Gateway</td>
+      <td>인증 토큰 필수, WAF 설정</td>
+    </tr>
+    <tr>
+      <td>DynamoDB</td>
+      <td>KMS 암호화 활성화, 테이블 접근 권한 최소화</td>
+    </tr>
+    <tr>
+      <td>Bedrock/SageMaker</td>
+      <td>민감 데이터 입력 필터링, 결과 로그 보관 정책 설정</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="2-최소-권한-원칙-principle-of-least-privilege">2) 최소 권한 원칙 (Principle of Least Privilege)</h4>
+
+<p>모든 IAM Role, Policy, User, Group은 <strong>딱 필요한 리소스, 필요한 작업만 허용</strong>해야 한다.</p>
+
+<p>예:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">Effect</span><span class="pi">:</span> <span class="s">Allow</span>
+<span class="na">Action</span><span class="pi">:</span> <span class="s">s3:GetObject</span>
+<span class="na">Resource</span><span class="pi">:</span> <span class="s">arn:aws:s3:::my-bucket/specific-folder/*</span>
+</code></pre></div></div>
+
+<p>이런 식으로 리소스와 액션을 구체적으로 제한해야 한다.<br />
+“모든 S3 액세스 허용” 같은 broad 권한은 실제 서비스에선 절대 쓰면 안 된다.</p>
+
+<hr />
+
+<h4 id="3-운영-관점의-필수-요소들">3) 운영 관점의 필수 요소들</h4>
+
+<ul>
+  <li><strong>모니터링:</strong><br />
+CloudWatch로 모든 Lambda, API, DB, ML Endpoint의 로그와 메트릭 수집</li>
+  <li><strong>로깅:</strong><br />
+CloudTrail로 모든 API 호출 기록<br />
+S3/Bedrock 등은 별도 access log 활성화</li>
+  <li><strong>알림:</strong><br />
+SNS, Slack 연동 또는 EventBridge + Lambda로 운영 알림 자동화</li>
+  <li><strong>배포 전략:</strong><br />
+CodePipeline, CodeDeploy로 Canary/Rollback 전략 수립</li>
+  <li><strong>지속적인 점검:</strong><br />
+AWS Config + Security Hub로 규정 준수 및 보안 상태 점검</li>
+</ul>
+
+<hr />
+
+<h4 id="4-예-학습-플랫폼의-보안-구성">4) 예: 학습 플랫폼의 보안 구성</h4>
+
+<ul>
+  <li>Cognito에서 로그인 토큰 발급</li>
+  <li>API Gateway에서 JWT 검증 및 사용자 인증</li>
+  <li>Lambda는 사용자 Role에 따라 DynamoDB 조회만 허용</li>
+  <li>Bedrock은 민감한 질문 내용 로그 필터링 후 저장</li>
+  <li>CloudWatch에서 비정상 응답률 알림 발생 시 Slack으로 전송</li>
+</ul>
+
+<hr />
+
+<p>결국 <strong>좋은 아키텍처란 ‘기능이 많은 구조’가 아니라, ‘문제가 생겨도 버티는 구조’</strong>이다.<br />
+보안과 운영을 설계 초기부터 고려하면, 문제 발생 시 대응 속도와 피해 규모를 최소화할 수 있다.</p>
+
+<h3 id="26-비용-고려한-의사결정">2.6 비용 고려한 의사결정</h3>
+
+<p>AWS는 기능도 많고 성능도 좋지만, <strong>잘못 설계하면 요금 폭탄</strong>이 따라온다.<br />
+아키텍처 설계 초기부터 “<strong>이 구조가 과금에 어떤 영향을 줄까?</strong>”라는 질문을 계속 던져야 한다.</p>
+
+<hr />
+
+<h4 id="1-고정비-vs-변동비">1) 고정비 vs 변동비</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>유형</th>
+      <th>특징</th>
+      <th>예시</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>고정비</strong></td>
+      <td>항상 일정한 비용 발생</td>
+      <td>EC2, RDS, SageMaker 엔드포인트</td>
+    </tr>
+    <tr>
+      <td><strong>변동비</strong></td>
+      <td>사용량에 따라 비용 증가</td>
+      <td>Lambda, API Gateway, S3, Athena, Bedrock</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>초기에는 무조건 변동비 구조가 유리하다.</strong><br />
+사용량이 늘어나면 고정비로 전환하는 방식이 정석이다.</p>
+
+<hr />
+
+<h4 id="2-단일-선택보다-조합으로-판단하자">2) 단일 선택보다 조합으로 판단하자</h4>
+
+<p>예를 들어:</p>
+
+<ul>
+  <li>SageMaker 실시간 엔드포인트는 시간당 과금</li>
+  <li>대신 Lambda + Bedrock 조합은 호출 단위 과금</li>
+</ul>
+
+<p>→ 호출량이 적을 땐 Bedrock이 저렴하지만, 일정 이상이면 SageMaker가 유리해진다.</p>
+
+<hr />
+
+<h4 id="3-비용-최적화를-위한-설계-팁">3) 비용 최적화를 위한 설계 팁</h4>
+
+<ul>
+  <li><strong>Lambda 실행 시간 줄이기:</strong><br />
+코드 최적화 외에도 메모리 설정을 늘려 실행 시간을 단축하면 비용 감소 가능</li>
+  <li><strong>API Gateway 대신 ALB 고려:</strong><br />
+REST가 아닌 단순 API라면 Application Load Balancer + Lambda 구성이 더 저렴한 경우도 있음</li>
+  <li><strong>Athena 쿼리는 압축 + 파티셔닝:</strong><br />
+S3에 저장된 데이터를 쿼리할 때, GZIP 압축 + Parquet 포맷 + 파티션 구성으로 스캔 비용 감소</li>
+  <li><strong>CloudFront 캐시 전략:</strong><br />
+정적 리소스를 최대한 캐싱해 S3와 Lambda 호출을 줄이기</li>
+  <li><strong>RI/Graviton 인스턴스 활용:</strong><br />
+장기 고정비가 필요한 경우엔 Savings Plans 또는 ARM 기반 인스턴스(R7g 등) 고려</li>
+</ul>
+
+<hr />
+<h4 id="4-실전-예-학습-플랫폼의-비용-전략">4) 실전 예: 학습 플랫폼의 비용 전략</h4>
+
+<ul>
+  <li>정적 콘텐츠: CloudFront + S3 (캐싱 극대화)</li>
+  <li>API 호출: 낮은 빈도 → API Gateway + Lambda<br />
+높은 빈도 → ALB + Fargate로 전환</li>
+  <li>모델 추론: 학습 진단은 Bedrock, 반복 추론은 SageMaker</li>
+  <li>데이터 분석: Glue 대신 Athena 위주로 설계 + Parquet 최적화</li>
+</ul>
+
+<hr />
+
+<p>요약하자면, <strong>비용은 나중에 확인하는 게 아니라, 설계 단계에서 미리 설계하는 항목이다.</strong><br />
+모든 서비스는 유료이고, <strong>작게 시작하고 점점 바꾸는 전략</strong>이 AWS에선 가장 안전하다.</p>
+
+<h3 id="27-iac-infrastructure-as-code-적용">2.7 IaC (Infrastructure as Code) 적용</h3>
+
+<p>AWS에서 인프라를 GUI로 클릭해서 만드는 건 빠르지만, <strong>재현이 불가능하고, 협업이 어렵고, 변경 이력이 남지 않는다.</strong><br />
+그래서 이제는 인프라 역시 코드로 정의하고 관리하는 <strong>IaC (Infrastructure as Code)</strong> 방식이 기본이 되었다.</p>
+
+<hr />
+
+<h4 id="1-왜-iac를-도입해야-할까">1) 왜 IaC를 도입해야 할까?</h4>
+
+<ul>
+  <li><strong>재현 가능성:</strong> 똑같은 구조를 여러 프로젝트/계정에 배포할 수 있음</li>
+  <li><strong>버전 관리:</strong> Git으로 인프라 변경 이력을 추적 가능</li>
+  <li><strong>자동화:</strong> 배포 파이프라인에 포함시켜, 클릭 없이 완전 자동 구성</li>
+  <li><strong>협업:</strong> 인프라도 코드 리뷰 대상이 됨</li>
+</ul>
+
+<hr />
+
+<h4 id="2-aws에서의-iac-선택지">2) AWS에서의 IaC 선택지</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>도구</th>
+      <th>특징</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>CloudFormation</strong></td>
+      <td>AWS 기본 제공, YAML/JSON 기반</td>
+    </tr>
+    <tr>
+      <td><strong>CDK (Cloud Development Kit)</strong></td>
+      <td>TypeScript, Python 등으로 인프라를 코드로 구성</td>
+    </tr>
+    <tr>
+      <td><strong>Terraform</strong></td>
+      <td>멀티 클라우드 대응 가능, 팀 협업에 강함</td>
+    </tr>
+    <tr>
+      <td><strong>Serverless Framework</strong></td>
+      <td>Lambda 중심 프로젝트에 특화된 선언형 구성 도구</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>요즘은 <strong>CDK</strong>를 가장 많이 사용한다. 코드 친화적이고 조건 분기나 반복 로직도 자유롭다.</p>
+
+<hr />
+
+<h4 id="3-cdk-실전-예-lambda--api-gateway-구성">3) CDK 실전 예: Lambda + API Gateway 구성</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">aws_cdk</span> <span class="kn">import</span> <span class="n">aws_lambda</span><span class="p">,</span> <span class="n">aws_apigateway</span><span class="p">,</span> <span class="n">core</span>
+
+<span class="k">class</span> <span class="nc">MyStack</span><span class="p">(</span><span class="n">core</span><span class="p">.</span><span class="n">Stack</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">fn</span> <span class="o">=</span> <span class="n">aws_lambda</span><span class="p">.</span><span class="nc">Function</span><span class="p">(</span>
+            <span class="n">self</span><span class="p">,</span> <span class="sh">"</span><span class="s">MyFunction</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">runtime</span><span class="o">=</span><span class="n">aws_lambda</span><span class="p">.</span><span class="n">Runtime</span><span class="p">.</span><span class="n">PYTHON_3_9</span><span class="p">,</span>
+            <span class="n">handler</span><span class="o">=</span><span class="sh">"</span><span class="s">app.handler</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">code</span><span class="o">=</span><span class="n">aws_lambda</span><span class="p">.</span><span class="n">Code</span><span class="p">.</span><span class="nf">from_asset</span><span class="p">(</span><span class="sh">"</span><span class="s">lambda</span><span class="sh">"</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">api</span> <span class="o">=</span> <span class="n">aws_apigateway</span><span class="p">.</span><span class="nc">LambdaRestApi</span><span class="p">(</span>
+            <span class="n">self</span><span class="p">,</span> <span class="sh">"</span><span class="s">MyApi</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">handler</span><span class="o">=</span><span class="n">fn</span>
+        <span class="p">)</span>
+</code></pre></div></div>
+
+<p>한 번 정의해두면 <code class="language-plaintext highlighter-rouge">cdk deploy</code> 한 줄로 인프라가 자동 생성된다.</p>
+
+<hr />
+
+<h4 id="4-iac-적용-시-주의할-점">4) IaC 적용 시 주의할 점</h4>
+
+<ul>
+  <li><strong>태그 전략 미리 정의하기:</strong> 비용, 보안, 소유자 구분을 위한 필수 요소</li>
+  <li><strong>모든 자원에 이름 명시하기:</strong> 콘솔에서 관리하기 쉽게</li>
+  <li><strong>리소스 간 의존성 명확히 설정하기:</strong> 순서 보장 및 재배포 안정성 확보</li>
+</ul>
+
+<hr />
+
+<p>요약하자면, <strong>IaC는 인프라를 “운영”에서 “개발”로 가져오는 도구</strong>다.<br />
+팀 규모가 작아도, 프로젝트가 작아도, IaC로 시작하면 <strong>나중에 무조건 편해진다.</strong></p>]]></content><author><name>Your Name</name></author><category term="cloud" /><category term="AWS" /><category term="AI" /><category term="Bedrock" /><category term="Sagemaker" /><category term="Architecture" /><category term="Cloud" /><category term="보안" /><summary type="html"><![CDATA[이쁨받는 AWS 아키텍처 만드는 7가지 원칙]]></summary></entry><entry><title type="html">GCP vs AWS: AI 서비스 관점 비교</title><link href="https://aidendef.github.io//cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" rel="alternate" type="text/html" title="GCP vs AWS: AI 서비스 관점 비교" /><published>2025-05-10T15:00:00+00:00</published><updated>2025-05-10T15:00:00+00:00</updated><id>https://aidendef.github.io//cloud/ai/%08GCPvsAWS%EB%B9%84%EA%B5%90</id><content type="html" xml:base="https://aidendef.github.io//cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/"><![CDATA[<h2 id="0-앞서보는-3줄-결론">0. 앞서보는 3줄 결론</h2>
+
+<ul>
+  <li>GCP는 AI/ML, 데이터 분석에 강하고,</li>
+  <li>AWS는 서비스 다양성과 기업 클라우드에 최적화되어 있습니다.</li>
+</ul>
+
+<p>➡ GCP는 AI 연구·개발용 클라우드, AWS는 기업용 AI 솔루션 클라우드입니다.
+<img src="/assets/images/post_img/ChatGPT Image 2025년 5월 12일 오후 03_17_30.png" alt="GCP vs AWS 비교" /></p>
+
+<hr />
+
+<h2 id="1-출발점과-강점-비교">1. 출발점과 강점 비교</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP (Google Cloud Platform)</th>
+      <th>AWS (Amazon Web Services)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>출발 배경</td>
+      <td>구글 내부 인프라 기반</td>
+      <td>아마존 전자상거래 인프라 기반</td>
+    </tr>
+    <tr>
+      <td>강점</td>
+      <td>AI/ML, 데이터 분석, Kubernetes</td>
+      <td>서비스 다양성, 시장 점유율, 기업 지원</td>
+    </tr>
+    <tr>
+      <td>대표 고객</td>
+      <td>YouTube, Twitter(X), PayPal 등</td>
+      <td>Netflix, Airbnb, NASA 등</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="2-주요-서비스-비교">2. 주요 서비스 비교</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>컴퓨팅</td>
+      <td>Compute Engine</td>
+      <td>EC2</td>
+    </tr>
+    <tr>
+      <td>컨테이너</td>
+      <td>GKE</td>
+      <td>EKS</td>
+    </tr>
+    <tr>
+      <td>서버리스</td>
+      <td>Cloud Functions, Cloud Run</td>
+      <td>Lambda, Fargate</td>
+    </tr>
+    <tr>
+      <td>데이터베이스</td>
+      <td>Cloud SQL, BigQuery, Spanner</td>
+      <td>RDS, Redshift, DynamoDB</td>
+    </tr>
+    <tr>
+      <td>스토리지</td>
+      <td>Cloud Storage</td>
+      <td>S3</td>
+    </tr>
+    <tr>
+      <td>네트워킹</td>
+      <td>Cloud CDN, VPC, Load Balancer</td>
+      <td>CloudFront, VPC, ELB</td>
+    </tr>
+    <tr>
+      <td>AI/ML</td>
+      <td>Vertex AI, TensorFlow</td>
+      <td>SageMaker, Rekognition</td>
+    </tr>
+    <tr>
+      <td>IoT</td>
+      <td>IoT Core</td>
+      <td>AWS IoT</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>➡ AWS는 서비스가 더 많고 기업 기능이 풍부합니다. GCP는 AI/ML, 데이터 분석에서 강점이 있습니다.</p>
+
+<hr />
+
+<h2 id="3-가격-정책">3. 가격 정책</h2>
+
+<ul>
+  <li><strong>GCP</strong>: 초 단위 요금 과금 가능 → 세밀한 요금 조정 가능</li>
+  <li><strong>AWS</strong>: 대부분 시간 단위 과금 (일부 초 단위 지원)</li>
+  <li><strong>무료 크레딧</strong>: GCP는 $300, AWS는 1년 프리 티어 제공</li>
+</ul>
+
+<hr />
+
+<h2 id="4-성능-및-네트워크">4. 성능 및 네트워크</h2>
+
+<ul>
+  <li><strong>GCP</strong>: 유튜브, 지메일 등을 지탱하는 구글 네트워크 인프라 기반</li>
+  <li><strong>AWS</strong>: 가장 많은 가용영역(AZ) 보유, 글로벌 커버리지 최상</li>
+</ul>
+
+<hr />
+
+<h2 id="5-시장-점유율-및-생태계">5. 시장 점유율 및 생태계</h2>
+
+<ul>
+  <li><strong>AWS</strong>: 시장 점유율 1위, 엔터프라이즈 고객 다수</li>
+  <li><strong>GCP</strong>: 3위지만 AI/ML, 데이터 분석 영향력 큼</li>
+</ul>
+
+<hr />
+
+<h2 id="6-사용자-친화성">6. 사용자 친화성</h2>
+
+<ul>
+  <li><strong>GCP</strong>: 직관적 UI, 간편한 설정</li>
+  <li><strong>AWS</strong>: 설정은 복잡하지만 기능 다양</li>
+</ul>
+
+<hr />
+
+<h2 id="7-멀티-클라우드-전략">7. 멀티 클라우드 전략</h2>
+
+<ul>
+  <li><strong>GCP</strong>: Anthos 기반으로 AWS, Azure 등 멀티클라우드 운영 지원 강력</li>
+  <li><strong>AWS</strong>: 자사 서비스 중심 생태계 지향</li>
+</ul>
+
+<p>➡ 멀티 클라우드 전략을 고려한다면 GCP가 유리합니다.</p>
+
+<hr />
+
+<h2 id="8-ai-관점에서의-비교">8. AI 관점에서의 비교</h2>
+
+<h3 id="8-1-철학과-접근-방식">8-1. 철학과 접근 방식</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>철학</td>
+      <td>데이터 중심, 연구 기반</td>
+      <td>서비스 중심, 엔터프라이즈 최적화</td>
+    </tr>
+    <tr>
+      <td>접근 방식</td>
+      <td>연구자·개발자 중심 툴 제공</td>
+      <td>기업용 관리형 서비스 제공</td>
+    </tr>
+    <tr>
+      <td>생태계</td>
+      <td>TensorFlow, 오픈소스 중심</td>
+      <td>SageMaker 등 자체 생태계 중심</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>➡ GCP는 R\&amp;D 중심, AWS는 비즈니스 중심 접근</p>
+
+<hr />
+
+<h3 id="8-2-aiml-주요-서비스-비교">8-2. AI/ML 주요 서비스 비교</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>서비스</th>
+      <th>GCP</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ML 플랫폼</td>
+      <td>Vertex AI</td>
+      <td>SageMaker</td>
+    </tr>
+    <tr>
+      <td>AutoML</td>
+      <td>AutoML</td>
+      <td>Autopilot</td>
+    </tr>
+    <tr>
+      <td>빅데이터 연계</td>
+      <td>BigQuery ML</td>
+      <td>Redshift ML</td>
+    </tr>
+    <tr>
+      <td>컴퓨터 비전</td>
+      <td>Vision AI</td>
+      <td>Rekognition</td>
+    </tr>
+    <tr>
+      <td>음성 인식</td>
+      <td>Speech-to-Text API</td>
+      <td>Transcribe</td>
+    </tr>
+    <tr>
+      <td>NLP</td>
+      <td>NLP API</td>
+      <td>Comprehend</td>
+    </tr>
+    <tr>
+      <td>챗봇</td>
+      <td>Dialogflow</td>
+      <td>Lex</td>
+    </tr>
+    <tr>
+      <td>AI 검색</td>
+      <td>Vertex AI Search</td>
+      <td>Kendra</td>
+    </tr>
+    <tr>
+      <td>추천 시스템</td>
+      <td>Recommendations AI</td>
+      <td>Personalize</td>
+    </tr>
+    <tr>
+      <td>문서 분석</td>
+      <td>Document AI</td>
+      <td>Fraud Detector</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>➡ 연구와 데이터 분석 기반 AI에는 GCP, 기업용 통합 솔루션은 AWS</p>
+
+<hr />
+
+<h3 id="8-3-automl-세부-비교">8-3. AutoML 세부 비교</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP AutoML</th>
+      <th>AWS Autopilot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>사용성</td>
+      <td>클릭 기반 GUI 제공</td>
+      <td>코드 없이 구성 가능</td>
+    </tr>
+    <tr>
+      <td>데이터 지원</td>
+      <td>이미지, 텍스트, 표</td>
+      <td>이미지, 텍스트, 표</td>
+    </tr>
+    <tr>
+      <td>튜닝</td>
+      <td>자동 하이퍼파라미터 튜닝</td>
+      <td>동일</td>
+    </tr>
+    <tr>
+      <td>설명 가능성</td>
+      <td>SHAP 기반</td>
+      <td>SHAP 기반</td>
+    </tr>
+    <tr>
+      <td>출력 포맷</td>
+      <td>TensorFlow</td>
+      <td>다양한 프레임워크</td>
+    </tr>
+    <tr>
+      <td>멀티 클라우드</td>
+      <td>Anthos 지원</td>
+      <td>AWS 생태계 내 최적화</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p>###</p>]]></content><author><name>Your Name</name></author><category term="cloud" /><category term="ai" /><category term="GCP" /><category term="AWS" /><category term="AI" /><category term="클라우드비교" /><summary type="html"><![CDATA[GCP vs AWS 본격 파해치기]]></summary></entry><entry><title type="html">OpenAI의 O1 모델, 제대로 사용하는 법</title><link href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" rel="alternate" type="text/html" title="OpenAI의 O1 모델, 제대로 사용하는 법" /><published>2025-05-09T05:00:00+00:00</published><updated>2025-05-09T05:00:00+00:00</updated><id>https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98%20o1%EB%AA%A8%EB%8D%B8%20%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0</id><content type="html" xml:base="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/"><![CDATA[<h2 id="openai의-chatgpt-제대로-사용하고-계신가요"><strong>OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</strong></h2>
+
+<p>AI 모델들이 급격하게 발전하면서, 이제는 다양한 종류의 챗봇 모델들이 존재합니다. 특히 GPT-4o, Claude 3.5 Sonnet 등은 누구나 쉽게 접근할 수 있는 대화형 AI 모델로 인기를 끌고 있습니다.</p>
+
+<p><img src="/assets/images/post_img/Inline-image-2025-02-18 15.35.46.743.png" alt="O1 모델 아키텍처" class="align-center" /></p>
+
+<p>하지만, 최근 OpenAI가 선보인 <strong>O1 모델</strong>은 완전히 새로운 개념의 모델로, 기존 챗 모델처럼 다루면 <strong>제대로 된 성능을 끌어내기 어렵습니다.</strong></p>
+
+<hr />
+
+<h2 id="1-o1-모델의-정체는"><strong>1. O1 모델의 정체는?</strong></h2>
+
+<ul>
+  <li>
+    <p><strong>O1은 챗봇이 아닙니다.</strong><br />
+O1은 리포트 생성형 모델로, 상호작용보다는 <strong>정적이고 깊이 있는 결과물</strong>을 생성하는 데 초점을 맞춥니다.</p>
+  </li>
+  <li>
+    <p><strong>대화형 인터페이스로 사용하면 성능이 떨어집니다.</strong><br />
+맥락 없이 질문하면 느리거나 부정확한 답이 나올 수밖에 없습니다.</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="2-o1을-잘-쓰는-법-챗봇과는-다르게"><strong>2. O1을 잘 쓰는 법: 챗봇과는 다르게!</strong></h2>
+
+<h3 id="2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</h3>
+<ul>
+  <li>일반적인 챗봇처럼 짧은 프롬프트를 주면 안 됩니다.</li>
+  <li><strong>프롬프트 대신 ‘브리프(brief)’를 작성하세요.</strong>
+    <ul>
+      <li>실패한 시도</li>
+      <li>전체 데이터 구조</li>
+      <li>프로젝트의 목적과 맥락</li>
+      <li>도메인 용어 및 기대 성과 등</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</h3>
+<ul>
+  <li>“역할을 설정하고 이렇게 이렇게 해줘” → ❌</li>
+  <li>“내가 원하는 결과는 무엇이다” → ⭕</li>
+</ul>
+
+<h3 id="2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>잘하는 것</th>
+      <th>못하는 것</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>전체 코드 파일 생성</td>
+      <td>문체나 개성 있는 글쓰기</td>
+    </tr>
+    <tr>
+      <td>복잡한 쿼리 언어 처리</td>
+      <td>SaaS 전체 앱 생성 (반복 필요)</td>
+    </tr>
+    <tr>
+      <td>엔지니어링 개념 설명</td>
+      <td>대화형 인터페이스 대응</td>
+    </tr>
+    <tr>
+      <td>단순 의료 진단</td>
+      <td>감성적 콘텐츠 작성</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="3-왜-이렇게-복잡한-모델을-만들었을까"><strong>3. 왜 이렇게 복잡한 모델을 만들었을까?</strong></h2>
+
+<ul>
+  <li>OpenAI는 O1을 <strong>“에이전트형 리포트 생성기”</strong>로 정의하고 있으며, 월 $2000 수준의 <strong>O1 Pro</strong> 상품 출시도 예상됩니다.</li>
+  <li>해외에서는 <strong>“엔지니어 연봉 대비 훨씬 싸다”</strong>는 반응도 있습니다.</li>
+  <li>답변에 5분이 걸려도 <strong>그만한 가치가 있는 질문이라면</strong> 활용도가 매우 높습니다.</li>
+</ul>
+
+<hr />
+
+<h2 id="4-uiux에-대한-제안"><strong>4. UI/UX에 대한 제안</strong></h2>
+
+<ul>
+  <li>O1의 긴 결과물은 <strong>목차 기반 구조화된 뷰</strong>가 필수</li>
+  <li>Claude처럼 <strong>카드 기반 맥락 관리</strong>가 유용</li>
+  <li><strong>스트리밍 응답 기능</strong>이 적용되면 활용성 대폭 증가 예상</li>
+</ul>
+
+<hr />
+
+<h2 id="5-o1의-미래"><strong>5. O1의 미래</strong></h2>
+
+<ul>
+  <li><strong>즉답형 AI에서 백그라운드 인텔리전스형 AI로의 진화</strong></li>
+  <li>사용자는 <strong>5분, 1시간, 하루, 심지어 3~5일이라도 기다릴 수 있음</strong></li>
+  <li>반복 작업을 줄이고 ‘결과 중심 AI’로 활용되는 모델로 성장할 것</li>
+</ul>
+
+<hr />
+
+<h2 id="6-핵심-요약-이렇게-쓰세요"><strong>6. 핵심 요약: 이렇게 쓰세요</strong></h2>
+
+<ul>
+  <li><strong>질문하지 말고, 설명하세요</strong></li>
+  <li><strong>단계별 안내보다 결과물의 정의를 강조하세요</strong></li>
+  <li><strong>맥락을 풍부하게, 예시는 구체적으로</strong></li>
+</ul>
+
+<hr />
+
+<p>GPT-4o와 Claude가 실시간 상호작용에 강하다면,<br />
+O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <strong>‘한 방에 끝내는 AI’</strong>입니다.</p>
+
+<p>그만큼, <strong>사용자도 프롬프트가 아닌 ‘설명서’를 써야</strong> 진짜 능력을 끌어낼 수 있습니다.</p>]]></content><author><name>Your Name</name></author><category term="tech" /><category term="ai" /><category term="openai" /><category term="o1" /><category term="gpt4o" /><summary type="html"><![CDATA[OpenAI 너란녀석]]></summary></entry><entry><title type="html">Gemini 2.0 이제 누구나 사용 가능</title><link href="https://aidendef.github.io//tech/ai/cloud/Gemini-2.0-%EC%9D%B4%EC%A0%9C-%EB%88%84%EA%B5%AC%EB%82%98-%EC%82%AC%EC%9A%A9-%EA%B0%80%EB%8A%A5/" rel="alternate" type="text/html" title="Gemini 2.0 이제 누구나 사용 가능" /><published>2024-06-11T02:00:00+00:00</published><updated>2024-06-11T02:00:00+00:00</updated><id>https://aidendef.github.io//tech/ai/cloud/Gemini%202.0%20%EC%9D%B4%EC%A0%9C%20%EB%88%84%EA%B5%AC%EB%82%98%20%EC%82%AC%EC%9A%A9%20%EA%B0%80%EB%8A%A5</id><content type="html" xml:base="https://aidendef.github.io//tech/ai/cloud/Gemini-2.0-%EC%9D%B4%EC%A0%9C-%EB%88%84%EA%B5%AC%EB%82%98-%EC%82%AC%EC%9A%A9-%EA%B0%80%EB%8A%A5/"><![CDATA[<h2 id="gemini-20-시리즈-요약-정리"><strong>Gemini 2.0 시리즈 요약 정리</strong></h2>
+
+<h4 id="1-gemini-20-flash"><strong>1. Gemini 2.0 Flash</strong></h4>
+
+<ul>
+  <li><strong>특징</strong>: 대용량 멀티모달 추론(텍스트, 이미지, 음성 지원)</li>
+  <li><strong>컨텍스트 윈도우</strong>: 수백만 토큰 지원</li>
+  <li><strong>프로덕션 적용 가능</strong>: Google AI Studio, Vertex AI</li>
+  <li><strong>가격</strong>:
+    <ul>
+      <li>텍스트/이미지/비디오 입력: <strong>$0.10/백만 토큰</strong></li>
+      <li>오디오 입력: <strong>$0.70/백만 토큰</strong> (2025년 2월 20일부터 적용)</li>
+      <li>텍스트 출력: <strong>$0.40/백만 토큰</strong></li>
+      <li>컨텍스트 캐싱(향후 지원 예정)
+        <ul>
+          <li>텍스트/이미지/비디오: <strong>$0.025/백만 토큰</strong></li>
+          <li>오디오: <strong>$0.175/백만 토큰</strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="2-gemini-20-pro-실험적-버전"><strong>2. Gemini 2.0 Pro (실험적 버전)</strong></h4>
+
+<ul>
+  <li><strong>특징</strong>:
+    <ul>
+      <li>복잡한 프롬프트와 코딩 성능 강화</li>
+      <li>대규모 데이터 심층 분석 가능</li>
+      <li>Google 검색, 코드 실행 등 외부 툴 연동</li>
+    </ul>
+  </li>
+  <li><strong>컨텍스트 윈도우</strong>: 최대 <strong>200만 토큰</strong></li>
+  <li><strong>제공처</strong>:
+    <ul>
+      <li>Google AI Studio, Vertex AI (실험적 제공)</li>
+      <li>Gemini 앱(Advanced 사용자 선택 가능)</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="3-gemini-20-flash-lite"><strong>3. Gemini 2.0 Flash-Lite</strong></h4>
+
+<ul>
+  <li><strong>특징</strong>:
+    <ul>
+      <li>비용 대비 성능 최적화 모델</li>
+      <li>1.5 Flash 대비 품질 향상, 동일한 속도·비용 유지</li>
+      <li>대규모 멀티모달 입력 지원 (4만 개 이미지 캡션 생성 비용 &lt; $1)</li>
+    </ul>
+  </li>
+  <li><strong>컨텍스트 윈도우</strong>: 최대 <strong>100만 토큰</strong></li>
+  <li><strong>제공처</strong>: Google AI Studio, Vertex AI (퍼블릭 프리뷰)</li>
+  <li><strong>가격</strong>:
+    <ul>
+      <li>텍스트/이미지/비디오 입력: <strong>$0.075/백만 토큰</strong></li>
+      <li>오디오 입력: <strong>$0.075/백만 토큰</strong></li>
+      <li>텍스트 출력: <strong>$0.30/백만 토큰</strong></li>
+      <li>컨텍스트 캐싱(향후 지원 예정): <strong>$0.01875/백만 토큰</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>요약</strong>:</p>
+
+<ul>
+  <li><strong>Flash</strong>: 대용량 멀티모달 지원, 프로덕션 적용 가능</li>
+  <li><strong>Pro</strong>: 코딩·복잡한 지식 추론 강화, 200만 토큰 컨텍스트</li>
+  <li><strong>Flash-Lite</strong>: 저렴한 비용으로 성능 유지, 100만 토큰 컨텍스트</li>
+</ul>]]></content><author><name>Your Name</name></author><category term="tech" /><category term="ai" /><category term="cloud" /><category term="ai" /><category term="cloud" /><summary type="html"><![CDATA[Gemini 2.0 은 다음과 같습니다.]]></summary></entry><entry><title type="html">첫 블로그 글</title><link href="https://aidendef.github.io//private/blog/welcome-to-my-blog/" rel="alternate" type="text/html" title="첫 블로그 글" /><published>2024-06-11T01:00:00+00:00</published><updated>2024-06-11T01:00:00+00:00</updated><id>https://aidendef.github.io//private/blog/welcome-to-my-blog</id><content type="html" xml:base="https://aidendef.github.io//private/blog/welcome-to-my-blog/"><![CDATA[<h2 id="안녕하세요">안녕하세요</h2>
+
+<p>Aiden의 든든한 블로그에 와주셔서 감사합니다.
+앞으로 많이 찾아와주세요 :)</p>]]></content><author><name>Your Name</name></author><category term="private" /><category term="blog" /><category term="blog" /><summary type="html"><![CDATA[안녕하세요]]></summary></entry></feed>

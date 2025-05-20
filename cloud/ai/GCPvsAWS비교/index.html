@@ -1,0 +1,921 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>GCP vs AWS: AI 서비스 관점 비교 | Aiden의 든든한 Blog</title>
+<meta name="description" content="GCP vs AWS 본격 파해치기">
+
+
+  <meta name="author" content="Your Name">
+  
+  <meta property="article:author" content="Your Name">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Aiden의 든든한 Blog">
+<meta property="og:title" content="GCP vs AWS: AI 서비스 관점 비교">
+<meta property="og:url" content="https://aidendef.github.io//cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/">
+
+
+  <meta property="og:description" content="GCP vs AWS 본격 파해치기">
+
+
+
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/ChatGPT%20Image%202025%EB%85%84%205%EC%9B%94%2012%EC%9D%BC%20%EC%98%A4%ED%9B%84%2003_17_30.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2025-05-10T15:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://aidendef.github.io//cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Aiden의 든든한 Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt="Aiden의 든든한 Blog"></a>
+        
+        <a class="site-title" href="/">
+          Aiden의 든든한 Blog
+          <span class="site-subtitle">V1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/categories/tech/"
+                
+                
+              >Tech</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/private/"
+                
+                
+              >Private</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/recent"
+                
+                
+              >Recent</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Tech</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/ai/">AI</a></li>
+            
+              <li><a href="/categories/cloud/">Cloud</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Private</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/business/">Business</a></li>
+            
+              <li><a href="/categories/blog/">Blog</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <a href="/recent"><span class="nav__sub-title">Recent</span></a>
+          
+
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="GCP vs AWS: AI 서비스 관점 비교">
+    <meta itemprop="description" content="GCP vs AWS 본격 파해치기">
+    <meta itemprop="datePublished" content="2025-05-10T15:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://aidendef.github.io//cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" itemprop="url">GCP vs AWS: AI 서비스 관점 비교
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#0-앞서보는-3줄-결론">0. 앞서보는 3줄 결론</a></li><li><a href="#1-출발점과-강점-비교">1. 출발점과 강점 비교</a></li><li><a href="#2-주요-서비스-비교">2. 주요 서비스 비교</a></li><li><a href="#3-가격-정책">3. 가격 정책</a></li><li><a href="#4-성능-및-네트워크">4. 성능 및 네트워크</a></li><li><a href="#5-시장-점유율-및-생태계">5. 시장 점유율 및 생태계</a></li><li><a href="#6-사용자-친화성">6. 사용자 친화성</a></li><li><a href="#7-멀티-클라우드-전략">7. 멀티 클라우드 전략</a></li><li><a href="#8-ai-관점에서의-비교">8. AI 관점에서의 비교</a><ul><li><a href="#8-1-철학과-접근-방식">8-1. 철학과 접근 방식</a></li><li><a href="#8-2-aiml-주요-서비스-비교">8-2. AI/ML 주요 서비스 비교</a></li><li><a href="#8-3-automl-세부-비교">8-3. AutoML 세부 비교</a></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="0-앞서보는-3줄-결론">0. 앞서보는 3줄 결론</h2>
+
+<ul>
+  <li>GCP는 AI/ML, 데이터 분석에 강하고,</li>
+  <li>AWS는 서비스 다양성과 기업 클라우드에 최적화되어 있습니다.</li>
+</ul>
+
+<p>➡ GCP는 AI 연구·개발용 클라우드, AWS는 기업용 AI 솔루션 클라우드입니다.
+<img src="/assets/images/post_img/ChatGPT Image 2025년 5월 12일 오후 03_17_30.png" alt="GCP vs AWS 비교" /></p>
+
+<hr />
+
+<h2 id="1-출발점과-강점-비교">1. 출발점과 강점 비교</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP (Google Cloud Platform)</th>
+      <th>AWS (Amazon Web Services)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>출발 배경</td>
+      <td>구글 내부 인프라 기반</td>
+      <td>아마존 전자상거래 인프라 기반</td>
+    </tr>
+    <tr>
+      <td>강점</td>
+      <td>AI/ML, 데이터 분석, Kubernetes</td>
+      <td>서비스 다양성, 시장 점유율, 기업 지원</td>
+    </tr>
+    <tr>
+      <td>대표 고객</td>
+      <td>YouTube, Twitter(X), PayPal 등</td>
+      <td>Netflix, Airbnb, NASA 등</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="2-주요-서비스-비교">2. 주요 서비스 비교</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>컴퓨팅</td>
+      <td>Compute Engine</td>
+      <td>EC2</td>
+    </tr>
+    <tr>
+      <td>컨테이너</td>
+      <td>GKE</td>
+      <td>EKS</td>
+    </tr>
+    <tr>
+      <td>서버리스</td>
+      <td>Cloud Functions, Cloud Run</td>
+      <td>Lambda, Fargate</td>
+    </tr>
+    <tr>
+      <td>데이터베이스</td>
+      <td>Cloud SQL, BigQuery, Spanner</td>
+      <td>RDS, Redshift, DynamoDB</td>
+    </tr>
+    <tr>
+      <td>스토리지</td>
+      <td>Cloud Storage</td>
+      <td>S3</td>
+    </tr>
+    <tr>
+      <td>네트워킹</td>
+      <td>Cloud CDN, VPC, Load Balancer</td>
+      <td>CloudFront, VPC, ELB</td>
+    </tr>
+    <tr>
+      <td>AI/ML</td>
+      <td>Vertex AI, TensorFlow</td>
+      <td>SageMaker, Rekognition</td>
+    </tr>
+    <tr>
+      <td>IoT</td>
+      <td>IoT Core</td>
+      <td>AWS IoT</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>➡ AWS는 서비스가 더 많고 기업 기능이 풍부합니다. GCP는 AI/ML, 데이터 분석에서 강점이 있습니다.</p>
+
+<hr />
+
+<h2 id="3-가격-정책">3. 가격 정책</h2>
+
+<ul>
+  <li><strong>GCP</strong>: 초 단위 요금 과금 가능 → 세밀한 요금 조정 가능</li>
+  <li><strong>AWS</strong>: 대부분 시간 단위 과금 (일부 초 단위 지원)</li>
+  <li><strong>무료 크레딧</strong>: GCP는 $300, AWS는 1년 프리 티어 제공</li>
+</ul>
+
+<hr />
+
+<h2 id="4-성능-및-네트워크">4. 성능 및 네트워크</h2>
+
+<ul>
+  <li><strong>GCP</strong>: 유튜브, 지메일 등을 지탱하는 구글 네트워크 인프라 기반</li>
+  <li><strong>AWS</strong>: 가장 많은 가용영역(AZ) 보유, 글로벌 커버리지 최상</li>
+</ul>
+
+<hr />
+
+<h2 id="5-시장-점유율-및-생태계">5. 시장 점유율 및 생태계</h2>
+
+<ul>
+  <li><strong>AWS</strong>: 시장 점유율 1위, 엔터프라이즈 고객 다수</li>
+  <li><strong>GCP</strong>: 3위지만 AI/ML, 데이터 분석 영향력 큼</li>
+</ul>
+
+<hr />
+
+<h2 id="6-사용자-친화성">6. 사용자 친화성</h2>
+
+<ul>
+  <li><strong>GCP</strong>: 직관적 UI, 간편한 설정</li>
+  <li><strong>AWS</strong>: 설정은 복잡하지만 기능 다양</li>
+</ul>
+
+<hr />
+
+<h2 id="7-멀티-클라우드-전략">7. 멀티 클라우드 전략</h2>
+
+<ul>
+  <li><strong>GCP</strong>: Anthos 기반으로 AWS, Azure 등 멀티클라우드 운영 지원 강력</li>
+  <li><strong>AWS</strong>: 자사 서비스 중심 생태계 지향</li>
+</ul>
+
+<p>➡ 멀티 클라우드 전략을 고려한다면 GCP가 유리합니다.</p>
+
+<hr />
+
+<h2 id="8-ai-관점에서의-비교">8. AI 관점에서의 비교</h2>
+
+<h3 id="8-1-철학과-접근-방식">8-1. 철학과 접근 방식</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>철학</td>
+      <td>데이터 중심, 연구 기반</td>
+      <td>서비스 중심, 엔터프라이즈 최적화</td>
+    </tr>
+    <tr>
+      <td>접근 방식</td>
+      <td>연구자·개발자 중심 툴 제공</td>
+      <td>기업용 관리형 서비스 제공</td>
+    </tr>
+    <tr>
+      <td>생태계</td>
+      <td>TensorFlow, 오픈소스 중심</td>
+      <td>SageMaker 등 자체 생태계 중심</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>➡ GCP는 R\&amp;D 중심, AWS는 비즈니스 중심 접근</p>
+
+<hr />
+
+<h3 id="8-2-aiml-주요-서비스-비교">8-2. AI/ML 주요 서비스 비교</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>서비스</th>
+      <th>GCP</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ML 플랫폼</td>
+      <td>Vertex AI</td>
+      <td>SageMaker</td>
+    </tr>
+    <tr>
+      <td>AutoML</td>
+      <td>AutoML</td>
+      <td>Autopilot</td>
+    </tr>
+    <tr>
+      <td>빅데이터 연계</td>
+      <td>BigQuery ML</td>
+      <td>Redshift ML</td>
+    </tr>
+    <tr>
+      <td>컴퓨터 비전</td>
+      <td>Vision AI</td>
+      <td>Rekognition</td>
+    </tr>
+    <tr>
+      <td>음성 인식</td>
+      <td>Speech-to-Text API</td>
+      <td>Transcribe</td>
+    </tr>
+    <tr>
+      <td>NLP</td>
+      <td>NLP API</td>
+      <td>Comprehend</td>
+    </tr>
+    <tr>
+      <td>챗봇</td>
+      <td>Dialogflow</td>
+      <td>Lex</td>
+    </tr>
+    <tr>
+      <td>AI 검색</td>
+      <td>Vertex AI Search</td>
+      <td>Kendra</td>
+    </tr>
+    <tr>
+      <td>추천 시스템</td>
+      <td>Recommendations AI</td>
+      <td>Personalize</td>
+    </tr>
+    <tr>
+      <td>문서 분석</td>
+      <td>Document AI</td>
+      <td>Fraud Detector</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>➡ 연구와 데이터 분석 기반 AI에는 GCP, 기업용 통합 솔루션은 AWS</p>
+
+<hr />
+
+<h3 id="8-3-automl-세부-비교">8-3. AutoML 세부 비교</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP AutoML</th>
+      <th>AWS Autopilot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>사용성</td>
+      <td>클릭 기반 GUI 제공</td>
+      <td>코드 없이 구성 가능</td>
+    </tr>
+    <tr>
+      <td>데이터 지원</td>
+      <td>이미지, 텍스트, 표</td>
+      <td>이미지, 텍스트, 표</td>
+    </tr>
+    <tr>
+      <td>튜닝</td>
+      <td>자동 하이퍼파라미터 튜닝</td>
+      <td>동일</td>
+    </tr>
+    <tr>
+      <td>설명 가능성</td>
+      <td>SHAP 기반</td>
+      <td>SHAP 기반</td>
+    </tr>
+    <tr>
+      <td>출력 포맷</td>
+      <td>TensorFlow</td>
+      <td>다양한 프레임워크</td>
+    </tr>
+    <tr>
+      <td>멀티 클라우드</td>
+      <td>Anthos 지원</td>
+      <td>AWS 생태계 내 최적화</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p>###</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#ai" class="page__taxonomy-item p-category" rel="tag">AI</a><span class="sep">, </span>
+    
+      <a href="/tags/#aws" class="page__taxonomy-item p-category" rel="tag">AWS</a><span class="sep">, </span>
+    
+      <a href="/tags/#gcp" class="page__taxonomy-item p-category" rel="tag">GCP</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EB%B9%84%EA%B5%90" class="page__taxonomy-item p-category" rel="tag">클라우드비교</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ai" class="page__taxonomy-item p-category" rel="tag">ai</a><span class="sep">, </span>
+    
+      <a href="/categories/#cloud" class="page__taxonomy-item p-category" rel="tag">cloud</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-10T15:00:00+00:00">May 10, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=GCP+vs+AWS%3A+AI+%EC%84%9C%EB%B9%84%EC%8A%A4+%EA%B4%80%EC%A0%90+%EB%B9%84%EA%B5%90%20https%3A%2F%2Faidendef.github.io%2F%2Fcloud%2Fai%2FGCPvsAWS%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Fcloud%2Fai%2FGCPvsAWS%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=GCP+vs+AWS%3A+AI+%EC%84%9C%EB%B9%84%EC%8A%A4+%EA%B4%80%EC%A0%90+%EB%B9%84%EA%B5%90%20https%3A%2F%2Faidendef.github.io%2F%2Fcloud%2Fai%2FGCPvsAWS%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="pagination--pager" title="OpenAI의 O1 모델, 제대로 사용하는 법">Previous</a>
+    
+    
+      <a href="/cloud/ai/business/AWS-Bedrock-%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84-A-to-Z-%EB%AA%A8%EB%91%90-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0/" class="pagination--pager" title="AWS Bedrock 지식기반을 A to Z 모두 구현해보기">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%84%9C.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/" rel="permalink">ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS 로드 밸런서 4종 완전 비교. 어떤 상황에 어떤 걸 써야 할까?
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/archi-sample.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/" rel="permalink">AWS Summit Seoul 2025 탐방기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS는 어떤 것을 밀고 있나?
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/archi-sample.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-AWS-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90/" rel="permalink">이쁨 받는 AWS 아키텍처 만들어보자
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">이쁨받는 AWS 아키텍처 만드는 7가지 원칙
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/Knowledge-Bases-feat-img.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cloud/ai/business/AWS-Bedrock-%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84-A-to-Z-%EB%AA%A8%EB%91%90-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0/" rel="permalink">AWS Bedrock 지식기반을 A to Z 모두 구현해보기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          9 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">직접 AWS 완전관리형 서비스 따라만들어보자
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="site-footer">
+  <div style="max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; font-size: 0.95rem;">
+
+    <!-- TECH 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">TECH</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/ai/" style="color: #222; text-decoration: none;">AI</a></li>
+        <li><a href="/categories/cloud/" style="color: #222; text-decoration: none;">Cloud</a></li>
+      </ul>
+    </div>
+
+    <!-- PRIVATE 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">PRIVATE</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/business/" style="color: #222; text-decoration: none;">Business</a></li>
+        <li><a href="/categories/blog/" style="color: #222; text-decoration: none;">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">RECENT</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/recent/" style="color: #222; text-decoration: none;">최근 글 보기</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">INFOMATION</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li style="color: #222; text-decoration: none;">aiden02095@gmail.com</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; color: #666;">
+    © 2025 Aiden의 든든한 Blog. All rights reserved.
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

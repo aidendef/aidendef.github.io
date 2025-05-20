@@ -1,0 +1,741 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>OpenAI의 O1 모델, 제대로 사용하는 법 | Aiden의 든든한 Blog</title>
+<meta name="description" content="OpenAI 너란녀석">
+
+
+  <meta name="author" content="Your Name">
+  
+  <meta property="article:author" content="Your Name">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Aiden의 든든한 Blog">
+<meta property="og:title" content="OpenAI의 O1 모델, 제대로 사용하는 법">
+<meta property="og:url" content="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+
+  <meta property="og:description" content="OpenAI 너란녀석">
+
+
+
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/Inline-image-2025-02-18%2015.35.46.743.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2025-05-09T05:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Aiden의 든든한 Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt="Aiden의 든든한 Blog"></a>
+        
+        <a class="site-title" href="/">
+          Aiden의 든든한 Blog
+          <span class="site-subtitle">V1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/categories/tech/"
+                
+                
+              >Tech</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/private/"
+                
+                
+              >Private</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/recent"
+                
+                
+              >Recent</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Tech</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/ai/">AI</a></li>
+            
+              <li><a href="/categories/cloud/">Cloud</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Private</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/business/">Business</a></li>
+            
+              <li><a href="/categories/blog/">Blog</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <a href="/recent"><span class="nav__sub-title">Recent</span></a>
+          
+
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="OpenAI의 O1 모델, 제대로 사용하는 법">
+    <meta itemprop="description" content="OpenAI 너란녀석">
+    <meta itemprop="datePublished" content="2025-05-09T05:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" itemprop="url">OpenAI의 O1 모델, 제대로 사용하는 법
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#openai의-chatgpt-제대로-사용하고-계신가요">OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</a></li><li><a href="#1-o1-모델의-정체는">1. O1 모델의 정체는?</a></li><li><a href="#2-o1을-잘-쓰는-법-챗봇과는-다르게">2. O1을 잘 쓰는 법: 챗봇과는 다르게!</a><ul><li><a href="#2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</a></li><li><a href="#2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</a></li><li><a href="#2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</a></li></ul></li><li><a href="#3-왜-이렇게-복잡한-모델을-만들었을까">3. 왜 이렇게 복잡한 모델을 만들었을까?</a></li><li><a href="#4-uiux에-대한-제안">4. UI/UX에 대한 제안</a></li><li><a href="#5-o1의-미래">5. O1의 미래</a></li><li><a href="#6-핵심-요약-이렇게-쓰세요">6. 핵심 요약: 이렇게 쓰세요</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="openai의-chatgpt-제대로-사용하고-계신가요"><strong>OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</strong></h2>
+
+<p>AI 모델들이 급격하게 발전하면서, 이제는 다양한 종류의 챗봇 모델들이 존재합니다. 특히 GPT-4o, Claude 3.5 Sonnet 등은 누구나 쉽게 접근할 수 있는 대화형 AI 모델로 인기를 끌고 있습니다.</p>
+
+<p><img src="/assets/images/post_img/Inline-image-2025-02-18 15.35.46.743.png" alt="O1 모델 아키텍처" class="align-center" /></p>
+
+<p>하지만, 최근 OpenAI가 선보인 <strong>O1 모델</strong>은 완전히 새로운 개념의 모델로, 기존 챗 모델처럼 다루면 <strong>제대로 된 성능을 끌어내기 어렵습니다.</strong></p>
+
+<hr />
+
+<h2 id="1-o1-모델의-정체는"><strong>1. O1 모델의 정체는?</strong></h2>
+
+<ul>
+  <li>
+    <p><strong>O1은 챗봇이 아닙니다.</strong><br />
+O1은 리포트 생성형 모델로, 상호작용보다는 <strong>정적이고 깊이 있는 결과물</strong>을 생성하는 데 초점을 맞춥니다.</p>
+  </li>
+  <li>
+    <p><strong>대화형 인터페이스로 사용하면 성능이 떨어집니다.</strong><br />
+맥락 없이 질문하면 느리거나 부정확한 답이 나올 수밖에 없습니다.</p>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="2-o1을-잘-쓰는-법-챗봇과는-다르게"><strong>2. O1을 잘 쓰는 법: 챗봇과는 다르게!</strong></h2>
+
+<h3 id="2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</h3>
+<ul>
+  <li>일반적인 챗봇처럼 짧은 프롬프트를 주면 안 됩니다.</li>
+  <li><strong>프롬프트 대신 ‘브리프(brief)’를 작성하세요.</strong>
+    <ul>
+      <li>실패한 시도</li>
+      <li>전체 데이터 구조</li>
+      <li>프로젝트의 목적과 맥락</li>
+      <li>도메인 용어 및 기대 성과 등</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</h3>
+<ul>
+  <li>“역할을 설정하고 이렇게 이렇게 해줘” → ❌</li>
+  <li>“내가 원하는 결과는 무엇이다” → ⭕</li>
+</ul>
+
+<h3 id="2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>잘하는 것</th>
+      <th>못하는 것</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>전체 코드 파일 생성</td>
+      <td>문체나 개성 있는 글쓰기</td>
+    </tr>
+    <tr>
+      <td>복잡한 쿼리 언어 처리</td>
+      <td>SaaS 전체 앱 생성 (반복 필요)</td>
+    </tr>
+    <tr>
+      <td>엔지니어링 개념 설명</td>
+      <td>대화형 인터페이스 대응</td>
+    </tr>
+    <tr>
+      <td>단순 의료 진단</td>
+      <td>감성적 콘텐츠 작성</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="3-왜-이렇게-복잡한-모델을-만들었을까"><strong>3. 왜 이렇게 복잡한 모델을 만들었을까?</strong></h2>
+
+<ul>
+  <li>OpenAI는 O1을 <strong>“에이전트형 리포트 생성기”</strong>로 정의하고 있으며, 월 $2000 수준의 <strong>O1 Pro</strong> 상품 출시도 예상됩니다.</li>
+  <li>해외에서는 <strong>“엔지니어 연봉 대비 훨씬 싸다”</strong>는 반응도 있습니다.</li>
+  <li>답변에 5분이 걸려도 <strong>그만한 가치가 있는 질문이라면</strong> 활용도가 매우 높습니다.</li>
+</ul>
+
+<hr />
+
+<h2 id="4-uiux에-대한-제안"><strong>4. UI/UX에 대한 제안</strong></h2>
+
+<ul>
+  <li>O1의 긴 결과물은 <strong>목차 기반 구조화된 뷰</strong>가 필수</li>
+  <li>Claude처럼 <strong>카드 기반 맥락 관리</strong>가 유용</li>
+  <li><strong>스트리밍 응답 기능</strong>이 적용되면 활용성 대폭 증가 예상</li>
+</ul>
+
+<hr />
+
+<h2 id="5-o1의-미래"><strong>5. O1의 미래</strong></h2>
+
+<ul>
+  <li><strong>즉답형 AI에서 백그라운드 인텔리전스형 AI로의 진화</strong></li>
+  <li>사용자는 <strong>5분, 1시간, 하루, 심지어 3~5일이라도 기다릴 수 있음</strong></li>
+  <li>반복 작업을 줄이고 ‘결과 중심 AI’로 활용되는 모델로 성장할 것</li>
+</ul>
+
+<hr />
+
+<h2 id="6-핵심-요약-이렇게-쓰세요"><strong>6. 핵심 요약: 이렇게 쓰세요</strong></h2>
+
+<ul>
+  <li><strong>질문하지 말고, 설명하세요</strong></li>
+  <li><strong>단계별 안내보다 결과물의 정의를 강조하세요</strong></li>
+  <li><strong>맥락을 풍부하게, 예시는 구체적으로</strong></li>
+</ul>
+
+<hr />
+
+<p>GPT-4o와 Claude가 실시간 상호작용에 강하다면,<br />
+O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <strong>‘한 방에 끝내는 AI’</strong>입니다.</p>
+
+<p>그만큼, <strong>사용자도 프롬프트가 아닌 ‘설명서’를 써야</strong> 진짜 능력을 끌어낼 수 있습니다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#gpt4o" class="page__taxonomy-item p-category" rel="tag">gpt4o</a><span class="sep">, </span>
+    
+      <a href="/tags/#o1" class="page__taxonomy-item p-category" rel="tag">o1</a><span class="sep">, </span>
+    
+      <a href="/tags/#openai" class="page__taxonomy-item p-category" rel="tag">openai</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ai" class="page__taxonomy-item p-category" rel="tag">ai</a><span class="sep">, </span>
+    
+      <a href="/categories/#tech" class="page__taxonomy-item p-category" rel="tag">tech</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T05:00:00+00:00">May 9, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/tech/ai/cloud/Gemini-2.0-%EC%9D%B4%EC%A0%9C-%EB%88%84%EA%B5%AC%EB%82%98-%EC%82%AC%EC%9A%A9-%EA%B0%80%EB%8A%A5/" class="pagination--pager" title="Gemini 2.0 이제 누구나 사용 가능">Previous</a>
+    
+    
+      <a href="/cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" class="pagination--pager" title="GCP vs AWS: AI 서비스 관점 비교">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%84%9C.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/" rel="permalink">ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS 로드 밸런서 4종 완전 비교. 어떤 상황에 어떤 걸 써야 할까?
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/archi-sample.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/" rel="permalink">AWS Summit Seoul 2025 탐방기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS는 어떤 것을 밀고 있나?
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/archi-sample.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-AWS-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90/" rel="permalink">이쁨 받는 AWS 아키텍처 만들어보자
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">이쁨받는 AWS 아키텍처 만드는 7가지 원칙
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/Knowledge-Bases-feat-img.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/cloud/ai/business/AWS-Bedrock-%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84-A-to-Z-%EB%AA%A8%EB%91%90-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0/" rel="permalink">AWS Bedrock 지식기반을 A to Z 모두 구현해보기
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          9 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">직접 AWS 완전관리형 서비스 따라만들어보자
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="site-footer">
+  <div style="max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; font-size: 0.95rem;">
+
+    <!-- TECH 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">TECH</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/ai/" style="color: #222; text-decoration: none;">AI</a></li>
+        <li><a href="/categories/cloud/" style="color: #222; text-decoration: none;">Cloud</a></li>
+      </ul>
+    </div>
+
+    <!-- PRIVATE 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">PRIVATE</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/business/" style="color: #222; text-decoration: none;">Business</a></li>
+        <li><a href="/categories/blog/" style="color: #222; text-decoration: none;">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">RECENT</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/recent/" style="color: #222; text-decoration: none;">최근 글 보기</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">INFOMATION</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li style="color: #222; text-decoration: none;">aiden02095@gmail.com</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; color: #666;">
+    © 2025 Aiden의 든든한 Blog. All rights reserved.
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
