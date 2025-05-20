@@ -1,10 +1,10 @@
 ---
-layout: home
+layout: splash
 title: "Humans to Mars"
 permalink: /
-<!-- entries_layout: grid -->
 classes: wide
-paginate: true
+pagination: 
+  enabled: true
 header:
   overlay_image: /assets/images/teaser.webp
   overlay_filter: 0.4
@@ -15,9 +15,28 @@ header:
 excerpt: "AI, Cloud, IT 전반적인 기술 블로그"
 ---
 
-{% assign posts = site.posts %}
 <div class="entries-grid">
-  {% for post in posts %}
+  {% for post in paginator.posts %}
     {% include archive-single.html type="grid" %}
   {% endfor %}
 </div>
+
+{% if paginator.total_pages > 1 %}
+<nav class="pagination">
+  <ul>
+    {% if paginator.previous_page %}
+    <li><a href="{{ paginator.previous_page_path | relative_url }}">Newer</a></li>
+    {% endif %}
+
+    {% for trail in paginator.page_trail %}
+    <li {% if page.url == trail.path %}class="active"{% endif %}>
+      <a href="{{ trail.path | relative_url }}">{{ trail.num }}</a>
+    </li>
+    {% endfor %}
+
+    {% if paginator.next_page %}
+    <li><a href="{{ paginator.next_page_path | relative_url }}">Older</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
