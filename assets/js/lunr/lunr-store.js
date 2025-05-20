@@ -39,7 +39,7 @@ var store = [{
         "excerpt":"1. 클라우드의 끝이 아닌, 시작점 이번 서밋에서 AWS는 더 이상 단순한 인프라 기업이 아니었다. AI, 서버리스, 지속 가능성까지… 그들의 새로운 ‘무기’는 기존의 패러다임을 완전히 전복시키는 인상을 주었다. 특히 AWS가 강조한 방향성은 ‘모든 기업이 생성형 AI를 바로 실무에 도입할 수 있는 실용성 중심’이었다. 대표적인 키노트와 세션 주제들은 하나같이 생성형 AI에 집중되어...","categories": ["cloud"],
         "tags": ["AWS","2025","Summit","코엑스"],
         "url": "/cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/",
-        "teaser": "/assets/images/post_img/archi-sample.png"
+        "teaser": "/assets/images/post_img/IMG_4627%20(2).gif"
       },{
         "title": "ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리",
         "excerpt":"1. 들어가며 AWS에서 서비스를 운영하다 보면, 로드 밸런서는 거의 필수다. 하지만 ELB 안에도 종류가 4가지나 있어서 처음 접하면 헷갈리기 쉽다. 웹 서비스엔 ALB? 게임 서버엔 NLB? 옛날 시스템은 CLB? 방화벽 연결엔 GWLB? 이번 글에서는 AWS의 로드 밸런서 종류를 한 번에 정리해보고, 각 로드 밸런서가 어떤 상황에 적합한지 사례를 들어가며 설명해보려고...","categories": ["cloud"],
