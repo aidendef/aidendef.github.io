@@ -7,7 +7,7 @@ gem "base64"    # Ruby 3.4+에서 필요
 
 group :jekyll_plugins do
     gem "jekyll-paginate-v2"
-    gem "jekyll-sitemap"        # ← 이거 추가!
+    gem "jekyll-sitemap"
     gem "jekyll-feed"
     gem "jekyll-gist"
     gem "jekyll-include-cache"
