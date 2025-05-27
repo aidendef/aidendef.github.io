@@ -11,12 +11,8 @@ toc_sticky: true
 # classes: wide
 excerpt : 그래프를 알아보자
 header:
-  teaser: https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm1tMXRkNTI0enBueWlmd2V3Ymt2cHAzM3ExaXl3NnMydjJyN3RqcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7VzgMsB6FLCilwS30v/giphy.gif
+  teaser: /assets/images/post_img/langgraph1.png
 ---
-
-/assets/images/post_img/langgraph1.png
-
-https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm1tMXRkNTI0enBueWlmd2V3Ymt2cHAzM3ExaXl3NnMydjJyN3RqcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7VzgMsB6FLCilwS30v/giphy.gif
 
 ## 간단한 그래프
 
