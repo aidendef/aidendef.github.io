@@ -48,10 +48,10 @@ var store = [{
         "teaser": "/assets/images/post_img/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%84%9C.png"
       },{
         "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(1)",
-        "excerpt":"/assets/images/post_img/langgraph1.png https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm1tMXRkNTI0enBueWlmd2V3Ymt2cHAzM3ExaXl3NnMydjJyN3RqcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7VzgMsB6FLCilwS30v/giphy.gif 간단한 그래프 LangGraph에서 개념을 갖고 있는 Graph에 대해서 알아보기 위해서, 아주 간단한 그래프를 그려볼 것입니다. 간단한 3개의 노드를 이용해서 그래프를 그려볼 수 있습니다. 패키지 설치 %%capture --no-stderr %pip install --quiet -U langgraph State (상태저장) 우선, 그래프의 상태를 저장하는 State class를 우선 정의합니다. 이 상태 스키마는 그래프의 모든 노드에...","categories": ["ai","cloud"],
+        "excerpt":"간단한 그래프 LangGraph에서 개념을 갖고 있는 Graph에 대해서 알아보기 위해서, 아주 간단한 그래프를 그려볼 것입니다. 간단한 3개의 노드를 이용해서 그래프를 그려볼 수 있습니다. 패키지 설치 %%capture --no-stderr %pip install --quiet -U langgraph State (상태저장) 우선, 그래프의 상태를 저장하는 State class를 우선 정의합니다. 이 상태 스키마는 그래프의 모든 노드에 대한 정보들을...","categories": ["ai","cloud"],
         "tags": ["AWS","Agentic","LangGraph","Bedrock"],
         "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/",
-        "teaser": "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm1tMXRkNTI0enBueWlmd2V3Ymt2cHAzM3ExaXl3NnMydjJyN3RqcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/7VzgMsB6FLCilwS30v/giphy.gif"
+        "teaser": "/assets/images/post_img/langgraph1.png"
       },{
         "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(2)",
         "excerpt":"라우터란? 사용자의 인풋에 따라서, Gen AI를 컨텍스트에 맞는 답변을 수행해야 하는지를 판단하게 할 수 있습니다. 이러한 작업을 수행하는 것이 라우터입니다. 그래서 사용자의 컨텍스트에 맞게 해당되는 툴로 답변을 유도하거나, LLM이 스스로 답변하는 형태로 답변하도록 합니다. 이 실습예제도 사용자의 요청에 따라서 툴을 사용하거난, LLM을 통해서 직접 답변하게는 등의 수행이 제대로 되는지를 실습해...","categories": ["ai","cloud"],
