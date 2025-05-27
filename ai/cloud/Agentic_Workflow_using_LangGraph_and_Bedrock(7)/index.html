@@ -1,0 +1,858 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Agentic_Workflow_using_LangGraph_and_Bedrock(7) | Aiden의 든든한 Blog</title>
+<meta name="description" content="Human in the Loop 변경을 알아보자">
+
+
+  <meta name="author" content="Your Name">
+  
+  <meta property="article:author" content="Your Name">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Aiden의 든든한 Blog">
+<meta property="og:title" content="Agentic_Workflow_using_LangGraph_and_Bedrock(7)">
+<meta property="og:url" content="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/">
+
+
+  <meta property="og:description" content="Human in the Loop 변경을 알아보자">
+
+
+
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/langgraph7.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2025-05-26T15:07:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Aiden의 든든한 Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt="Aiden의 든든한 Blog"></a>
+        
+        <a class="site-title" href="/">
+          Aiden의 든든한 Blog
+          <span class="site-subtitle">V1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/categories/tech/"
+                
+                
+              >Tech</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/private/"
+                
+                
+              >Private</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/recent"
+                
+                
+              >Recent</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Tech</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/ai/">AI</a></li>
+            
+              <li><a href="/categories/cloud/">Cloud</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Private</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/business/">Business</a></li>
+            
+              <li><a href="/categories/blog/">Blog</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <a href="/recent"><span class="nav__sub-title">Recent</span></a>
+          
+
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Agentic_Workflow_using_LangGraph_and_Bedrock(7)">
+    <meta itemprop="description" content="Human in the Loop 변경을 알아보자">
+    <meta itemprop="datePublished" content="2025-05-26T15:07:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/" itemprop="url">Agentic_Workflow_using_LangGraph_and_Bedrock(7)
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#human-in-the-loop-변경">Human in the Loop 변경</a></li><li><a href="#bedrock-setup">Bedrock setup</a></li><li><a href="#상태-수정">상태 수정</a></li><li><a href="#툴-선언">툴 선언</a></li><li><a href="#그래프-생성">그래프 생성</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="human-in-the-loop-변경">Human in the Loop 변경</h2>
+<p>중단점이 사용자 승인을 지원하는 방법을 보여드렸지만 그래프가 중단된 후 그래프 상태를 수정하는 방법에 대해서는 아직 설명드리지 않았습니다.</p>
+
+<p>이제 그래프 상태를 직접 편집하고 사람의 피드백을 입력하는 방법을 보여드리겠습니다.</p>
+
+<h2 id="bedrock-setup">Bedrock setup</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import os
+import getpass
+import boto3
+from langchain_aws import ChatBedrockConverse
+from langchain_aws import ChatBedrock
+
+# ---- ⚠️ Update region for your AWS setup ⚠️ ----
+aws_region = os.getenv("AWS_REGION")
+bedrock_client = boto3.client("bedrock-runtime", region_name=aws_region)
+
+llm = ChatBedrockConverse(
+    model="anthropic.claude-3-haiku-20240307-v1:0",
+    temperature=0,
+    max_tokens=None,
+    client=bedrock_client,
+    # other params...
+)
+
+llm.invoke("what is the Amazon Nova?")
+
+def _set_env(var: str):
+    if not os.environ.get(var):
+        os.environ[var] = getpass.getpass(f"{var}: ")
+</code></pre></div></div>
+<h2 id="상태-수정">상태 수정</h2>
+
+<p>이전에는 중단점을 도입했습니다.</p>
+
+<p>그래프를 중단하고 다음 노드를 실행하기 전에 사용자의 승인을 기다리는 데 사용했습니다.</p>
+
+<p>하지만 중단점은 그래프 상태를 수정할 수 있는 기회이기도 합니다.</p>
+
+<p>어시스턴트 노드 앞에 중단점이 있는 에이전트를 설정해 보겠습니다.</p>
+
+<h2 id="툴-선언">툴 선언</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def multiply(a: int, b: int) -&gt; int:
+    """Multiply a and b.
+
+    Args:
+        a: first int
+        b: second int
+    """
+    return a * b
+
+# This will be a tool
+def add(a: int, b: int) -&gt; int:
+    """Adds a and b.
+
+    Args:
+        a: first int
+        b: second int
+    """
+    return a + b
+
+def divide(a: int, b: int) -&gt; float:
+    """Adds a and b.
+
+    Args:
+        a: first int
+        b: second int
+    """
+    return a / b
+
+tools = [add, multiply, divide]
+llm_with_tools = llm.bind_tools(tools)
+</code></pre></div></div>
+
+<h2 id="그래프-생성">그래프 생성</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from IPython.display import Image, display
+
+from langgraph.checkpoint.memory import MemorySaver
+from langgraph.graph import MessagesState
+from langgraph.graph import START, StateGraph
+from langgraph.prebuilt import tools_condition, ToolNode
+
+from langchain_core.messages import HumanMessage, SystemMessage
+
+# System message
+sys_msg = SystemMessage(content="You are a helpful assistant tasked with performing arithmetic on a set of inputs.")
+
+# Node
+def assistant(state: MessagesState):
+   return {"messages": [llm_with_tools.invoke([sys_msg] + state["messages"])]}
+
+# Graph
+builder = StateGraph(MessagesState)
+
+# Define nodes: these do the work
+builder.add_node("assistant", assistant)
+builder.add_node("tools", ToolNode(tools))
+
+# Define edges: these determine the control flow
+builder.add_edge(START, "assistant")
+builder.add_conditional_edges(
+    "assistant",
+    # If the latest message (result) from assistant is a tool call -&gt; tools_condition routes to tools
+    # If the latest message (result) from assistant is a not a tool call -&gt; tools_condition routes to END
+    tools_condition,
+)
+builder.add_edge("tools", "assistant")
+
+memory = MemorySaver()
+graph = builder.compile(interrupt_before=["assistant"], checkpointer=memory)
+
+# Show
+display(Image(graph.get_graph(xray=True).draw_mermaid_png()))
+</code></pre></div></div>
+
+<p><img src="/assets/images/post_img/langgraph7.png" alt="langgraph7" /></p>
+
+<p>수행해 봅시다.</p>
+
+<p>채팅 모델이 응답하기 전에 그래프가 중단된 것을 볼 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Input
+initial_input = {"messages": "Multiply 2 and 3"}
+
+# Thread
+thread = {"configurable": {"thread_id": "1"}}
+
+# Run the graph until the first interruption
+for event in graph.stream(initial_input, thread, stream_mode="values"):
+    event['messages'][-1].pretty_print()
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================ Human Message =================================
+
+Multiply 2 and 3
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>state = graph.get_state(thread)
+state.next
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>('assistant',)
+</code></pre></div></div>
+
+<p>이제 상태 업데이트를 직접 적용할 수 있습니다.</p>
+
+<p>메시지 키에 대한 업데이트는 add_messages 리듀서를 사용할 수 있습니다.</p>
+
+<ul>
+  <li>기존 메시지를 덮어쓰려면 메시지 ID를 제공하면 됩니다.</li>
+  <li>단순히 메시지 목록에 추가하려는 경우 아래와 같이 ID를 지정하지 않고 메시지를 전달할 수 있습니다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph.update_state(
+    thread,
+    {"messages": [HumanMessage(content="No, actually multiply 3 and 3!")]},
+)
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+================================ Human Message =================================
+
+Multiply 2 and 3
+('assistant',)
+{'configurable': {'thread_id': '1',
+  'checkpoint_ns': '',
+  'checkpoint_id': '1eff2610-691e-624f-8001-9d5f35e0e8e0'}}
+</code></pre></div></div>
+
+<p>한 번 살펴봅시다.</p>
+
+<p>update_state를 호출하여 새메세지로 업데이트하였습니다.</p>
+
+<p>add_messages 리듀서는 이를 상태 키인 메시지에 추가합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new_state = graph.get_state(thread).values
+for m in new_state['messages']:
+    m.pretty_print()
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================ Human Message =================================
+
+Multiply 2 and 3
+================================ Human Message =================================
+
+No, actually multiply 3 and 3!
+</code></pre></div></div>
+
+<p>이제 에이전트에 None을 전달하고 현재 상태에서 진행하도록 허용하여 진행하겠습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for event in graph.stream(None, thread, stream_mode="values"):
+    event['messages'][-1].pretty_print()
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================ Human Message =================================
+
+No, actually multiply 3 and 3!
+================================== Ai Message ==================================
+
+[{'type': 'text', 'text': "Okay, let's multiply 3 and 3:"}, {'type': 'tool_use', 'name': 'multiply', 'input': {'a': 3, 'b': 3}, 'id': 'tooluse_a-AWT-oiRv27JR1vq-enDQ'}]
+Tool Calls:
+  multiply (tooluse_a-AWT-oiRv27JR1vq-enDQ)
+ Call ID: tooluse_a-AWT-oiRv27JR1vq-enDQ
+  Args:
+    a: 3
+    b: 3
+================================= Tool Message =================================
+Name: multiply
+
+9
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>state = graph.get_state(thread)
+state.next
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>('assistant',)
+</code></pre></div></div>
+
+<p>이제 중단점이 있는 어시스턴트로 돌아왔습니다.</p>
+
+<p>다시 None을 전달하여 계속 진행하면 됩니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for event in graph.stream(None, thread, stream_mode="values"):
+    event['messages'][-1].pretty_print()
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================= Tool Message =================================
+Name: multiply
+
+9
+================================== Ai Message ==================================
+
+The result of multiplying 3 and 3 is 9.
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>state = graph.get_state(thread)
+state.next
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>()
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#agentic" class="page__taxonomy-item p-category" rel="tag">Agentic</a><span class="sep">, </span>
+    
+      <a href="/tags/#aws" class="page__taxonomy-item p-category" rel="tag">AWS</a><span class="sep">, </span>
+    
+      <a href="/tags/#bedrock" class="page__taxonomy-item p-category" rel="tag">Bedrock</a><span class="sep">, </span>
+    
+      <a href="/tags/#langgraph" class="page__taxonomy-item p-category" rel="tag">LangGraph</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ai" class="page__taxonomy-item p-category" rel="tag">ai</a><span class="sep">, </span>
+    
+      <a href="/categories/#cloud" class="page__taxonomy-item p-category" rel="tag">cloud</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-26T15:07:00+00:00">May 26, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=Agentic_Workflow_using_LangGraph_and_Bedrock%287%29%20https%3A%2F%2Faidendef.github.io%2F%2Fai%2Fcloud%2FAgentic_Workflow_using_LangGraph_and_Bedrock%287%29%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Fai%2Fcloud%2FAgentic_Workflow_using_LangGraph_and_Bedrock%287%29%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=Agentic_Workflow_using_LangGraph_and_Bedrock%287%29%20https%3A%2F%2Faidendef.github.io%2F%2Fai%2Fcloud%2FAgentic_Workflow_using_LangGraph_and_Bedrock%287%29%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(6)/" class="pagination--pager" title="Agentic_Workflow_using_LangGraph_and_Bedrock(6)">Previous</a>
+    
+    
+      <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/" class="pagination--pager" title="Agentic_Workflow_using_LangGraph_and_Bedrock(8)">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph8.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(8)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">동적인 Breakpoint을 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph6.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(6)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(6)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">휴먼 인 더 루프를 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph5.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(5)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(5)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">상태 스키마를 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph4.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(4)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(4)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">그래프 메모리를 알아보자
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="site-footer">
+  <div style="max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; font-size: 0.95rem;">
+
+    <!-- TECH 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">TECH</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/ai/" style="color: #222; text-decoration: none;">AI</a></li>
+        <li><a href="/categories/cloud/" style="color: #222; text-decoration: none;">Cloud</a></li>
+      </ul>
+    </div>
+
+    <!-- PRIVATE 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">PRIVATE</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/business/" style="color: #222; text-decoration: none;">Business</a></li>
+        <li><a href="/categories/blog/" style="color: #222; text-decoration: none;">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">RECENT</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/recent/" style="color: #222; text-decoration: none;">최근 글 보기</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">INFOMATION</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li style="color: #222; text-decoration: none;">aiden02095@gmail.com</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; color: #666;">
+    © 2025 Aiden의 든든한 Blog. All rights reserved.
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

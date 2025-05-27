@@ -1,0 +1,809 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Agentic_Workflow_using_LangGraph_and_Bedrock(1) | Aiden의 든든한 Blog</title>
+<meta name="description" content="그래프를 알아보자">
+
+
+  <meta name="author" content="Your Name">
+  
+  <meta property="article:author" content="Your Name">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Aiden의 든든한 Blog">
+<meta property="og:title" content="Agentic_Workflow_using_LangGraph_and_Bedrock(1)">
+<meta property="og:url" content="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/">
+
+
+  <meta property="og:description" content="그래프를 알아보자">
+
+
+
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/langgraph1.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2025-05-26T15:01:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Aiden의 든든한 Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt="Aiden의 든든한 Blog"></a>
+        
+        <a class="site-title" href="/">
+          Aiden의 든든한 Blog
+          <span class="site-subtitle">V1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/categories/tech/"
+                
+                
+              >Tech</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/private/"
+                
+                
+              >Private</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/recent"
+                
+                
+              >Recent</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Tech</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/ai/">AI</a></li>
+            
+              <li><a href="/categories/cloud/">Cloud</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Private</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/business/">Business</a></li>
+            
+              <li><a href="/categories/blog/">Blog</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <a href="/recent"><span class="nav__sub-title">Recent</span></a>
+          
+
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Agentic_Workflow_using_LangGraph_and_Bedrock(1)">
+    <meta itemprop="description" content="그래프를 알아보자">
+    <meta itemprop="datePublished" content="2025-05-26T15:01:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/" itemprop="url">Agentic_Workflow_using_LangGraph_and_Bedrock(1)
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#간단한-그래프">간단한 그래프</a></li><li><a href="#패키지-설치">패키지 설치</a></li><li><a href="#state-상태저장">State (상태저장)</a></li><li><a href="#노드">노드</a></li><li><a href="#엣지">엣지</a></li><li><a href="#그래프-구성">그래프 구성</a></li><li><a href="#그래프-호출">그래프 호출</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="간단한-그래프">간단한 그래프</h2>
+
+<p>LangGraph에서 개념을 갖고 있는 Graph에 대해서 알아보기 위해서, 아주 간단한 그래프를 그려볼 것입니다.
+간단한 3개의 노드를 이용해서 그래프를 그려볼 수 있습니다.</p>
+
+<h2 id="패키지-설치">패키지 설치</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%capture --no-stderr
+%pip install --quiet -U langgraph
+</code></pre></div></div>
+
+<h2 id="state-상태저장">State (상태저장)</h2>
+
+<p>우선, 그래프의 상태를 저장하는 State class를 우선 정의합니다.
+이 상태 스키마는 그래프의 모든 노드에 대한 정보들을 저장하고 처리합니다.</p>
+
+<p>정형화된 데이터 저장을 위해서, 이번 예시에서는 <code class="language-plaintext highlighter-rouge">TypedDict</code> 클래스를 이용해서 State를 생성합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from typing_extensions import TypedDict
+
+class State(TypedDict):
+    graph_state: str
+</code></pre></div></div>
+
+<h2 id="노드">노드</h2>
+
+<p>그래프에서 각각이 의미있는 수행포인트를 지정하는 것이 노드입니다.</p>
+
+<p>각각의 노드들은 그래프의 현재 상태를 알고 판단을 수행해야 하기 때문에, 위에서 정의한 state 클래스를 입력 아규먼트로 사용합니다.</p>
+
+<p>위에서 State를 정의할 때, graph_state에 대한 멤버변수를 정의했기 때문에, 각 노드에서는 state 클래스의 멤버변수를 접근하여 활용할 수 있습니다.</p>
+
+<p>그리고 각 노드는 처리된 결과를 리턴합니다.</p>
+
+<p>이 예제에서는 각 노드에서 이전 state에 저장된 정보를 계속해서 업데이트하면서 결과가 어떻게 바뀌는지를 확인할 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def node_1(state):
+    print("---Node 1---")
+    return {"graph_state": state['graph_state'] +" I am"}
+
+def node_2(state):
+    print("---Node 2---")
+    return {"graph_state": state['graph_state'] +" happy!"}
+
+def node_3(state):
+    print("---Node 3---")
+    return {"graph_state": state['graph_state'] +" sad!"}
+</code></pre></div></div>
+
+<h2 id="엣지">엣지</h2>
+
+<p>노드가 각 역할을 수행하는 점들이라고 한다면, 엣지를 각 점들을 연결하는 역할을 수행합니다.</p>
+
+<p>이 방식을 통해서, 각 노드들을 연결하면서, 전체적인 Workflow 그래프를 완성합니다.</p>
+
+<p>기본적인 엣지의 형태는 노드1에서 노드2로 연결하는 역할만 수행합니다.</p>
+
+<p>조건분기 엣지는 입력되는 결과에 따라서 다음에 수행해야 하는 노드를 선택하는 조건을 분기하는 로직을 넣어서 처리하는 역할을 수행합니다. 그래서 분기할 수 있는 로직을 넣어서 처리합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import random
+from typing import Literal
+
+def decide_mood(state) -&gt; Literal["node_2", "node_3"]:
+    
+    # Often, we will use state to decide on the next node to visit
+    user_input = state['graph_state'] 
+    
+    # Here, let's just do a 50 / 50 split between nodes 2, 3
+    if random.random() &lt; 0.5:
+
+        # 50% of the time, we return Node 2
+        return "node_2"
+    
+    # 50% of the time, we return Node 3
+    return "node_3"
+</code></pre></div></div>
+
+<h2 id="그래프-구성">그래프 구성</h2>
+
+<p>이전 과정까지, 노드와 엣지에 대해서 설명했으니, 그래프를 이제 그릴 수 있습니다.</p>
+
+<p>우선, StateGraph를 초기화하여 생성합니다.</p>
+
+<p>그리고, 노드와 엣지를 추가합니다.</p>
+
+<p>그래프를 시작할 때는 <code class="language-plaintext highlighter-rouge">START</code>라는 특수 노드를 우선 정의해야 합니다.
+이 노드이 있어야 그래프가 시작할 수 있습니다.</p>
+
+<p>마찬가지로, <code class="language-plaintext highlighter-rouge">END</code>라는 특수 노드를 정의해야 합니다.
+이 노드를 통해서 그래프의 최종 상태를 정의할 수 있습니다.</p>
+
+<p>마지막으로 이렇게 정의된 내용들을 <code class="language-plaintext highlighter-rouge">compile</code>하면 그래프가 완성됩니다.</p>
+
+<p>그리고 이렇게 만들어진 그래프를 Mermain diagram 기능을 이용해서 그래프를 png 파일로 visualize 할 수 있습니다.
+이렇게 Visualization 방식을 통해서 그래프를 빠르게 이해할 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def dummy_func(state) -&gt; Literal["node_2", "node_3"]:
+    
+    # Often, we will use state to decide on the next node to visit
+    user_input = state['graph_state']
+
+    return "node_2"
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from IPython.display import Image, display
+from langgraph.graph import StateGraph, START, END
+
+# Build graph
+builder = StateGraph(State)
+builder.add_node("node_1", node_1)
+builder.add_node("node_2", node_2)
+builder.add_node("node_3", node_3)
+builder.add_edge(START, "node_1")
+builder.add_conditional_edges("node_1", dummy_func)
+builder.add_edge("node_2", END)
+builder.add_edge("node_3", END)
+
+# Add
+graph = builder.compile()
+
+# View
+display(Image(graph.get_graph().draw_mermaid_png()))
+</code></pre></div></div>
+<p><img src="/assets/images/post_img/langgraph1.png" alt="langgraph1" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from IPython.display import Image, display
+from langgraph.graph import StateGraph, START, END
+
+
+# Build graph
+builder = StateGraph(State)
+builder.add_node("node_1", node_1)
+builder.add_node("node_2", node_2)
+builder.add_node("node_3", node_3)
+
+# Logic
+builder.add_edge(START, "node_1")
+builder.add_conditional_edges("node_1", decide_mood)
+builder.add_edge("node_2", END)
+builder.add_edge("node_3", END)
+
+# Add
+graph = builder.compile()
+
+# View
+display(Image(graph.get_graph().draw_mermaid_png()))
+</code></pre></div></div>
+
+<h2 id="그래프-호출">그래프 호출</h2>
+
+<p>The compiled graph implements the <a href="https://python.langchain.com/v0.1/docs/expression_language/interface/">runnable</a> protocol.
+이렇게 컴파일된 그래프는 LangChain의 <code class="language-plaintext highlighter-rouge">runnable</code>로 동작합니다.</p>
+
+<p>이 방식은 LangChain 콤포넌트들을 효과적으로 처리합니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">invoke</code>는 이러한 <code class="language-plaintext highlighter-rouge">runnable</code> 동작 아키텍처의 기본적인 호출 방식입니다.</p>
+
+<p>여기에서 처음 수행해 보는 예시는 <code class="language-plaintext highlighter-rouge">{"graph_state": "Hi, this is lance."}</code>형태로 아주 간단한 메세지를 전달하는 것입니다. 그래프의 상태를 dict 형태로 정의했기 때문에, dict 형태의 메세지로 만들어서 호출합니다. 이 메세지를 인풋값으로 초기에 호출합니다.</p>
+
+<p>이 <code class="language-plaintext highlighter-rouge">invoke</code>가 그래프를 통해서 호출되면, 그래프는 <code class="language-plaintext highlighter-rouge">START</code> 노드에서부터 진행을 시작합니다.</p>
+
+<p>그러면 각 노드들은 차례대로 진행합니다.</p>
+
+<p>조건분기 엣지에서는 랜덤 로직을 구현하였습니다. 그래서 노드2와 노드3를 50%의 확률로 번갈아가면서 호출합니다.</p>
+
+<p>각 노드 함수는 현재 상태를 수신하니다. 그리고 처리된 결과를 graph state 클래스에 업데이트합니다.</p>
+
+<p>이 수행은 <code class="language-plaintext highlighter-rouge">END</code>노드에 다달을 때까지 지속합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph.invoke({"graph_state" : "Hi, this is Lance."})
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---Node 1---
+---Node 3---
+{'graph_state': 'Hi, this is Lance. I am sad!'}
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">invoke</code> 는 그래프에서 동기방식으로 동작합니다.</p>
+
+<p>그래서, 이전 단계가 완전히 끝나기를 기다렸다가 수행합니다.</p>
+
+<p>모든 노드의 수행이 끝나면 마지막 graph state 값을 출력합니다.</p>
+
+<p>이 예시에서는 노드2나 노드3이 완전히 끝나고 나서 결과를 출력합니다. 아래와 같은 결과가 출력됩니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'graph_state': 'Hi, this is Lance. I am sad!'}
+</code></pre></div></div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#agentic" class="page__taxonomy-item p-category" rel="tag">Agentic</a><span class="sep">, </span>
+    
+      <a href="/tags/#aws" class="page__taxonomy-item p-category" rel="tag">AWS</a><span class="sep">, </span>
+    
+      <a href="/tags/#bedrock" class="page__taxonomy-item p-category" rel="tag">Bedrock</a><span class="sep">, </span>
+    
+      <a href="/tags/#langgraph" class="page__taxonomy-item p-category" rel="tag">LangGraph</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ai" class="page__taxonomy-item p-category" rel="tag">ai</a><span class="sep">, </span>
+    
+      <a href="/categories/#cloud" class="page__taxonomy-item p-category" rel="tag">cloud</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-26T15:01:00+00:00">May 26, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=Agentic_Workflow_using_LangGraph_and_Bedrock%281%29%20https%3A%2F%2Faidendef.github.io%2F%2Fai%2Fcloud%2FAgentic_Workflow_using_LangGraph_and_Bedrock%281%29%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Fai%2Fcloud%2FAgentic_Workflow_using_LangGraph_and_Bedrock%281%29%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=Agentic_Workflow_using_LangGraph_and_Bedrock%281%29%20https%3A%2F%2Faidendef.github.io%2F%2Fai%2Fcloud%2FAgentic_Workflow_using_LangGraph_and_Bedrock%281%29%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/" class="pagination--pager" title="ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리">Previous</a>
+    
+    
+      <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(2)/" class="pagination--pager" title="Agentic_Workflow_using_LangGraph_and_Bedrock(2)">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph8.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(8)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">동적인 Breakpoint을 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph7.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(7)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Human in the Loop 변경을 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph6.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(6)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(6)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">휴먼 인 더 루프를 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph5.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(5)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(5)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">상태 스키마를 알아보자
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="site-footer">
+  <div style="max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; font-size: 0.95rem;">
+
+    <!-- TECH 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">TECH</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/ai/" style="color: #222; text-decoration: none;">AI</a></li>
+        <li><a href="/categories/cloud/" style="color: #222; text-decoration: none;">Cloud</a></li>
+      </ul>
+    </div>
+
+    <!-- PRIVATE 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">PRIVATE</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/business/" style="color: #222; text-decoration: none;">Business</a></li>
+        <li><a href="/categories/blog/" style="color: #222; text-decoration: none;">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">RECENT</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/recent/" style="color: #222; text-decoration: none;">최근 글 보기</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">INFOMATION</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li style="color: #222; text-decoration: none;">aiden02095@gmail.com</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; color: #666;">
+    © 2025 Aiden의 든든한 Blog. All rights reserved.
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

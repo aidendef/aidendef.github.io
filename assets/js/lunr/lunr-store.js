@@ -46,4 +46,52 @@ var store = [{
         "tags": ["AWS","ALB","NLB","CLB","GWLB","로드밸런서"],
         "url": "/cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/",
         "teaser": "/assets/images/post_img/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%84%9C.png"
+      },{
+        "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(1)",
+        "excerpt":"간단한 그래프 LangGraph에서 개념을 갖고 있는 Graph에 대해서 알아보기 위해서, 아주 간단한 그래프를 그려볼 것입니다. 간단한 3개의 노드를 이용해서 그래프를 그려볼 수 있습니다. 패키지 설치 %%capture --no-stderr %pip install --quiet -U langgraph State (상태저장) 우선, 그래프의 상태를 저장하는 State class를 우선 정의합니다. 이 상태 스키마는 그래프의 모든 노드에 대한 정보들을...","categories": ["ai","cloud"],
+        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
+        "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/",
+        "teaser": "/assets/images/post_img/langgraph1.png"
+      },{
+        "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(2)",
+        "excerpt":"라우터란? 사용자의 인풋에 따라서, Gen AI를 컨텍스트에 맞는 답변을 수행해야 하는지를 판단하게 할 수 있습니다. 이러한 작업을 수행하는 것이 라우터입니다. 그래서 사용자의 컨텍스트에 맞게 해당되는 툴로 답변을 유도하거나, LLM이 스스로 답변하는 형태로 답변하도록 합니다. 이 실습예제도 사용자의 요청에 따라서 툴을 사용하거난, LLM을 통해서 직접 답변하게는 등의 수행이 제대로 되는지를 실습해...","categories": ["ai","cloud"],
+        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
+        "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(2)/",
+        "teaser": "/assets/images/post_img/langgraph2.png"
+      },{
+        "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(3)",
+        "excerpt":"툴 에이전트 실습 앞에서 라우터를 실습해 봤기 때문에, 여기에서는 좀 더 해당 개념을 확장해서 수행할 예정입니다. 우리는 앞의 라우터 실습에서, LLM에게 질의를 하였고, 만약에 질의의 내용이 툴을 호출하는 것이라면, ToolMessage를 통해서 답변을 하는 것을 보았습니다. 이번에는, ToolMessage를 바로 사용자에게 답변하는 것이 아니라, 이 메세지를 다시 모델에게 전달할 수 있을까요? 그래서...","categories": ["ai","cloud"],
+        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
+        "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(3)/",
+        "teaser": "/assets/images/post_img/langgraph3.png"
+      },{
+        "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(4)",
+        "excerpt":"그래프 메모리란? Agent를 통해서 처리되는 것들을 살펴 보았습니다. 하지만, LLM은 기본적으로 사용자가 수행하는 대화를 기억하지 못합니다. 그래서 그래프에서도 사용자가 수행하는 대화를 기억할 수 있도록 하는 장치가 필요합니다. 그래서 그래프 메모리는 이렇게 사용자가 수행한 대화를 기억할 수 있도록 도와서 컨텍스트에 맞는 답변을 하도록 도움을 줍니다. Bedrock setup import os import getpass...","categories": ["ai","cloud"],
+        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
+        "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(4)/",
+        "teaser": "/assets/images/post_img/langgraph4.png"
+      },{
+        "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(5)",
+        "excerpt":"상태 스키마 이 모듈에서는 상태를 저장하는 스키마와 이와 연관된 메모리에 대해서 좀 더 알아보겠습니다. Bedrock Setting import os import getpass import boto3 from langchain_aws import ChatBedrockConverse from langchain_aws import ChatBedrock # ---- ⚠️ Update region for your AWS setup ⚠️ ---- aws_region = os.getenv(\"AWS_REGION\") bedrock_client = boto3.client(\"bedrock-runtime\", region_name=aws_region) llm =...","categories": ["ai","cloud"],
+        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
+        "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(5)/",
+        "teaser": "/assets/images/post_img/langgraph5.png"
+      },{
+        "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(6)",
+        "excerpt":"Human in the Loop 이제 휴먼 인 더 루프가 필요한 배경에 대해 이야기해 보겠습니다: (1) 승인 - 에이전트를 중단하고 사용자에게 상태를 표시하고 사용자가 작업을 수락하도록 허용할 수 있습니다. (2) 디버깅 - 그래프를 되감아 문제를 재현하거나 피할 수 있습니다. (3) 편집 - 상태를 수정할 수 있습니다. LangGraph는 다양한 휴먼 인 더...","categories": ["ai","cloud"],
+        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
+        "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(6)/",
+        "teaser": "/assets/images/post_img/langgraph6.png"
+      },{
+        "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(7)",
+        "excerpt":"Human in the Loop 변경 중단점이 사용자 승인을 지원하는 방법을 보여드렸지만 그래프가 중단된 후 그래프 상태를 수정하는 방법에 대해서는 아직 설명드리지 않았습니다. 이제 그래프 상태를 직접 편집하고 사람의 피드백을 입력하는 방법을 보여드리겠습니다. Bedrock setup import os import getpass import boto3 from langchain_aws import ChatBedrockConverse from langchain_aws import ChatBedrock # ----...","categories": ["ai","cloud"],
+        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
+        "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/",
+        "teaser": "/assets/images/post_img/langgraph7.png"
+      },{
+        "title": "Agentic_Workflow_using_LangGraph_and_Bedrock(8)",
+        "excerpt":"동적인 Breakpoint 특정 단계에서 그래프를 멈추는 일반적인 방법으로 중단점을 다루었으며, 이를 통해 ‘승인’과 같은 사용 사례를 구현할 수 있습니다. 또한 그래프 상태를 편집하는 방법과 사람의 피드백을 도입하는 방법도 소개했습니다. 중단점은 개발자가 그래프를 컴파일하는 동안 특정 노드에 설정합니다. 하지만 때로는 그래프가 동적으로 중단되도록 하는 것이 유용할 때가 있습니다! 이것은 내부 중단점이며,...","categories": ["ai","cloud"],
+        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
+        "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/",
+        "teaser": "/assets/images/post_img/langgraph8.png"
       }]
