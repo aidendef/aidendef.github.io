@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-05-27T07:23:42+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">Agentic_Workflow_using_LangGraph_and_Bedrock(8)</title><link href="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/" rel="alternate" type="text/html" title="Agentic_Workflow_using_LangGraph_and_Bedrock(8)" /><published>2025-05-26T15:08:00+00:00</published><updated>2025-05-26T15:08:00+00:00</updated><id>https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)</id><content type="html" xml:base="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/"><![CDATA[<h2 id="동적인-breakpoint">동적인 Breakpoint</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-05-27T08:37:32+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">Agentic_Workflow_using_LangGraph_and_Bedrock(8)</title><link href="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/" rel="alternate" type="text/html" title="Agentic_Workflow_using_LangGraph_and_Bedrock(8)" /><published>2025-05-26T15:08:00+00:00</published><updated>2025-05-26T15:08:00+00:00</updated><id>https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)</id><content type="html" xml:base="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/"><![CDATA[<h2 id="동적인-breakpoint">동적인 Breakpoint</h2>
 
 <p>특정 단계에서 그래프를 멈추는 일반적인 방법으로 중단점을 다루었으며, 이를 통해 ‘승인’과 같은 사용 사례를 구현할 수 있습니다.</p>
 
@@ -165,7 +165,17 @@ print(state.next)
 print(state.next)
 </code></pre></div></div>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>()
-</code></pre></div></div>]]></content><author><name>Your Name</name></author><category term="ai" /><category term="cloud" /><category term="AWS" /><category term="Agentic" /><category term="LangGraph" /><category term="Bedrock" /><summary type="html"><![CDATA[동적인 Breakpoint을 알아보자]]></summary></entry><entry><title type="html">Agentic_Workflow_using_LangGraph_and_Bedrock(7)</title><link href="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/" rel="alternate" type="text/html" title="Agentic_Workflow_using_LangGraph_and_Bedrock(7)" /><published>2025-05-26T15:07:00+00:00</published><updated>2025-05-26T15:07:00+00:00</updated><id>https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)</id><content type="html" xml:base="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/"><![CDATA[<h2 id="human-in-the-loop-변경">Human in the Loop 변경</h2>
+</code></pre></div></div>]]></content><author><name>Your Name</name></author><category term="ai" /><category term="cloud" /><category term="AWS" /><category term="Agentic" /><category term="LangGraph" /><category term="Bedrock" /><summary type="html"><![CDATA[동적인 Breakpoint을 알아보자]]></summary></entry><entry><title type="html">나, 내 팀원이 가졌으면 하는 개발자 마인드</title><link href="https://aidendef.github.io//ai/cloud/%EA%B0%9C%EB%B0%9C%EC%9E%90_%EB%A7%88%EC%9D%B8%EB%93%9C/" rel="alternate" type="text/html" title="나, 내 팀원이 가졌으면 하는 개발자 마인드" /><published>2025-05-26T15:08:00+00:00</published><updated>2025-05-26T15:08:00+00:00</updated><id>https://aidendef.github.io//ai/cloud/%EA%B0%9C%EB%B0%9C%EC%9E%90_%EB%A7%88%EC%9D%B8%EB%93%9C</id><content type="html" xml:base="https://aidendef.github.io//ai/cloud/%EA%B0%9C%EB%B0%9C%EC%9E%90_%EB%A7%88%EC%9D%B8%EB%93%9C/"><![CDATA[<h2 id="개발자-마인드란">개발자 마인드란?</h2>
+<p>사실 개발을 진행하면서 개발실력이 중요하지만 서로서로 의견을 소통하고 교류하는 것이 더 크다.</p>
+
+<p>이럴때 우리는 어떤 마인드를 가지며 살아가야할까?</p>
+
+<p>아래 다른 포스팅이나 유튜브 등의 글을 지속적으로 업데이트할 예정이다.</p>
+
+<h2 id="링크-모음">링크 모음</h2>
+
+<p><a href="https://toss.tech/article/8-writing-principles-of-toss">토스의 8가지 라이팅 원칙들</a>
+<a href="https://pm-developer-justdoit.tistory.com/304">주니어 개발자 마인드셋</a></p>]]></content><author><name>Your Name</name></author><category term="ai" /><category term="cloud" /><category term="AWS" /><category term="Agentic" /><category term="LangGraph" /><category term="Bedrock" /><summary type="html"><![CDATA[개발자 마인드를 알아보자]]></summary></entry><entry><title type="html">Agentic_Workflow_using_LangGraph_and_Bedrock(7)</title><link href="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/" rel="alternate" type="text/html" title="Agentic_Workflow_using_LangGraph_and_Bedrock(7)" /><published>2025-05-26T15:07:00+00:00</published><updated>2025-05-26T15:07:00+00:00</updated><id>https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)</id><content type="html" xml:base="https://aidendef.github.io//ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/"><![CDATA[<h2 id="human-in-the-loop-변경">Human in the Loop 변경</h2>
 <p>중단점이 사용자 승인을 지원하는 방법을 보여드렸지만 그래프가 중단된 후 그래프 상태를 수정하는 방법에 대해서는 아직 설명드리지 않았습니다.</p>
 
 <p>이제 그래프 상태를 직접 편집하고 사람의 피드백을 입력하는 방법을 보여드리겠습니다.</p>
@@ -1872,94 +1882,4 @@ L4/L7 모두 지원하지만 기능은 제한적이다.</p>
 
 <p>로드 밸런서 선택은 단순히 트래픽을 분산시키는 것 이상의 결정이다.<br />
 어떤 계층에서 동작하느냐, 어떤 기능이 필요한지에 따라 ALB, NLB, GWLB 중 선택이 갈리게 된다.<br />
-CLB는 이제 유지보수 목적으로만 사용하고, 신규 시스템에는 사용을 피하는 것이 좋다.</p>]]></content><author><name>Your Name</name></author><category term="cloud" /><category term="AWS" /><category term="ALB" /><category term="NLB" /><category term="CLB" /><category term="GWLB" /><category term="로드밸런서" /><summary type="html"><![CDATA[AWS 로드 밸런서 4종 완전 비교. 어떤 상황에 어떤 걸 써야 할까?]]></summary></entry><entry><title type="html">AWS Summit Seoul 2025 탐방기</title><link href="https://aidendef.github.io//cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/" rel="alternate" type="text/html" title="AWS Summit Seoul 2025 탐방기" /><published>2025-05-18T15:00:00+00:00</published><updated>2025-05-18T15:00:00+00:00</updated><id>https://aidendef.github.io//cloud/AWS%202025%20Summit%20%ED%83%90%EB%B0%A9%EA%B8%B0</id><content type="html" xml:base="https://aidendef.github.io//cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/"><![CDATA[<h2 id="1-클라우드의-끝이-아닌-시작점">1. 클라우드의 끝이 아닌, 시작점</h2>
-
-<p><strong>이번 서밋에서 AWS는 더 이상 단순한 인프라 기업이 아니었다.</strong><br />
-AI, 서버리스, 지속 가능성까지… 그들의 새로운 ‘무기’는 기존의 패러다임을 완전히 전복시키는 인상을 주었다. 특히 AWS가 강조한 방향성은 ‘모든 기업이 생성형 AI를 바로 실무에 도입할 수 있는 실용성 중심’이었다.</p>
-
-<p><img src="/assets/images/post_img/summit_일정.png" alt="강연일정" /></p>
-
-<p>대표적인 키노트와 세션 주제들은 하나같이 생성형 AI에 집중되어 있었다. 단순한 개념 소개가 아닌, <strong>기업에서 AI를 어떻게 도입하고 프로덕션 워크플로우에 연결하는지에 대한 실질적인 전략</strong>이 강조되었다.</p>
-
-<p>예전엔 AWS Summit이 ‘기술자들을 위한 축제’였다면, 이번 2025년 행사는 <strong>AI 시대의 비즈니스 전략가들을 위한 로드맵 발표회</strong>였다.</p>
-
-<hr />
-
-<h2 id="2-사람-열기-그리고-기대">2. 사람, 열기, 그리고 기대</h2>
-
-<p><img src="/assets/images/post_img/IMG_4627 (2).gif" alt="등록장" /></p>
-
-<p>5월 14일 오전 9시, 코엑스에 도착하자마자 가장 먼저 마주한 것은 <strong>대기 줄과 EDM이 울려 퍼지는 DJ 부스</strong>였다. 예상은 했지만 그 규모와 열기는 여전히 압도적이었다. 등록 부스는 마치 음악 페스티벌의 입구 같았고, 기술 행사의 고정관념을 깨뜨리기에 충분했다.</p>
-
-<p>런치 쿠폰, 네임택을 수령한 뒤 행사장을 돌아보며 곳곳의 부스와 세션을 둘러보기 시작했다.<br />
-AWS의 주요 파트너사뿐만 아니라 다양한 업종의 참가 기업들이 자신들의 클라우드 및 AI 도입 사례를 적극적으로 소개하고 있었다.</p>
-
-<p><img src="/assets/images/post_img/IMG_4647.JPG" alt="참가기업위치" />
-<img src="/assets/images/post_img/IMG_4648.JPG" alt="참가 스폰서 기업 목록" /></p>
-
-<p>산업군도 매우 다양했다. 제조, 금융, 교육, 엔터테인먼트까지 전방위적으로 클라우드가 확산되고 있다는 것을 실감할 수 있었다. 특히, 모든 기업이 <strong>단순한 ‘클라우드 이전’이 아닌 ‘AI 기반 혁신’을 목표로 하고 있음</strong>이 느껴졌다.</p>
-
-<hr />
-
-<h2 id="3-내가-서밋에-참여한-이유">3. 내가 서밋에 참여한 이유</h2>
-
-<p>이번 서밋 참가 목적은 두 가지였다.</p>
-
-<p><strong>첫째</strong>, 회사에서 준비한 생성형 AI 부스 운영을 지원하기 위해서였다.<br />
-직접 데모를 시연하고, 방문객들과 AI 기술에 대한 질의응답을 진행하면서 느낀 것은 <strong>생성형 AI가 더 이상 기술자들만의 언어가 아니라는 점</strong>이다. 일반 관람객, 대학생, 그리고 스타트업 관계자들까지 대부분 LLM, 벡터 DB, RAG 같은 개념에 익숙해 있었다.</p>
-
-<p><strong>둘째</strong>, 다른 기업들은 지금 어떤 기술을, 어떤 방식으로 실험하고 있는지를 알아보기 위해서였다.<br />
-이번 행사에서는 단순한 제품 설명이 아니라 <strong>문제 해결 중심의 사례 발표</strong>가 많았는데, 이 점이 특히 유익했다.<br />
-어떤 회사는 AI를 통해 콜센터 자동화의 정확도를 높였고, 어떤 회사는 백오피스 문서 처리 시스템을 완전히 재구성했으며, 어떤 회사는 내부 지식 검색 시스템에 RAG를 도입하고 있었다.</p>
-
-<hr />
-
-<h2 id="4-행사장의-생생한-풍경">4. 행사장의 생생한 풍경</h2>
-
-<p><img src="/assets/images/post_img/IMG_4649.JPG" alt="행사장소 목록" /><br />
-<img src="/assets/images/post_img/IMG_4650.JPG" alt="Hall B의 위치" /></p>
-
-<p>Hall B를 중심으로 세션이 배치되었고, 부스와 키노트 공간이 유기적으로 연결되어 있어 관람 동선이 편리했다.<br />
-특히 Keynote Stage 옆 부스들에서는 생성형 AI, 보안, DevOps, Sustainability 관련 기술 시연이 이뤄졌고, <strong>데모를 기반으로 직접 묻고 듣는 공간</strong>으로 적극 활용되었다.</p>
-
-<p>전시 구역에서 가장 많은 주목을 받은 기술은 단연 AI 기반 문서 요약, 이미지 생성, 코딩 보조 기능이었다. Bedrock 기반 모델과 파트너 모델들에 대한 체험형 시연도 관람객들의 발걸음을 멈추게 했다.</p>
-
-<hr />
-
-<h2 id="5-현장에서-느낀-세-가지">5. 현장에서 느낀 세 가지</h2>
-
-<p>이번 AWS Summit을 통해 얻은 핵심 인사이트는 다음과 같다.</p>
-
-<ol>
-  <li><strong>AI는 더 이상 ‘기술’이 아니라 ‘기반’이다</strong>
-    <ul>
-      <li>단순한 도입 단계를 넘어서 이제는 <strong>운영 최적화와 비용 관리까지 포함된 실전 전개 단계</strong>로 넘어가고 있다.</li>
-    </ul>
-  </li>
-  <li><strong>기술 친화도는 상상 이상으로 높아졌다</strong>
-    <ul>
-      <li>부스를 방문한 많은 이들이 AI/ML 관련 용어와 개념에 익숙했고, <strong>이미 파일럿을 진행 중이거나 도입을 검토 중</strong>인 경우가 많았다.</li>
-    </ul>
-  </li>
-  <li><strong>AWS는 이제 ‘기술’을 팔지 않는다. ‘경험’과 ‘성공 시나리오’를 판다.</strong>
-    <ul>
-      <li>모든 세션, 부스, 키노트에서 공통적으로 느낀 점은 <strong>문제 중심의 접근</strong>과 <strong>고객 사례 중심의 설득</strong>이었다. 단순한 기능 설명보다 “우리는 이 문제를 이렇게 해결했다”는 서사가 강력한 메시지를 전달했다.</li>
-    </ul>
-  </li>
-</ol>
-
-<hr />
-
-<h2 id="6-마치며">6. 마치며</h2>
-
-<p>AWS Summit은 매년 열리지만, 올해처럼 메시지가 강하고 방향이 명확했던 해는 드물었다.<br />
-특히 생성형 AI에 대한 AWS의 접근 방식은 단순한 추격자라기보다 <strong>생태계를 설계하는 메이커</strong>의 시선이었다.</p>
-
-<p>클라우드 기술을 뛰어넘어 <strong>AI 기반 기업 운영을 고민하는 조직</strong>이라면, 이 서밋은 기술 쇼케이스를 넘어 <strong>비즈니스 전략을 재정비하는 계기</strong>가 되었을 것이다.</p>
-
-<hr />
-
-<blockquote>
-  <p>“기술은 툴이 아니라 방향이다.<br />
-AWS는 이번 서밋에서 그 방향을 명확하게 보여줬다.”</p>
-</blockquote>]]></content><author><name>Your Name</name></author><category term="cloud" /><category term="AWS" /><category term="2025" /><category term="Summit" /><category term="코엑스" /><summary type="html"><![CDATA[AWS는 어떤 것을 밀고 있나?]]></summary></entry></feed>
+CLB는 이제 유지보수 목적으로만 사용하고, 신규 시스템에는 사용을 피하는 것이 좋다.</p>]]></content><author><name>Your Name</name></author><category term="cloud" /><category term="AWS" /><category term="ALB" /><category term="NLB" /><category term="CLB" /><category term="GWLB" /><category term="로드밸런서" /><summary type="html"><![CDATA[AWS 로드 밸런서 4종 완전 비교. 어떤 상황에 어떤 걸 써야 할까?]]></summary></entry></feed>

@@ -94,4 +94,10 @@ var store = [{
         "tags": ["AWS","Agentic","LangGraph","Bedrock"],
         "url": "/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/",
         "teaser": "/assets/images/post_img/langgraph8.png"
+      },{
+        "title": "나, 내 팀원이 가졌으면 하는 개발자 마인드",
+        "excerpt":"개발자 마인드란?  사실 개발을 진행하면서 개발실력이 중요하지만 서로서로 의견을 소통하고 교류하는 것이 더 크다.   이럴때 우리는 어떤 마인드를 가지며 살아가야할까?   아래 다른 포스팅이나 유튜브 등의 글을 지속적으로 업데이트할 예정이다.   링크 모음   토스의 8가지 라이팅 원칙들 주니어 개발자 마인드셋  ","categories": ["ai","cloud"],
+        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
+        "url": "/ai/cloud/%EA%B0%9C%EB%B0%9C%EC%9E%90_%EB%A7%88%EC%9D%B8%EB%93%9C/",
+        "teaser": "/assets/images/post_img/langgraph8.png"
       }]
