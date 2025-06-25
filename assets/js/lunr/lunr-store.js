@@ -96,8 +96,14 @@ var store = [{
         "teaser": "/assets/images/post_img/langgraph8.png"
       },{
         "title": "나, 내 팀원이 가졌으면 하는 개발자 마인드",
-        "excerpt":"개발자 마인드란?  사실 개발을 진행하면서 개발실력이 중요하지만 서로서로 의견을 소통하고 교류하는 것이 더 크다.   이럴때 우리는 어떤 마인드를 가지며 살아가야할까?   아래 다른 포스팅이나 유튜브 등의 글을 지속적으로 업데이트할 예정이다.   링크 모음      토스의 8가지 라이팅 원칙들   주니어 개발자 마인드셋   생각과 손 사이의 거리  ","categories": ["ai","cloud"],
-        "tags": ["AWS","Agentic","LangGraph","Bedrock"],
-        "url": "/ai/cloud/%EA%B0%9C%EB%B0%9C%EC%9E%90_%EB%A7%88%EC%9D%B8%EB%93%9C/",
+        "excerpt":"개발자 마인드란?  사실 개발을 진행하면서 개발실력이 중요하지만 서로서로 의견을 소통하고 교류하는 것이 더 크다.   이럴때 우리는 어떤 마인드를 가지며 살아가야할까?   아래 다른 포스팅이나 유튜브 등의 글을 지속적으로 업데이트할 예정이다.   링크 모음      토스의 8가지 라이팅 원칙들   주니어 개발자 마인드셋   생각과 손 사이의 거리  ","categories": ["private","blog"],
+        "tags": ["Problem Framing","junior","developer","pm","writing","toss"],
+        "url": "/private/blog/%EA%B0%9C%EB%B0%9C%EC%9E%90_%EB%A7%88%EC%9D%B8%EB%93%9C-copy/",
         "teaser": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2ZuajZpdXpkcGVtbW03NjRianh5Nm56bWkxZmJ3OHV2bnh1czgxMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6aQ3Hy4i90nGdRnG8i/giphy.gif"
+      },{
+        "title": "AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량",
+        "excerpt":"1. 왜 이 논문을 알아야하나? 얼마나 중요한가? Future of Work with AI Agents 라는 논문을 읽고 아래 간략하게 작성을 진행할 것이다. 긴글을 읽기 앞서 왜 우리는 이 글을 봐야하는지 설명을 진행할 것이다. AI가 인간 노동을 대체할 것이라는 통념의 재검토 최근 AI, 특히 생성형 AI와 에이전트 시스템의 발전은 “AI가 인간의 일을...","categories": ["ai"],
+        "tags": ["Human-Centric AI","AI Collaboration","Future of Work","Human Agency","Augmentation over Automation"],
+        "url": "/ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/",
+        "teaser": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDV5OXFubHBnZ252ZGt6d21hcnVzZjNpZ21lN2UzdWc0MDBsdTFjbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ABVK96HgZvWI9SBbXr/giphy.gif"
       }]
