@@ -96,7 +96,7 @@ var store = [{
         "teaser": "/assets/images/post_img/langgraph8.png"
       },{
         "title": "나, 내 팀원이 가졌으면 하는 개발자 마인드",
-        "excerpt":"개발자 마인드란?  사실 개발을 진행하면서 개발실력이 중요하지만 서로서로 의견을 소통하고 교류하는 것이 더 크다.   이럴때 우리는 어떤 마인드를 가지며 살아가야할까?   아래 다른 포스팅이나 유튜브 등의 글을 지속적으로 업데이트할 예정이다.   링크 모음      토스의 8가지 라이팅 원칙들   주니어 개발자 마인드셋   생각과 손 사이의 거리  ","categories": ["private","blog"],
+        "excerpt":"개발자 마인드란? 사실 개발을 진행하면서 개발실력이 중요하지만 서로서로 의견을 소통하고 교류하는 것이 더 크다. 이럴때 우리는 어떤 마인드를 가지며 살아가야할까? 아래 다른 포스팅이나 유튜브 등의 글을 지속적으로 업데이트할 예정이다. 링크 모음 토스의 8가지 라이팅 원칙들 주니어 개발자 마인드셋 생각과 손 사이의 거리 평범한 엔지니어를 찬양하며 언제 멈추고, 언제 밀어붙여야 할까?...","categories": ["private","blog"],
         "tags": ["Problem Framing","junior","developer","pm","writing","toss"],
         "url": "/private/blog/%EA%B0%9C%EB%B0%9C%EC%9E%90_%EB%A7%88%EC%9D%B8%EB%93%9C-copy/",
         "teaser": "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2ZuajZpdXpkcGVtbW03NjRianh5Nm56bWkxZmJ3OHV2bnh1czgxMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6aQ3Hy4i90nGdRnG8i/giphy.gif"
