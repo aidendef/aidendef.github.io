@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-06-25T08:37:27+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량</title><link href="https://aidendef.github.io//ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/" rel="alternate" type="text/html" title="AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량" /><published>2025-06-24T15:08:00+00:00</published><updated>2025-06-24T15:08:00+00:00</updated><id>https://aidendef.github.io//ai/AI%20%EC%99%84%EC%A0%84%20%EC%9E%90%EB%8F%99%ED%99%94?%20%EC%A0%88%EB%B0%98%EC%9D%80%20%EC%9B%90%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%20-%20%EC%9A%B0%EB%A6%AC%EA%B0%80%20%EC%A7%84%EC%A7%9C%20%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC%20%ED%95%A0%20%EC%97%AD%EB%9F%89</id><content type="html" xml:base="https://aidendef.github.io//ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/"><![CDATA[<h2 id="1-왜-이-논문을-알아야하나-얼마나-중요한가">1. 왜 이 논문을 알아야하나? 얼마나 중요한가?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-06-25T08:39:16+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량</title><link href="https://aidendef.github.io//ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/" rel="alternate" type="text/html" title="AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량" /><published>2025-06-24T15:08:00+00:00</published><updated>2025-06-24T15:08:00+00:00</updated><id>https://aidendef.github.io//ai/AI%20%EC%99%84%EC%A0%84%20%EC%9E%90%EB%8F%99%ED%99%94?%20%EC%A0%88%EB%B0%98%EC%9D%80%20%EC%9B%90%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%20-%20%EC%9A%B0%EB%A6%AC%EA%B0%80%20%EC%A7%84%EC%A7%9C%20%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC%20%ED%95%A0%20%EC%97%AD%EB%9F%89</id><content type="html" xml:base="https://aidendef.github.io//ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/"><![CDATA[<h2 id="1-왜-이-논문을-알아야하나-얼마나-중요한가">1. 왜 이 논문을 알아야하나? 얼마나 중요한가?</h2>
 
 <p>Future of Work with AI Agents 라는 논문을 읽고 아래 간략하게 작성을 진행할 것이다. 긴글을 읽기 앞서 왜 우리는 이 글을 봐야하는지 설명을 진행할 것이다.</p>
 
@@ -509,7 +509,7 @@
 
 <hr />
 
-<h4 id="-ai가-대체하기-쉬운-작업-h1h2-중심-직업군">① AI가 대체하기 쉬운 작업 (H1~H2 중심 직업군)</h4>
+<h3 id="-ai가-대체하기-쉬운-작업-h1h2-중심-직업군">① AI가 대체하기 쉬운 작업 (H1~H2 중심 직업군)</h3>
 
 <ul>
   <li>
@@ -544,7 +544,7 @@
 
 <hr />
 
-<h4 id="-인간-중심성이-필요한-작업-h3h5-중심-직업군">② 인간 중심성이 필요한 작업 (H3~H5 중심 직업군)</h4>
+<h3 id="-인간-중심성이-필요한-작업-h3h5-중심-직업군">② 인간 중심성이 필요한 작업 (H3~H5 중심 직업군)</h3>
 
 <ul>
   <li>
@@ -601,7 +601,7 @@
 
 <hr />
 
-<h4 id="-ai와-협업-형태가-가장-이상적인-영역-h3-중심-직업군">③ AI와 협업 형태가 가장 이상적인 영역 (H3 중심 직업군)</h4>
+<h3 id="-ai와-협업-형태가-가장-이상적인-영역-h3-중심-직업군">③ AI와 협업 형태가 가장 이상적인 영역 (H3 중심 직업군)</h3>
 
 <ul>
   <li>
@@ -670,7 +670,7 @@
 
 <hr />
 
-<h4 id="-상대적-가치가-줄어드는-역량-정보처리-중심-스킬">① 상대적 가치가 줄어드는 역량: 정보처리 중심 스킬</h4>
+<h3 id="-상대적-가치가-줄어드는-역량-정보처리-중심-스킬">① 상대적 가치가 줄어드는 역량: 정보처리 중심 스킬</h3>
 
 <ul>
   <li>
@@ -692,7 +692,7 @@
 
 <hr />
 
-<h4 id="-상대적-가치가-높아지는-역량-대인관계조직관리-중심-스킬">② 상대적 가치가 높아지는 역량: 대인관계·조직관리 중심 스킬</h4>
+<h3 id="-상대적-가치가-높아지는-역량-대인관계조직관리-중심-스킬">② 상대적 가치가 높아지는 역량: 대인관계·조직관리 중심 스킬</h3>
 
 <ul>
   <li>
@@ -717,7 +717,7 @@ AI 도입이 확대될수록 오히려 더 중요한 차별화 요소로 부상 
 
 <hr />
 
-<h4 id="-공통-특징-ai가-어려워하는-스킬은-불확실성과-사람이-중심">③ 공통 특징: AI가 어려워하는 스킬은 “불확실성과 사람”이 중심</h4>
+<h3 id="-공통-특징-ai가-어려워하는-스킬은-불확실성과-사람이-중심">③ 공통 특징: AI가 어려워하는 스킬은 “불확실성과 사람”이 중심</h3>
 
 <ul>
   <li>
@@ -735,7 +735,7 @@ AI 도입이 확대될수록 오히려 더 중요한 차별화 요소로 부상 
 
 <hr />
 
-<h4 id="정리-ai-시대의-인간-역량-변화-요약">정리: AI 시대의 인간 역량 변화 요약</h4>
+<h3 id="정리-ai-시대의-인간-역량-변화-요약">정리: AI 시대의 인간 역량 변화 요약</h3>
 
 <table>
   <thead>
