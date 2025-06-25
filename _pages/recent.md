@@ -1,10 +1,13 @@
 ---
 title: "최근 글 목록 훔쳐보기"
-layout: category
-author_profile: false
+layout: page
 permalink: /recent/
-taxonomy: recent
-entries_layout: list
-sidebar:
-  nav: "docs"
 ---
+
+<h2>최근 글</h2>
+
+<ul>
+{% for post in site.posts limit:10 %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date: "%Y-%m-%d" }})</li>
+{% endfor %}
+</ul>
