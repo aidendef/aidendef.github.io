@@ -104,6 +104,6 @@ var store = [{
         "title": "AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량",
         "excerpt":"1. 왜 이 논문을 알아야하나? 얼마나 중요한가? Future of Work with AI Agents 라는 논문을 읽고 아래 간략하게 작성을 진행할 것이다. 긴글을 읽기 앞서 왜 우리는 이 글을 봐야하는지 설명을 진행할 것이다. AI가 인간 노동을 대체할 것이라는 통념의 재검토 최근 AI, 특히 생성형 AI와 에이전트 시스템의 발전은 “AI가 인간의 일을...","categories": ["ai"],
         "tags": ["Human-Centric AI","AI Collaboration","Future of Work","Human Agency","Augmentation over Automation","Future of Work with AI Agents"],
-        "url": "/ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/",
+        "url": "/ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89-copy/",
         "teaser": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDV5OXFubHBnZ252ZGt6d21hcnVzZjNpZ21lN2UzdWc0MDBsdTFjbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ABVK96HgZvWI9SBbXr/giphy.gif"
       }]
