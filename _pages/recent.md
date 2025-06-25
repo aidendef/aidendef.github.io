@@ -1,6 +1,6 @@
 ---
 title: "최근 글 목록 훔쳐보기"
-layout: page
+layout: archive
 permalink: /recent/
 ---
 
