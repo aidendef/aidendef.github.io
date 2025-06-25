@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-06-25T08:39:16+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량</title><link href="https://aidendef.github.io//ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/" rel="alternate" type="text/html" title="AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량" /><published>2025-06-24T15:08:00+00:00</published><updated>2025-06-24T15:08:00+00:00</updated><id>https://aidendef.github.io//ai/AI%20%EC%99%84%EC%A0%84%20%EC%9E%90%EB%8F%99%ED%99%94?%20%EC%A0%88%EB%B0%98%EC%9D%80%20%EC%9B%90%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%20-%20%EC%9A%B0%EB%A6%AC%EA%B0%80%20%EC%A7%84%EC%A7%9C%20%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC%20%ED%95%A0%20%EC%97%AD%EB%9F%89</id><content type="html" xml:base="https://aidendef.github.io//ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/"><![CDATA[<h2 id="1-왜-이-논문을-알아야하나-얼마나-중요한가">1. 왜 이 논문을 알아야하나? 얼마나 중요한가?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-06-25T08:40:42+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량</title><link href="https://aidendef.github.io//ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/" rel="alternate" type="text/html" title="AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량" /><published>2025-06-24T15:08:00+00:00</published><updated>2025-06-24T15:08:00+00:00</updated><id>https://aidendef.github.io//ai/AI%20%EC%99%84%EC%A0%84%20%EC%9E%90%EB%8F%99%ED%99%94?%20%EC%A0%88%EB%B0%98%EC%9D%80%20%EC%9B%90%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%20-%20%EC%9A%B0%EB%A6%AC%EA%B0%80%20%EC%A7%84%EC%A7%9C%20%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC%20%ED%95%A0%20%EC%97%AD%EB%9F%89</id><content type="html" xml:base="https://aidendef.github.io//ai/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/"><![CDATA[<h2 id="1-왜-이-논문을-알아야하나-얼마나-중요한가">1. 왜 이 논문을 알아야하나? 얼마나 중요한가?</h2>
 
 <p>Future of Work with AI Agents 라는 논문을 읽고 아래 간략하게 작성을 진행할 것이다. 긴글을 읽기 앞서 왜 우리는 이 글을 봐야하는지 설명을 진행할 것이다.</p>
 
@@ -102,7 +102,7 @@
 
 <hr />
 
-<p><img src="HAS.png" alt="HAS" /></p>
+<p><img src="/assets/images/post_img/HAS.png" alt="HAS" /></p>
 
 <p><strong>Human Agency Scale (HAS) 도입</strong></p>
 
@@ -130,7 +130,7 @@
 
 <hr />
 
-<p><img src="workbank.png" alt="workbank" /></p>
+<p><img src="/assets/images/post_img/workbank.png" alt="workbank" /></p>
 
 <p><strong>WORKBank 데이터베이스 구축</strong></p>
 
@@ -138,7 +138,7 @@
 
 <h2 id="3-노동자들의-ai-자동화에-대한-인식">3. 노동자들의 AI 자동화에 대한 인식</h2>
 
-<p><img src="domain_workers.png" alt="domain_workers" /></p>
+<p><img src="/assets/images/post_img/domain_workers.png" alt="domain_workers" /></p>
 
 <p><strong>노동자들은 AI 자동화를 얼마나 원하고 있을까?</strong></p>
 
@@ -182,7 +182,7 @@
 
 <hr />
 
-<p><img src="domain_workers1.png" alt="domain_workers1" /></p>
+<p><img src="/assets/images/post_img/domain_workers1.png" alt="domain_workers1" /></p>
 
 <p><strong>분야별 차이도 뚜렷하다</strong></p>
 
@@ -259,7 +259,7 @@
 
 <h2 id="4-desire-capability-landscape-욕구와-기술력의-불일치">4. Desire-Capability Landscape: 욕구와 기술력의 불일치</h2>
 
-<p><img src="Integrating_worker_and_AI_expert_perspectives.png" alt="Integrating_worker_and_AI_expert_perspectives" /></p>
+<p><img src="/assets/images/post_img/Integrating_worker_and_AI_expert_perspectives.png" alt="Integrating_worker_and_AI_expert_perspectives" /></p>
 
 <p><strong>AI 도입 가능성을 4개의 구역으로 시각화</strong></p>
 
@@ -383,7 +383,7 @@
 
 <h2 id="5-human-agency-scale-has-인간과-ai의-협업-수준">5. Human Agency Scale (HAS): 인간과 AI의 협업 수준</h2>
 
-<p><img src="Distributions_on_the_Human_Agency_Scale.png" alt="Distributions_on_the_Human_Agency_Scale" /></p>
+<p><img src="/assets/images/post_img/Distributions_on_the_Human_Agency_Scale.png" alt="Distributions_on_the_Human_Agency_Scale" /></p>
 
 <p><strong>단순 자동화를 넘어 협업을 본격적으로 측정하다</strong></p>
 
@@ -500,7 +500,7 @@
 
 <h2 id="6-직업별-협업-가능성-사례">6. 직업별 협업 가능성 사례</h2>
 
-<p><img src="Comparing_skill_rankings.png" alt="Comparing_skill_rankings" /></p>
+<p><img src="/assets/images/post_img/Comparing_skill_rankings.png" alt="Comparing_skill_rankings" /></p>
 
 <p><strong>직업별로 AI 도입 가능성과 협업 방식이 크게 다르다</strong></p>
 
