@@ -24,9 +24,9 @@ var store = [{
         "teaser": "/assets/images/post_img/ChatGPT%20Image%202025%EB%85%84%205%EC%9B%94%2012%EC%9D%BC%20%EC%98%A4%ED%9B%84%2003_17_30.png"
       },{
         "title": "AWS Bedrock 지식기반을 A to Z 모두 구현해보기",
-        "excerpt":"1. 들어가며 최근 다양한 기업들이 사내 문서 기반 지식 검색 시스템, 즉 RAG(Retrieval-Augmented Generation) 기반의 챗봇을 도입하고 있다. [Gartner 보고서 보기, Accenture AI 인사이트, McKinsey: 생성형 AI의 경제적 잠재력, AWS GenAI 공개 고객 사례집] 특히 AWS Bedrock은 Amazon Titan, Claude, Command 등을 통합 제공하며, LLM 기반 지식 응답 시스템을 완전관리형으로...","categories": ["tech","cloud","ai","Business"],
+        "excerpt":"1. 들어가며 최근 다양한 기업들이 사내 문서 기반 지식 검색 시스템, 즉 RAG(Retrieval-Augmented Generation) 기반의 챗봇을 도입하고 있다. [Gartner 보고서 보기, Accenture AI 인사이트, McKinsey: 생성형 AI의 경제적 잠재력, AWS GenAI 공개 고객 사례집] 특히 AWS Bedrock은 Amazon Titan, Claude, Command 등을 통합 제공하며, LLM 기반 지식 응답 시스템을 완전관리형으로...","categories": ["tech","cloud","ai","private","business"],
         "tags": ["AWS","AI","Bedrock","RAG","Retrieval-Augmented Generation","LLM","Knowledge Base","지식기반"],
-        "url": "/tech/cloud/ai/business/AWS-Bedrock-%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84-A-to-Z-%EB%AA%A8%EB%91%90-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0/",
+        "url": "/tech/cloud/ai/private/business/AWS-Bedrock-%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84-A-to-Z-%EB%AA%A8%EB%91%90-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0/",
         "teaser": "/assets/images/post_img/Knowledge-Bases-feat-img.png"
       },{
         "title": "이쁨 받는 AWS 아키텍처 만들어보자",
