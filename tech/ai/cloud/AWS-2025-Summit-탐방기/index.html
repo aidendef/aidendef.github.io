@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>OpenAI의 O1 모델, 제대로 사용하는 법 | Aiden의 든든한 Blog</title>
-<meta name="description" content="OpenAI 너란녀석">
+<!-- begin _includes/seo.html --><title>AWS Summit Seoul 2025 탐방기 | Aiden의 든든한 Blog</title>
+<meta name="description" content="AWS는 어떤 것을 밀고 있나?">
 
 
   <meta name="author" content="Your Name">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Aiden의 든든한 Blog">
-<meta property="og:title" content="OpenAI의 O1 모델, 제대로 사용하는 법">
-<meta property="og:url" content="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+<meta property="og:title" content="AWS Summit Seoul 2025 탐방기">
+<meta property="og:url" content="https://aidendef.github.io//tech/ai/cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/">
 
 
-  <meta property="og:description" content="OpenAI 너란녀석">
-
-
-
-  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/Inline-image-2025-02-18%2015.35.46.743.png">
+  <meta property="og:description" content="AWS는 어떤 것을 밀고 있나?">
 
 
 
-
-
-  <meta property="article:published_time" content="2025-05-09T05:00:00+00:00">
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/IMG_4627%20(2).gif">
 
 
 
 
 
-  
+  <meta property="article:published_time" content="2025-05-18T15:00:00+00:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+<link rel="canonical" href="https://aidendef.github.io//tech/ai/cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/">
 
 
 
@@ -220,16 +220,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="OpenAI의 O1 모델, 제대로 사용하는 법">
-    <meta itemprop="description" content="OpenAI 너란녀석">
-    <meta itemprop="datePublished" content="2025-05-09T05:00:00+00:00">
+    <meta itemprop="headline" content="AWS Summit Seoul 2025 탐방기">
+    <meta itemprop="description" content="AWS는 어떤 것을 밀고 있나?">
+    <meta itemprop="datePublished" content="2025-05-18T15:00:00+00:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" itemprop="url">OpenAI의 O1 모델, 제대로 사용하는 법
+            <a href="https://aidendef.github.io//tech/ai/cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/" itemprop="url">AWS Summit Seoul 2025 탐방기
 </a>
           </h1>
           
@@ -246,7 +246,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -261,131 +261,102 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#openai의-chatgpt-제대로-사용하고-계신가요">OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</a></li><li><a href="#1-o1-모델의-정체는">1. O1 모델의 정체는?</a></li><li><a href="#2-o1을-잘-쓰는-법-챗봇과는-다르게">2. O1을 잘 쓰는 법: 챗봇과는 다르게!</a><ul><li><a href="#2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</a></li><li><a href="#2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</a></li><li><a href="#2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</a></li></ul></li><li><a href="#3-왜-이렇게-복잡한-모델을-만들었을까">3. 왜 이렇게 복잡한 모델을 만들었을까?</a></li><li><a href="#4-uiux에-대한-제안">4. UI/UX에 대한 제안</a></li><li><a href="#5-o1의-미래">5. O1의 미래</a></li><li><a href="#6-핵심-요약-이렇게-쓰세요">6. 핵심 요약: 이렇게 쓰세요</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-클라우드의-끝이-아닌-시작점">1. 클라우드의 끝이 아닌, 시작점</a></li><li><a href="#2-사람-열기-그리고-기대">2. 사람, 열기, 그리고 기대</a></li><li><a href="#3-내가-서밋에-참여한-이유">3. 내가 서밋에 참여한 이유</a></li><li><a href="#4-행사장의-생생한-풍경">4. 행사장의 생생한 풍경</a></li><li><a href="#5-현장에서-느낀-세-가지">5. 현장에서 느낀 세 가지</a></li><li><a href="#6-마치며">6. 마치며</a></li></ul>
             </nav>
           </aside>
         
-        <h2 id="openai의-chatgpt-제대로-사용하고-계신가요"><strong>OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</strong></h2>
+        <h2 id="1-클라우드의-끝이-아닌-시작점">1. 클라우드의 끝이 아닌, 시작점</h2>
 
-<p>AI 모델들이 급격하게 발전하면서, 이제는 다양한 종류의 챗봇 모델들이 존재합니다. 특히 GPT-4o, Claude 3.5 Sonnet 등은 누구나 쉽게 접근할 수 있는 대화형 AI 모델로 인기를 끌고 있습니다.</p>
+<p><strong>이번 서밋에서 AWS는 더 이상 단순한 인프라 기업이 아니었다.</strong><br />
+AI, 서버리스, 지속 가능성까지… 그들의 새로운 ‘무기’는 기존의 패러다임을 완전히 전복시키는 인상을 주었다. 특히 AWS가 강조한 방향성은 ‘모든 기업이 생성형 AI를 바로 실무에 도입할 수 있는 실용성 중심’이었다.</p>
 
-<p><img src="/assets/images/post_img/Inline-image-2025-02-18 15.35.46.743.png" alt="O1 모델 아키텍처" class="align-center" /></p>
+<p><img src="/assets/images/post_img/summit_일정.png" alt="강연일정" /></p>
 
-<p>하지만, 최근 OpenAI가 선보인 <strong>O1 모델</strong>은 완전히 새로운 개념의 모델로, 기존 챗 모델처럼 다루면 <strong>제대로 된 성능을 끌어내기 어렵습니다.</strong></p>
+<p>대표적인 키노트와 세션 주제들은 하나같이 생성형 AI에 집중되어 있었다. 단순한 개념 소개가 아닌, <strong>기업에서 AI를 어떻게 도입하고 프로덕션 워크플로우에 연결하는지에 대한 실질적인 전략</strong>이 강조되었다.</p>
 
-<hr />
-
-<h2 id="1-o1-모델의-정체는"><strong>1. O1 모델의 정체는?</strong></h2>
-
-<ul>
-  <li>
-    <p><strong>O1은 챗봇이 아닙니다.</strong><br />
-O1은 리포트 생성형 모델로, 상호작용보다는 <strong>정적이고 깊이 있는 결과물</strong>을 생성하는 데 초점을 맞춥니다.</p>
-  </li>
-  <li>
-    <p><strong>대화형 인터페이스로 사용하면 성능이 떨어집니다.</strong><br />
-맥락 없이 질문하면 느리거나 부정확한 답이 나올 수밖에 없습니다.</p>
-  </li>
-</ul>
+<p>예전엔 AWS Summit이 ‘기술자들을 위한 축제’였다면, 이번 2025년 행사는 <strong>AI 시대의 비즈니스 전략가들을 위한 로드맵 발표회</strong>였다.</p>
 
 <hr />
 
-<h2 id="2-o1을-잘-쓰는-법-챗봇과는-다르게"><strong>2. O1을 잘 쓰는 법: 챗봇과는 다르게!</strong></h2>
+<h2 id="2-사람-열기-그리고-기대">2. 사람, 열기, 그리고 기대</h2>
 
-<h3 id="2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</h3>
-<ul>
-  <li>일반적인 챗봇처럼 짧은 프롬프트를 주면 안 됩니다.</li>
-  <li><strong>프롬프트 대신 ‘브리프(brief)’를 작성하세요.</strong>
+<p><img src="/assets/images/post_img/IMG_4627 (2).gif" alt="등록장" /></p>
+
+<p>5월 14일 오전 9시, 코엑스에 도착하자마자 가장 먼저 마주한 것은 <strong>대기 줄과 EDM이 울려 퍼지는 DJ 부스</strong>였다. 예상은 했지만 그 규모와 열기는 여전히 압도적이었다. 등록 부스는 마치 음악 페스티벌의 입구 같았고, 기술 행사의 고정관념을 깨뜨리기에 충분했다.</p>
+
+<p>런치 쿠폰, 네임택을 수령한 뒤 행사장을 돌아보며 곳곳의 부스와 세션을 둘러보기 시작했다.<br />
+AWS의 주요 파트너사뿐만 아니라 다양한 업종의 참가 기업들이 자신들의 클라우드 및 AI 도입 사례를 적극적으로 소개하고 있었다.</p>
+
+<p><img src="/assets/images/post_img/IMG_4647.JPG" alt="참가기업위치" />
+<img src="/assets/images/post_img/IMG_4648.JPG" alt="참가 스폰서 기업 목록" /></p>
+
+<p>산업군도 매우 다양했다. 제조, 금융, 교육, 엔터테인먼트까지 전방위적으로 클라우드가 확산되고 있다는 것을 실감할 수 있었다. 특히, 모든 기업이 <strong>단순한 ‘클라우드 이전’이 아닌 ‘AI 기반 혁신’을 목표로 하고 있음</strong>이 느껴졌다.</p>
+
+<hr />
+
+<h2 id="3-내가-서밋에-참여한-이유">3. 내가 서밋에 참여한 이유</h2>
+
+<p>이번 서밋 참가 목적은 두 가지였다.</p>
+
+<p><strong>첫째</strong>, 회사에서 준비한 생성형 AI 부스 운영을 지원하기 위해서였다.<br />
+직접 데모를 시연하고, 방문객들과 AI 기술에 대한 질의응답을 진행하면서 느낀 것은 <strong>생성형 AI가 더 이상 기술자들만의 언어가 아니라는 점</strong>이다. 일반 관람객, 대학생, 그리고 스타트업 관계자들까지 대부분 LLM, 벡터 DB, RAG 같은 개념에 익숙해 있었다.</p>
+
+<p><strong>둘째</strong>, 다른 기업들은 지금 어떤 기술을, 어떤 방식으로 실험하고 있는지를 알아보기 위해서였다.<br />
+이번 행사에서는 단순한 제품 설명이 아니라 <strong>문제 해결 중심의 사례 발표</strong>가 많았는데, 이 점이 특히 유익했다.<br />
+어떤 회사는 AI를 통해 콜센터 자동화의 정확도를 높였고, 어떤 회사는 백오피스 문서 처리 시스템을 완전히 재구성했으며, 어떤 회사는 내부 지식 검색 시스템에 RAG를 도입하고 있었다.</p>
+
+<hr />
+
+<h2 id="4-행사장의-생생한-풍경">4. 행사장의 생생한 풍경</h2>
+
+<p><img src="/assets/images/post_img/IMG_4649.JPG" alt="행사장소 목록" /><br />
+<img src="/assets/images/post_img/IMG_4650.JPG" alt="Hall B의 위치" /></p>
+
+<p>Hall B를 중심으로 세션이 배치되었고, 부스와 키노트 공간이 유기적으로 연결되어 있어 관람 동선이 편리했다.<br />
+특히 Keynote Stage 옆 부스들에서는 생성형 AI, 보안, DevOps, Sustainability 관련 기술 시연이 이뤄졌고, <strong>데모를 기반으로 직접 묻고 듣는 공간</strong>으로 적극 활용되었다.</p>
+
+<p>전시 구역에서 가장 많은 주목을 받은 기술은 단연 AI 기반 문서 요약, 이미지 생성, 코딩 보조 기능이었다. Bedrock 기반 모델과 파트너 모델들에 대한 체험형 시연도 관람객들의 발걸음을 멈추게 했다.</p>
+
+<hr />
+
+<h2 id="5-현장에서-느낀-세-가지">5. 현장에서 느낀 세 가지</h2>
+
+<p>이번 AWS Summit을 통해 얻은 핵심 인사이트는 다음과 같다.</p>
+
+<ol>
+  <li><strong>AI는 더 이상 ‘기술’이 아니라 ‘기반’이다</strong>
     <ul>
-      <li>실패한 시도</li>
-      <li>전체 데이터 구조</li>
-      <li>프로젝트의 목적과 맥락</li>
-      <li>도메인 용어 및 기대 성과 등</li>
+      <li>단순한 도입 단계를 넘어서 이제는 <strong>운영 최적화와 비용 관리까지 포함된 실전 전개 단계</strong>로 넘어가고 있다.</li>
     </ul>
   </li>
-</ul>
-
-<h3 id="2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</h3>
-<ul>
-  <li>“역할을 설정하고 이렇게 이렇게 해줘” → ❌</li>
-  <li>“내가 원하는 결과는 무엇이다” → ⭕</li>
-</ul>
-
-<h3 id="2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</h3>
-
-<table>
-  <thead>
-    <tr>
-      <th>잘하는 것</th>
-      <th>못하는 것</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>전체 코드 파일 생성</td>
-      <td>문체나 개성 있는 글쓰기</td>
-    </tr>
-    <tr>
-      <td>복잡한 쿼리 언어 처리</td>
-      <td>SaaS 전체 앱 생성 (반복 필요)</td>
-    </tr>
-    <tr>
-      <td>엔지니어링 개념 설명</td>
-      <td>대화형 인터페이스 대응</td>
-    </tr>
-    <tr>
-      <td>단순 의료 진단</td>
-      <td>감성적 콘텐츠 작성</td>
-    </tr>
-  </tbody>
-</table>
+  <li><strong>기술 친화도는 상상 이상으로 높아졌다</strong>
+    <ul>
+      <li>부스를 방문한 많은 이들이 AI/ML 관련 용어와 개념에 익숙했고, <strong>이미 파일럿을 진행 중이거나 도입을 검토 중</strong>인 경우가 많았다.</li>
+    </ul>
+  </li>
+  <li><strong>AWS는 이제 ‘기술’을 팔지 않는다. ‘경험’과 ‘성공 시나리오’를 판다.</strong>
+    <ul>
+      <li>모든 세션, 부스, 키노트에서 공통적으로 느낀 점은 <strong>문제 중심의 접근</strong>과 <strong>고객 사례 중심의 설득</strong>이었다. 단순한 기능 설명보다 “우리는 이 문제를 이렇게 해결했다”는 서사가 강력한 메시지를 전달했다.</li>
+    </ul>
+  </li>
+</ol>
 
 <hr />
 
-<h2 id="3-왜-이렇게-복잡한-모델을-만들었을까"><strong>3. 왜 이렇게 복잡한 모델을 만들었을까?</strong></h2>
+<h2 id="6-마치며">6. 마치며</h2>
 
-<ul>
-  <li>OpenAI는 O1을 <strong>“에이전트형 리포트 생성기”</strong>로 정의하고 있으며, 월 $2000 수준의 <strong>O1 Pro</strong> 상품 출시도 예상됩니다.</li>
-  <li>해외에서는 <strong>“엔지니어 연봉 대비 훨씬 싸다”</strong>는 반응도 있습니다.</li>
-  <li>답변에 5분이 걸려도 <strong>그만한 가치가 있는 질문이라면</strong> 활용도가 매우 높습니다.</li>
-</ul>
+<p>AWS Summit은 매년 열리지만, 올해처럼 메시지가 강하고 방향이 명확했던 해는 드물었다.<br />
+특히 생성형 AI에 대한 AWS의 접근 방식은 단순한 추격자라기보다 <strong>생태계를 설계하는 메이커</strong>의 시선이었다.</p>
 
-<hr />
-
-<h2 id="4-uiux에-대한-제안"><strong>4. UI/UX에 대한 제안</strong></h2>
-
-<ul>
-  <li>O1의 긴 결과물은 <strong>목차 기반 구조화된 뷰</strong>가 필수</li>
-  <li>Claude처럼 <strong>카드 기반 맥락 관리</strong>가 유용</li>
-  <li><strong>스트리밍 응답 기능</strong>이 적용되면 활용성 대폭 증가 예상</li>
-</ul>
+<p>클라우드 기술을 뛰어넘어 <strong>AI 기반 기업 운영을 고민하는 조직</strong>이라면, 이 서밋은 기술 쇼케이스를 넘어 <strong>비즈니스 전략을 재정비하는 계기</strong>가 되었을 것이다.</p>
 
 <hr />
 
-<h2 id="5-o1의-미래"><strong>5. O1의 미래</strong></h2>
+<blockquote>
+  <p>“기술은 툴이 아니라 방향이다.<br />
+AWS는 이번 서밋에서 그 방향을 명확하게 보여줬다.”</p>
+</blockquote>
 
-<ul>
-  <li><strong>즉답형 AI에서 백그라운드 인텔리전스형 AI로의 진화</strong></li>
-  <li>사용자는 <strong>5분, 1시간, 하루, 심지어 3~5일이라도 기다릴 수 있음</strong></li>
-  <li>반복 작업을 줄이고 ‘결과 중심 AI’로 활용되는 모델로 성장할 것</li>
-</ul>
-
-<hr />
-
-<h2 id="6-핵심-요약-이렇게-쓰세요"><strong>6. 핵심 요약: 이렇게 쓰세요</strong></h2>
-
-<ul>
-  <li><strong>질문하지 말고, 설명하세요</strong></li>
-  <li><strong>단계별 안내보다 결과물의 정의를 강조하세요</strong></li>
-  <li><strong>맥락을 풍부하게, 예시는 구체적으로</strong></li>
-</ul>
-
-<hr />
-
-<p>GPT-4o와 Claude가 실시간 상호작용에 강하다면,<br />
-O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <strong>‘한 방에 끝내는 AI’</strong>입니다.</p>
-
-<p>그만큼, <strong>사용자도 프롬프트가 아닌 ‘설명서’를 써야</strong> 진짜 능력을 끌어낼 수 있습니다.</p>
 
         
       </section>
@@ -402,11 +373,13 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#gpt4o" class="page__taxonomy-item p-category" rel="tag">gpt4o</a><span class="sep">, </span>
+      <a href="/tags/#2025" class="page__taxonomy-item p-category" rel="tag">2025</a><span class="sep">, </span>
     
-      <a href="/tags/#o1" class="page__taxonomy-item p-category" rel="tag">o1</a><span class="sep">, </span>
+      <a href="/tags/#aws" class="page__taxonomy-item p-category" rel="tag">AWS</a><span class="sep">, </span>
     
-      <a href="/tags/#openai" class="page__taxonomy-item p-category" rel="tag">openai</a>
+      <a href="/tags/#summit" class="page__taxonomy-item p-category" rel="tag">Summit</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EC%BD%94%EC%97%91%EC%8A%A4" class="page__taxonomy-item p-category" rel="tag">코엑스</a>
     
     </span>
   </p>
@@ -425,6 +398,8 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
     
       <a href="/categories/#ai" class="page__taxonomy-item p-category" rel="tag">ai</a><span class="sep">, </span>
     
+      <a href="/categories/#cloud" class="page__taxonomy-item p-category" rel="tag">cloud</a><span class="sep">, </span>
+    
       <a href="/categories/#tech" class="page__taxonomy-item p-category" rel="tag">tech</a>
     
     </span>
@@ -433,26 +408,26 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T05:00:00+00:00">May 9, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-18T15:00:00+00:00">May 18, 2025</time></p>
 
       </footer>
 
       <section class="page__share">
   <h4 class="page__share-title">Share on</h4>
 
-  <a href="https://x.com/intent/tweet?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+  <a href="https://x.com/intent/tweet?text=AWS+Summit+Seoul+2025+%ED%83%90%EB%B0%A9%EA%B8%B0%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2Fcloud%2FAWS-2025-Summit-%25ED%2583%2590%25EB%25B0%25A9%25EA%25B8%25B0%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
     <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
   </a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2Fcloud%2FAWS-2025-Summit-%25ED%2583%2590%25EB%25B0%25A9%25EA%25B8%25B0%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
     <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/ai/cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
     <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
   </a>
 
-  <a href="https://bsky.app/intent/compose?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+  <a href="https://bsky.app/intent/compose?text=AWS+Summit+Seoul+2025+%ED%83%90%EB%B0%A9%EA%B8%B0%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2Fcloud%2FAWS-2025-Summit-%25ED%2583%2590%25EB%25B0%25A9%25EA%25B8%25B0%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
     <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
   </a>
 </section>
@@ -461,10 +436,10 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
       
   <nav class="pagination">
     
-      <a href="/tech/ai/cloud/Gemini-2.0-%EC%9D%B4%EC%A0%9C-%EB%88%84%EA%B5%AC%EB%82%98-%EC%82%AC%EC%9A%A9-%EA%B0%80%EB%8A%A5/" class="pagination--pager" title="Gemini 2.0 이제 누구나 사용 가능">Previous</a>
+      <a href="/tech/cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-AWS-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90/" class="pagination--pager" title="이쁨 받는 AWS 아키텍처 만들어보자">Previous</a>
     
     
-      <a href="/tech/cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" class="pagination--pager" title="GCP vs AWS: AI 서비스 관점 비교">Next</a>
+      <a href="/tech/cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/" class="pagination--pager" title="ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리">Next</a>
     
   </nav>
 

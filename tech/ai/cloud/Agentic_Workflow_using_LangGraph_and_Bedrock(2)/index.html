@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>OpenAI의 O1 모델, 제대로 사용하는 법 | Aiden의 든든한 Blog</title>
-<meta name="description" content="OpenAI 너란녀석">
+<!-- begin _includes/seo.html --><title>Agentic_Workflow_using_LangGraph_and_Bedrock(2) | Aiden의 든든한 Blog</title>
+<meta name="description" content="라우터를 알아보자">
 
 
   <meta name="author" content="Your Name">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Aiden의 든든한 Blog">
-<meta property="og:title" content="OpenAI의 O1 모델, 제대로 사용하는 법">
-<meta property="og:url" content="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+<meta property="og:title" content="Agentic_Workflow_using_LangGraph_and_Bedrock(2)">
+<meta property="og:url" content="https://aidendef.github.io//tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(2)/">
 
 
-  <meta property="og:description" content="OpenAI 너란녀석">
-
-
-
-  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/Inline-image-2025-02-18%2015.35.46.743.png">
+  <meta property="og:description" content="라우터를 알아보자">
 
 
 
-
-
-  <meta property="article:published_time" content="2025-05-09T05:00:00+00:00">
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/langgraph2.png">
 
 
 
 
 
-  
+  <meta property="article:published_time" content="2025-05-26T15:02:00+00:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+<link rel="canonical" href="https://aidendef.github.io//tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(2)/">
 
 
 
@@ -220,16 +220,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="OpenAI의 O1 모델, 제대로 사용하는 법">
-    <meta itemprop="description" content="OpenAI 너란녀석">
-    <meta itemprop="datePublished" content="2025-05-09T05:00:00+00:00">
+    <meta itemprop="headline" content="Agentic_Workflow_using_LangGraph_and_Bedrock(2)">
+    <meta itemprop="description" content="라우터를 알아보자">
+    <meta itemprop="datePublished" content="2025-05-26T15:02:00+00:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" itemprop="url">OpenAI의 O1 모델, 제대로 사용하는 법
+            <a href="https://aidendef.github.io//tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(2)/" itemprop="url">Agentic_Workflow_using_LangGraph_and_Bedrock(2)
 </a>
           </h1>
           
@@ -246,7 +246,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          3 minute read
         
       </span>
     
@@ -261,131 +261,139 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#openai의-chatgpt-제대로-사용하고-계신가요">OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</a></li><li><a href="#1-o1-모델의-정체는">1. O1 모델의 정체는?</a></li><li><a href="#2-o1을-잘-쓰는-법-챗봇과는-다르게">2. O1을 잘 쓰는 법: 챗봇과는 다르게!</a><ul><li><a href="#2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</a></li><li><a href="#2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</a></li><li><a href="#2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</a></li></ul></li><li><a href="#3-왜-이렇게-복잡한-모델을-만들었을까">3. 왜 이렇게 복잡한 모델을 만들었을까?</a></li><li><a href="#4-uiux에-대한-제안">4. UI/UX에 대한 제안</a></li><li><a href="#5-o1의-미래">5. O1의 미래</a></li><li><a href="#6-핵심-요약-이렇게-쓰세요">6. 핵심 요약: 이렇게 쓰세요</a></li></ul>
+              <ul class="toc__menu"><li><a href="#라우터란">라우터란?</a></li><li><a href="#bedrock-setup">Bedrock setup</a></li><li><a href="#툴-함수-생성">툴 함수 생성</a></li><li><a href="#그래프-생성">그래프 생성</a></li><li><a href="#일상적인-대화로-질의">일상적인 대화로 질의</a></li><li><a href="#곱셈을-문의하는-질의">곱셈을 문의하는 질의</a></li></ul>
             </nav>
           </aside>
         
-        <h2 id="openai의-chatgpt-제대로-사용하고-계신가요"><strong>OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</strong></h2>
+        <h2 id="라우터란">라우터란?</h2>
 
-<p>AI 모델들이 급격하게 발전하면서, 이제는 다양한 종류의 챗봇 모델들이 존재합니다. 특히 GPT-4o, Claude 3.5 Sonnet 등은 누구나 쉽게 접근할 수 있는 대화형 AI 모델로 인기를 끌고 있습니다.</p>
+<p>사용자의 인풋에 따라서, Gen AI를 컨텍스트에 맞는 답변을 수행해야 하는지를 판단하게 할 수 있습니다.
+이러한 작업을 수행하는 것이 라우터입니다.
+그래서 사용자의 컨텍스트에 맞게 해당되는 툴로 답변을 유도하거나, LLM이 스스로 답변하는 형태로 답변하도록 합니다.</p>
 
-<p><img src="/assets/images/post_img/Inline-image-2025-02-18 15.35.46.743.png" alt="O1 모델 아키텍처" class="align-center" /></p>
+<p>이 실습예제도 사용자의 요청에 따라서 툴을 사용하거난, LLM을 통해서 직접 답변하게는 등의 수행이 제대로 되는지를 실습해 볼 예정입니다.</p>
 
-<p>하지만, 최근 OpenAI가 선보인 <strong>O1 모델</strong>은 완전히 새로운 개념의 모델로, 기존 챗 모델처럼 다루면 <strong>제대로 된 성능을 끌어내기 어렵습니다.</strong></p>
-
-<hr />
-
-<h2 id="1-o1-모델의-정체는"><strong>1. O1 모델의 정체는?</strong></h2>
-
+<p>이러한 라우터 방식이 동작하게 하기 위해서 아래의 2가지 형태를 준비할 예정입니다.</p>
 <ul>
-  <li>
-    <p><strong>O1은 챗봇이 아닙니다.</strong><br />
-O1은 리포트 생성형 모델로, 상호작용보다는 <strong>정적이고 깊이 있는 결과물</strong>을 생성하는 데 초점을 맞춥니다.</p>
-  </li>
-  <li>
-    <p><strong>대화형 인터페이스로 사용하면 성능이 떨어집니다.</strong><br />
-맥락 없이 질문하면 느리거나 부정확한 답이 나올 수밖에 없습니다.</p>
-  </li>
+  <li>우선 툴을 사용하는 노드를 구성합니다.</li>
+  <li>그리고 조건부 엣지를 생성합니다. 이 조건부 엣지에서는 사용자 인풋에 따라서, 툴을 사용하게 할 것인지, LLM이 직접 답변하게 할 지 등에 대해서 라우터 역할을 수행하게 할 것입니다.</li>
 </ul>
 
-<hr />
+<h2 id="bedrock-setup">Bedrock setup</h2>
 
-<h2 id="2-o1을-잘-쓰는-법-챗봇과는-다르게"><strong>2. O1을 잘 쓰는 법: 챗봇과는 다르게!</strong></h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import os
+import boto3
+from langchain_aws import ChatBedrockConverse
+from langchain_aws import ChatBedrock
 
-<h3 id="2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</h3>
-<ul>
-  <li>일반적인 챗봇처럼 짧은 프롬프트를 주면 안 됩니다.</li>
-  <li><strong>프롬프트 대신 ‘브리프(brief)’를 작성하세요.</strong>
-    <ul>
-      <li>실패한 시도</li>
-      <li>전체 데이터 구조</li>
-      <li>프로젝트의 목적과 맥락</li>
-      <li>도메인 용어 및 기대 성과 등</li>
-    </ul>
-  </li>
-</ul>
+# ---- ⚠️ Update region for your AWS setup ⚠️ ----
+aws_region = os.getenv("AWS_REGION")
+bedrock_client = boto3.client("bedrock-runtime", region_name=aws_region)
 
-<h3 id="2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</h3>
-<ul>
-  <li>“역할을 설정하고 이렇게 이렇게 해줘” → ❌</li>
-  <li>“내가 원하는 결과는 무엇이다” → ⭕</li>
-</ul>
+llm = ChatBedrockConverse(
+    model="anthropic.claude-3-haiku-20240307-v1:0",
+    temperature=0,
+    max_tokens=None,
+    client=bedrock_client,
+    # other params...
+)
 
-<h3 id="2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</h3>
+llm.invoke("what is the Amazon Nova?")
 
-<table>
-  <thead>
-    <tr>
-      <th>잘하는 것</th>
-      <th>못하는 것</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>전체 코드 파일 생성</td>
-      <td>문체나 개성 있는 글쓰기</td>
-    </tr>
-    <tr>
-      <td>복잡한 쿼리 언어 처리</td>
-      <td>SaaS 전체 앱 생성 (반복 필요)</td>
-    </tr>
-    <tr>
-      <td>엔지니어링 개념 설명</td>
-      <td>대화형 인터페이스 대응</td>
-    </tr>
-    <tr>
-      <td>단순 의료 진단</td>
-      <td>감성적 콘텐츠 작성</td>
-    </tr>
-  </tbody>
-</table>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AIMessage(content="The Amazon Nova is a line of tablet computers developed and sold by Amazon. Some key details about the Amazon Nova tablets:\n\n- They are part of Amazon's Fire tablet lineup, which also includes the standard Fire tablets and the Fire HD tablets.\n\n- The Amazon Nova tablets are designed to be more premium and higher-end models compared to the standard Fire tablets.\n\n- They typically feature larger screen sizes, more powerful processors, more RAM, and additional storage compared to the base Fire tablets.\n\n- The Amazon Nova tablets run Amazon's Fire OS, which is a customized version of the Android operating system.\n\n- They are primarily designed to integrate with Amazon's ecosystem of services like Amazon Prime, Kindle, Alexa, and Amazon's digital content stores.\n\n- Some recent models in the Amazon Nova line include the Fire HD 10 Plus and the Fire HD 10 Productivity Edition, which are positioned as more advanced and capable tablets.\n\nSo in summary, the Amazon Nova represents Amazon's higher-end tablet offerings that sit above their standard Fire tablet models in terms of features and performance.", additional_kwargs={}, response_metadata={'ResponseMetadata': {'RequestId': 'b2d2e840-07b8-4970-ab9e-d071784071dc', 'HTTPStatusCode': 200, 'HTTPHeaders': {'date': 'Thu, 27 Feb 2025 03:19:58 GMT', 'content-type': 'application/json', 'content-length': '1306', 'connection': 'keep-alive', 'x-amzn-requestid': 'b2d2e840-07b8-4970-ab9e-d071784071dc'}, 'RetryAttempts': 0}, 'stopReason': 'end_turn', 'metrics': {'latencyMs': 2564}}, id='run-1c7d4c35-2075-4e2d-b882-3f38ff843b09-0', usage_metadata={'input_tokens': 13, 'output_tokens': 228, 'total_tokens': 241})
+</code></pre></div></div>
 
-<hr />
+<h2 id="툴-함수-생성">툴 함수 생성</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def multiply(a: int, b: int) -&gt; int:
+    """This tool is to multiply two input argrments such as a and b.
 
-<h2 id="3-왜-이렇게-복잡한-모델을-만들었을까"><strong>3. 왜 이렇게 복잡한 모델을 만들었을까?</strong></h2>
+    Args:
+        a: first int
+        b: second int
+    """
+    return a * b
 
-<ul>
-  <li>OpenAI는 O1을 <strong>“에이전트형 리포트 생성기”</strong>로 정의하고 있으며, 월 $2000 수준의 <strong>O1 Pro</strong> 상품 출시도 예상됩니다.</li>
-  <li>해외에서는 <strong>“엔지니어 연봉 대비 훨씬 싸다”</strong>는 반응도 있습니다.</li>
-  <li>답변에 5분이 걸려도 <strong>그만한 가치가 있는 질문이라면</strong> 활용도가 매우 높습니다.</li>
-</ul>
+llm_with_tools = llm.bind_tools([multiply])
+</code></pre></div></div>
 
-<hr />
+<h2 id="그래프-생성">그래프 생성</h2>
 
-<h2 id="4-uiux에-대한-제안"><strong>4. UI/UX에 대한 제안</strong></h2>
+<p>우리는 아주 쉽고 간단한 형태로 구현하는 것을 수행해 볼 것입니다.
+LangGraph에서 제공하는 <code class="language-plaintext highlighter-rouge">ToolNode</code> 패키지를 이용할 것입니다.
+툴노드를 사용하게 되면, 간단하게 생성된 툴들을 이 노드에서 처리하도록 할 수 있습니다.</p>
 
-<ul>
-  <li>O1의 긴 결과물은 <strong>목차 기반 구조화된 뷰</strong>가 필수</li>
-  <li>Claude처럼 <strong>카드 기반 맥락 관리</strong>가 유용</li>
-  <li><strong>스트리밍 응답 기능</strong>이 적용되면 활용성 대폭 증가 예상</li>
-</ul>
+<p>그리고 Langgraph에서 제공하는 <code class="language-plaintext highlighter-rouge">tools_condition</code>을 조건부 엣지에서 사용할 예정입니다.
+이 기능을 사용하게 되면, 사용자의 입력에 따라서 자동으로 어떤 툴들을 사용할지에 대해서 분기합니다.</p>
 
-<hr />
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from IPython.display import Image, display
+from langgraph.graph import StateGraph, START, END
+from langgraph.graph import MessagesState
+from langgraph.prebuilt import ToolNode
+from langgraph.prebuilt import tools_condition
 
-<h2 id="5-o1의-미래"><strong>5. O1의 미래</strong></h2>
+# Node
+def tool_calling_llm(state: MessagesState):
+    return {"messages": [llm_with_tools.invoke(state["messages"])]}
 
-<ul>
-  <li><strong>즉답형 AI에서 백그라운드 인텔리전스형 AI로의 진화</strong></li>
-  <li>사용자는 <strong>5분, 1시간, 하루, 심지어 3~5일이라도 기다릴 수 있음</strong></li>
-  <li>반복 작업을 줄이고 ‘결과 중심 AI’로 활용되는 모델로 성장할 것</li>
-</ul>
+# Build graph
+builder = StateGraph(MessagesState)
+builder.add_node("tool_calling_llm", tool_calling_llm)
+builder.add_node("tools", ToolNode([multiply]))
+builder.add_edge(START, "tool_calling_llm")
+builder.add_conditional_edges(
+    "tool_calling_llm",
+    # If the latest message (result) from assistant is a tool call -&gt; tools_condition routes to tools
+    # If the latest message (result) from assistant is a not a tool call -&gt; tools_condition routes to END
+    tools_condition,
+)
+builder.add_edge("tools", END)
+graph = builder.compile()
 
-<hr />
+# View
+display(Image(graph.get_graph().draw_mermaid_png()))
+</code></pre></div></div>
+<p><img src="/assets/images/post_img/langgraph2.png" alt="langgraph2" /></p>
 
-<h2 id="6-핵심-요약-이렇게-쓰세요"><strong>6. 핵심 요약: 이렇게 쓰세요</strong></h2>
+<h2 id="일상적인-대화로-질의">일상적인 대화로 질의</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from langchain_core.messages import HumanMessage
+messages = [HumanMessage(content="안녕 잘 지내?")]
+messages = graph.invoke({"messages": messages})
+for m in messages['messages']:
+    m.pretty_print()
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================ Human Message =================================
 
-<ul>
-  <li><strong>질문하지 말고, 설명하세요</strong></li>
-  <li><strong>단계별 안내보다 결과물의 정의를 강조하세요</strong></li>
-  <li><strong>맥락을 풍부하게, 예시는 구체적으로</strong></li>
-</ul>
+안녕 잘 지내?
+================================== Ai Message ==================================
 
-<hr />
+네, 저도 잘 지내고 있습니다. 오늘 날씨가 좋아서 기분이 좋네요. 어떤 계획이 있으신가요? 함께 즐거운 시간을 보내면 좋겠습니다.
+</code></pre></div></div>
 
-<p>GPT-4o와 Claude가 실시간 상호작용에 강하다면,<br />
-O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <strong>‘한 방에 끝내는 AI’</strong>입니다.</p>
+<h2 id="곱셈을-문의하는-질의">곱셈을 문의하는 질의</h2>
 
-<p>그만큼, <strong>사용자도 프롬프트가 아닌 ‘설명서’를 써야</strong> 진짜 능력을 끌어낼 수 있습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>messages = [HumanMessage(content="134 곱하기 1435를 계산하면 얼마야?")]
+messages = graph.invoke({"messages": messages})
+for m in messages['messages']:
+    m.pretty_print()
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================ Human Message =================================
+
+134 곱하기 1435를 계산하면 얼마야?
+================================== Ai Message ==================================
+
+[{'type': 'tool_use', 'name': 'multiply', 'input': {'a': 134, 'b': 1435}, 'id': 'tooluse_FYpRmFUlTz6BQRNDuX6Fpg'}]
+Tool Calls:
+  multiply (tooluse_FYpRmFUlTz6BQRNDuX6Fpg)
+ Call ID: tooluse_FYpRmFUlTz6BQRNDuX6Fpg
+  Args:
+    a: 134
+    b: 1435
+================================= Tool Message =================================
+Name: multiply
+
+192290
+</code></pre></div></div>
 
         
       </section>
@@ -402,11 +410,13 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#gpt4o" class="page__taxonomy-item p-category" rel="tag">gpt4o</a><span class="sep">, </span>
+      <a href="/tags/#agentic" class="page__taxonomy-item p-category" rel="tag">Agentic</a><span class="sep">, </span>
     
-      <a href="/tags/#o1" class="page__taxonomy-item p-category" rel="tag">o1</a><span class="sep">, </span>
+      <a href="/tags/#aws" class="page__taxonomy-item p-category" rel="tag">AWS</a><span class="sep">, </span>
     
-      <a href="/tags/#openai" class="page__taxonomy-item p-category" rel="tag">openai</a>
+      <a href="/tags/#bedrock" class="page__taxonomy-item p-category" rel="tag">Bedrock</a><span class="sep">, </span>
+    
+      <a href="/tags/#langgraph" class="page__taxonomy-item p-category" rel="tag">LangGraph</a>
     
     </span>
   </p>
@@ -425,6 +435,8 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
     
       <a href="/categories/#ai" class="page__taxonomy-item p-category" rel="tag">ai</a><span class="sep">, </span>
     
+      <a href="/categories/#cloud" class="page__taxonomy-item p-category" rel="tag">cloud</a><span class="sep">, </span>
+    
       <a href="/categories/#tech" class="page__taxonomy-item p-category" rel="tag">tech</a>
     
     </span>
@@ -433,26 +445,26 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T05:00:00+00:00">May 9, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-26T15:02:00+00:00">May 26, 2025</time></p>
 
       </footer>
 
       <section class="page__share">
   <h4 class="page__share-title">Share on</h4>
 
-  <a href="https://x.com/intent/tweet?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+  <a href="https://x.com/intent/tweet?text=Agentic_Workflow_using_LangGraph_and_Bedrock%282%29%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2Fcloud%2FAgentic_Workflow_using_LangGraph_and_Bedrock%282%29%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
     <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
   </a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2Fcloud%2FAgentic_Workflow_using_LangGraph_and_Bedrock%282%29%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
     <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(2)/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
     <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
   </a>
 
-  <a href="https://bsky.app/intent/compose?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+  <a href="https://bsky.app/intent/compose?text=Agentic_Workflow_using_LangGraph_and_Bedrock%282%29%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2Fcloud%2FAgentic_Workflow_using_LangGraph_and_Bedrock%282%29%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
     <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
   </a>
 </section>
@@ -461,10 +473,10 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
       
   <nav class="pagination">
     
-      <a href="/tech/ai/cloud/Gemini-2.0-%EC%9D%B4%EC%A0%9C-%EB%88%84%EA%B5%AC%EB%82%98-%EC%82%AC%EC%9A%A9-%EA%B0%80%EB%8A%A5/" class="pagination--pager" title="Gemini 2.0 이제 누구나 사용 가능">Previous</a>
+      <a href="/tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/" class="pagination--pager" title="Agentic_Workflow_using_LangGraph_and_Bedrock(1)">Previous</a>
     
     
-      <a href="/tech/cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" class="pagination--pager" title="GCP vs AWS: AI 서비스 관점 비교">Next</a>
+      <a href="/tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(3)/" class="pagination--pager" title="Agentic_Workflow_using_LangGraph_and_Bedrock(3)">Next</a>
     
   </nav>
 

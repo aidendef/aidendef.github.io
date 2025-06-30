@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>OpenAI의 O1 모델, 제대로 사용하는 법 | Aiden의 든든한 Blog</title>
-<meta name="description" content="OpenAI 너란녀석">
+<!-- begin _includes/seo.html --><title>GCP vs AWS: AI 서비스 관점 비교 | Aiden의 든든한 Blog</title>
+<meta name="description" content="GCP vs AWS 본격 파해치기">
 
 
   <meta name="author" content="Your Name">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Aiden의 든든한 Blog">
-<meta property="og:title" content="OpenAI의 O1 모델, 제대로 사용하는 법">
-<meta property="og:url" content="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+<meta property="og:title" content="GCP vs AWS: AI 서비스 관점 비교">
+<meta property="og:url" content="https://aidendef.github.io//tech/cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/">
 
 
-  <meta property="og:description" content="OpenAI 너란녀석">
-
-
-
-  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/Inline-image-2025-02-18%2015.35.46.743.png">
+  <meta property="og:description" content="GCP vs AWS 본격 파해치기">
 
 
 
-
-
-  <meta property="article:published_time" content="2025-05-09T05:00:00+00:00">
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/ChatGPT%20Image%202025%EB%85%84%205%EC%9B%94%2012%EC%9D%BC%20%EC%98%A4%ED%9B%84%2003_17_30.png">
 
 
 
 
 
-  
+  <meta property="article:published_time" content="2025-05-10T15:00:00+00:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+<link rel="canonical" href="https://aidendef.github.io//tech/cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/">
 
 
 
@@ -220,16 +220,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="OpenAI의 O1 모델, 제대로 사용하는 법">
-    <meta itemprop="description" content="OpenAI 너란녀석">
-    <meta itemprop="datePublished" content="2025-05-09T05:00:00+00:00">
+    <meta itemprop="headline" content="GCP vs AWS: AI 서비스 관점 비교">
+    <meta itemprop="description" content="GCP vs AWS 본격 파해치기">
+    <meta itemprop="datePublished" content="2025-05-10T15:00:00+00:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" itemprop="url">OpenAI의 O1 모델, 제대로 사용하는 법
+            <a href="https://aidendef.github.io//tech/cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" itemprop="url">GCP vs AWS: AI 서비스 관점 비교
 </a>
           </h1>
           
@@ -246,7 +246,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -261,131 +261,309 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#openai의-chatgpt-제대로-사용하고-계신가요">OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</a></li><li><a href="#1-o1-모델의-정체는">1. O1 모델의 정체는?</a></li><li><a href="#2-o1을-잘-쓰는-법-챗봇과는-다르게">2. O1을 잘 쓰는 법: 챗봇과는 다르게!</a><ul><li><a href="#2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</a></li><li><a href="#2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</a></li><li><a href="#2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</a></li></ul></li><li><a href="#3-왜-이렇게-복잡한-모델을-만들었을까">3. 왜 이렇게 복잡한 모델을 만들었을까?</a></li><li><a href="#4-uiux에-대한-제안">4. UI/UX에 대한 제안</a></li><li><a href="#5-o1의-미래">5. O1의 미래</a></li><li><a href="#6-핵심-요약-이렇게-쓰세요">6. 핵심 요약: 이렇게 쓰세요</a></li></ul>
+              <ul class="toc__menu"><li><a href="#0-앞서보는-3줄-결론">0. 앞서보는 3줄 결론</a></li><li><a href="#1-출발점과-강점-비교">1. 출발점과 강점 비교</a></li><li><a href="#2-주요-서비스-비교">2. 주요 서비스 비교</a></li><li><a href="#3-가격-정책">3. 가격 정책</a></li><li><a href="#4-성능-및-네트워크">4. 성능 및 네트워크</a></li><li><a href="#5-시장-점유율-및-생태계">5. 시장 점유율 및 생태계</a></li><li><a href="#6-사용자-친화성">6. 사용자 친화성</a></li><li><a href="#7-멀티-클라우드-전략">7. 멀티 클라우드 전략</a></li><li><a href="#8-ai-관점에서의-비교">8. AI 관점에서의 비교</a><ul><li><a href="#8-1-철학과-접근-방식">8-1. 철학과 접근 방식</a></li><li><a href="#8-2-aiml-주요-서비스-비교">8-2. AI/ML 주요 서비스 비교</a></li><li><a href="#8-3-automl-세부-비교">8-3. AutoML 세부 비교</a></li></ul></li></ul>
             </nav>
           </aside>
         
-        <h2 id="openai의-chatgpt-제대로-사용하고-계신가요"><strong>OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</strong></h2>
+        <h2 id="0-앞서보는-3줄-결론">0. 앞서보는 3줄 결론</h2>
 
-<p>AI 모델들이 급격하게 발전하면서, 이제는 다양한 종류의 챗봇 모델들이 존재합니다. 특히 GPT-4o, Claude 3.5 Sonnet 등은 누구나 쉽게 접근할 수 있는 대화형 AI 모델로 인기를 끌고 있습니다.</p>
+<ul>
+  <li>GCP는 AI/ML, 데이터 분석에 강하고,</li>
+  <li>AWS는 서비스 다양성과 기업 클라우드에 최적화되어 있습니다.</li>
+</ul>
 
-<p><img src="/assets/images/post_img/Inline-image-2025-02-18 15.35.46.743.png" alt="O1 모델 아키텍처" class="align-center" /></p>
-
-<p>하지만, 최근 OpenAI가 선보인 <strong>O1 모델</strong>은 완전히 새로운 개념의 모델로, 기존 챗 모델처럼 다루면 <strong>제대로 된 성능을 끌어내기 어렵습니다.</strong></p>
+<p>➡ GCP는 AI 연구·개발용 클라우드, AWS는 기업용 AI 솔루션 클라우드입니다.
+<img src="/assets/images/post_img/ChatGPT Image 2025년 5월 12일 오후 03_17_30.png" alt="GCP vs AWS 비교" /></p>
 
 <hr />
 
-<h2 id="1-o1-모델의-정체는"><strong>1. O1 모델의 정체는?</strong></h2>
-
-<ul>
-  <li>
-    <p><strong>O1은 챗봇이 아닙니다.</strong><br />
-O1은 리포트 생성형 모델로, 상호작용보다는 <strong>정적이고 깊이 있는 결과물</strong>을 생성하는 데 초점을 맞춥니다.</p>
-  </li>
-  <li>
-    <p><strong>대화형 인터페이스로 사용하면 성능이 떨어집니다.</strong><br />
-맥락 없이 질문하면 느리거나 부정확한 답이 나올 수밖에 없습니다.</p>
-  </li>
-</ul>
-
-<hr />
-
-<h2 id="2-o1을-잘-쓰는-법-챗봇과는-다르게"><strong>2. O1을 잘 쓰는 법: 챗봇과는 다르게!</strong></h2>
-
-<h3 id="2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</h3>
-<ul>
-  <li>일반적인 챗봇처럼 짧은 프롬프트를 주면 안 됩니다.</li>
-  <li><strong>프롬프트 대신 ‘브리프(brief)’를 작성하세요.</strong>
-    <ul>
-      <li>실패한 시도</li>
-      <li>전체 데이터 구조</li>
-      <li>프로젝트의 목적과 맥락</li>
-      <li>도메인 용어 및 기대 성과 등</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</h3>
-<ul>
-  <li>“역할을 설정하고 이렇게 이렇게 해줘” → ❌</li>
-  <li>“내가 원하는 결과는 무엇이다” → ⭕</li>
-</ul>
-
-<h3 id="2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</h3>
+<h2 id="1-출발점과-강점-비교">1. 출발점과 강점 비교</h2>
 
 <table>
   <thead>
     <tr>
-      <th>잘하는 것</th>
-      <th>못하는 것</th>
+      <th>항목</th>
+      <th>GCP (Google Cloud Platform)</th>
+      <th>AWS (Amazon Web Services)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>전체 코드 파일 생성</td>
-      <td>문체나 개성 있는 글쓰기</td>
+      <td>출발 배경</td>
+      <td>구글 내부 인프라 기반</td>
+      <td>아마존 전자상거래 인프라 기반</td>
     </tr>
     <tr>
-      <td>복잡한 쿼리 언어 처리</td>
-      <td>SaaS 전체 앱 생성 (반복 필요)</td>
+      <td>강점</td>
+      <td>AI/ML, 데이터 분석, Kubernetes</td>
+      <td>서비스 다양성, 시장 점유율, 기업 지원</td>
     </tr>
     <tr>
-      <td>엔지니어링 개념 설명</td>
-      <td>대화형 인터페이스 대응</td>
-    </tr>
-    <tr>
-      <td>단순 의료 진단</td>
-      <td>감성적 콘텐츠 작성</td>
+      <td>대표 고객</td>
+      <td>YouTube, Twitter(X), PayPal 등</td>
+      <td>Netflix, Airbnb, NASA 등</td>
     </tr>
   </tbody>
 </table>
 
 <hr />
 
-<h2 id="3-왜-이렇게-복잡한-모델을-만들었을까"><strong>3. 왜 이렇게 복잡한 모델을 만들었을까?</strong></h2>
+<h2 id="2-주요-서비스-비교">2. 주요 서비스 비교</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>컴퓨팅</td>
+      <td>Compute Engine</td>
+      <td>EC2</td>
+    </tr>
+    <tr>
+      <td>컨테이너</td>
+      <td>GKE</td>
+      <td>EKS</td>
+    </tr>
+    <tr>
+      <td>서버리스</td>
+      <td>Cloud Functions, Cloud Run</td>
+      <td>Lambda, Fargate</td>
+    </tr>
+    <tr>
+      <td>데이터베이스</td>
+      <td>Cloud SQL, BigQuery, Spanner</td>
+      <td>RDS, Redshift, DynamoDB</td>
+    </tr>
+    <tr>
+      <td>스토리지</td>
+      <td>Cloud Storage</td>
+      <td>S3</td>
+    </tr>
+    <tr>
+      <td>네트워킹</td>
+      <td>Cloud CDN, VPC, Load Balancer</td>
+      <td>CloudFront, VPC, ELB</td>
+    </tr>
+    <tr>
+      <td>AI/ML</td>
+      <td>Vertex AI, TensorFlow</td>
+      <td>SageMaker, Rekognition</td>
+    </tr>
+    <tr>
+      <td>IoT</td>
+      <td>IoT Core</td>
+      <td>AWS IoT</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>➡ AWS는 서비스가 더 많고 기업 기능이 풍부합니다. GCP는 AI/ML, 데이터 분석에서 강점이 있습니다.</p>
+
+<hr />
+
+<h2 id="3-가격-정책">3. 가격 정책</h2>
 
 <ul>
-  <li>OpenAI는 O1을 <strong>“에이전트형 리포트 생성기”</strong>로 정의하고 있으며, 월 $2000 수준의 <strong>O1 Pro</strong> 상품 출시도 예상됩니다.</li>
-  <li>해외에서는 <strong>“엔지니어 연봉 대비 훨씬 싸다”</strong>는 반응도 있습니다.</li>
-  <li>답변에 5분이 걸려도 <strong>그만한 가치가 있는 질문이라면</strong> 활용도가 매우 높습니다.</li>
+  <li><strong>GCP</strong>: 초 단위 요금 과금 가능 → 세밀한 요금 조정 가능</li>
+  <li><strong>AWS</strong>: 대부분 시간 단위 과금 (일부 초 단위 지원)</li>
+  <li><strong>무료 크레딧</strong>: GCP는 $300, AWS는 1년 프리 티어 제공</li>
 </ul>
 
 <hr />
 
-<h2 id="4-uiux에-대한-제안"><strong>4. UI/UX에 대한 제안</strong></h2>
+<h2 id="4-성능-및-네트워크">4. 성능 및 네트워크</h2>
 
 <ul>
-  <li>O1의 긴 결과물은 <strong>목차 기반 구조화된 뷰</strong>가 필수</li>
-  <li>Claude처럼 <strong>카드 기반 맥락 관리</strong>가 유용</li>
-  <li><strong>스트리밍 응답 기능</strong>이 적용되면 활용성 대폭 증가 예상</li>
+  <li><strong>GCP</strong>: 유튜브, 지메일 등을 지탱하는 구글 네트워크 인프라 기반</li>
+  <li><strong>AWS</strong>: 가장 많은 가용영역(AZ) 보유, 글로벌 커버리지 최상</li>
 </ul>
 
 <hr />
 
-<h2 id="5-o1의-미래"><strong>5. O1의 미래</strong></h2>
+<h2 id="5-시장-점유율-및-생태계">5. 시장 점유율 및 생태계</h2>
 
 <ul>
-  <li><strong>즉답형 AI에서 백그라운드 인텔리전스형 AI로의 진화</strong></li>
-  <li>사용자는 <strong>5분, 1시간, 하루, 심지어 3~5일이라도 기다릴 수 있음</strong></li>
-  <li>반복 작업을 줄이고 ‘결과 중심 AI’로 활용되는 모델로 성장할 것</li>
+  <li><strong>AWS</strong>: 시장 점유율 1위, 엔터프라이즈 고객 다수</li>
+  <li><strong>GCP</strong>: 3위지만 AI/ML, 데이터 분석 영향력 큼</li>
 </ul>
 
 <hr />
 
-<h2 id="6-핵심-요약-이렇게-쓰세요"><strong>6. 핵심 요약: 이렇게 쓰세요</strong></h2>
+<h2 id="6-사용자-친화성">6. 사용자 친화성</h2>
 
 <ul>
-  <li><strong>질문하지 말고, 설명하세요</strong></li>
-  <li><strong>단계별 안내보다 결과물의 정의를 강조하세요</strong></li>
-  <li><strong>맥락을 풍부하게, 예시는 구체적으로</strong></li>
+  <li><strong>GCP</strong>: 직관적 UI, 간편한 설정</li>
+  <li><strong>AWS</strong>: 설정은 복잡하지만 기능 다양</li>
 </ul>
 
 <hr />
 
-<p>GPT-4o와 Claude가 실시간 상호작용에 강하다면,<br />
-O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <strong>‘한 방에 끝내는 AI’</strong>입니다.</p>
+<h2 id="7-멀티-클라우드-전략">7. 멀티 클라우드 전략</h2>
 
-<p>그만큼, <strong>사용자도 프롬프트가 아닌 ‘설명서’를 써야</strong> 진짜 능력을 끌어낼 수 있습니다.</p>
+<ul>
+  <li><strong>GCP</strong>: Anthos 기반으로 AWS, Azure 등 멀티클라우드 운영 지원 강력</li>
+  <li><strong>AWS</strong>: 자사 서비스 중심 생태계 지향</li>
+</ul>
+
+<p>➡ 멀티 클라우드 전략을 고려한다면 GCP가 유리합니다.</p>
+
+<hr />
+
+<h2 id="8-ai-관점에서의-비교">8. AI 관점에서의 비교</h2>
+
+<h3 id="8-1-철학과-접근-방식">8-1. 철학과 접근 방식</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>철학</td>
+      <td>데이터 중심, 연구 기반</td>
+      <td>서비스 중심, 엔터프라이즈 최적화</td>
+    </tr>
+    <tr>
+      <td>접근 방식</td>
+      <td>연구자·개발자 중심 툴 제공</td>
+      <td>기업용 관리형 서비스 제공</td>
+    </tr>
+    <tr>
+      <td>생태계</td>
+      <td>TensorFlow, 오픈소스 중심</td>
+      <td>SageMaker 등 자체 생태계 중심</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>➡ GCP는 R\&amp;D 중심, AWS는 비즈니스 중심 접근</p>
+
+<hr />
+
+<h3 id="8-2-aiml-주요-서비스-비교">8-2. AI/ML 주요 서비스 비교</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>서비스</th>
+      <th>GCP</th>
+      <th>AWS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ML 플랫폼</td>
+      <td>Vertex AI</td>
+      <td>SageMaker</td>
+    </tr>
+    <tr>
+      <td>AutoML</td>
+      <td>AutoML</td>
+      <td>Autopilot</td>
+    </tr>
+    <tr>
+      <td>빅데이터 연계</td>
+      <td>BigQuery ML</td>
+      <td>Redshift ML</td>
+    </tr>
+    <tr>
+      <td>컴퓨터 비전</td>
+      <td>Vision AI</td>
+      <td>Rekognition</td>
+    </tr>
+    <tr>
+      <td>음성 인식</td>
+      <td>Speech-to-Text API</td>
+      <td>Transcribe</td>
+    </tr>
+    <tr>
+      <td>NLP</td>
+      <td>NLP API</td>
+      <td>Comprehend</td>
+    </tr>
+    <tr>
+      <td>챗봇</td>
+      <td>Dialogflow</td>
+      <td>Lex</td>
+    </tr>
+    <tr>
+      <td>AI 검색</td>
+      <td>Vertex AI Search</td>
+      <td>Kendra</td>
+    </tr>
+    <tr>
+      <td>추천 시스템</td>
+      <td>Recommendations AI</td>
+      <td>Personalize</td>
+    </tr>
+    <tr>
+      <td>문서 분석</td>
+      <td>Document AI</td>
+      <td>Fraud Detector</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>➡ 연구와 데이터 분석 기반 AI에는 GCP, 기업용 통합 솔루션은 AWS</p>
+
+<hr />
+
+<h3 id="8-3-automl-세부-비교">8-3. AutoML 세부 비교</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>GCP AutoML</th>
+      <th>AWS Autopilot</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>사용성</td>
+      <td>클릭 기반 GUI 제공</td>
+      <td>코드 없이 구성 가능</td>
+    </tr>
+    <tr>
+      <td>데이터 지원</td>
+      <td>이미지, 텍스트, 표</td>
+      <td>이미지, 텍스트, 표</td>
+    </tr>
+    <tr>
+      <td>튜닝</td>
+      <td>자동 하이퍼파라미터 튜닝</td>
+      <td>동일</td>
+    </tr>
+    <tr>
+      <td>설명 가능성</td>
+      <td>SHAP 기반</td>
+      <td>SHAP 기반</td>
+    </tr>
+    <tr>
+      <td>출력 포맷</td>
+      <td>TensorFlow</td>
+      <td>다양한 프레임워크</td>
+    </tr>
+    <tr>
+      <td>멀티 클라우드</td>
+      <td>Anthos 지원</td>
+      <td>AWS 생태계 내 최적화</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<p>###</p>
 
         
       </section>
@@ -402,11 +580,13 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#gpt4o" class="page__taxonomy-item p-category" rel="tag">gpt4o</a><span class="sep">, </span>
+      <a href="/tags/#ai" class="page__taxonomy-item p-category" rel="tag">AI</a><span class="sep">, </span>
     
-      <a href="/tags/#o1" class="page__taxonomy-item p-category" rel="tag">o1</a><span class="sep">, </span>
+      <a href="/tags/#aws" class="page__taxonomy-item p-category" rel="tag">AWS</a><span class="sep">, </span>
     
-      <a href="/tags/#openai" class="page__taxonomy-item p-category" rel="tag">openai</a>
+      <a href="/tags/#gcp" class="page__taxonomy-item p-category" rel="tag">GCP</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%81%B4%EB%9D%BC%EC%9A%B0%EB%93%9C%EB%B9%84%EA%B5%90" class="page__taxonomy-item p-category" rel="tag">클라우드비교</a>
     
     </span>
   </p>
@@ -425,6 +605,8 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
     
       <a href="/categories/#ai" class="page__taxonomy-item p-category" rel="tag">ai</a><span class="sep">, </span>
     
+      <a href="/categories/#cloud" class="page__taxonomy-item p-category" rel="tag">cloud</a><span class="sep">, </span>
+    
       <a href="/categories/#tech" class="page__taxonomy-item p-category" rel="tag">tech</a>
     
     </span>
@@ -433,26 +615,26 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T05:00:00+00:00">May 9, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-10T15:00:00+00:00">May 10, 2025</time></p>
 
       </footer>
 
       <section class="page__share">
   <h4 class="page__share-title">Share on</h4>
 
-  <a href="https://x.com/intent/tweet?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+  <a href="https://x.com/intent/tweet?text=GCP+vs+AWS%3A+AI+%EC%84%9C%EB%B9%84%EC%8A%A4+%EA%B4%80%EC%A0%90+%EB%B9%84%EA%B5%90%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fcloud%2Fai%2FGCPvsAWS%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
     <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
   </a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fcloud%2Fai%2FGCPvsAWS%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
     <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
     <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
   </a>
 
-  <a href="https://bsky.app/intent/compose?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+  <a href="https://bsky.app/intent/compose?text=GCP+vs+AWS%3A+AI+%EC%84%9C%EB%B9%84%EC%8A%A4+%EA%B4%80%EC%A0%90+%EB%B9%84%EA%B5%90%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fcloud%2Fai%2FGCPvsAWS%25EB%25B9%2584%25EA%25B5%2590%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
     <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
   </a>
 </section>
@@ -461,10 +643,10 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
       
   <nav class="pagination">
     
-      <a href="/tech/ai/cloud/Gemini-2.0-%EC%9D%B4%EC%A0%9C-%EB%88%84%EA%B5%AC%EB%82%98-%EC%82%AC%EC%9A%A9-%EA%B0%80%EB%8A%A5/" class="pagination--pager" title="Gemini 2.0 이제 누구나 사용 가능">Previous</a>
+      <a href="/tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="pagination--pager" title="OpenAI의 O1 모델, 제대로 사용하는 법">Previous</a>
     
     
-      <a href="/tech/cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" class="pagination--pager" title="GCP vs AWS: AI 서비스 관점 비교">Next</a>
+      <a href="/tech/cloud/ai/business/AWS-Bedrock-%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84-A-to-Z-%EB%AA%A8%EB%91%90-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0/" class="pagination--pager" title="AWS Bedrock 지식기반을 A to Z 모두 구현해보기">Next</a>
     
   </nav>
 

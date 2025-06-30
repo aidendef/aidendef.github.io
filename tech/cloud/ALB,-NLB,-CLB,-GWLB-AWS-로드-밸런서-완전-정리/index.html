@@ -10,8 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>OpenAI의 O1 모델, 제대로 사용하는 법 | Aiden의 든든한 Blog</title>
-<meta name="description" content="OpenAI 너란녀석">
+<!-- begin _includes/seo.html --><title>ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리 | Aiden의 든든한 Blog</title>
+<meta name="description" content="AWS 로드 밸런서 4종 완전 비교. 어떤 상황에 어떤 걸 써야 할까?">
 
 
   <meta name="author" content="Your Name">
@@ -23,32 +23,32 @@
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Aiden의 든든한 Blog">
-<meta property="og:title" content="OpenAI의 O1 모델, 제대로 사용하는 법">
-<meta property="og:url" content="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+<meta property="og:title" content="ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리">
+<meta property="og:url" content="https://aidendef.github.io//tech/cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/">
 
 
-  <meta property="og:description" content="OpenAI 너란녀석">
-
-
-
-  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/Inline-image-2025-02-18%2015.35.46.743.png">
+  <meta property="og:description" content="AWS 로드 밸런서 4종 완전 비교. 어떤 상황에 어떤 걸 써야 할까?">
 
 
 
-
-
-  <meta property="article:published_time" content="2025-05-09T05:00:00+00:00">
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%84%9C.png">
 
 
 
 
 
-  
+  <meta property="article:published_time" content="2025-05-19T15:00:00+00:00">
+
+
+
+
 
   
 
+  
 
-<link rel="canonical" href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/">
+
+<link rel="canonical" href="https://aidendef.github.io//tech/cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/">
 
 
 
@@ -220,16 +220,16 @@
 
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="OpenAI의 O1 모델, 제대로 사용하는 법">
-    <meta itemprop="description" content="OpenAI 너란녀석">
-    <meta itemprop="datePublished" content="2025-05-09T05:00:00+00:00">
+    <meta itemprop="headline" content="ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리">
+    <meta itemprop="description" content="AWS 로드 밸런서 4종 완전 비교. 어떤 상황에 어떤 걸 써야 할까?">
+    <meta itemprop="datePublished" content="2025-05-19T15:00:00+00:00">
     
 
     <div class="page__inner-wrap">
       
         <header>
           <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" itemprop="url">OpenAI의 O1 모델, 제대로 사용하는 법
+            <a href="https://aidendef.github.io//tech/cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/" itemprop="url">ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리
 </a>
           </h1>
           
@@ -246,7 +246,7 @@
       <span class="page__meta-readtime">
         <i class="far fa-clock" aria-hidden="true"></i>
         
-          1 minute read
+          2 minute read
         
       </span>
     
@@ -261,131 +261,201 @@
           <aside class="sidebar__right sticky">
             <nav class="toc">
               <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#openai의-chatgpt-제대로-사용하고-계신가요">OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</a></li><li><a href="#1-o1-모델의-정체는">1. O1 모델의 정체는?</a></li><li><a href="#2-o1을-잘-쓰는-법-챗봇과는-다르게">2. O1을 잘 쓰는 법: 챗봇과는 다르게!</a><ul><li><a href="#2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</a></li><li><a href="#2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</a></li><li><a href="#2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</a></li></ul></li><li><a href="#3-왜-이렇게-복잡한-모델을-만들었을까">3. 왜 이렇게 복잡한 모델을 만들었을까?</a></li><li><a href="#4-uiux에-대한-제안">4. UI/UX에 대한 제안</a></li><li><a href="#5-o1의-미래">5. O1의 미래</a></li><li><a href="#6-핵심-요약-이렇게-쓰세요">6. 핵심 요약: 이렇게 쓰세요</a></li></ul>
+              <ul class="toc__menu"><li><a href="#1-들어가며">1. 들어가며</a></li><li><a href="#2-전체-비교표로-빠르게-보기">2. 전체 비교표로 빠르게 보기</a></li><li><a href="#3-alb--application-load-balancer">3. ALB – Application Load Balancer</a><ul><li><a href="#주요-특징">주요 특징</a></li><li><a href="#사용-예시">사용 예시</a></li></ul></li><li><a href="#4-nlb--network-load-balancer">4. NLB – Network Load Balancer</a><ul><li><a href="#주요-특징-1">주요 특징</a></li><li><a href="#사용-예시-1">사용 예시</a></li></ul></li><li><a href="#5-clb--classic-load-balancer">5. CLB – Classic Load Balancer</a><ul><li><a href="#주요-특징-2">주요 특징</a></li><li><a href="#사용-예시-2">사용 예시</a></li></ul></li><li><a href="#6-gwlb--gateway-load-balancer">6. GWLB – Gateway Load Balancer</a><ul><li><a href="#주요-특징-3">주요 특징</a></li><li><a href="#사용-예시-3">사용 예시</a></li></ul></li><li><a href="#7-어떤-걸-언제-써야-할까">7. 어떤 걸 언제 써야 할까?</a></li><li><a href="#8-마무리하며">8. 마무리하며</a></li></ul>
             </nav>
           </aside>
         
-        <h2 id="openai의-chatgpt-제대로-사용하고-계신가요"><strong>OpenAI의 ChatGPT, 제대로 사용하고 계신가요?</strong></h2>
+        <h2 id="1-들어가며">1. 들어가며</h2>
 
-<p>AI 모델들이 급격하게 발전하면서, 이제는 다양한 종류의 챗봇 모델들이 존재합니다. 특히 GPT-4o, Claude 3.5 Sonnet 등은 누구나 쉽게 접근할 수 있는 대화형 AI 모델로 인기를 끌고 있습니다.</p>
+<p>AWS에서 서비스를 운영하다 보면, 로드 밸런서는 거의 필수다.<br />
+하지만 ELB 안에도 종류가 4가지나 있어서 처음 접하면 헷갈리기 쉽다.</p>
 
-<p><img src="/assets/images/post_img/Inline-image-2025-02-18 15.35.46.743.png" alt="O1 모델 아키텍처" class="align-center" /></p>
+<ul>
+  <li>웹 서비스엔 ALB?</li>
+  <li>게임 서버엔 NLB?</li>
+  <li>옛날 시스템은 CLB?</li>
+  <li>방화벽 연결엔 GWLB?</li>
+</ul>
 
-<p>하지만, 최근 OpenAI가 선보인 <strong>O1 모델</strong>은 완전히 새로운 개념의 모델로, 기존 챗 모델처럼 다루면 <strong>제대로 된 성능을 끌어내기 어렵습니다.</strong></p>
+<p>이번 글에서는 AWS의 로드 밸런서 종류를 한 번에 정리해보고, 각 로드 밸런서가 어떤 상황에 적합한지 사례를 들어가며 설명해보려고 한다.</p>
 
 <hr />
 
-<h2 id="1-o1-모델의-정체는"><strong>1. O1 모델의 정체는?</strong></h2>
-
-<ul>
-  <li>
-    <p><strong>O1은 챗봇이 아닙니다.</strong><br />
-O1은 리포트 생성형 모델로, 상호작용보다는 <strong>정적이고 깊이 있는 결과물</strong>을 생성하는 데 초점을 맞춥니다.</p>
-  </li>
-  <li>
-    <p><strong>대화형 인터페이스로 사용하면 성능이 떨어집니다.</strong><br />
-맥락 없이 질문하면 느리거나 부정확한 답이 나올 수밖에 없습니다.</p>
-  </li>
-</ul>
-
-<hr />
-
-<h2 id="2-o1을-잘-쓰는-법-챗봇과는-다르게"><strong>2. O1을 잘 쓰는 법: 챗봇과는 다르게!</strong></h2>
-
-<h3 id="2-1-dont-write-prompts-write-briefs">2-1. Don’t Write Prompts, Write Briefs</h3>
-<ul>
-  <li>일반적인 챗봇처럼 짧은 프롬프트를 주면 안 됩니다.</li>
-  <li><strong>프롬프트 대신 ‘브리프(brief)’를 작성하세요.</strong>
-    <ul>
-      <li>실패한 시도</li>
-      <li>전체 데이터 구조</li>
-      <li>프로젝트의 목적과 맥락</li>
-      <li>도메인 용어 및 기대 성과 등</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="2-2-어떻게가-아닌-무엇을-설명하세요">2-2. ‘어떻게’가 아닌 ‘무엇’을 설명하세요</h3>
-<ul>
-  <li>“역할을 설정하고 이렇게 이렇게 해줘” → ❌</li>
-  <li>“내가 원하는 결과는 무엇이다” → ⭕</li>
-</ul>
-
-<h3 id="2-3-o1이-잘하는-일--못하는-일">2-3. O1이 잘하는 일 / 못하는 일</h3>
+<h2 id="2-전체-비교표로-빠르게-보기">2. 전체 비교표로 빠르게 보기</h2>
 
 <table>
   <thead>
     <tr>
-      <th>잘하는 것</th>
-      <th>못하는 것</th>
+      <th>종류</th>
+      <th>풀네임</th>
+      <th>계층</th>
+      <th>주요 목적</th>
+      <th>특징 요약</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>전체 코드 파일 생성</td>
-      <td>문체나 개성 있는 글쓰기</td>
+      <td>ALB</td>
+      <td>Application Load Balancer</td>
+      <td>L7</td>
+      <td>HTTP/HTTPS 트래픽 처리</td>
+      <td>경로/호스트 기반 라우팅, 웹 앱에 특화</td>
     </tr>
     <tr>
-      <td>복잡한 쿼리 언어 처리</td>
-      <td>SaaS 전체 앱 생성 (반복 필요)</td>
+      <td>NLB</td>
+      <td>Network Load Balancer</td>
+      <td>L4</td>
+      <td>TCP/UDP 기반 초고속 통신</td>
+      <td>정적 IP, TLS 종료 가능, 초고성능</td>
     </tr>
     <tr>
-      <td>엔지니어링 개념 설명</td>
-      <td>대화형 인터페이스 대응</td>
+      <td>CLB</td>
+      <td>Classic Load Balancer</td>
+      <td>L4/L7</td>
+      <td>구형 아키텍처 호환</td>
+      <td>과거 시스템 유지용, 기능 제한적</td>
     </tr>
     <tr>
-      <td>단순 의료 진단</td>
-      <td>감성적 콘텐츠 작성</td>
+      <td>GWLB</td>
+      <td>Gateway Load Balancer</td>
+      <td>L3/L4</td>
+      <td>보안 장비 트래픽 미러링 등 연동</td>
+      <td>서드파티 방화벽, IDS 등과 연동 용도</td>
     </tr>
   </tbody>
 </table>
 
 <hr />
 
-<h2 id="3-왜-이렇게-복잡한-모델을-만들었을까"><strong>3. 왜 이렇게 복잡한 모델을 만들었을까?</strong></h2>
+<h2 id="3-alb--application-load-balancer">3. ALB – Application Load Balancer</h2>
 
+<p><img src="/assets/images/post_img/Application_Load_Balancer.png" alt="Application_Load_Balancer" /></p>
+
+<p>웹 애플리케이션에 특화된 L7 로드 밸런서이다.<br />
+HTTP, HTTPS 트래픽에 대해 경로 기반 또는 호스트 기반 라우팅이 가능하다.</p>
+
+<h3 id="주요-특징">주요 특징</h3>
 <ul>
-  <li>OpenAI는 O1을 <strong>“에이전트형 리포트 생성기”</strong>로 정의하고 있으며, 월 $2000 수준의 <strong>O1 Pro</strong> 상품 출시도 예상됩니다.</li>
-  <li>해외에서는 <strong>“엔지니어 연봉 대비 훨씬 싸다”</strong>는 반응도 있습니다.</li>
-  <li>답변에 5분이 걸려도 <strong>그만한 가치가 있는 질문이라면</strong> 활용도가 매우 높습니다.</li>
+  <li>L7 (Application Layer)에서 동작</li>
+  <li><code class="language-plaintext highlighter-rouge">/api</code> → A 서비스, <code class="language-plaintext highlighter-rouge">/admin</code> → B 서비스처럼 경로 기반 분기 가능</li>
+  <li>WebSocket, HTTP/2 지원</li>
+  <li>대상 그룹: EC2, Lambda, Fargate, IP 등 유연</li>
+</ul>
+
+<h3 id="사용-예시">사용 예시</h3>
+<ul>
+  <li>REST API 서버</li>
+  <li>마이크로서비스 기반 아키텍처</li>
+  <li>정적 리소스와 동적 컨텐츠를 분리해서 배포할 때</li>
 </ul>
 
 <hr />
 
-<h2 id="4-uiux에-대한-제안"><strong>4. UI/UX에 대한 제안</strong></h2>
+<h2 id="4-nlb--network-load-balancer">4. NLB – Network Load Balancer</h2>
 
+<p><img src="/assets/images/post_img/Network_Load_Balancer.png" alt="Network_Load_Balancer" /></p>
+
+<p>초당 수백만 요청을 처리할 수 있는 L4 로드 밸런서이다.<br />
+게임 서버나 실시간 서비스에 적합하다.</p>
+
+<h3 id="주요-특징-1">주요 특징</h3>
 <ul>
-  <li>O1의 긴 결과물은 <strong>목차 기반 구조화된 뷰</strong>가 필수</li>
-  <li>Claude처럼 <strong>카드 기반 맥락 관리</strong>가 유용</li>
-  <li><strong>스트리밍 응답 기능</strong>이 적용되면 활용성 대폭 증가 예상</li>
+  <li>L4 (Transport Layer)에서 TCP/UDP 트래픽 처리</li>
+  <li>정적 IP 할당 가능</li>
+  <li>TLS 종료 가능 (SSL 인증서 적용)</li>
+  <li>초고속 처리: ALB보다 훨씬 빠름</li>
+</ul>
+
+<h3 id="사용-예시-1">사용 예시</h3>
+<ul>
+  <li>온라인 게임 서버</li>
+  <li>금융 시스템</li>
+  <li>WebRTC 기반 서비스, 실시간 IoT 통신</li>
 </ul>
 
 <hr />
 
-<h2 id="5-o1의-미래"><strong>5. O1의 미래</strong></h2>
+<h2 id="5-clb--classic-load-balancer">5. CLB – Classic Load Balancer</h2>
 
+<p><img src="/assets/images/post_img/Classic_Load_Balancer.png" alt="Classic_Load_Balancer" /></p>
+
+<p>예전부터 AWS에서 제공하던 로드 밸런서로, ALB/NLB 이전 세대이다.<br />
+L4/L7 모두 지원하지만 기능은 제한적이다.</p>
+
+<h3 id="주요-특징-2">주요 특징</h3>
 <ul>
-  <li><strong>즉답형 AI에서 백그라운드 인텔리전스형 AI로의 진화</strong></li>
-  <li>사용자는 <strong>5분, 1시간, 하루, 심지어 3~5일이라도 기다릴 수 있음</strong></li>
-  <li>반복 작업을 줄이고 ‘결과 중심 AI’로 활용되는 모델로 성장할 것</li>
+  <li>L4 + L7 혼합 지원</li>
+  <li>HTTP 헤더 기반 라우팅은 어려움</li>
+  <li>더 이상 신규 권장되지 않음 (기존 유지용)</li>
+</ul>
+
+<h3 id="사용-예시-2">사용 예시</h3>
+<ul>
+  <li>구형 시스템 유지보수</li>
+  <li>마이그레이션 전까지 임시 유지</li>
 </ul>
 
 <hr />
 
-<h2 id="6-핵심-요약-이렇게-쓰세요"><strong>6. 핵심 요약: 이렇게 쓰세요</strong></h2>
+<h2 id="6-gwlb--gateway-load-balancer">6. GWLB – Gateway Load Balancer</h2>
 
+<p><img src="/assets/images/post_img/Gateway_Load_Balancer.png" alt="Gateway_Load_Balancer" /></p>
+
+<p>L3/L4 계층에서 네트워크 장비와 트래픽을 중계해주는 로드 밸런서이다.<br />
+가상 방화벽, IDS/IPS 같은 보안 장비 연동용으로 사용된다.</p>
+
+<h3 id="주요-특징-3">주요 특징</h3>
 <ul>
-  <li><strong>질문하지 말고, 설명하세요</strong></li>
-  <li><strong>단계별 안내보다 결과물의 정의를 강조하세요</strong></li>
-  <li><strong>맥락을 풍부하게, 예시는 구체적으로</strong></li>
+  <li>L3 (Network Layer)에서 동작</li>
+  <li>패킷 미러링 및 VPC 트래픽 가시화</li>
+  <li>서드파티 네트워크 장비와 연동 가능 (Fortinet, Palo Alto 등)</li>
+</ul>
+
+<h3 id="사용-예시-3">사용 예시</h3>
+<ul>
+  <li>EC2 기반 가상 방화벽 연동</li>
+  <li>기업 보안 솔루션 통합</li>
+  <li>VPC 내부 트래픽 모니터링</li>
 </ul>
 
 <hr />
 
-<p>GPT-4o와 Claude가 실시간 상호작용에 강하다면,<br />
-O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <strong>‘한 방에 끝내는 AI’</strong>입니다.</p>
+<h2 id="7-어떤-걸-언제-써야-할까">7. 어떤 걸 언제 써야 할까?</h2>
 
-<p>그만큼, <strong>사용자도 프롬프트가 아닌 ‘설명서’를 써야</strong> 진짜 능력을 끌어낼 수 있습니다.</p>
+<table>
+  <thead>
+    <tr>
+      <th>상황</th>
+      <th>추천 로드 밸런서</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>웹 서비스, REST API</td>
+      <td>ALB</td>
+    </tr>
+    <tr>
+      <td>초고속, 실시간 통신</td>
+      <td>NLB</td>
+    </tr>
+    <tr>
+      <td>옛날 시스템 유지</td>
+      <td>CLB</td>
+    </tr>
+    <tr>
+      <td>보안 장비 연동</td>
+      <td>GWLB</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h2 id="8-마무리하며">8. 마무리하며</h2>
+
+<p>로드 밸런서 선택은 단순히 트래픽을 분산시키는 것 이상의 결정이다.<br />
+어떤 계층에서 동작하느냐, 어떤 기능이 필요한지에 따라 ALB, NLB, GWLB 중 선택이 갈리게 된다.<br />
+CLB는 이제 유지보수 목적으로만 사용하고, 신규 시스템에는 사용을 피하는 것이 좋다.</p>
 
         
       </section>
@@ -402,11 +472,17 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
     <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
     <span itemprop="keywords">
     
-      <a href="/tags/#gpt4o" class="page__taxonomy-item p-category" rel="tag">gpt4o</a><span class="sep">, </span>
+      <a href="/tags/#alb" class="page__taxonomy-item p-category" rel="tag">ALB</a><span class="sep">, </span>
     
-      <a href="/tags/#o1" class="page__taxonomy-item p-category" rel="tag">o1</a><span class="sep">, </span>
+      <a href="/tags/#aws" class="page__taxonomy-item p-category" rel="tag">AWS</a><span class="sep">, </span>
     
-      <a href="/tags/#openai" class="page__taxonomy-item p-category" rel="tag">openai</a>
+      <a href="/tags/#clb" class="page__taxonomy-item p-category" rel="tag">CLB</a><span class="sep">, </span>
+    
+      <a href="/tags/#gwlb" class="page__taxonomy-item p-category" rel="tag">GWLB</a><span class="sep">, </span>
+    
+      <a href="/tags/#nlb" class="page__taxonomy-item p-category" rel="tag">NLB</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%84%9C" class="page__taxonomy-item p-category" rel="tag">로드밸런서</a>
     
     </span>
   </p>
@@ -423,7 +499,7 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
     <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
     <span itemprop="keywords">
     
-      <a href="/categories/#ai" class="page__taxonomy-item p-category" rel="tag">ai</a><span class="sep">, </span>
+      <a href="/categories/#cloud" class="page__taxonomy-item p-category" rel="tag">cloud</a><span class="sep">, </span>
     
       <a href="/categories/#tech" class="page__taxonomy-item p-category" rel="tag">tech</a>
     
@@ -433,26 +509,26 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
 
         
 
-  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-09T05:00:00+00:00">May 9, 2025</time></p>
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-19T15:00:00+00:00">May 19, 2025</time></p>
 
       </footer>
 
       <section class="page__share">
   <h4 class="page__share-title">Share on</h4>
 
-  <a href="https://x.com/intent/tweet?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+  <a href="https://x.com/intent/tweet?text=ALB%2C+NLB%2C+CLB%2C+GWLB+%E2%80%93+AWS+%EB%A1%9C%EB%93%9C+%EB%B0%B8%EB%9F%B0%EC%84%9C+%EC%99%84%EC%A0%84+%EC%A0%95%EB%A6%AC%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fcloud%2FALB%2C-NLB%2C-CLB%2C-GWLB-AWS-%25EB%25A1%259C%25EB%2593%259C-%25EB%25B0%25B8%25EB%259F%25B0%25EC%2584%259C-%25EC%2599%2584%25EC%25A0%2584-%25EC%25A0%2595%25EB%25A6%25AC%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
     <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
   </a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fcloud%2FALB%2C-NLB%2C-CLB%2C-GWLB-AWS-%25EB%25A1%259C%25EB%2593%259C-%25EB%25B0%25B8%25EB%259F%25B0%25EC%2584%259C-%25EC%2599%2584%25EC%25A0%2584-%25EC%25A0%2595%25EB%25A6%25AC%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
     <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
   </a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/ai/OpenAI%EC%9D%98-o1%EB%AA%A8%EB%8D%B8-%EC%A0%9C%EB%8C%80%EB%A1%9C%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/cloud/ALB,-NLB,-CLB,-GWLB-AWS-%EB%A1%9C%EB%93%9C-%EB%B0%B8%EB%9F%B0%EC%84%9C-%EC%99%84%EC%A0%84-%EC%A0%95%EB%A6%AC/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
     <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
   </a>
 
-  <a href="https://bsky.app/intent/compose?text=OpenAI%EC%9D%98+O1+%EB%AA%A8%EB%8D%B8%2C+%EC%A0%9C%EB%8C%80%EB%A1%9C+%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94+%EB%B2%95%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fai%2FOpenAI%25EC%259D%2598-o1%25EB%25AA%25A8%25EB%258D%25B8-%25EC%25A0%259C%25EB%258C%2580%25EB%25A1%259C%25EC%2582%25AC%25EC%259A%25A9%25ED%2595%2598%25EA%25B8%25B0%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+  <a href="https://bsky.app/intent/compose?text=ALB%2C+NLB%2C+CLB%2C+GWLB+%E2%80%93+AWS+%EB%A1%9C%EB%93%9C+%EB%B0%B8%EB%9F%B0%EC%84%9C+%EC%99%84%EC%A0%84+%EC%A0%95%EB%A6%AC%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fcloud%2FALB%2C-NLB%2C-CLB%2C-GWLB-AWS-%25EB%25A1%259C%25EB%2593%259C-%25EB%25B0%25B8%25EB%259F%25B0%25EC%2584%259C-%25EC%2599%2584%25EC%25A0%2584-%25EC%25A0%2595%25EB%25A6%25AC%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
     <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
   </a>
 </section>
@@ -461,10 +537,10 @@ O1은 단 한 번의 요청으로 완성도 높은 아웃풋을 생성하는 <st
       
   <nav class="pagination">
     
-      <a href="/tech/ai/cloud/Gemini-2.0-%EC%9D%B4%EC%A0%9C-%EB%88%84%EA%B5%AC%EB%82%98-%EC%82%AC%EC%9A%A9-%EA%B0%80%EB%8A%A5/" class="pagination--pager" title="Gemini 2.0 이제 누구나 사용 가능">Previous</a>
+      <a href="/tech/ai/cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/" class="pagination--pager" title="AWS Summit Seoul 2025 탐방기">Previous</a>
     
     
-      <a href="/tech/cloud/ai/GCPvsAWS%EB%B9%84%EA%B5%90/" class="pagination--pager" title="GCP vs AWS: AI 서비스 관점 비교">Next</a>
+      <a href="/tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/" class="pagination--pager" title="Agentic_Workflow_using_LangGraph_and_Bedrock(1)">Next</a>
     
   </nav>
 

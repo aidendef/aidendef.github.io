@@ -1,0 +1,1214 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>이쁨 받는 AWS 아키텍처 만들어보자 | Aiden의 든든한 Blog</title>
+<meta name="description" content="이쁨받는 AWS 아키텍처 만드는 7가지 원칙">
+
+
+  <meta name="author" content="Your Name">
+  
+  <meta property="article:author" content="Your Name">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Aiden의 든든한 Blog">
+<meta property="og:title" content="이쁨 받는 AWS 아키텍처 만들어보자">
+<meta property="og:url" content="https://aidendef.github.io//tech/cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-AWS-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90/">
+
+
+  <meta property="og:description" content="이쁨받는 AWS 아키텍처 만드는 7가지 원칙">
+
+
+
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/archi-sample.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2025-05-11T15:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://aidendef.github.io//tech/cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-AWS-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Aiden의 든든한 Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt="Aiden의 든든한 Blog"></a>
+        
+        <a class="site-title" href="/">
+          Aiden의 든든한 Blog
+          <span class="site-subtitle">V1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/categories/tech/"
+                
+                
+              >Tech</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/private/"
+                
+                
+              >Private</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/recent"
+                
+                
+              >Recent</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Tech</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/ai/">AI</a></li>
+            
+              <li><a href="/categories/cloud/">Cloud</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Private</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/business/">Business</a></li>
+            
+              <li><a href="/categories/blog/">Blog</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <a href="/recent"><span class="nav__sub-title">Recent</span></a>
+          
+
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="이쁨 받는 AWS 아키텍처 만들어보자">
+    <meta itemprop="description" content="이쁨받는 AWS 아키텍처 만드는 7가지 원칙">
+    <meta itemprop="datePublished" content="2025-05-11T15:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://aidendef.github.io//tech/cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-AWS-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90/" itemprop="url">이쁨 받는 AWS 아키텍처 만들어보자
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#1-들어가며">1. 들어가며</a></li><li><a href="#2-실전에서-통하는-aws-아키텍처-설계-7가지-원칙">2. 실전에서 통하는 AWS 아키텍처 설계 7가지 원칙</a><ul><li><a href="#21-요구사항-기반-설계">2.1 요구사항 기반 설계</a></li><li><a href="#22-계층-분리-및-최소-책임-원칙-적용">2.2 계층 분리 및 최소 책임 원칙 적용</a><ul><li><a href="#1-왜-계층을-나눠야-할까">1) 왜 계층을 나눠야 할까?</a></li><li><a href="#2-어떻게-나눠야-할까">2) 어떻게 나눠야 할까?</a></li><li><a href="#3-srp-single-responsibility-principle-적용">3) SRP (Single Responsibility Principle) 적용</a></li><li><a href="#4-실전에서-적용하는-팁">4) 실전에서 적용하는 팁</a></li></ul></li><li><a href="#23-서버리스-우선-전략">2.3 서버리스 우선 전략</a><ul><li><a href="#1-왜-서버리스를-우선으로-생각해야-할까">1) 왜 서버리스를 우선으로 생각해야 할까?</a></li><li><a href="#2-aws에서-서버리스로-가능한-구성">2) AWS에서 서버리스로 가능한 구성</a></li><li><a href="#3-서버리스-설계-시-유의할-점">3) 서버리스 설계 시 유의할 점</a></li><li><a href="#4-서버리스가-적합하지-않은-상황">4) 서버리스가 적합하지 않은 상황</a></li></ul></li><li><a href="#24-데이터-흐름-기반-설계">2.4 데이터 흐름 기반 설계</a><ul><li><a href="#1-데이터-흐름이-중요한-이유">1) 데이터 흐름이 중요한 이유</a></li><li><a href="#2-실제-예시-학습-플랫폼의-데이터-흐름">2) 실제 예시: 학습 플랫폼의 데이터 흐름</a></li><li><a href="#3-흐름-중심-설계-체크리스트">3) 흐름 중심 설계 체크리스트</a></li><li><a href="#4-aws에서-활용할-수-있는-흐름-설계-도구들">4) AWS에서 활용할 수 있는 흐름 설계 도구들</a></li></ul></li><li><a href="#25-보안-및-운영-관점-포함">2.5 보안 및 운영 관점 포함</a><ul><li><a href="#1-보안은-기능이-아니라-기준이다">1) 보안은 “기능”이 아니라 “기준”이다</a></li><li><a href="#2-최소-권한-원칙-principle-of-least-privilege">2) 최소 권한 원칙 (Principle of Least Privilege)</a></li><li><a href="#3-운영-관점의-필수-요소들">3) 운영 관점의 필수 요소들</a></li><li><a href="#4-예-학습-플랫폼의-보안-구성">4) 예: 학습 플랫폼의 보안 구성</a></li></ul></li><li><a href="#26-비용-고려한-의사결정">2.6 비용 고려한 의사결정</a><ul><li><a href="#1-고정비-vs-변동비">1) 고정비 vs 변동비</a></li><li><a href="#2-단일-선택보다-조합으로-판단하자">2) 단일 선택보다 조합으로 판단하자</a></li><li><a href="#3-비용-최적화를-위한-설계-팁">3) 비용 최적화를 위한 설계 팁</a></li><li><a href="#4-실전-예-학습-플랫폼의-비용-전략">4) 실전 예: 학습 플랫폼의 비용 전략</a></li></ul></li><li><a href="#27-iac-infrastructure-as-code-적용">2.7 IaC (Infrastructure as Code) 적용</a><ul><li><a href="#1-왜-iac를-도입해야-할까">1) 왜 IaC를 도입해야 할까?</a></li><li><a href="#2-aws에서의-iac-선택지">2) AWS에서의 IaC 선택지</a></li><li><a href="#3-cdk-실전-예-lambda--api-gateway-구성">3) CDK 실전 예: Lambda + API Gateway 구성</a></li><li><a href="#4-iac-적용-시-주의할-점">4) IaC 적용 시 주의할 점</a></li></ul></li></ul></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="1-들어가며">1. 들어가며</h2>
+
+<p>클라우드 환경에서의 아키텍처 설계는 단순히 서비스를 배치하는 것을 넘어, 확장성, 안정성, 비용 효율성까지 고려한 종합 설계이다.
+하지만 처음 시작할 때는 수많은 AWS 서비스들 사이에서 무엇을 선택해야 할지, 어떻게 조합해야 할지 막막할 수밖에 없다.</p>
+
+<p>이 글에서는 복잡한 이론 대신, 실제 현업에서도 이쁨(?) 받는 AWS 아키텍처를 만드는 실전 방식을 공유하려고 합니다.
+단순히 구성도를 예쁘게 그리는 것이 아니라, 기능적으로 명확하고 운영팀과 개발팀 모두가 이해하기 쉬운 구조를 목표로 해보려고 한다.</p>
+
+<p><img src="/assets/images/post_img/archi-sample.png" alt="샘플" /></p>
+
+<h2 id="2-실전에서-통하는-aws-아키텍처-설계-7가지-원칙">2. 실전에서 통하는 AWS 아키텍처 설계 7가지 원칙</h2>
+
+<h3 id="21-요구사항-기반-설계">2.1 요구사항 기반 설계</h3>
+
+<p>좋은 아키텍처는 멋진 기술 스택에서 나오지 않는다. <strong>비즈니스와 사용자 요구사항을 얼마나 정확히 반영했는가</strong>에서 시작된다.</p>
+
+<p>아키텍처 설계 초기에 가장 먼저 할 일은 <strong>“이 시스템이 풀고자 하는 문제는 무엇인가?”</strong>를 구체적으로 정의하는 것이다. 예를 들어 교육 플랫폼을 만든다면 단순한 로그인/회원가입 시스템만이 아니라 <strong>“학생의 현재 지식 수준을 분석하고, 다음 학습 단계를 예측할 수 있어야 한다”</strong>는 요구가 핵심이 될 수 있다.</p>
+
+<p>이때 다음과 같은 세 가지 질문을 던져야 한다.</p>
+
+<ol>
+  <li><strong>누가 사용하는가?</strong>
+    <ul>
+      <li>학생인가? 교사인가? 관리자인가?</li>
+    </ul>
+  </li>
+  <li><strong>무엇을 기대하는가?</strong>
+    <ul>
+      <li>진단 평가인가? 실시간 피드백인가? 학습 경로 추천인가?</li>
+    </ul>
+  </li>
+  <li><strong>어떤 흐름으로 동작해야 하나?</strong>
+    <ul>
+      <li>사용자가 처음 접속한 순간부터, 결과를 받아보기까지의 흐름을 그려봐야 한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p>요구사항을 제대로 이해하면, 그에 맞춰 아키텍처도 달라진다. 예를 들어, 실시간 응답이 중요한 경우에는 API Gateway + Lambda 구조에 캐싱 계층(ElastiCache)을 두는 것이 적절하고, 대용량 분석이 중심이라면 Athena, Glue, EMR이 전면에 나와야 한다.</p>
+
+<p><strong>요구사항을 기능과 비기능으로 나누어 정리해두면</strong>, 아키텍처 판단 기준이 훨씬 명확해진다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>구분</th>
+      <th>내용</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>기능 요구사항</td>
+      <td>학습 경로 추천, 진단 분석, 실시간 피드백</td>
+    </tr>
+    <tr>
+      <td>비기능 요구사항</td>
+      <td>높은 가용성, 낮은 응답 시간, 확장성, 보안</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>요약하자면, <strong>요구사항 기반 설계란 복잡한 기술 용어 대신 ‘무엇을 왜 하려는지’에 집중하는 방식이다.</strong> AWS의 수많은 서비스를 선택하기 전에, 어떤 문제를 풀려는지 먼저 정의해야 한다.</p>
+
+<h3 id="22-계층-분리-및-최소-책임-원칙-적용">2.2 계층 분리 및 최소 책임 원칙 적용</h3>
+
+<p>서비스가 커질수록 유지보수가 어려워지는 가장 큰 이유는 <strong>모든 계층이 서로 얽혀 있기 때문</strong>이다.<br />
+이런 상황을 방지하려면 시스템을 명확히 나눠야 한다. 흔히 말하는 <strong>“계층 분리”</strong>는 단순한 구성도상의 분리가 아니라, <strong>책임의 분리</strong>를 의미한다.</p>
+
+<hr />
+
+<h4 id="1-왜-계층을-나눠야-할까">1) 왜 계층을 나눠야 할까?</h4>
+<ul>
+  <li>프론트엔드와 백엔드가 서로 독립적으로 개발되도록</li>
+  <li>인증/권한 로직이 비즈니스 로직과 섞이지 않도록</li>
+  <li>데이터 저장소 변경이 전체 시스템에 영향을 주지 않도록</li>
+</ul>
+
+<p>예를 들어 Lambda 함수가 API 요청도 받고, 인증도 하고, DB 저장까지 다 한다면 하나가 실패했을 때 디버깅도 어렵고 확장성도 떨어진다.</p>
+
+<hr />
+
+<h4 id="2-어떻게-나눠야-할까">2) 어떻게 나눠야 할까?</h4>
+
+<p>아래는 대표적인 계층 분리 방식이다:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>계층</th>
+      <th>역할</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>프론트엔드 계층</strong></td>
+      <td>사용자 인터페이스 제공 (S3 + CloudFront)</td>
+    </tr>
+    <tr>
+      <td><strong>API 계층</strong></td>
+      <td>클라이언트와 서버 간 통신 처리 (API Gateway + Lambda)</td>
+    </tr>
+    <tr>
+      <td><strong>비즈니스 로직 계층</strong></td>
+      <td>도메인 핵심 로직 구현 (Lambda 또는 ECS/Fargate)</td>
+    </tr>
+    <tr>
+      <td><strong>데이터 저장 계층</strong></td>
+      <td>상태 저장 및 조회 (DynamoDB, RDS, S3 등)</td>
+    </tr>
+    <tr>
+      <td><strong>AI/ML 계층</strong></td>
+      <td>예측, 추천, 요약 등 모델 활용 (Bedrock, SageMaker)</td>
+    </tr>
+    <tr>
+      <td><strong>분석 및 ETL 계층</strong></td>
+      <td>로그 수집, 배치 처리, 분석 (Glue, Athena, EMR 등)</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="3-srp-single-responsibility-principle-적용">3) SRP (Single Responsibility Principle) 적용</h4>
+
+<p>각 계층 안에서도 <strong>하나의 책임만 수행</strong>하도록 세분화하는 것이 핵심이다. 예를 들어:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">회원가입</code> Lambda는 오직 회원 가입만 처리해야 한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">학습 진단</code> Lambda는 진단 로직만 포함해야 한다. 인증 검증은 따로 처리해야 한다.</li>
+</ul>
+
+<p>이렇게 구성하면 오류가 나더라도 해당 책임 범위 안에서만 해결하면 된다.</p>
+
+<hr />
+
+<h4 id="4-실전에서-적용하는-팁">4) 실전에서 적용하는 팁</h4>
+
+<ul>
+  <li><strong>API Gateway → Lambda 매핑은 1:1</strong>을 유지하자<br />
+하나의 Lambda에 여러 엔드포인트를 몰아넣는 순간, SRP가 무너진다.</li>
+  <li><strong>Lambda가 너무 커지면 컨테이너로 전환을 고려하자</strong><br />
+Fargate/ECS로 나누고, 내부는 모듈화해서 관리</li>
+  <li><strong>모든 Lambda는 CloudWatch 로그 외에 X-Ray 트레이싱도 추가하자</strong><br />
+계층 간 성능 병목이 보인다.</li>
+</ul>
+
+<hr />
+
+<p>요약하자면, <strong>계층 분리란 아키텍처를 단순화하는 기술이 아니라, 팀 전체의 유지보수 비용을 줄이는 구조적 전략이다.</strong><br />
+AWS에서는 이 구조를 자연스럽게 녹여낼 수 있는 서비스들이 많으니, 역할에 맞는 서비스를 택하면 된다.</p>
+
+<h3 id="23-서버리스-우선-전략">2.3 서버리스 우선 전략</h3>
+
+<p>초기 서비스 설계 시 <strong>서버리스 아키텍처를 우선 고려하는 것</strong>은, 비용과 운영 복잡도를 동시에 줄일 수 있는 가장 강력한 전략 중 하나다.</p>
+
+<p>서버리스는 단순히 EC2 대신 Lambda를 쓰는 걸 의미하는 게 아니라, <strong>인프라 관리 부담 없이 핵심 로직 구현에 집중하는 구조</strong>를 말한다.</p>
+
+<hr />
+
+<h4 id="1-왜-서버리스를-우선으로-생각해야-할까">1) 왜 서버리스를 우선으로 생각해야 할까?</h4>
+
+<ul>
+  <li><strong>관리할 인프라가 없다:</strong> EC2처럼 서버 설치, 패치, 유지보수 필요 없음</li>
+  <li><strong>초기 비용이 낮다:</strong> 사용한 만큼만 과금되기 때문에 테스트/베타 단계에서 특히 유리</li>
+  <li><strong>자동 확장:</strong> 트래픽 급증에도 대응 가능</li>
+  <li><strong>빠른 배포와 롤백:</strong> 코드 하나 바꾸고 바로 배포 가능 (CI/CD와 찰떡)</li>
+</ul>
+
+<hr />
+
+<h4 id="2-aws에서-서버리스로-가능한-구성">2) AWS에서 서버리스로 가능한 구성</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>목적</th>
+      <th>서버리스 서비스</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>API 처리</td>
+      <td>API Gateway + Lambda</td>
+    </tr>
+    <tr>
+      <td>사용자 인증</td>
+      <td>Amazon Cognito</td>
+    </tr>
+    <tr>
+      <td>파일 저장</td>
+      <td>Amazon S3</td>
+    </tr>
+    <tr>
+      <td>메시지 큐</td>
+      <td>Amazon SQS</td>
+    </tr>
+    <tr>
+      <td>이벤트 기반 워크플로우</td>
+      <td>Amazon EventBridge + Step Functions</td>
+    </tr>
+    <tr>
+      <td>데이터베이스</td>
+      <td>Amazon DynamoDB</td>
+    </tr>
+    <tr>
+      <td>모델 추론</td>
+      <td>Amazon Bedrock (서버리스 추론 API)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>이 조합만으로도 완전한 SaaS, 학습 플랫폼, 데이터 파이프라인까지 구축할 수 있다.</p>
+
+<hr />
+
+<h4 id="3-서버리스-설계-시-유의할-점">3) 서버리스 설계 시 유의할 점</h4>
+
+<ul>
+  <li><strong>콜드 스타트 고려:</strong> 특히 VPC 내부에서 실행하는 Lambda는 초기 지연이 있을 수 있음<br />
+→ 해결: Lambda SnapStart, Arm 기반 Lambda, 내부 호출에선 Provisioned Concurrency 설정</li>
+  <li><strong>짧은 실행 시간에 최적화된 로직 작성 필요:</strong><br />
+Lambda는 최대 15분 제한이 있으므로, 긴 작업은 Step Functions나 Fargate로 위임</li>
+  <li><strong>비동기 설계에 익숙해져야 함:</strong><br />
+SQS, SNS, EventBridge 등으로 이벤트 흐름을 연결하는 방식이 기본</li>
+</ul>
+
+<hr />
+
+<h4 id="4-서버리스가-적합하지-않은-상황">4) 서버리스가 적합하지 않은 상황</h4>
+
+<ul>
+  <li><strong>지속적으로 CPU/메모리를 점유해야 하는 작업</strong></li>
+  <li><strong>고성능 GPU 기반의 학습/추론</strong></li>
+  <li><strong>밀리초 단위 응답이 필요한 초저지연 API</strong></li>
+</ul>
+
+<p>이런 경우에는 EC2, ECS, EKS 등 컨테이너 기반 구성이 적합하다.</p>
+
+<hr />
+
+<p>서버리스 우선 전략은 <strong>작은 팀, 빠른 시작, 명확한 기능</strong>이 핵심일 때 강력한 무기다.<br />
+AWS는 이를 위해 수많은 관리형 서비스를 제공하고 있으니, <strong>직접 서버를 띄우는 일은 정말 필요할 때만 하자.</strong></p>
+
+<h3 id="24-데이터-흐름-기반-설계">2.4 데이터 흐름 기반 설계</h3>
+
+<p>많은 시스템 설계가 <strong>기능 중심</strong>으로 시작되지만, 시간이 지나면 <strong>데이터 흐름</strong>이 구조의 복잡성을 좌우하게 된다.<br />
+그래서 초기부터 “<strong>어떤 데이터가, 어디서 생성되어, 어디로 흘러가는가</strong>”를 기준으로 아키텍처를 잡아야 한다.</p>
+
+<hr />
+
+<h4 id="1-데이터-흐름이-중요한-이유">1) 데이터 흐름이 중요한 이유</h4>
+
+<ul>
+  <li><strong>기능보다 데이터가 오래 남는다:</strong> 기능은 변경되거나 제거되지만, 데이터는 보존되어야 하고 분석 대상이 된다.</li>
+  <li><strong>복잡성은 데이터 이동에서 생긴다:</strong> 특히 AI/ML 시스템이나 분석 시스템에선 데이터가 수집→저장→처리→활용으로 이어지는 전체 흐름이 중요하다.</li>
+  <li><strong>보안과 규정 준수도 흐름을 기준으로 설계해야 한다:</strong> 예: 개인정보가 어떤 경로를 거치는지 명확히 해야 DLP(Data Loss Prevention)나 암호화 포인트를 설정할 수 있음.</li>
+</ul>
+
+<hr />
+
+<h4 id="2-실제-예시-학습-플랫폼의-데이터-흐름">2) 실제 예시: 학습 플랫폼의 데이터 흐름</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>사용자 행동 → API Gateway → Lambda → DynamoDB 저장
+                                      ↓
+                         Amazon EventBridge
+                                      ↓
+                     Glue/EMR로 ETL 처리
+                                      ↓
+               Athena + QuickSight로 시각화
+</code></pre></div></div>
+
+<p>여기서 중요한 건, 단순히 “어디에 저장할까?”가 아니라<br />
+→ <strong>어떤 데이터가 언제 생성되고, 누가 이 데이터를 쓰는가?</strong></p>
+
+<hr />
+
+<h4 id="3-흐름-중심-설계-체크리스트">3) 흐름 중심 설계 체크리스트</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>체크포인트</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>생성</td>
+      <td>데이터는 언제, 어떤 이벤트에서 생성되는가?</td>
+    </tr>
+    <tr>
+      <td>저장</td>
+      <td>정형/비정형 여부에 따라 적절한 저장소인가? (RDS, S3, DynamoDB 등)</td>
+    </tr>
+    <tr>
+      <td>처리</td>
+      <td>실시간/배치/스케줄 중 어떤 방식인가?</td>
+    </tr>
+    <tr>
+      <td>활용</td>
+      <td>이 데이터를 누가, 어떻게 활용하는가? (API 응답, 모델 학습, 분석 리포트 등)</td>
+    </tr>
+    <tr>
+      <td>수명주기</td>
+      <td>언제까지 보관되고, 어떻게 삭제되는가?</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="4-aws에서-활용할-수-있는-흐름-설계-도구들">4) AWS에서 활용할 수 있는 흐름 설계 도구들</h4>
+
+<ul>
+  <li><strong>EventBridge:</strong> 데이터 흐름 중심 이벤트 라우팅</li>
+  <li><strong>Step Functions:</strong> 흐름을 시각적으로 구성하고 상태 기반 전환</li>
+  <li><strong>Kinesis / MSK:</strong> 실시간 데이터 스트림 처리</li>
+  <li><strong>Glue Data Catalog:</strong> 데이터 계보 및 흐름 추적</li>
+</ul>
+
+<hr />
+
+<p>데이터 흐름 기반 설계는 <strong>“무엇을 만들까?”가 아니라 “어떤 데이터가 어떻게 움직이는가?”를 먼저 생각하는 설계 방식</strong>이다.<br />
+이 접근법을 쓰면 기능 변경에도 데이터 기반 구조는 유지되기 때문에 확장성과 유연성이 높아진다.</p>
+
+<h3 id="25-보안-및-운영-관점-포함">2.5 보안 및 운영 관점 포함</h3>
+
+<p>AWS 아키텍처에서 <strong>보안(Security)</strong>과 <strong>운영(Operations)</strong>은 설계의 마지막이 아니라 <strong>처음부터 함께 고려해야 할 기본 조건</strong>이다.<br />
+개발자 입장에서 기능 구현에 집중하다 보면 보안과 운영은 뒷전이 되기 쉬운데, 이는 나중에 큰 장애나 사고로 돌아온다.</p>
+
+<hr />
+
+<h4 id="1-보안은-기능이-아니라-기준이다">1) 보안은 “기능”이 아니라 “기준”이다</h4>
+
+<p>보안은 단일 기능이 아니라, <strong>모든 계층에 스며들어 있어야 하는 기준</strong>이다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>계층</th>
+      <th>고려 사항</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>S3</td>
+      <td>퍼블릭 접근 차단, 버킷 정책 최소화, 암호화 기본</td>
+    </tr>
+    <tr>
+      <td>Lambda</td>
+      <td>VPC 내부 실행 여부, IAM Role 최소 권한 원칙 적용</td>
+    </tr>
+    <tr>
+      <td>API Gateway</td>
+      <td>인증 토큰 필수, WAF 설정</td>
+    </tr>
+    <tr>
+      <td>DynamoDB</td>
+      <td>KMS 암호화 활성화, 테이블 접근 권한 최소화</td>
+    </tr>
+    <tr>
+      <td>Bedrock/SageMaker</td>
+      <td>민감 데이터 입력 필터링, 결과 로그 보관 정책 설정</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h4 id="2-최소-권한-원칙-principle-of-least-privilege">2) 최소 권한 원칙 (Principle of Least Privilege)</h4>
+
+<p>모든 IAM Role, Policy, User, Group은 <strong>딱 필요한 리소스, 필요한 작업만 허용</strong>해야 한다.</p>
+
+<p>예:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">Effect</span><span class="pi">:</span> <span class="s">Allow</span>
+<span class="na">Action</span><span class="pi">:</span> <span class="s">s3:GetObject</span>
+<span class="na">Resource</span><span class="pi">:</span> <span class="s">arn:aws:s3:::my-bucket/specific-folder/*</span>
+</code></pre></div></div>
+
+<p>이런 식으로 리소스와 액션을 구체적으로 제한해야 한다.<br />
+“모든 S3 액세스 허용” 같은 broad 권한은 실제 서비스에선 절대 쓰면 안 된다.</p>
+
+<hr />
+
+<h4 id="3-운영-관점의-필수-요소들">3) 운영 관점의 필수 요소들</h4>
+
+<ul>
+  <li><strong>모니터링:</strong><br />
+CloudWatch로 모든 Lambda, API, DB, ML Endpoint의 로그와 메트릭 수집</li>
+  <li><strong>로깅:</strong><br />
+CloudTrail로 모든 API 호출 기록<br />
+S3/Bedrock 등은 별도 access log 활성화</li>
+  <li><strong>알림:</strong><br />
+SNS, Slack 연동 또는 EventBridge + Lambda로 운영 알림 자동화</li>
+  <li><strong>배포 전략:</strong><br />
+CodePipeline, CodeDeploy로 Canary/Rollback 전략 수립</li>
+  <li><strong>지속적인 점검:</strong><br />
+AWS Config + Security Hub로 규정 준수 및 보안 상태 점검</li>
+</ul>
+
+<hr />
+
+<h4 id="4-예-학습-플랫폼의-보안-구성">4) 예: 학습 플랫폼의 보안 구성</h4>
+
+<ul>
+  <li>Cognito에서 로그인 토큰 발급</li>
+  <li>API Gateway에서 JWT 검증 및 사용자 인증</li>
+  <li>Lambda는 사용자 Role에 따라 DynamoDB 조회만 허용</li>
+  <li>Bedrock은 민감한 질문 내용 로그 필터링 후 저장</li>
+  <li>CloudWatch에서 비정상 응답률 알림 발생 시 Slack으로 전송</li>
+</ul>
+
+<hr />
+
+<p>결국 <strong>좋은 아키텍처란 ‘기능이 많은 구조’가 아니라, ‘문제가 생겨도 버티는 구조’</strong>이다.<br />
+보안과 운영을 설계 초기부터 고려하면, 문제 발생 시 대응 속도와 피해 규모를 최소화할 수 있다.</p>
+
+<h3 id="26-비용-고려한-의사결정">2.6 비용 고려한 의사결정</h3>
+
+<p>AWS는 기능도 많고 성능도 좋지만, <strong>잘못 설계하면 요금 폭탄</strong>이 따라온다.<br />
+아키텍처 설계 초기부터 “<strong>이 구조가 과금에 어떤 영향을 줄까?</strong>”라는 질문을 계속 던져야 한다.</p>
+
+<hr />
+
+<h4 id="1-고정비-vs-변동비">1) 고정비 vs 변동비</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>유형</th>
+      <th>특징</th>
+      <th>예시</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>고정비</strong></td>
+      <td>항상 일정한 비용 발생</td>
+      <td>EC2, RDS, SageMaker 엔드포인트</td>
+    </tr>
+    <tr>
+      <td><strong>변동비</strong></td>
+      <td>사용량에 따라 비용 증가</td>
+      <td>Lambda, API Gateway, S3, Athena, Bedrock</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>초기에는 무조건 변동비 구조가 유리하다.</strong><br />
+사용량이 늘어나면 고정비로 전환하는 방식이 정석이다.</p>
+
+<hr />
+
+<h4 id="2-단일-선택보다-조합으로-판단하자">2) 단일 선택보다 조합으로 판단하자</h4>
+
+<p>예를 들어:</p>
+
+<ul>
+  <li>SageMaker 실시간 엔드포인트는 시간당 과금</li>
+  <li>대신 Lambda + Bedrock 조합은 호출 단위 과금</li>
+</ul>
+
+<p>→ 호출량이 적을 땐 Bedrock이 저렴하지만, 일정 이상이면 SageMaker가 유리해진다.</p>
+
+<hr />
+
+<h4 id="3-비용-최적화를-위한-설계-팁">3) 비용 최적화를 위한 설계 팁</h4>
+
+<ul>
+  <li><strong>Lambda 실행 시간 줄이기:</strong><br />
+코드 최적화 외에도 메모리 설정을 늘려 실행 시간을 단축하면 비용 감소 가능</li>
+  <li><strong>API Gateway 대신 ALB 고려:</strong><br />
+REST가 아닌 단순 API라면 Application Load Balancer + Lambda 구성이 더 저렴한 경우도 있음</li>
+  <li><strong>Athena 쿼리는 압축 + 파티셔닝:</strong><br />
+S3에 저장된 데이터를 쿼리할 때, GZIP 압축 + Parquet 포맷 + 파티션 구성으로 스캔 비용 감소</li>
+  <li><strong>CloudFront 캐시 전략:</strong><br />
+정적 리소스를 최대한 캐싱해 S3와 Lambda 호출을 줄이기</li>
+  <li><strong>RI/Graviton 인스턴스 활용:</strong><br />
+장기 고정비가 필요한 경우엔 Savings Plans 또는 ARM 기반 인스턴스(R7g 등) 고려</li>
+</ul>
+
+<hr />
+<h4 id="4-실전-예-학습-플랫폼의-비용-전략">4) 실전 예: 학습 플랫폼의 비용 전략</h4>
+
+<ul>
+  <li>정적 콘텐츠: CloudFront + S3 (캐싱 극대화)</li>
+  <li>API 호출: 낮은 빈도 → API Gateway + Lambda<br />
+높은 빈도 → ALB + Fargate로 전환</li>
+  <li>모델 추론: 학습 진단은 Bedrock, 반복 추론은 SageMaker</li>
+  <li>데이터 분석: Glue 대신 Athena 위주로 설계 + Parquet 최적화</li>
+</ul>
+
+<hr />
+
+<p>요약하자면, <strong>비용은 나중에 확인하는 게 아니라, 설계 단계에서 미리 설계하는 항목이다.</strong><br />
+모든 서비스는 유료이고, <strong>작게 시작하고 점점 바꾸는 전략</strong>이 AWS에선 가장 안전하다.</p>
+
+<h3 id="27-iac-infrastructure-as-code-적용">2.7 IaC (Infrastructure as Code) 적용</h3>
+
+<p>AWS에서 인프라를 GUI로 클릭해서 만드는 건 빠르지만, <strong>재현이 불가능하고, 협업이 어렵고, 변경 이력이 남지 않는다.</strong><br />
+그래서 이제는 인프라 역시 코드로 정의하고 관리하는 <strong>IaC (Infrastructure as Code)</strong> 방식이 기본이 되었다.</p>
+
+<hr />
+
+<h4 id="1-왜-iac를-도입해야-할까">1) 왜 IaC를 도입해야 할까?</h4>
+
+<ul>
+  <li><strong>재현 가능성:</strong> 똑같은 구조를 여러 프로젝트/계정에 배포할 수 있음</li>
+  <li><strong>버전 관리:</strong> Git으로 인프라 변경 이력을 추적 가능</li>
+  <li><strong>자동화:</strong> 배포 파이프라인에 포함시켜, 클릭 없이 완전 자동 구성</li>
+  <li><strong>협업:</strong> 인프라도 코드 리뷰 대상이 됨</li>
+</ul>
+
+<hr />
+
+<h4 id="2-aws에서의-iac-선택지">2) AWS에서의 IaC 선택지</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>도구</th>
+      <th>특징</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>CloudFormation</strong></td>
+      <td>AWS 기본 제공, YAML/JSON 기반</td>
+    </tr>
+    <tr>
+      <td><strong>CDK (Cloud Development Kit)</strong></td>
+      <td>TypeScript, Python 등으로 인프라를 코드로 구성</td>
+    </tr>
+    <tr>
+      <td><strong>Terraform</strong></td>
+      <td>멀티 클라우드 대응 가능, 팀 협업에 강함</td>
+    </tr>
+    <tr>
+      <td><strong>Serverless Framework</strong></td>
+      <td>Lambda 중심 프로젝트에 특화된 선언형 구성 도구</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>요즘은 <strong>CDK</strong>를 가장 많이 사용한다. 코드 친화적이고 조건 분기나 반복 로직도 자유롭다.</p>
+
+<hr />
+
+<h4 id="3-cdk-실전-예-lambda--api-gateway-구성">3) CDK 실전 예: Lambda + API Gateway 구성</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">aws_cdk</span> <span class="kn">import</span> <span class="n">aws_lambda</span><span class="p">,</span> <span class="n">aws_apigateway</span><span class="p">,</span> <span class="n">core</span>
+
+<span class="k">class</span> <span class="nc">MyStack</span><span class="p">(</span><span class="n">core</span><span class="p">.</span><span class="n">Stack</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nf">super</span><span class="p">().</span><span class="nf">__init__</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">fn</span> <span class="o">=</span> <span class="n">aws_lambda</span><span class="p">.</span><span class="nc">Function</span><span class="p">(</span>
+            <span class="n">self</span><span class="p">,</span> <span class="sh">"</span><span class="s">MyFunction</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">runtime</span><span class="o">=</span><span class="n">aws_lambda</span><span class="p">.</span><span class="n">Runtime</span><span class="p">.</span><span class="n">PYTHON_3_9</span><span class="p">,</span>
+            <span class="n">handler</span><span class="o">=</span><span class="sh">"</span><span class="s">app.handler</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">code</span><span class="o">=</span><span class="n">aws_lambda</span><span class="p">.</span><span class="n">Code</span><span class="p">.</span><span class="nf">from_asset</span><span class="p">(</span><span class="sh">"</span><span class="s">lambda</span><span class="sh">"</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="n">api</span> <span class="o">=</span> <span class="n">aws_apigateway</span><span class="p">.</span><span class="nc">LambdaRestApi</span><span class="p">(</span>
+            <span class="n">self</span><span class="p">,</span> <span class="sh">"</span><span class="s">MyApi</span><span class="sh">"</span><span class="p">,</span>
+            <span class="n">handler</span><span class="o">=</span><span class="n">fn</span>
+        <span class="p">)</span>
+</code></pre></div></div>
+
+<p>한 번 정의해두면 <code class="language-plaintext highlighter-rouge">cdk deploy</code> 한 줄로 인프라가 자동 생성된다.</p>
+
+<hr />
+
+<h4 id="4-iac-적용-시-주의할-점">4) IaC 적용 시 주의할 점</h4>
+
+<ul>
+  <li><strong>태그 전략 미리 정의하기:</strong> 비용, 보안, 소유자 구분을 위한 필수 요소</li>
+  <li><strong>모든 자원에 이름 명시하기:</strong> 콘솔에서 관리하기 쉽게</li>
+  <li><strong>리소스 간 의존성 명확히 설정하기:</strong> 순서 보장 및 재배포 안정성 확보</li>
+</ul>
+
+<hr />
+
+<p>요약하자면, <strong>IaC는 인프라를 “운영”에서 “개발”로 가져오는 도구</strong>다.<br />
+팀 규모가 작아도, 프로젝트가 작아도, IaC로 시작하면 <strong>나중에 무조건 편해진다.</strong></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#ai" class="page__taxonomy-item p-category" rel="tag">AI</a><span class="sep">, </span>
+    
+      <a href="/tags/#architecture" class="page__taxonomy-item p-category" rel="tag">Architecture</a><span class="sep">, </span>
+    
+      <a href="/tags/#aws" class="page__taxonomy-item p-category" rel="tag">AWS</a><span class="sep">, </span>
+    
+      <a href="/tags/#bedrock" class="page__taxonomy-item p-category" rel="tag">Bedrock</a><span class="sep">, </span>
+    
+      <a href="/tags/#cloud" class="page__taxonomy-item p-category" rel="tag">Cloud</a><span class="sep">, </span>
+    
+      <a href="/tags/#sagemaker" class="page__taxonomy-item p-category" rel="tag">Sagemaker</a><span class="sep">, </span>
+    
+      <a href="/tags/#%EB%B3%B4%EC%95%88" class="page__taxonomy-item p-category" rel="tag">보안</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#cloud" class="page__taxonomy-item p-category" rel="tag">cloud</a><span class="sep">, </span>
+    
+      <a href="/categories/#tech" class="page__taxonomy-item p-category" rel="tag">tech</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-05-11T15:00:00+00:00">May 11, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=%EC%9D%B4%EC%81%A8+%EB%B0%9B%EB%8A%94+AWS+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98+%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fcloud%2F%25ED%2594%2584%25EB%25A1%259C%25EC%25A0%259D%25ED%258A%25B8%25EC%259D%2598-%25EA%25B8%25B0%25EC%25B4%2588-AWS-%25EC%2595%2584%25ED%2582%25A4%25ED%2585%258D%25EC%25B2%2598-%25EB%25A7%258C%25EB%2593%25A4%25EC%2596%25B4%25EB%25B3%25B4%25EC%259E%2590%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fcloud%2F%25ED%2594%2584%25EB%25A1%259C%25EC%25A0%259D%25ED%258A%25B8%25EC%259D%2598-%25EA%25B8%25B0%25EC%25B4%2588-AWS-%25EC%2595%2584%25ED%2582%25A4%25ED%2585%258D%25EC%25B2%2598-%25EB%25A7%258C%25EB%2593%25A4%25EC%2596%25B4%25EB%25B3%25B4%25EC%259E%2590%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//tech/cloud/%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%9D%98-%EA%B8%B0%EC%B4%88-AWS-%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98-%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=%EC%9D%B4%EC%81%A8+%EB%B0%9B%EB%8A%94+AWS+%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98+%EB%A7%8C%EB%93%A4%EC%96%B4%EB%B3%B4%EC%9E%90%20https%3A%2F%2Faidendef.github.io%2F%2Ftech%2Fcloud%2F%25ED%2594%2584%25EB%25A1%259C%25EC%25A0%259D%25ED%258A%25B8%25EC%259D%2598-%25EA%25B8%25B0%25EC%25B4%2588-AWS-%25EC%2595%2584%25ED%2582%25A4%25ED%2585%258D%25EC%25B2%2598-%25EB%25A7%258C%25EB%2593%25A4%25EC%2596%25B4%25EB%25B3%25B4%25EC%259E%2590%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/tech/cloud/ai/business/AWS-Bedrock-%EC%A7%80%EC%8B%9D%EA%B8%B0%EB%B0%98%EC%9D%84-A-to-Z-%EB%AA%A8%EB%91%90-%EA%B5%AC%ED%98%84%ED%95%B4%EB%B3%B4%EA%B8%B0/" class="pagination--pager" title="AWS Bedrock 지식기반을 A to Z 모두 구현해보기">Previous</a>
+    
+    
+      <a href="/tech/ai/cloud/AWS-2025-Summit-%ED%83%90%EB%B0%A9%EA%B8%B0/" class="pagination--pager" title="AWS Summit Seoul 2025 탐방기">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDV5OXFubHBnZ252ZGt6d21hcnVzZjNpZ21lN2UzdWc0MDBsdTFjbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ABVK96HgZvWI9SBbXr/giphy.gif" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tech/ai/private/blog/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89-copy/" rel="permalink">AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          11 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AI가 당신의 일을 뺏지 않는 이유: 스탠포드 대규모 연구가 밝힌 충격적 결과
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2ZuajZpdXpkcGVtbW03NjRianh5Nm56bWkxZmJ3OHV2bnh1czgxMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6aQ3Hy4i90nGdRnG8i/giphy.gif" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tech/private/blog/%EA%B0%9C%EB%B0%9C%EC%9E%90_%EB%A7%88%EC%9D%B8%EB%93%9C-copy/" rel="permalink">나, 내 팀원이 가졌으면 하는 개발자 마인드
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">개발자 마인드를 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph8.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(8)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">동적인 Breakpoint을 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph7.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(7)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(7)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">Human in the Loop 변경을 알아보자
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="site-footer">
+  <div style="max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; font-size: 0.95rem;">
+
+    <!-- TECH 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">TECH</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/ai/" style="color: #222; text-decoration: none;">AI</a></li>
+        <li><a href="/categories/cloud/" style="color: #222; text-decoration: none;">Cloud</a></li>
+      </ul>
+    </div>
+
+    <!-- PRIVATE 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">PRIVATE</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/business/" style="color: #222; text-decoration: none;">Business</a></li>
+        <li><a href="/categories/blog/" style="color: #222; text-decoration: none;">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">RECENT</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/recent/" style="color: #222; text-decoration: none;">최근 글 보기</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">INFOMATION</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li style="color: #222; text-decoration: none;">aiden02095@gmail.com</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; color: #666;">
+    © 2025 Aiden의 든든한 Blog. All rights reserved.
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
