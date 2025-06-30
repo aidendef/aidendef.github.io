@@ -1,6 +1,6 @@
 var store = [{
         "title": "첫 블로그 글",
-        "excerpt":"안녕하세요   Aiden의 든든한 블로그에 와주셔서 감사합니다. 앞으로 많이 찾아와주세요 :)      Link Tree            LinkedIn       Blog       IEEE Profile       ORCID Profile          ","categories": ["private","blog"],
+        "excerpt":"안녕하세요   Aiden의 든든한 블로그에 와주셔서 감사합니다. 앞으로 많이 찾아와주세요 :)      Link Tree            LinkedIn       Blog       Google scholar       IEEE Profile       ORCID Profile          ","categories": ["private","blog"],
         "tags": ["blog"],
         "url": "/private/blog/welcome-to-my-blog/",
         "teaser": "/assets/images/teaser.webp"
