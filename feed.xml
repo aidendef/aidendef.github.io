@@ -1,4 +1,419 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-06-30T04:50:49+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량</title><link href="https://aidendef.github.io//tech/ai/private/blog/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89-copy/" rel="alternate" type="text/html" title="AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량" /><published>2025-06-24T15:08:00+00:00</published><updated>2025-06-24T15:08:00+00:00</updated><id>https://aidendef.github.io//tech/ai/private/blog/AI%20%EC%99%84%EC%A0%84%20%EC%9E%90%EB%8F%99%ED%99%94?%20%EC%A0%88%EB%B0%98%EC%9D%80%20%EC%9B%90%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%20-%20%EC%9A%B0%EB%A6%AC%EA%B0%80%20%EC%A7%84%EC%A7%9C%20%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC%20%ED%95%A0%20%EC%97%AD%EB%9F%89%20copy</id><content type="html" xml:base="https://aidendef.github.io//tech/ai/private/blog/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89-copy/"><![CDATA[<h2 id="1-왜-이-논문을-알아야하나-얼마나-중요한가">1. 왜 이 논문을 알아야하나? 얼마나 중요한가?</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-06-30T05:02:02+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">AWS 생성형 AI 활용 학습부터 자격증 취득까지</title><link href="https://aidendef.github.io//tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/" rel="alternate" type="text/html" title="AWS 생성형 AI 활용 학습부터 자격증 취득까지" /><published>2025-06-29T15:08:00+00:00</published><updated>2025-06-29T15:08:00+00:00</updated><id>https://aidendef.github.io//tech/ai/cloud/AWS%20%EC%83%9D%EC%84%B1%ED%98%95%20AI%20%ED%99%9C%EC%9A%A9%20%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0%20%EC%9E%90%EA%B2%A9%EC%A6%9D%20%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80</id><content type="html" xml:base="https://aidendef.github.io//tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/"><![CDATA[<h3 id="디지털-학습--실습--워크샵--퀘스트--자격증-취득"><strong>« 디지털 학습 + 실습 + 워크샵 + 퀘스트 + 자격증 취득 »</strong></h3>
+
+<p>AWS Training &amp; Certification 과 함께하는 교육 프로그램을 통해 <strong>디지털 강의로 이론을 학습하고 핸즈온 실습을 통해 AWS 서비스와 솔루션을 다양하게 연습</strong>해볼 수 있습니다.</p>
+
+<p>학습한 내용은 AWS 전문 트레이너가 강의하는 워크샵에 참석하여 함께 리뷰하고, 퀘스트 참여를 통해 <strong>개인의 레벨과 스킬을 점검</strong>해 봅니다.</p>
+
+<p>최종적으로 자격증 준비반을 통해 문제 유형을 파악하고 <strong>자격증 취득을 목표</strong>로 학습합니다.</p>
+
+<p><a href="https://file.notion.so/f/f/b330129c-63fc-81b9-8ae8-000399793810/3de63b8a-4de5-4449-b4f9-24c0cde1aa70/2025-AWS_Training_One_Stop_Program.pdf?table=block&amp;id=21c0129c-63fc-80df-a85c-f9c3222d8458&amp;spaceId=b330129c-63fc-81b9-8ae8-000399793810&amp;expirationTimestamp=1751284800000&amp;signature=f3-rYa3AtB0lSMzKbds9F-4BVJx3YDD6O7ejYpIWptE&amp;downloadName=2025-AWS+Training+One+Stop+Program.pdf">소개 자료 다운로드</a></p>
+
+<h2 id="핵심-가이드">🎯 핵심 가이드</h2>
+
+<p><strong>[ 학습 플랜 ]</strong></p>
+
+<ul>
+  <li><a href="https://skillbuilder.aws/learning-plan/MVQZ8QE1WJ/machine-learning-learning-plan-korean/YYAQ1NGZX6">Machine Learning Learning Plan</a>
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/MVQZ8QE1WJ/machine-learning-learning-plan-korean/YYAQ1NGZX6</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>[ 디지털 과정 ]</strong></p>
+
+<ul>
+  <li>제품 도메인별 학습 -&gt; 인공지능 -&gt; 디지털 과정 -&gt; <a href="https://skillbuilder.aws/learn/TM4ZAXTGEZ/building-generative-ai-applications-using-amazon-bedrock-/JVN969UYSZ">Building Generative AI Applications Using Amazon Bedrock (한국어)</a>
+    <ul>
+      <li>https://skillbuilder.aws/learn/TM4ZAXTGEZ/building-generative-ai-applications-using-amazon-bedrock-/JVN969UYSZ</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>[ 디지털 강의 ] - 구독</strong></p>
+
+<ul>
+  <li>제품 도메일별 학습 -&gt; 인공지능 -&gt; 전문가 주도의 디지털 강의 -&gt;  <a href="https://skillbuilder.aws/learn/7UWY7BAE4X/digital-classroom--developing-generative-ai-applications-on-aws-/99MSZU62XZ">Developing Generative AI Applications on AWS</a>
+    <ul>
+      <li>https://skillbuilder.aws/learn/7UWY7BAE4X/digital-classroom–developing-generative-ai-applications-on-aws-/99MSZU62XZ</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>[ 실습 ] - 구독</strong></p>
+
+<ul>
+  <li><a href="https://skillbuilder.aws/learn/WBJQJZ1N12/lab--train-a-model-with-amazon-sagemaker-/1UZX3GPAVQ">Train a model with Amazon SageMaker (한국어)</a>
+    <ul>
+      <li>https://skillbuilder.aws/learn/WBJQJZ1N12/lab–train-a-model-with-amazon-sagemaker-/1UZX3GPAVQ</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>[ SimuLearn ]</strong></p>
+
+<ol>
+  <li><strong>다음 SimuLearn 학습 플랜으로 이동함.</strong>
+    <ul>
+      <li><a href="https://skillbuilder.aws/learning-plan/3HCD821CNZ/aws-simulearn-generative-ai-practitioner/BFKGA5VM8H">AWS SimuLearn</a>: Generative AI Practitioner (Free)
+        <ul>
+          <li>https://skillbuilder.aws/learning-plan/3HCD821CNZ/aws-simulearn-generative-ai-practitioner/BFKGA5VM8H</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><strong>여러 학습 플랜 중에 다음을 찾아 실행한다. (실습 시작시 3분 정도 기다림이 발생함 )</strong>
+    <ul>
+      <li><a href="https://skillbuilder.aws/learn/YZDUMAQABG/aws-simulearn-explore-the-amazon-bedrock-playgrounds/88NAE39D3Z?parentId=BFKGA5VM8H">AWS SimuLearn</a>: Explore the Amazon Bedrock Playgrounds 로 진행함.
+        <ul>
+          <li>https://skillbuilder.aws/learn/YZDUMAQABG/aws-simulearn-explore-the-amazon-bedrock-playgrounds/88NAE39D3Z?parentId=BFKGA5VM8H</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p><strong>[ AWS Certification Exam Prep ]</strong></p>
+
+<ul>
+  <li>https://skillbuilder.aws/learn/4URFGY63KV/official-practice-question-set-aws-certified-ai-practitioner–aifc01–/E1S5J9NJPW</li>
+</ul>
+
+<p><strong>[ AWS Skill Builder Trivia ]</strong></p>
+
+<ul>
+  <li>https://skillbuilder.aws/learn/7S24N95UNA/aws-skill-builder-trivia/5ZKZJANYXZ</li>
+</ul>
+
+<p><strong>[ Generative AI Ramp-Up Guide ]</strong></p>
+
+<ul>
+  <li>https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Generative_AI.pdf</li>
+</ul>
+<p>&lt;/aside&gt;</p>
+
+<h3 id="aws-certification">AWS Certification</h3>
+
+<ul>
+  <li><strong>모든 AWS Certification 시험 살펴보기</strong>
+    <ul>
+      <li>https://aws.amazon.com/ko/certification/exams/</li>
+    </ul>
+  </li>
+  <li><strong>AWS Certified AI Practitioner</strong>
+    <ul>
+      <li>https://aws.amazon.com/ko/certification/certified-ai-practitioner/?pp=cert&amp;c=exam&amp;z=2</li>
+    </ul>
+  </li>
+  <li><strong>AWS Certified AI Practitioner 시험 안내서</strong>
+    <ul>
+      <li>https://d1.awsstatic.com/ko_KR/training-and-certification/docs-ai-practitioner/AWS-Certified-AI-Practitioner_Exam-Guide.pdf</li>
+    </ul>
+  </li>
+  <li><strong>시험 등록</strong>
+    <ul>
+      <li>https://www.aws.training/</li>
+    </ul>
+  </li>
+  <li><strong>Skill Builder로 학습</strong>
+    <ul>
+      <li>https://skillbuilder.aws/learn</li>
+      <li><a href="https://skillbuilder.aws/search?searchText=ai%20practitioner">https://skillbuilder.aws/search?searchText=ai practitioner</a></li>
+    </ul>
+  </li>
+  <li><strong>AWS Certified AI Practitioner 관련 퀴즈</strong>
+    <ul>
+      <li>https://trivia.skillbuilder.aws/session/join/515816</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="학습-자료-참고-안내"><strong>🎯 학습 자료 참고 안내</strong></h2>
+
+<h3 id="학습-플랜">학습 플랜</h3>
+
+<ul>
+  <li>Machine Learning Learning Plan
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/MVQZ8QE1WJ/machine-learning-learning-plan/2PW43AVTYR</li>
+    </ul>
+  </li>
+  <li>AWS ML Engineer Associate Learning Plan (includes labs)
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/AY5A6VN52B/aws-ml-engineer-associate-learning-plan-includes-labs/C21UPEK6R9</li>
+    </ul>
+  </li>
+  <li>Machine Learning Learning Plan - Intelligent Document Processing
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/4BPTPXU8E6/machine-learning-learning-plan–intelligent-document-processing/JUP7DYXUAM</li>
+    </ul>
+  </li>
+  <li>Generative AI Learning Plan for Model Builders
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/BB4UWE24NX/generative-ai-learning-plan-for-model-builders/1DUA79ANG5</li>
+    </ul>
+  </li>
+  <li>Generative AI Learning Plan for Developers (includes labs)
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/5C9XQBTXBB/generative-ai-learning-plan-for-developers-includes-labs/EGATKJP13J</li>
+    </ul>
+  </li>
+  <li>Generative AI Learning Plan for Decision Makers
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/STDH6NGPH7/generative-ai-learning-plan-for-decision-makers/MHMHDAWQJY</li>
+    </ul>
+  </li>
+  <li>Amazon Q - Generative AI-powered Assistant Learning Plan
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/B51KSK3B9G/amazon-q–generative-aipowered-assistant-learning-plan/7B8RMRQV5H</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="디지털-과정">디지털 과정</h3>
+
+<ul>
+  <li>Building Generative AI Applications Using Amazon Bedrock
+    <ul>
+      <li>https://skillbuilder.aws/learn/TM4ZAXTGEZ/building-generative-ai-applications-using-amazon-bedrock-/JVN969UYSZ</li>
+    </ul>
+  </li>
+  <li>Generative AI Fundamentals
+    <ul>
+      <li>https://skillbuilder.aws/learn/34SZVJR3NV/generative-ai-fundamentals-/7N8YCQB1DG</li>
+    </ul>
+  </li>
+  <li>Generative AI with Diffusion Models
+    <ul>
+      <li>https://skillbuilder.aws/learn/62GE2Q9GRY/generative-ai-with-diffusion-models-/M189WM2GM2</li>
+    </ul>
+  </li>
+  <li>Introduction to Amazon SageMaker
+    <ul>
+      <li>https://skillbuilder.aws/learn/E1TZFJG8AG/introduction-to-amazon-sagemaker-/VMV2D3X6D2</li>
+    </ul>
+  </li>
+  <li>AWS ML Engineer Associate 3.3 Automate Deployment
+    <ul>
+      <li>https://skillbuilder.aws/learn/TY6PBD6U4C/aws-ml-engineer-associate-33-automate-deployment-/C4VGPNRJT4</li>
+    </ul>
+  </li>
+  <li>Generative AI in Action: Real-World Use Cases
+    <ul>
+      <li>https://skillbuilder.aws/learn/19P1JWGVN7/generative-ai-in-action-realworld-use-cases-/VPK5A4CDYU</li>
+    </ul>
+  </li>
+  <li>Building Language Models on AWS
+    <ul>
+      <li>https://skillbuilder.aws/learn/MRAJEZFMW7/building-language-models-on-aws-/4VQVB9DAJ2</li>
+    </ul>
+  </li>
+  <li>No-code Machine Learning and Generative AI on AWS
+    <ul>
+      <li>https://skillbuilder.aws/learn/4RTW7WHS2J/nocode-machine-learning-and-generative-ai-on-aws-/8DKJRK6DT2</li>
+    </ul>
+  </li>
+  <li>Operationalize Generative AI Applications (FMOps/LLMOps)
+    <ul>
+      <li>https://skillbuilder.aws/learn/2AFXM2RY8A/operationalize-generative-ai-applications-fmopsllmops-/R9Q96PGHY1</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="디지털--강의실">디지털  강의실</h3>
+
+<ul>
+  <li>Amazon SageMaker Studio for Data Scientists
+    <ul>
+      <li>https://skillbuilder.aws/learn/6W7WUF12UR/digital-classroom–amazon-sagemaker-studio-for-data-scientists/TM3HGFWECZ</li>
+    </ul>
+  </li>
+  <li>Generative AI for Executives
+    <ul>
+      <li>https://skillbuilder.aws/learn/4JF8MCJ64Q/digital-classroom–generative-ai-for-executives/PDM6G6REHZ</li>
+    </ul>
+  </li>
+  <li>Developing Generative AI Applications on AWS
+    <ul>
+      <li>https://skillbuilder.aws/learn/7UWY7BAE4X/digital-classroom–developing-generative-ai-applications-on-aws-/99MSZU62XZ</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="aws-builder-labs">AWS Builder Labs</h3>
+
+<ul>
+  <li>Introduction to the Amazon Bedrock Console
+    <ul>
+      <li>https://skillbuilder.aws/learn/CQ9BPN151C/lab–introduction-to-the-amazon-bedrock-console/WEHSPDEHJ9</li>
+    </ul>
+  </li>
+  <li>Integrate Amazon Bedrock Foundation Models into a Serverless App
+    <ul>
+      <li>https://skillbuilder.aws/learn/QD6GGAVZXS/lab–integrate-amazon-bedrock-foundation-models-into-a-serverless-app/5XTGQEF5TV</li>
+    </ul>
+  </li>
+  <li>Analyze and Prepare Data with Amazon SageMaker Data Wrangler and Amazon EMR
+    <ul>
+      <li>https://skillbuilder.aws/learn/JNP46WS7DV/lab–analyze-and-prepare-data-with-amazon-sagemaker-data-wrangler-and-amazon-emr-/V8JJWRYRPP</li>
+    </ul>
+  </li>
+  <li>Train a model with Amazon SageMaker
+    <ul>
+      <li>https://skillbuilder.aws/learn/WBJQJZ1N12/lab–train-a-model-with-amazon-sagemaker-/1UZX3GPAVQ</li>
+    </ul>
+  </li>
+  <li>Orchestrate a Machine Learning Workflow using Amazon SageMaker Pipelines and SageMaker Model Registry
+    <ul>
+      <li>https://skillbuilder.aws/learn/8CNHXTHBFX/lab–orchestrate-a-machine-learning-workflow-using-amazon-sagemaker-pipelines-and-sagemaker-model-registry-/C6NY6DM4VV</li>
+    </ul>
+  </li>
+  <li>Getting Started with Amazon Comprehend: Custom Classification
+    <ul>
+      <li>https://skillbuilder.aws/learn/G6PK4VWYRT/getting-started-with-amazon-comprehend-custom-classification-/UV92QK8R17</li>
+    </ul>
+  </li>
+  <li>Getting Started with Amazon Comprehend: Custom Entity Recognition
+    <ul>
+      <li>https://skillbuilder.aws/learn/D3BPSAUS4Y/getting-started-with-amazon-comprehend-custom-entity-recognition-/66PX85U1P9</li>
+    </ul>
+  </li>
+  <li>Exploring Amazon Nova Lite Model for Multimodal Understanding
+    <ul>
+      <li>https://skillbuilder.aws/learn/YHFYBR9YTB/lab–exploring-amazon-nova-lite-model-for-multimodal-understanding/8G34Y3R1TR</li>
+    </ul>
+  </li>
+  <li>Exploring Amazon Nova Canvas Model and Amazon Nova Reel Model for Image and Video Generation and Editing
+    <ul>
+      <li>https://skillbuilder.aws/learn/E6PY767C2N/lab–exploring-amazon-nova-canvas-model-and-amazon-nova-reel-model-for-image-and-video-generation-and-editing/9YNXNBH3YE</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="aws-simulearn">AWS SimuLearn</h3>
+
+<ul>
+  <li>AWS SimuLearn: Generative AI Practitioner (Free)
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/3HCD821CNZ/aws-simulearn-generative-ai-practitioner/BFKGA5VM8H</li>
+    </ul>
+  </li>
+  <li>AWS SimuLearn: Generative AI Learning Plan
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/CVTBV11V1K/aws-simulearn-generative-ai/U39NTGR28K</li>
+    </ul>
+  </li>
+  <li>AWS SimuLearn: Machine Learning Learning Plan
+    <ul>
+      <li>https://skillbuilder.aws/learning-plan/MR68TNX15T/aws-simulearn-machine-learning/X4TS3DFJNM</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="aws-jam-events">AWS Jam Events</h3>
+
+<ul>
+  <li>Generative AI: Amazon Bedrock
+    <ul>
+      <li>https://skillbuilder.aws/learn/DZGGDUWCRU/generative-ai-amazon-bedrock/SXWVQ9HNSJ</li>
+    </ul>
+  </li>
+  <li>Generative AI: Amazon Bedrock (Advanced)
+    <ul>
+      <li>https://skillbuilder.aws/learn/6157ZMPQV7/generative-ai-amazon-bedrock-advanced/9A23444M3Y</li>
+    </ul>
+  </li>
+  <li>Generative AI: Amazon SageMaker
+    <ul>
+      <li>https://skillbuilder.aws/learn/NZ59G4W5FU/generative-ai-amazon-sagemaker/PZU7MJY6VT</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="aws-cloud-quest">AWS Cloud Quest</h3>
+
+<ul>
+  <li>AWS Cloud Quest: Machine Learning
+    <ul>
+      <li>https://skillbuilder.aws/learn/E6BUBTFNGU/aws-cloud-quest-machine-learning/HD73DPWDMS</li>
+    </ul>
+  </li>
+  <li>AWS Cloud Quest: Generative AI
+    <ul>
+      <li>https://skillbuilder.aws/learn/PFYH348EK2/aws-cloud-quest-generative-ai-solutions/B3Q26P97G8</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="aws-escape-room-exam-prep">AWS Escape Room: Exam Prep</h3>
+
+<ul>
+  <li>AWS Escape Room: Exam Prep for AWS Certified AI Practitioner (AIF-C01)
+    <ul>
+      <li>https://skillbuilder.aws/learn/UNHSE7WKW5/aws-escape-room-exam-prep-for-aws-certified-ai-practitioner-aifc01–english-demo/BBT985R4UK</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h3 id="aws-certification-exam-prep">AWS Certification Exam Prep</h3>
+
+<ul>
+  <li>Exam Prep Official Practice Question Set: AWS Certified AI Practitioner (AIF-C01 - 한국어)
+    <ul>
+      <li>https://skillbuilder.aws/learn/4URFGY63KV/official-practice-question-set-aws-certified-ai-practitioner–aifc01–/E1S5J9NJPW</li>
+    </ul>
+  </li>
+  <li>Exam Prep Official Pretest: AWS Certified Machine Learning Engineer - Associate (MLA-C01 - 한국어)
+    <ul>
+      <li>https://skillbuilder.aws/learn/XNGDWPV3NM/official-pretest-aws-certified-machine-learning-engineer–associate-mlac01–/DY4DHJWPBU</li>
+    </ul>
+  </li>
+  <li>Exam Prep Official Practice Question Set: AWS Certified Machine Learning - Specialty (MLS-C01 - 한국어)
+    <ul>
+      <li>https://skillbuilder.aws/learn/K8PG7EH6UY/official-practice-question-set-aws-certified-machine-learning–specialty-mlsc01–/2YUZUBRWS7</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="aws-skill-builder-trivia">AWS Skill Builder Trivia</h3>
+
+<ul>
+  <li>Skill Builder Trivia
+    <ul>
+      <li>https://skillbuilder.aws/learn/7S24N95UNA/aws-skill-builder-trivia/5ZKZJANYXZ</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="aws-ramp-up-guide">AWS Ramp-Up Guide</h3>
+
+<ul>
+  <li>AWS Ramp-Up Guide
+    <ul>
+      <li>https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Generative_AI.pdf</li>
+    </ul>
+  </li>
+</ul>
+
+<hr />]]></content><author><name>Your Name</name></author><category term="tech" /><category term="ai" /><category term="cloud" /><category term="AWS" /><category term="certification" /><category term="genai" /><category term="training" /><category term="program" /><category term="ramp-up" /><summary type="html"><![CDATA[AWS 자격증을 알아보자]]></summary></entry><entry><title type="html">AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량</title><link href="https://aidendef.github.io//tech/ai/private/blog/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/" rel="alternate" type="text/html" title="AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량" /><published>2025-06-24T15:08:00+00:00</published><updated>2025-06-24T15:08:00+00:00</updated><id>https://aidendef.github.io//tech/ai/private/blog/AI%20%EC%99%84%EC%A0%84%20%EC%9E%90%EB%8F%99%ED%99%94?%20%EC%A0%88%EB%B0%98%EC%9D%80%20%EC%9B%90%ED%95%98%EC%A7%80%20%EC%95%8A%EB%8A%94%EB%8B%A4%20-%20%EC%9A%B0%EB%A6%AC%EA%B0%80%20%EC%A7%84%EC%A7%9C%20%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC%20%ED%95%A0%20%EC%97%AD%EB%9F%89</id><content type="html" xml:base="https://aidendef.github.io//tech/ai/private/blog/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/"><![CDATA[<h2 id="1-왜-이-논문을-알아야하나-얼마나-중요한가">1. 왜 이 논문을 알아야하나? 얼마나 중요한가?</h2>
 
 <p><a href="https://arxiv.org/abs/2506.06576">Future of Work with AI Agents</a> 라는 논문을 읽고 아래 간략하게 작성을 진행할 것이다. 긴글을 읽기 앞서 왜 우리는 이 글을 봐야하는지 설명을 진행할 것이다.</p>
 
@@ -2370,190 +2785,4 @@ Tool Calls:
 Name: multiply
 
 192290
-</code></pre></div></div>]]></content><author><name>Your Name</name></author><category term="tech" /><category term="ai" /><category term="cloud" /><category term="AWS" /><category term="Agentic" /><category term="LangGraph" /><category term="Bedrock" /><summary type="html"><![CDATA[라우터를 알아보자]]></summary></entry><entry><title type="html">Agentic_Workflow_using_LangGraph_and_Bedrock(1)</title><link href="https://aidendef.github.io//tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/" rel="alternate" type="text/html" title="Agentic_Workflow_using_LangGraph_and_Bedrock(1)" /><published>2025-05-26T15:01:00+00:00</published><updated>2025-05-26T15:01:00+00:00</updated><id>https://aidendef.github.io//tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)</id><content type="html" xml:base="https://aidendef.github.io//tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(1)/"><![CDATA[<h2 id="간단한-그래프">간단한 그래프</h2>
-
-<p>LangGraph에서 개념을 갖고 있는 Graph에 대해서 알아보기 위해서, 아주 간단한 그래프를 그려볼 것입니다.
-간단한 3개의 노드를 이용해서 그래프를 그려볼 수 있습니다.</p>
-
-<h2 id="패키지-설치">패키지 설치</h2>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%capture --no-stderr
-%pip install --quiet -U langgraph
-</code></pre></div></div>
-
-<h2 id="state-상태저장">State (상태저장)</h2>
-
-<p>우선, 그래프의 상태를 저장하는 State class를 우선 정의합니다.
-이 상태 스키마는 그래프의 모든 노드에 대한 정보들을 저장하고 처리합니다.</p>
-
-<p>정형화된 데이터 저장을 위해서, 이번 예시에서는 <code class="language-plaintext highlighter-rouge">TypedDict</code> 클래스를 이용해서 State를 생성합니다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from typing_extensions import TypedDict
-
-class State(TypedDict):
-    graph_state: str
-</code></pre></div></div>
-
-<h2 id="노드">노드</h2>
-
-<p>그래프에서 각각이 의미있는 수행포인트를 지정하는 것이 노드입니다.</p>
-
-<p>각각의 노드들은 그래프의 현재 상태를 알고 판단을 수행해야 하기 때문에, 위에서 정의한 state 클래스를 입력 아규먼트로 사용합니다.</p>
-
-<p>위에서 State를 정의할 때, graph_state에 대한 멤버변수를 정의했기 때문에, 각 노드에서는 state 클래스의 멤버변수를 접근하여 활용할 수 있습니다.</p>
-
-<p>그리고 각 노드는 처리된 결과를 리턴합니다.</p>
-
-<p>이 예제에서는 각 노드에서 이전 state에 저장된 정보를 계속해서 업데이트하면서 결과가 어떻게 바뀌는지를 확인할 수 있습니다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def node_1(state):
-    print("---Node 1---")
-    return {"graph_state": state['graph_state'] +" I am"}
-
-def node_2(state):
-    print("---Node 2---")
-    return {"graph_state": state['graph_state'] +" happy!"}
-
-def node_3(state):
-    print("---Node 3---")
-    return {"graph_state": state['graph_state'] +" sad!"}
-</code></pre></div></div>
-
-<h2 id="엣지">엣지</h2>
-
-<p>노드가 각 역할을 수행하는 점들이라고 한다면, 엣지를 각 점들을 연결하는 역할을 수행합니다.</p>
-
-<p>이 방식을 통해서, 각 노드들을 연결하면서, 전체적인 Workflow 그래프를 완성합니다.</p>
-
-<p>기본적인 엣지의 형태는 노드1에서 노드2로 연결하는 역할만 수행합니다.</p>
-
-<p>조건분기 엣지는 입력되는 결과에 따라서 다음에 수행해야 하는 노드를 선택하는 조건을 분기하는 로직을 넣어서 처리하는 역할을 수행합니다. 그래서 분기할 수 있는 로직을 넣어서 처리합니다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import random
-from typing import Literal
-
-def decide_mood(state) -&gt; Literal["node_2", "node_3"]:
-    
-    # Often, we will use state to decide on the next node to visit
-    user_input = state['graph_state'] 
-    
-    # Here, let's just do a 50 / 50 split between nodes 2, 3
-    if random.random() &lt; 0.5:
-
-        # 50% of the time, we return Node 2
-        return "node_2"
-    
-    # 50% of the time, we return Node 3
-    return "node_3"
-</code></pre></div></div>
-
-<h2 id="그래프-구성">그래프 구성</h2>
-
-<p>이전 과정까지, 노드와 엣지에 대해서 설명했으니, 그래프를 이제 그릴 수 있습니다.</p>
-
-<p>우선, StateGraph를 초기화하여 생성합니다.</p>
-
-<p>그리고, 노드와 엣지를 추가합니다.</p>
-
-<p>그래프를 시작할 때는 <code class="language-plaintext highlighter-rouge">START</code>라는 특수 노드를 우선 정의해야 합니다.
-이 노드이 있어야 그래프가 시작할 수 있습니다.</p>
-
-<p>마찬가지로, <code class="language-plaintext highlighter-rouge">END</code>라는 특수 노드를 정의해야 합니다.
-이 노드를 통해서 그래프의 최종 상태를 정의할 수 있습니다.</p>
-
-<p>마지막으로 이렇게 정의된 내용들을 <code class="language-plaintext highlighter-rouge">compile</code>하면 그래프가 완성됩니다.</p>
-
-<p>그리고 이렇게 만들어진 그래프를 Mermain diagram 기능을 이용해서 그래프를 png 파일로 visualize 할 수 있습니다.
-이렇게 Visualization 방식을 통해서 그래프를 빠르게 이해할 수 있습니다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def dummy_func(state) -&gt; Literal["node_2", "node_3"]:
-    
-    # Often, we will use state to decide on the next node to visit
-    user_input = state['graph_state']
-
-    return "node_2"
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from IPython.display import Image, display
-from langgraph.graph import StateGraph, START, END
-
-# Build graph
-builder = StateGraph(State)
-builder.add_node("node_1", node_1)
-builder.add_node("node_2", node_2)
-builder.add_node("node_3", node_3)
-builder.add_edge(START, "node_1")
-builder.add_conditional_edges("node_1", dummy_func)
-builder.add_edge("node_2", END)
-builder.add_edge("node_3", END)
-
-# Add
-graph = builder.compile()
-
-# View
-display(Image(graph.get_graph().draw_mermaid_png()))
-</code></pre></div></div>
-<p><img src="/assets/images/post_img/langgraph1.png" alt="langgraph1" /></p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from IPython.display import Image, display
-from langgraph.graph import StateGraph, START, END
-
-
-# Build graph
-builder = StateGraph(State)
-builder.add_node("node_1", node_1)
-builder.add_node("node_2", node_2)
-builder.add_node("node_3", node_3)
-
-# Logic
-builder.add_edge(START, "node_1")
-builder.add_conditional_edges("node_1", decide_mood)
-builder.add_edge("node_2", END)
-builder.add_edge("node_3", END)
-
-# Add
-graph = builder.compile()
-
-# View
-display(Image(graph.get_graph().draw_mermaid_png()))
-</code></pre></div></div>
-
-<h2 id="그래프-호출">그래프 호출</h2>
-
-<p>The compiled graph implements the <a href="https://python.langchain.com/v0.1/docs/expression_language/interface/">runnable</a> protocol.
-이렇게 컴파일된 그래프는 LangChain의 <code class="language-plaintext highlighter-rouge">runnable</code>로 동작합니다.</p>
-
-<p>이 방식은 LangChain 콤포넌트들을 효과적으로 처리합니다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">invoke</code>는 이러한 <code class="language-plaintext highlighter-rouge">runnable</code> 동작 아키텍처의 기본적인 호출 방식입니다.</p>
-
-<p>여기에서 처음 수행해 보는 예시는 <code class="language-plaintext highlighter-rouge">{"graph_state": "Hi, this is lance."}</code>형태로 아주 간단한 메세지를 전달하는 것입니다. 그래프의 상태를 dict 형태로 정의했기 때문에, dict 형태의 메세지로 만들어서 호출합니다. 이 메세지를 인풋값으로 초기에 호출합니다.</p>
-
-<p>이 <code class="language-plaintext highlighter-rouge">invoke</code>가 그래프를 통해서 호출되면, 그래프는 <code class="language-plaintext highlighter-rouge">START</code> 노드에서부터 진행을 시작합니다.</p>
-
-<p>그러면 각 노드들은 차례대로 진행합니다.</p>
-
-<p>조건분기 엣지에서는 랜덤 로직을 구현하였습니다. 그래서 노드2와 노드3를 50%의 확률로 번갈아가면서 호출합니다.</p>
-
-<p>각 노드 함수는 현재 상태를 수신하니다. 그리고 처리된 결과를 graph state 클래스에 업데이트합니다.</p>
-
-<p>이 수행은 <code class="language-plaintext highlighter-rouge">END</code>노드에 다달을 때까지 지속합니다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph.invoke({"graph_state" : "Hi, this is Lance."})
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>---Node 1---
----Node 3---
-{'graph_state': 'Hi, this is Lance. I am sad!'}
-</code></pre></div></div>
-
-<p><code class="language-plaintext highlighter-rouge">invoke</code> 는 그래프에서 동기방식으로 동작합니다.</p>
-
-<p>그래서, 이전 단계가 완전히 끝나기를 기다렸다가 수행합니다.</p>
-
-<p>모든 노드의 수행이 끝나면 마지막 graph state 값을 출력합니다.</p>
-
-<p>이 예시에서는 노드2나 노드3이 완전히 끝나고 나서 결과를 출력합니다. 아래와 같은 결과가 출력됩니다.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{'graph_state': 'Hi, this is Lance. I am sad!'}
-</code></pre></div></div>]]></content><author><name>Your Name</name></author><category term="tech" /><category term="ai" /><category term="cloud" /><category term="AWS" /><category term="Agentic" /><category term="LangGraph" /><category term="Bedrock" /><summary type="html"><![CDATA[그래프를 알아보자]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name>Your Name</name></author><category term="tech" /><category term="ai" /><category term="cloud" /><category term="AWS" /><category term="Agentic" /><category term="LangGraph" /><category term="Bedrock" /><summary type="html"><![CDATA[라우터를 알아보자]]></summary></entry></feed>
