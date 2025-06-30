@@ -108,7 +108,7 @@ var store = [{
         "teaser": "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDV5OXFubHBnZ252ZGt6d21hcnVzZjNpZ21lN2UzdWc0MDBsdTFjbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ABVK96HgZvWI9SBbXr/giphy.gif"
       },{
         "title": "AWS 생성형 AI 활용 학습부터 자격증 취득까지",
-        "excerpt":"« 디지털 학습 + 실습 + 워크샵 + 퀘스트 + 자격증 취득 » AWS Training &amp; Certification 과 함께하는 교육 프로그램을 통해 디지털 강의로 이론을 학습하고 핸즈온 실습을 통해 AWS 서비스와 솔루션을 다양하게 연습해볼 수 있습니다. 학습한 내용은 AWS 전문 트레이너가 강의하는 워크샵에 참석하여 함께 리뷰하고, 퀘스트 참여를 통해 개인의 레벨과 스킬을...","categories": ["tech","ai","cloud"],
+        "excerpt":"🎯 핵심 가이드 [ 학습 플랜 ] Machine Learning Learning Plan https://skillbuilder.aws/learning-plan/MVQZ8QE1WJ/machine-learning-learning-plan-korean/YYAQ1NGZX6 [ 디지털 과정 ] 제품 도메인별 학습 -&gt; 인공지능 -&gt; 디지털 과정 -&gt; Building Generative AI Applications Using Amazon Bedrock (한국어) https://skillbuilder.aws/learn/TM4ZAXTGEZ/building-generative-ai-applications-using-amazon-bedrock-/JVN969UYSZ [ 디지털 강의 ] - 구독 제품 도메일별 학습 -&gt; 인공지능 -&gt; 전문가 주도의 디지털 강의 -&gt;...","categories": ["tech","ai","cloud"],
         "tags": ["AWS","certification","genai","training","program","ramp-up"],
         "url": "/tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/",
         "teaser": "/assets/images/post_img/aws_skill.webp"
