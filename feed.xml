@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-06-30T05:02:02+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">AWS 생성형 AI 활용 학습부터 자격증 취득까지</title><link href="https://aidendef.github.io//tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/" rel="alternate" type="text/html" title="AWS 생성형 AI 활용 학습부터 자격증 취득까지" /><published>2025-06-29T15:08:00+00:00</published><updated>2025-06-29T15:08:00+00:00</updated><id>https://aidendef.github.io//tech/ai/cloud/AWS%20%EC%83%9D%EC%84%B1%ED%98%95%20AI%20%ED%99%9C%EC%9A%A9%20%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0%20%EC%9E%90%EA%B2%A9%EC%A6%9D%20%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80</id><content type="html" xml:base="https://aidendef.github.io//tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/"><![CDATA[<h3 id="디지털-학습--실습--워크샵--퀘스트--자격증-취득"><strong>« 디지털 학습 + 실습 + 워크샵 + 퀘스트 + 자격증 취득 »</strong></h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://aidendef.github.io//feed.xml" rel="self" type="application/atom+xml" /><link href="https://aidendef.github.io//" rel="alternate" type="text/html" /><updated>2025-06-30T07:42:17+00:00</updated><id>https://aidendef.github.io//feed.xml</id><title type="html">Aiden의 든든한 Blog</title><subtitle>Aiden&apos;s website.</subtitle><author><name>Your Name</name></author><entry><title type="html">AWS 생성형 AI 활용 학습부터 자격증 취득까지</title><link href="https://aidendef.github.io//tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/" rel="alternate" type="text/html" title="AWS 생성형 AI 활용 학습부터 자격증 취득까지" /><published>2025-06-29T15:08:00+00:00</published><updated>2025-06-29T15:08:00+00:00</updated><id>https://aidendef.github.io//tech/ai/cloud/AWS%20%EC%83%9D%EC%84%B1%ED%98%95%20AI%20%ED%99%9C%EC%9A%A9%20%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0%20%EC%9E%90%EA%B2%A9%EC%A6%9D%20%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80</id><content type="html" xml:base="https://aidendef.github.io//tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/"><![CDATA[<h3 id="디지털-학습--실습--워크샵--퀘스트--자격증-취득"><strong>« 디지털 학습 + 실습 + 워크샵 + 퀘스트 + 자격증 취득 »</strong></h3>
 
 <p>AWS Training &amp; Certification 과 함께하는 교육 프로그램을 통해 <strong>디지털 강의로 이론을 학습하고 핸즈온 실습을 통해 AWS 서비스와 솔루션을 다양하게 연습</strong>해볼 수 있습니다.</p>
 
@@ -90,7 +90,6 @@
 <ul>
   <li>https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Generative_AI.pdf</li>
 </ul>
-<p>&lt;/aside&gt;</p>
 
 <h3 id="aws-certification">AWS Certification</h3>
 
@@ -135,37 +134,37 @@
 <h3 id="학습-플랜">학습 플랜</h3>
 
 <ul>
-  <li>Machine Learning Learning Plan
+  <li><a href="https://skillbuilder.aws/learning-plan/MVQZ8QE1WJ/machine-learning-learning-plan/2PW43AVTYR">Machine Learning Learning Plan</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/MVQZ8QE1WJ/machine-learning-learning-plan/2PW43AVTYR</li>
     </ul>
   </li>
-  <li>AWS ML Engineer Associate Learning Plan (includes labs)
+  <li><a href="https://skillbuilder.aws/learning-plan/AY5A6VN52B/aws-ml-engineer-associate-learning-plan-includes-labs/C21UPEK6R9">AWS ML Engineer Associate Learning Plan (includes labs)</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/AY5A6VN52B/aws-ml-engineer-associate-learning-plan-includes-labs/C21UPEK6R9</li>
     </ul>
   </li>
-  <li>Machine Learning Learning Plan - Intelligent Document Processing
+  <li><a href="https://skillbuilder.aws/learning-plan/4BPTPXU8E6/machine-learning-learning-plan--intelligent-document-processing/JUP7DYXUAM">Machine Learning Learning Plan - Intelligent Document Processing</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/4BPTPXU8E6/machine-learning-learning-plan–intelligent-document-processing/JUP7DYXUAM</li>
     </ul>
   </li>
-  <li>Generative AI Learning Plan for Model Builders
+  <li><a href="https://skillbuilder.aws/learning-plan/BB4UWE24NX/generative-ai-learning-plan-for-model-builders/1DUA79ANG5">Generative AI Learning Plan for Model Builders</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/BB4UWE24NX/generative-ai-learning-plan-for-model-builders/1DUA79ANG5</li>
     </ul>
   </li>
-  <li>Generative AI Learning Plan for Developers (includes labs)
+  <li><a href="https://skillbuilder.aws/learning-plan/5C9XQBTXBB/generative-ai-learning-plan-for-developers-includes-labs/EGATKJP13J">Generative AI Learning Plan for Developers (includes labs)</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/5C9XQBTXBB/generative-ai-learning-plan-for-developers-includes-labs/EGATKJP13J</li>
     </ul>
   </li>
-  <li>Generative AI Learning Plan for Decision Makers
+  <li><a href="https://skillbuilder.aws/learning-plan/STDH6NGPH7/generative-ai-learning-plan-for-decision-makers/MHMHDAWQJY">Generative AI Learning Plan for Decision Makers</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/STDH6NGPH7/generative-ai-learning-plan-for-decision-makers/MHMHDAWQJY</li>
     </ul>
   </li>
-  <li>Amazon Q - Generative AI-powered Assistant Learning Plan
+  <li><a href="https://skillbuilder.aws/learning-plan/B51KSK3B9G/amazon-q--generative-aipowered-assistant-learning-plan/7B8RMRQV5H">Amazon Q - Generative AI-powered Assistant Learning Plan</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/B51KSK3B9G/amazon-q–generative-aipowered-assistant-learning-plan/7B8RMRQV5H</li>
     </ul>
@@ -177,47 +176,47 @@
 <h3 id="디지털-과정">디지털 과정</h3>
 
 <ul>
-  <li>Building Generative AI Applications Using Amazon Bedrock
+  <li><a href="https://skillbuilder.aws/learn/TM4ZAXTGEZ/building-generative-ai-applications-using-amazon-bedrock-/JVN969UYSZ">Building Generative AI Applications Using Amazon Bedrock</a>
     <ul>
       <li>https://skillbuilder.aws/learn/TM4ZAXTGEZ/building-generative-ai-applications-using-amazon-bedrock-/JVN969UYSZ</li>
     </ul>
   </li>
-  <li>Generative AI Fundamentals
+  <li><a href="https://skillbuilder.aws/learn/34SZVJR3NV/generative-ai-fundamentals-/7N8YCQB1DG">Generative AI Fundamentals</a>
     <ul>
       <li>https://skillbuilder.aws/learn/34SZVJR3NV/generative-ai-fundamentals-/7N8YCQB1DG</li>
     </ul>
   </li>
-  <li>Generative AI with Diffusion Models
+  <li><a href="https://skillbuilder.aws/learn/62GE2Q9GRY/generative-ai-with-diffusion-models-/M189WM2GM2">Generative AI with Diffusion Models</a>
     <ul>
       <li>https://skillbuilder.aws/learn/62GE2Q9GRY/generative-ai-with-diffusion-models-/M189WM2GM2</li>
     </ul>
   </li>
-  <li>Introduction to Amazon SageMaker
+  <li><a href="https://skillbuilder.aws/learn/E1TZFJG8AG/introduction-to-amazon-sagemaker-/VMV2D3X6D2">Introduction to Amazon SageMaker</a>
     <ul>
       <li>https://skillbuilder.aws/learn/E1TZFJG8AG/introduction-to-amazon-sagemaker-/VMV2D3X6D2</li>
     </ul>
   </li>
-  <li>AWS ML Engineer Associate 3.3 Automate Deployment
+  <li><a href="https://skillbuilder.aws/learn/TY6PBD6U4C/aws-ml-engineer-associate-33-automate-deployment-/C4VGPNRJT4">AWS ML Engineer Associate 3.3 Automate Deployment</a>
     <ul>
       <li>https://skillbuilder.aws/learn/TY6PBD6U4C/aws-ml-engineer-associate-33-automate-deployment-/C4VGPNRJT4</li>
     </ul>
   </li>
-  <li>Generative AI in Action: Real-World Use Cases
+  <li><a href="https://skillbuilder.aws/learn/19P1JWGVN7/generative-ai-in-action-realworld-use-cases-/VPK5A4CDYU">Generative AI in Action: Real-World Use Cases</a>
     <ul>
       <li>https://skillbuilder.aws/learn/19P1JWGVN7/generative-ai-in-action-realworld-use-cases-/VPK5A4CDYU</li>
     </ul>
   </li>
-  <li>Building Language Models on AWS
+  <li><a href="https://skillbuilder.aws/learn/MRAJEZFMW7/building-language-models-on-aws-/4VQVB9DAJ2">Building Language Models on AWS</a>
     <ul>
       <li>https://skillbuilder.aws/learn/MRAJEZFMW7/building-language-models-on-aws-/4VQVB9DAJ2</li>
     </ul>
   </li>
-  <li>No-code Machine Learning and Generative AI on AWS
+  <li><a href="https://skillbuilder.aws/learn/4RTW7WHS2J/nocode-machine-learning-and-generative-ai-on-aws-/8DKJRK6DT2">No-code Machine Learning and Generative AI on AWS</a>
     <ul>
       <li>https://skillbuilder.aws/learn/4RTW7WHS2J/nocode-machine-learning-and-generative-ai-on-aws-/8DKJRK6DT2</li>
     </ul>
   </li>
-  <li>Operationalize Generative AI Applications (FMOps/LLMOps)
+  <li><a href="https://skillbuilder.aws/learn/2AFXM2RY8A/operationalize-generative-ai-applications-fmopsllmops-/R9Q96PGHY1">Operationalize Generative AI Applications (FMOps/LLMOps)</a>
     <ul>
       <li>https://skillbuilder.aws/learn/2AFXM2RY8A/operationalize-generative-ai-applications-fmopsllmops-/R9Q96PGHY1</li>
     </ul>
@@ -303,17 +302,17 @@
 <h3 id="aws-simulearn">AWS SimuLearn</h3>
 
 <ul>
-  <li>AWS SimuLearn: Generative AI Practitioner (Free)
+  <li><a href="https://skillbuilder.aws/learning-plan/3HCD821CNZ/aws-simulearn-generative-ai-practitioner/BFKGA5VM8H">AWS SimuLearn: Generative AI Practitioner (Free)</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/3HCD821CNZ/aws-simulearn-generative-ai-practitioner/BFKGA5VM8H</li>
     </ul>
   </li>
-  <li>AWS SimuLearn: Generative AI Learning Plan
+  <li><a href="https://skillbuilder.aws/learning-plan/CVTBV11V1K/aws-simulearn-generative-ai/U39NTGR28K">AWS SimuLearn: Generative AI Learning Plan</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/CVTBV11V1K/aws-simulearn-generative-ai/U39NTGR28K</li>
     </ul>
   </li>
-  <li>AWS SimuLearn: Machine Learning Learning Plan
+  <li><a href="https://skillbuilder.aws/learning-plan/MR68TNX15T/aws-simulearn-machine-learning/X4TS3DFJNM">AWS SimuLearn: Machine Learning Learning Plan</a>
     <ul>
       <li>https://skillbuilder.aws/learning-plan/MR68TNX15T/aws-simulearn-machine-learning/X4TS3DFJNM</li>
     </ul>
@@ -325,17 +324,17 @@
 <h3 id="aws-jam-events">AWS Jam Events</h3>
 
 <ul>
-  <li>Generative AI: Amazon Bedrock
+  <li><a href="https://skillbuilder.aws/learn/DZGGDUWCRU/generative-ai-amazon-bedrock/SXWVQ9HNSJ">Generative AI: Amazon Bedrock</a>
     <ul>
       <li>https://skillbuilder.aws/learn/DZGGDUWCRU/generative-ai-amazon-bedrock/SXWVQ9HNSJ</li>
     </ul>
   </li>
-  <li>Generative AI: Amazon Bedrock (Advanced)
+  <li><a href="https://skillbuilder.aws/learn/6157ZMPQV7/generative-ai-amazon-bedrock-advanced/9A23444M3Y">Generative AI: Amazon Bedrock (Advanced)</a>
     <ul>
       <li>https://skillbuilder.aws/learn/6157ZMPQV7/generative-ai-amazon-bedrock-advanced/9A23444M3Y</li>
     </ul>
   </li>
-  <li>Generative AI: Amazon SageMaker
+  <li><a href="https://skillbuilder.aws/learn/NZ59G4W5FU/generative-ai-amazon-sagemaker/PZU7MJY6VT">Generative AI: Amazon SageMaker</a>
     <ul>
       <li>https://skillbuilder.aws/learn/NZ59G4W5FU/generative-ai-amazon-sagemaker/PZU7MJY6VT</li>
     </ul>
@@ -347,12 +346,12 @@
 <h3 id="aws-cloud-quest">AWS Cloud Quest</h3>
 
 <ul>
-  <li>AWS Cloud Quest: Machine Learning
+  <li><a href="https://skillbuilder.aws/learn/E6BUBTFNGU/aws-cloud-quest-machine-learning/HD73DPWDMS">AWS Cloud Quest: Machine Learning</a>
     <ul>
       <li>https://skillbuilder.aws/learn/E6BUBTFNGU/aws-cloud-quest-machine-learning/HD73DPWDMS</li>
     </ul>
   </li>
-  <li>AWS Cloud Quest: Generative AI
+  <li><a href="https://skillbuilder.aws/learn/PFYH348EK2/aws-cloud-quest-generative-ai-solutions/B3Q26P97G8">AWS Cloud Quest: Generative AI</a>
     <ul>
       <li>https://skillbuilder.aws/learn/PFYH348EK2/aws-cloud-quest-generative-ai-solutions/B3Q26P97G8</li>
     </ul>
@@ -364,7 +363,7 @@
 <h3 id="aws-escape-room-exam-prep">AWS Escape Room: Exam Prep</h3>
 
 <ul>
-  <li>AWS Escape Room: Exam Prep for AWS Certified AI Practitioner (AIF-C01)
+  <li><a href="https://skillbuilder.aws/learn/UNHSE7WKW5/aws-escape-room-exam-prep-for-aws-certified-ai-practitioner-aifc01--english-demo/BBT985R4UK">AWS Escape Room: Exam Prep for AWS Certified AI Practitioner (AIF-C01)</a>
     <ul>
       <li>https://skillbuilder.aws/learn/UNHSE7WKW5/aws-escape-room-exam-prep-for-aws-certified-ai-practitioner-aifc01–english-demo/BBT985R4UK</li>
     </ul>
@@ -376,17 +375,17 @@
 <h3 id="aws-certification-exam-prep">AWS Certification Exam Prep</h3>
 
 <ul>
-  <li>Exam Prep Official Practice Question Set: AWS Certified AI Practitioner (AIF-C01 - 한국어)
+  <li><a href="https://skillbuilder.aws/learn/4URFGY63KV/official-practice-question-set-aws-certified-ai-practitioner--aifc01--/E1S5J9NJPW">Exam Prep Official Practice Question Set: AWS Certified AI Practitioner (AIF-C01 - 한국어)</a>
     <ul>
       <li>https://skillbuilder.aws/learn/4URFGY63KV/official-practice-question-set-aws-certified-ai-practitioner–aifc01–/E1S5J9NJPW</li>
     </ul>
   </li>
-  <li>Exam Prep Official Pretest: AWS Certified Machine Learning Engineer - Associate (MLA-C01 - 한국어)
+  <li><a href="https://skillbuilder.aws/learn/XNGDWPV3NM/official-pretest-aws-certified-machine-learning-engineer--associate-mlac01--/DY4DHJWPBU">Exam Prep Official Pretest: AWS Certified Machine Learning Engineer - Associate (MLA-C01 - 한국어)</a>
     <ul>
       <li>https://skillbuilder.aws/learn/XNGDWPV3NM/official-pretest-aws-certified-machine-learning-engineer–associate-mlac01–/DY4DHJWPBU</li>
     </ul>
   </li>
-  <li>Exam Prep Official Practice Question Set: AWS Certified Machine Learning - Specialty (MLS-C01 - 한국어)
+  <li><a href="https://skillbuilder.aws/learn/K8PG7EH6UY/official-practice-question-set-aws-certified-machine-learning--specialty-mlsc01--/2YUZUBRWS7">Exam Prep Official Practice Question Set: AWS Certified Machine Learning - Specialty (MLS-C01 - 한국어)</a>
     <ul>
       <li>https://skillbuilder.aws/learn/K8PG7EH6UY/official-practice-question-set-aws-certified-machine-learning–specialty-mlsc01–/2YUZUBRWS7</li>
     </ul>
@@ -396,7 +395,7 @@
 <h3 id="aws-skill-builder-trivia">AWS Skill Builder Trivia</h3>
 
 <ul>
-  <li>Skill Builder Trivia
+  <li><a href="https://skillbuilder.aws/learn/7S24N95UNA/aws-skill-builder-trivia/5ZKZJANYXZ">Skill Builder Trivia</a>
     <ul>
       <li>https://skillbuilder.aws/learn/7S24N95UNA/aws-skill-builder-trivia/5ZKZJANYXZ</li>
     </ul>
@@ -406,7 +405,7 @@
 <h3 id="aws-ramp-up-guide">AWS Ramp-Up Guide</h3>
 
 <ul>
-  <li>AWS Ramp-Up Guide
+  <li><a href="https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Generative_AI.pdf">AWS Ramp-Up Guide</a>
     <ul>
       <li>https://d1.awsstatic.com/training-and-certification/ramp-up_guides/Ramp-Up_Guide_Generative_AI.pdf</li>
     </ul>
