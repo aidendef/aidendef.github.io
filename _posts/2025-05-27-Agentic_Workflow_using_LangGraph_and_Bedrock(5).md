@@ -2,7 +2,7 @@
 
 title: "Agentic_Workflow_using_LangGraph_and_Bedrock(5)"
 date: 2025-05-27 00:05:00 +0900
-categories: [ai, cloud]
+categories: [tech, ai, cloud]
 tags: [AWS, Agentic, LangGraph, Bedrock]
 sidebar:
   nav: "docs"

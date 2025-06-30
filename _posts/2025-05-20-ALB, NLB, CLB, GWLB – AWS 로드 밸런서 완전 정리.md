@@ -2,7 +2,7 @@
 
 title: "ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리"
 date: 2025-05-20 00:00:00 +0900
-categories: [cloud]
+categories: [tech, cloud]
 tags: [AWS, ALB, NLB, CLB, GWLB, 로드밸런서]
 sidebar:
   nav: "docs"

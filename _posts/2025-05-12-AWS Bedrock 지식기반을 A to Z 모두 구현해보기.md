@@ -2,7 +2,7 @@
 
 title: "AWS Bedrock 지식기반을 A to Z 모두 구현해보기"
 date: 2025-05-12 00:00:00 +0900
-categories: [cloud, ai, Business]
+categories: [tech, cloud, ai, Business]
 tags: [AWS, AI, Bedrock, RAG, Retrieval-Augmented Generation, LLM, Knowledge Base, 지식기반]
 sidebar:
   nav: "docs"

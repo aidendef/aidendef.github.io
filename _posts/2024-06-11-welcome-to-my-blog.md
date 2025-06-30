@@ -15,3 +15,9 @@ header:
 
 Aiden의 든든한 블로그에 와주셔서 감사합니다.
 앞으로 많이 찾아와주세요 :)
+
+- Link Tree
+  - [LinkedIn](https://www.linkedin.com/in/yonggyu-kim-32650521a/)
+  - [Blog](https://aidendef.github.io/) 
+  - [IEEE Profile](https://ieeexplore.ieee.org/author/395117798154712)
+  - [ORCID Profile](https://orcid.org/my-orcid?orcid=0000-0001-7038-8715)
