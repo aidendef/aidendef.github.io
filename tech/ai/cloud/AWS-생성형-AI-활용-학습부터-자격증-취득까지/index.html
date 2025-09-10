@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="AWS 생성형 AI 활용 학습부터 자격증 취득까지">
     <meta itemprop="description" content="AWS 자격증을 알아보자">
     <meta itemprop="datePublished" content="2025-06-29T15:08:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#핵심-가이드">🎯 핵심 가이드</a><ul><li><a href="#aws-certification">AWS Certification</a></li></ul></li><li><a href="#학습-자료-참고-안내">🎯 학습 자료 참고 안내</a><ul><li><a href="#학습-플랜">학습 플랜</a></li><li><a href="#디지털-과정">디지털 과정</a></li><li><a href="#디지털--강의실">디지털  강의실</a></li><li><a href="#aws-builder-labs">AWS Builder Labs</a></li><li><a href="#aws-simulearn">AWS SimuLearn</a></li><li><a href="#aws-jam-events">AWS Jam Events</a></li><li><a href="#aws-cloud-quest">AWS Cloud Quest</a></li><li><a href="#aws-escape-room-exam-prep">AWS Escape Room: Exam Prep</a></li><li><a href="#aws-certification-exam-prep">AWS Certification Exam Prep</a></li><li><a href="#aws-skill-builder-trivia">AWS Skill Builder Trivia</a></li><li><a href="#aws-ramp-up-guide">AWS Ramp-Up Guide</a></li><li><a href="#디지털-학습--실습--워크샵--퀘스트--자격증-취득">« 디지털 학습 + 실습 + 워크샵 + 퀘스트 + 자격증 취득 »</a></li></ul></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="핵심-가이드">🎯 핵심 가이드</h2>
 
 <p><strong>[ 학습 플랜 ]</strong></p>
@@ -970,6 +972,10 @@
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

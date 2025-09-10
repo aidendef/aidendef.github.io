@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="ALB, NLB, CLB, GWLB – AWS 로드 밸런서 완전 정리">
     <meta itemprop="description" content="AWS 로드 밸런서 4종 완전 비교. 어떤 상황에 어떤 걸 써야 할까?">
     <meta itemprop="datePublished" content="2025-05-19T15:00:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-들어가며">1. 들어가며</a></li><li><a href="#2-전체-비교표로-빠르게-보기">2. 전체 비교표로 빠르게 보기</a></li><li><a href="#3-alb--application-load-balancer">3. ALB – Application Load Balancer</a><ul><li><a href="#주요-특징">주요 특징</a></li><li><a href="#사용-예시">사용 예시</a></li></ul></li><li><a href="#4-nlb--network-load-balancer">4. NLB – Network Load Balancer</a><ul><li><a href="#주요-특징-1">주요 특징</a></li><li><a href="#사용-예시-1">사용 예시</a></li></ul></li><li><a href="#5-clb--classic-load-balancer">5. CLB – Classic Load Balancer</a><ul><li><a href="#주요-특징-2">주요 특징</a></li><li><a href="#사용-예시-2">사용 예시</a></li></ul></li><li><a href="#6-gwlb--gateway-load-balancer">6. GWLB – Gateway Load Balancer</a><ul><li><a href="#주요-특징-3">주요 특징</a></li><li><a href="#사용-예시-3">사용 예시</a></li></ul></li><li><a href="#7-어떤-걸-언제-써야-할까">7. 어떤 걸 언제 써야 할까?</a></li><li><a href="#8-마무리하며">8. 마무리하며</a></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="1-들어가며">1. 들어가며</h2>
 
 <p>AWS에서 서비스를 운영하다 보면, 로드 밸런서는 거의 필수다.<br />
@@ -744,6 +746,10 @@ CLB는 이제 유지보수 목적으로만 사용하고, 신규 시스템에는 
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

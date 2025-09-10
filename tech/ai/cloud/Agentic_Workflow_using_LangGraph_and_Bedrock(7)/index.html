@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Agentic_Workflow_using_LangGraph_and_Bedrock(7)">
     <meta itemprop="description" content="Human in the Loop 변경을 알아보자">
     <meta itemprop="datePublished" content="2025-05-26T15:07:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#human-in-the-loop-변경">Human in the Loop 변경</a></li><li><a href="#bedrock-setup">Bedrock setup</a></li><li><a href="#상태-수정">상태 수정</a></li><li><a href="#툴-선언">툴 선언</a></li><li><a href="#그래프-생성">그래프 생성</a></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="human-in-the-loop-변경">Human in the Loop 변경</h2>
 <p>중단점이 사용자 승인을 지원하는 방법을 보여드렸지만 그래프가 중단된 후 그래프 상태를 수정하는 방법에 대해서는 아직 설명드리지 않았습니다.</p>
 
@@ -787,6 +789,10 @@ state.next
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

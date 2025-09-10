@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Agentic_Workflow_using_LangGraph_and_Bedrock(3)">
     <meta itemprop="description" content="툴 에이전트를 알아보자">
     <meta itemprop="datePublished" content="2025-05-26T15:03:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#툴-에이전트-실습">툴 에이전트 실습</a></li><li><a href="#bedrock-setup">Bedrock Setup</a></li><li><a href="#여러개의-툴들을-정의">여러개의 툴들을 정의</a></li><li><a href="#그래프-생성">그래프 생성</a></li><li><a href="#그래프-수행-테스트">그래프 수행 테스트</a></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="툴-에이전트-실습">툴 에이전트 실습</h2>
 
 <p>앞에서 라우터를 실습해 봤기 때문에, 여기에서는 좀 더 해당 개념을 확장해서 수행할 예정입니다.</p>
@@ -739,6 +741,10 @@ So the final result is 2.8.
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

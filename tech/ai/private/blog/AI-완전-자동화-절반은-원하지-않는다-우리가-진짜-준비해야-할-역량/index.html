@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량">
     <meta itemprop="description" content="AI가 당신의 일을 뺏지 않는 이유: 스탠포드 대규모 연구가 밝힌 충격적 결과">
     <meta itemprop="datePublished" content="2025-06-24T15:08:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-왜-이-논문을-알아야하나-얼마나-중요한가">1. 왜 이 논문을 알아야하나? 얼마나 중요한가?</a></li><li><a href="#2-연구-개요">2. 연구 개요</a></li><li><a href="#3-노동자들의-ai-자동화에-대한-인식">3. 노동자들의 AI 자동화에 대한 인식</a></li><li><a href="#4-desire-capability-landscape-욕구와-기술력의-불일치">4. Desire-Capability Landscape: 욕구와 기술력의 불일치</a></li><li><a href="#5-human-agency-scale-has-인간과-ai의-협업-수준">5. Human Agency Scale (HAS): 인간과 AI의 협업 수준</a></li><li><a href="#6-직업별-협업-가능성-사례">6. 직업별 협업 가능성 사례</a><ul><li><a href="#-ai가-대체하기-쉬운-작업-h1h2-중심-직업군">① AI가 대체하기 쉬운 작업 (H1~H2 중심 직업군)</a></li><li><a href="#-인간-중심성이-필요한-작업-h3h5-중심-직업군">② 인간 중심성이 필요한 작업 (H3~H5 중심 직업군)</a></li><li><a href="#-ai와-협업-형태가-가장-이상적인-영역-h3-중심-직업군">③ AI와 협업 형태가 가장 이상적인 영역 (H3 중심 직업군)</a></li></ul></li><li><a href="#7-ai-도입이-가져올-미래-핵심-역량-변화">7. AI 도입이 가져올 미래 핵심 역량 변화</a><ul><li><a href="#-상대적-가치가-줄어드는-역량-정보처리-중심-스킬">① 상대적 가치가 줄어드는 역량: 정보처리 중심 스킬</a></li><li><a href="#-상대적-가치가-높아지는-역량-대인관계조직관리-중심-스킬">② 상대적 가치가 높아지는 역량: 대인관계·조직관리 중심 스킬</a></li><li><a href="#-공통-특징-ai가-어려워하는-스킬은-불확실성과-사람이-중심">③ 공통 특징: AI가 어려워하는 스킬은 “불확실성과 사람”이 중심</a></li><li><a href="#정리-ai-시대의-인간-역량-변화-요약">정리: AI 시대의 인간 역량 변화 요약</a></li></ul></li><li><a href="#8-시사점과-결론">8. 시사점과 결론</a></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="1-왜-이-논문을-알아야하나-얼마나-중요한가">1. 왜 이 논문을 알아야하나? 얼마나 중요한가?</h2>
 
 <p><a href="https://arxiv.org/abs/2506.06576">Future of Work with AI Agents</a> 라는 논문을 읽고 아래 간략하게 작성을 진행할 것이다. 긴글을 읽기 앞서 왜 우리는 이 글을 봐야하는지 설명을 진행할 것이다.</p>
@@ -1418,6 +1420,10 @@ AI 도입이 확대될수록 오히려 더 중요한 차별화 요소로 부상 
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

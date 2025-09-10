@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Gemini 2.0 이제 누구나 사용 가능">
     <meta itemprop="description" content="Gemini 2.0 은 다음과 같습니다.">
     <meta itemprop="datePublished" content="2024-06-11T02:00:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#gemini-20-시리즈-요약-정리">Gemini 2.0 시리즈 요약 정리</a><ul><li><a href="#1-gemini-20-flash">1. Gemini 2.0 Flash</a></li><li><a href="#2-gemini-20-pro-실험적-버전">2. Gemini 2.0 Pro (실험적 버전)</a></li><li><a href="#3-gemini-20-flash-lite">3. Gemini 2.0 Flash-Lite</a></li></ul></li></ul></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="gemini-20-시리즈-요약-정리"><strong>Gemini 2.0 시리즈 요약 정리</strong></h2>
 
 <h4 id="1-gemini-20-flash"><strong>1. Gemini 2.0 Flash</strong></h4>
@@ -622,6 +624,10 @@
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

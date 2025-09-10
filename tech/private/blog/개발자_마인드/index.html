@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="나, 내 팀원이 가졌으면 하는 개발자 마인드">
     <meta itemprop="description" content="개발자 마인드를 알아보자">
     <meta itemprop="datePublished" content="2025-05-27T15:08:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#개발자-마인드란">개발자 마인드란?</a></li><li><a href="#링크-모음">링크 모음</a></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="개발자-마인드란">개발자 마인드란?</h2>
 <p>사실 개발을 진행하면서 개발실력이 중요하지만 서로서로 의견을 소통하고 교류하는 것이 더 크다.</p>
 
@@ -571,6 +573,10 @@
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Agentic_Workflow_using_LangGraph_and_Bedrock(2)">
     <meta itemprop="description" content="라우터를 알아보자">
     <meta itemprop="datePublished" content="2025-05-26T15:02:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#라우터란">라우터란?</a></li><li><a href="#bedrock-setup">Bedrock setup</a></li><li><a href="#툴-함수-생성">툴 함수 생성</a></li><li><a href="#그래프-생성">그래프 생성</a></li><li><a href="#일상적인-대화로-질의">일상적인 대화로 질의</a></li><li><a href="#곱셈을-문의하는-질의">곱셈을 문의하는 질의</a></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="라우터란">라우터란?</h2>
 
 <p>사용자의 인풋에 따라서, Gen AI를 컨텍스트에 맞는 답변을 수행해야 하는지를 판단하게 할 수 있습니다.
@@ -680,6 +682,10 @@ Name: multiply
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="AWS Bedrock 지식기반을 A to Z 모두 구현해보기">
     <meta itemprop="description" content="직접 AWS 완전관리형 서비스 따라만들어보자">
     <meta itemprop="datePublished" content="2025-05-11T15:00:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-들어가며">1. 들어가며</a></li><li><a href="#2-전체-구성-아키텍처">2. 전체 구성 아키텍처</a><ul><li><a href="#사용된-주요-서비스">사용된 주요 서비스</a></li><li><a href="#주요-특징">주요 특징</a></li></ul></li><li><a href="#3-bedrock-knowledge-base--완전관리형-구조-소개">3. Bedrock Knowledge Base – 완전관리형 구조 소개</a><ul><li><a href="#주요-구성-요소">주요 구성 요소</a></li><li><a href="#내부-동작-방식">내부 동작 방식</a></li><li><a href="#사용자-관점에서의-구성-흐름">사용자 관점에서의 구성 흐름</a></li><li><a href="#특징-및-장점">특징 및 장점</a></li><li><a href="#사용-예시">사용 예시</a></li></ul></li><li><a href="#4-수동-구현-rag-파이프라인-상세-단계">4. 수동 구현: RAG 파이프라인 상세 단계</a><ul><li><a href="#41-파일-업로드-및-pdf-변환">4.1. 파일 업로드 및 PDF 변환</a><ul><li><a href="#-흐름-설명">■ 흐름 설명</a></li><li><a href="#-사용된-서비스">■ 사용된 서비스</a></li></ul></li><li><a href="#42-텍스트-추출-및-chunk-생성">4.2. 텍스트 추출 및 Chunk 생성</a><ul><li><a href="#-흐름-설명-1">■ 흐름 설명</a></li><li><a href="#-사용된-기술-및-고려사항">■ 사용된 기술 및 고려사항</a></li></ul></li><li><a href="#43-임베딩-생성-및-opensearch-저장">4.3. 임베딩 생성 및 OpenSearch 저장</a><ul><li><a href="#-흐름-설명-2">■ 흐름 설명</a></li><li><a href="#-사용된-서비스-1">■ 사용된 서비스</a></li></ul></li><li><a href="#44-사용자-질의-및-claude-기반-응답">4.4. 사용자 질의 및 Claude 기반 응답</a><ul><li><a href="#-흐름-설명-3">■ 흐름 설명</a></li><li><a href="#-사용된-서비스-2">■ 사용된 서비스</a></li><li><a href="#-실제-동작-화면">■ 실제 동작 화면</a></li></ul></li></ul></li><li><a href="#5-완전관리형-knowledge-base-vs-수동-구현-비교">5. 완전관리형 Knowledge Base vs 수동 구현 비교</a><ul><li><a href="#51-기능-및-아키텍처-비교">5.1 기능 및 아키텍처 비교</a></li><li><a href="#52-사용성-vs-유연성">5.2 사용성 vs 유연성</a></li><li><a href="#53-선택-기준-정리">5.3 선택 기준 정리</a></li></ul></li><li><a href="#6-마무리하며--느낀-점">6. 마무리하며 – 느낀 점</a></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="1-들어가며">1. 들어가며</h2>
 
 <p>최근 다양한 기업들이 사내 문서 기반 지식 검색 시스템, 즉 RAG(Retrieval-Augmented Generation) 기반의 챗봇을 도입하고 있다. [<a href="https://www.gartner.com/en/articles">Gartner 보고서 보기</a>, 
@@ -1130,6 +1132,10 @@ POST /knowledge-base/query
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

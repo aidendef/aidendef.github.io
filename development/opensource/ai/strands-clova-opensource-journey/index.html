@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="한국 AI를 세계로: strands-clova 오픈소스 개발 여정">
     <meta itemprop="description" content="CLOVA Studio를 Strands Agents SDK에 통합하면서 겪은 오픈소스 기여의 실제 여정">
     <meta itemprop="datePublished" content="2025-09-09T15:00:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#한국어-ai-글로벌-무대에-서다">한국어 AI, 글로벌 무대에 서다</a></li><li><a href="#1-시작-strands-agents-sdk와의-만남">1. 시작: Strands Agents SDK와의 만남</a><ul><li><a href="#strands-agents-sdk란">Strands Agents SDK란?</a></li><li><a href="#발견한-문제점">발견한 문제점</a></li></ul></li><li><a href="#2-도전-직접-통합-구현하기">2. 도전: 직접 통합 구현하기</a><ul><li><a href="#issue-802-생성">Issue #802 생성</a></li><li><a href="#기술적-구현-과정">기술적 구현 과정</a></li><li><a href="#핵심-기술적-도전-과제">핵심 기술적 도전 과제</a><ul><li><a href="#1-sse-server-sent-events-파싱">1. SSE (Server-Sent Events) 파싱</a></li><li><a href="#2-타입-시스템-호환성">2. 타입 시스템 호환성</a></li></ul></li><li><a href="#pr-803-제출">PR #803 제출</a></li></ul></li><li><a href="#3-전환점-메인테이너의-피드백">3. 전환점: 메인테이너의 피드백</a><ul><li><a href="#예상치-못한-방향-전환">예상치 못한 방향 전환</a></li></ul></li><li><a href="#4-재탄생-독립-패키지-개발">4. 재탄생: 독립 패키지 개발</a><ul><li><a href="#프로젝트-구조-설계">프로젝트 구조 설계</a></li><li><a href="#pyprojecttoml-설정">pyproject.toml 설정</a></li><li><a href="#github-actions-cicd">GitHub Actions CI/CD</a></li></ul></li><li><a href="#5-시행착오-문제-해결-과정">5. 시행착오: 문제 해결 과정</a><ul><li><a href="#python-버전-호환성-이슈">Python 버전 호환성 이슈</a></li><li><a href="#타입-체킹-오류">타입 체킹 오류</a></li></ul></li><li><a href="#6-완성-pypi-패키지-발행">6. 완성: PyPI 패키지 발행</a><ul><li><a href="#패키지-빌드">패키지 빌드</a></li><li><a href="#pypi-업로드">PyPI 업로드</a></li><li><a href="#최종-결과">최종 결과</a></li></ul></li><li><a href="#7-사용법-5분-만에-시작하기">7. 사용법: 5분 만에 시작하기</a><ul><li><a href="#설치">설치</a></li><li><a href="#기본-사용">기본 사용</a></li><li><a href="#스트리밍-예제">스트리밍 예제</a></li></ul></li><li><a href="#8-배운-교훈들">8. 배운 교훈들</a><ul><li><a href="#오픈소스는-코드-그-이상">오픈소스는 코드 그 이상</a></li><li><a href="#기술적-교훈">기술적 교훈</a></li><li><a href="#글로벌-프로젝트-참여">글로벌 프로젝트 참여</a></li></ul></li><li><a href="#마무리-작은-시작이-만드는-변화">마무리: 작은 시작이 만드는 변화</a></li><li><a href="#links">Links</a></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="한국어-ai-글로벌-무대에-서다">한국어 AI, 글로벌 무대에 서다</h2>
 
 <p><strong>“왜 한국의 우수한 AI 기술이 글로벌 오픈소스 생태계에서는 찾아보기 힘들까?”</strong></p>
@@ -896,6 +898,10 @@ CLOVA Studio는 네이버의 한국어 AI 플랫폼으로,
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

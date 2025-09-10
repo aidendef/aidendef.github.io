@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Agentic_Workflow_using_LangGraph_and_Bedrock(1)">
     <meta itemprop="description" content="그래프를 알아보자">
     <meta itemprop="datePublished" content="2025-05-26T15:01:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#간단한-그래프">간단한 그래프</a></li><li><a href="#패키지-설치">패키지 설치</a></li><li><a href="#state-상태저장">State (상태저장)</a></li><li><a href="#노드">노드</a></li><li><a href="#엣지">엣지</a></li><li><a href="#그래프-구성">그래프 구성</a></li><li><a href="#그래프-호출">그래프 호출</a></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="간단한-그래프">간단한 그래프</h2>
 
 <p>LangGraph에서 개념을 갖고 있는 Graph에 대해서 알아보기 위해서, 아주 간단한 그래프를 그려볼 것입니다.
@@ -738,6 +740,10 @@ display(Image(graph.get_graph().draw_mermaid_png()))
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

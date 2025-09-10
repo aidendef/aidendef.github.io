@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="이쁨 받는 AWS 아키텍처 만들어보자">
     <meta itemprop="description" content="이쁨받는 AWS 아키텍처 만드는 7가지 원칙">
     <meta itemprop="datePublished" content="2025-05-11T15:00:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#1-들어가며">1. 들어가며</a></li><li><a href="#2-실전에서-통하는-aws-아키텍처-설계-7가지-원칙">2. 실전에서 통하는 AWS 아키텍처 설계 7가지 원칙</a><ul><li><a href="#21-요구사항-기반-설계">2.1 요구사항 기반 설계</a></li><li><a href="#22-계층-분리-및-최소-책임-원칙-적용">2.2 계층 분리 및 최소 책임 원칙 적용</a><ul><li><a href="#1-왜-계층을-나눠야-할까">1) 왜 계층을 나눠야 할까?</a></li><li><a href="#2-어떻게-나눠야-할까">2) 어떻게 나눠야 할까?</a></li><li><a href="#3-srp-single-responsibility-principle-적용">3) SRP (Single Responsibility Principle) 적용</a></li><li><a href="#4-실전에서-적용하는-팁">4) 실전에서 적용하는 팁</a></li></ul></li><li><a href="#23-서버리스-우선-전략">2.3 서버리스 우선 전략</a><ul><li><a href="#1-왜-서버리스를-우선으로-생각해야-할까">1) 왜 서버리스를 우선으로 생각해야 할까?</a></li><li><a href="#2-aws에서-서버리스로-가능한-구성">2) AWS에서 서버리스로 가능한 구성</a></li><li><a href="#3-서버리스-설계-시-유의할-점">3) 서버리스 설계 시 유의할 점</a></li><li><a href="#4-서버리스가-적합하지-않은-상황">4) 서버리스가 적합하지 않은 상황</a></li></ul></li><li><a href="#24-데이터-흐름-기반-설계">2.4 데이터 흐름 기반 설계</a><ul><li><a href="#1-데이터-흐름이-중요한-이유">1) 데이터 흐름이 중요한 이유</a></li><li><a href="#2-실제-예시-학습-플랫폼의-데이터-흐름">2) 실제 예시: 학습 플랫폼의 데이터 흐름</a></li><li><a href="#3-흐름-중심-설계-체크리스트">3) 흐름 중심 설계 체크리스트</a></li><li><a href="#4-aws에서-활용할-수-있는-흐름-설계-도구들">4) AWS에서 활용할 수 있는 흐름 설계 도구들</a></li></ul></li><li><a href="#25-보안-및-운영-관점-포함">2.5 보안 및 운영 관점 포함</a><ul><li><a href="#1-보안은-기능이-아니라-기준이다">1) 보안은 “기능”이 아니라 “기준”이다</a></li><li><a href="#2-최소-권한-원칙-principle-of-least-privilege">2) 최소 권한 원칙 (Principle of Least Privilege)</a></li><li><a href="#3-운영-관점의-필수-요소들">3) 운영 관점의 필수 요소들</a></li><li><a href="#4-예-학습-플랫폼의-보안-구성">4) 예: 학습 플랫폼의 보안 구성</a></li></ul></li><li><a href="#26-비용-고려한-의사결정">2.6 비용 고려한 의사결정</a><ul><li><a href="#1-고정비-vs-변동비">1) 고정비 vs 변동비</a></li><li><a href="#2-단일-선택보다-조합으로-판단하자">2) 단일 선택보다 조합으로 판단하자</a></li><li><a href="#3-비용-최적화를-위한-설계-팁">3) 비용 최적화를 위한 설계 팁</a></li><li><a href="#4-실전-예-학습-플랫폼의-비용-전략">4) 실전 예: 학습 플랫폼의 비용 전략</a></li></ul></li><li><a href="#27-iac-infrastructure-as-code-적용">2.7 IaC (Infrastructure as Code) 적용</a><ul><li><a href="#1-왜-iac를-도입해야-할까">1) 왜 IaC를 도입해야 할까?</a></li><li><a href="#2-aws에서의-iac-선택지">2) AWS에서의 IaC 선택지</a></li><li><a href="#3-cdk-실전-예-lambda--api-gateway-구성">3) CDK 실전 예: Lambda + API Gateway 구성</a></li><li><a href="#4-iac-적용-시-주의할-점">4) IaC 적용 시 주의할 점</a></li></ul></li></ul></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="1-들어가며">1. 들어가며</h2>
 
 <p>클라우드 환경에서의 아키텍처 설계는 단순히 서비스를 배치하는 것을 넘어, 확장성, 안정성, 비용 효율성까지 고려한 종합 설계이다.
@@ -1141,6 +1143,10 @@ S3에 저장된 데이터를 쿼리할 때, GZIP 압축 + Parquet 포맷 + 파�
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>

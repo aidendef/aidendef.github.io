@@ -85,6 +85,9 @@
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 <link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
 
+<!-- Sidebar TOC styles -->
+<link rel="stylesheet" href="/assets/css/sidebar-toc.css">
+
 <!-- end custom head snippets -->
 
   </head>
@@ -215,11 +218,18 @@
 
     
   
+  
+  
+    <nav class="toc sidebar-toc" id="sidebar-toc">
+      <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+      <ul class="toc__menu"></ul>
+    </nav>
+  
   </div>
 
 
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+  <article class="page page-with-sidebar-toc" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="GCP vs AWS: AI 서비스 관점 비교">
     <meta itemprop="description" content="GCP vs AWS 본격 파해치기">
     <meta itemprop="datePublished" content="2025-05-10T15:00:00+00:00">
@@ -257,14 +267,6 @@
       
 
       <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
-              <ul class="toc__menu"><li><a href="#0-앞서보는-3줄-결론">0. 앞서보는 3줄 결론</a></li><li><a href="#1-출발점과-강점-비교">1. 출발점과 강점 비교</a></li><li><a href="#2-주요-서비스-비교">2. 주요 서비스 비교</a></li><li><a href="#3-가격-정책">3. 가격 정책</a></li><li><a href="#4-성능-및-네트워크">4. 성능 및 네트워크</a></li><li><a href="#5-시장-점유율-및-생태계">5. 시장 점유율 및 생태계</a></li><li><a href="#6-사용자-친화성">6. 사용자 친화성</a></li><li><a href="#7-멀티-클라우드-전략">7. 멀티 클라우드 전략</a></li><li><a href="#8-ai-관점에서의-비교">8. AI 관점에서의 비교</a><ul><li><a href="#8-1-철학과-접근-방식">8-1. 철학과 접근 방식</a></li><li><a href="#8-2-aiml-주요-서비스-비교">8-2. AI/ML 주요 서비스 비교</a></li><li><a href="#8-3-automl-세부-비교">8-3. AutoML 세부 비교</a></li></ul></li></ul>
-            </nav>
-          </aside>
-        
         <h2 id="0-앞서보는-3줄-결론">0. 앞서보는 3줄 결론</h2>
 
 <ul>
@@ -850,6 +852,10 @@
   
   
 </div>
+
+
+<script src="/assets/js/sidebar-toc.js"></script>
+
 
       
     </div>
