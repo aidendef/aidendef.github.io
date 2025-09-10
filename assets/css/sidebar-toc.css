@@ -61,11 +61,29 @@
   font-weight: bold;
 }
 
-/* Adjust main content width when TOC is in sidebar */
-.page-with-sidebar-toc {
-  @media (min-width: 64em) {
+/* Adjust main content width and spacing when TOC is in sidebar */
+@media (min-width: 64em) {
+  .page-with-sidebar-toc {
     padding-right: 0;
+    margin-left: 3em;  /* Add more space between sidebar and content */
   }
+  
+  /* Adjust the page content area for better spacing on larger screens */
+  .page__content {
+    padding-left: 3em;
+    padding-right: 2em;
+  }
+}
+
+/* Add more padding to the sidebar */
+.sidebar.sticky {
+  padding-right: 1.5em;
+  width: calc(100% + 1em);
+}
+
+/* Adjust the page content area for better spacing */
+.page__content {
+  padding-left: 1.5em;
 }
 
 /* Hide the right sidebar TOC area completely */
