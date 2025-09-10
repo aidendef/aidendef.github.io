@@ -1,8 +1,24 @@
-/* Global styles for entire blog */
+/* Global styles for entire blog - Override Minimal Mistakes skins */
 
-/* Set white background for all pages */
+/* Override all background colors to white */
 html, body {
   background-color: #ffffff !important;
+  background: #ffffff !important;
+}
+
+/* Override dirt skin specific colors */
+body.layout--single,
+body.layout--home,
+body.layout--posts,
+body.layout--archive,
+body.layout--categories,
+body.layout--tags,
+body.layout--collection,
+body.layout--category,
+body.layout--tag,
+body.layout--search {
+  background-color: #ffffff !important;
+  background: #ffffff !important;
 }
 
 /* Main container background */
