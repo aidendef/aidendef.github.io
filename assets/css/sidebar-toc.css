@@ -72,6 +72,27 @@
   background: white;
 }
 
+/* Fix sidebar navigation list styling */
+.sidebar .nav__list {
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar .nav__list .nav__title {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.85em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+}
+
+.sidebar .nav__list a {
+  display: block;
+  padding: 0.25rem 0;
+  font-size: 0.9em;
+  color: inherit;
+}
+
 /* Ensure main content doesn't overlap with sidebar */
 @media (min-width: 64em) {
   article.page-with-sidebar-toc {
@@ -91,6 +112,46 @@
 /* Adjust the page content area for better spacing on all screens */
 .page__content {
   clear: both;  /* Clear floats */
+  font-size: 1.1em !important;  /* Larger font size for better readability */
+  line-height: 1.8 !important;  /* More line spacing */
+  color: #000 !important;  /* Pure black for maximum contrast */
+}
+
+/* Better typography for content */
+.page__content p {
+  margin-bottom: 1.5em !important;
+  text-align: justify;
+  word-spacing: 0.05em;
+}
+
+.page__content h1, 
+.page__content h2, 
+.page__content h3 {
+  margin-top: 2em !important;
+  margin-bottom: 1em !important;
+  line-height: 1.3 !important;
+}
+
+.page__content h1 { font-size: 2em !important; }
+.page__content h2 { font-size: 1.7em !important; }
+.page__content h3 { font-size: 1.4em !important; }
+
+/* Code blocks readability */
+.page__content pre {
+  font-size: 0.95em !important;
+  line-height: 1.6 !important;
+  padding: 1.5em !important;
+}
+
+/* Lists spacing */
+.page__content ul, 
+.page__content ol {
+  margin-bottom: 1.5em !important;
+}
+
+.page__content li {
+  margin-bottom: 0.5em !important;
+  line-height: 1.8 !important;
 }
 
 /* Hide the right sidebar TOC area completely */
@@ -115,4 +176,33 @@ article.page {
   width: auto !important;
   float: none !important;
   margin-left: 0 !important;
+}
+
+/* Make ALL text black for better visibility */
+body, 
+.page__content,
+.page__content p,
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4,
+.page__content h5,
+.page__content h6,
+.page__content li,
+.page__content td,
+.page__content th,
+.page__meta,
+.page__title,
+.sidebar,
+.sidebar a,
+.sidebar .nav__list a,
+.sidebar-toc a,
+.toc__menu a {
+  color: #000 !important;
+}
+
+/* Ensure links are also black but underlined for distinction */
+.page__content a {
+  color: #000 !important;
+  text-decoration: underline !important;
 }
