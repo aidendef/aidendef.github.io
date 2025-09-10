@@ -65,25 +65,32 @@
 @media (min-width: 64em) {
   .page-with-sidebar-toc {
     padding-right: 0;
-    margin-left: 3em;  /* Add more space between sidebar and content */
+    margin-left: 5em !important;  /* Add significant space between sidebar and content */
   }
   
   /* Adjust the page content area for better spacing on larger screens */
-  .page__content {
-    padding-left: 3em;
-    padding-right: 2em;
+  .page-with-sidebar-toc .page__content {
+    padding-left: 4em !important;
+    padding-right: 3em !important;
+    max-width: 800px;  /* Limit content width for better readability */
+  }
+  
+  /* Ensure the article has proper spacing */
+  article.page-with-sidebar-toc {
+    margin-left: 4em !important;
   }
 }
 
 /* Add more padding to the sidebar */
 .sidebar.sticky {
-  padding-right: 1.5em;
-  width: calc(100% + 1em);
+  padding-right: 2em;
+  max-width: 300px;  /* Limit sidebar width */
 }
 
-/* Adjust the page content area for better spacing */
+/* Adjust the page content area for better spacing on all screens */
 .page__content {
-  padding-left: 1.5em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 /* Hide the right sidebar TOC area completely */
