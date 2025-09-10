@@ -1,0 +1,94 @@
+/* Global styles for entire blog */
+
+/* Set white background for all pages */
+html, body {
+  background-color: #ffffff !important;
+}
+
+/* Main container background */
+#main {
+  background-color: #ffffff !important;
+}
+
+/* Page wrapper background */
+.initial-content,
+.page__content,
+.archive,
+.taxonomy,
+.home,
+.page {
+  background-color: #ffffff !important;
+}
+
+/* Masthead (header) background */
+.masthead {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #f2f3f3;
+}
+
+/* Footer background */
+.page__footer {
+  background-color: #f8f9fa !important;
+}
+
+/* Sidebar background */
+.sidebar {
+  background-color: #ffffff !important;
+}
+
+/* Archive and list items background */
+.list__item,
+.archive__item {
+  background-color: #ffffff !important;
+}
+
+/* Code blocks - keep slightly gray for distinction */
+pre, code {
+  background-color: #f8f9fa !important;
+}
+
+/* Remove any dark backgrounds */
+.page__hero,
+.page__hero-image {
+  background-color: #ffffff !important;
+}
+
+/* Ensure content area is white */
+.page__inner-wrap {
+  background-color: #ffffff !important;
+}
+
+/* Navigation background */
+.greedy-nav {
+  background-color: #ffffff !important;
+}
+
+/* Search form background */
+.search-content {
+  background-color: #ffffff !important;
+}
+
+/* Cards and feature rows */
+.feature__wrapper,
+.feature__item {
+  background-color: #ffffff !important;
+}
+
+/* Pagination */
+.pagination {
+  background-color: #ffffff !important;
+}
+
+/* TOC background */
+.toc {
+  background-color: #ffffff !important;
+}
+
+.sidebar-toc {
+  background-color: #ffffff !important;
+}
+
+/* Related posts section */
+.page__related {
+  background-color: #ffffff !important;
+}
