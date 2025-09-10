@@ -8,7 +8,7 @@
 .sidebar-toc .nav__title {
   margin: 0;
   padding: 0.5rem 0;
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -18,7 +18,7 @@
   padding: 0;
   width: 100%;
   list-style: none;
-  font-size: 0.75em;
+  font-size: 0.85em;
 }
 
 .sidebar-toc .toc__menu li {
