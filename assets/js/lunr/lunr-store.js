@@ -112,4 +112,10 @@ var store = [{
         "tags": ["AWS","certification","genai","training","program","ramp-up"],
         "url": "/tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/",
         "teaser": "/assets/images/post_img/aws_skill.webp"
+      },{
+        "title": "한국 AI를 세계로: strands-clova 오픈소스 개발 여정",
+        "excerpt":"한국어 AI, 글로벌 무대에 서다 “왜 한국의 우수한 AI 기술이 글로벌 오픈소스 생태계에서는 찾아보기 힘들까?” 이 질문에서 시작된 프로젝트가 결국 PyPI 패키지 발행까지 이어진 여정을 공유합니다. 단순히 코드를 작성하는 것을 넘어, 오픈소스 커뮤니티와 소통하고, 피드백을 수용하며, 최종적으로 전 세계 개발자들이 사용할 수 있는 패키지를 만들기까지의 과정을 담았습니다. 1. 시작: Strands...","categories": ["development","opensource","ai"],
+        "tags": ["OpenSource","Python","AI","CLOVA","StrandsAgents","한국어AI","PyPI","GitHub"],
+        "url": "/development/opensource/ai/strands-clova-opensource-journey/",
+        "teaser": "/assets/images/post_img/strands-clova-journey.png"
       }]

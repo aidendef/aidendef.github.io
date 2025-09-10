@@ -1,0 +1,974 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.27.1 by Michael Rose
+  Copyright 2013-2025 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>한국 AI를 세계로: strands-clova 오픈소스 개발 여정 | Aiden의 든든한 Blog</title>
+<meta name="description" content="CLOVA Studio를 Strands Agents SDK에 통합하면서 겪은 오픈소스 기여의 실제 여정">
+
+
+  <meta name="author" content="Your Name">
+  
+  <meta property="article:author" content="Your Name">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Aiden의 든든한 Blog">
+<meta property="og:title" content="한국 AI를 세계로: strands-clova 오픈소스 개발 여정">
+<meta property="og:url" content="https://aidendef.github.io//development/opensource/ai/strands-clova-opensource-journey/">
+
+
+  <meta property="og:description" content="CLOVA Studio를 Strands Agents SDK에 통합하면서 겪은 오픈소스 기여의 실제 여정">
+
+
+
+  <meta property="og:image" content="https://aidendef.github.io//assets/images/post_img/strands-clova-journey.png">
+
+
+
+
+
+  <meta property="article:published_time" content="2025-09-09T15:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://aidendef.github.io//development/opensource/ai/strands-clova-opensource-journey/">
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Aiden의 든든한 Blog Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+<link rel="icon" type="image/x-icon" href="/assets/images/favicon_io/favicon.ico">
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/favicon_io/favicon-32x32.png" alt="Aiden의 든든한 Blog"></a>
+        
+        <a class="site-title" href="/">
+          Aiden의 든든한 Blog
+          <span class="site-subtitle">V1.0</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/categories/tech/"
+                
+                
+              >Tech</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/categories/private/"
+                
+                
+              >Private</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/recent"
+                
+                
+              >Recent</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+      
+      
+      
+    
+    
+      <nav class="nav__list">
+  
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">Toggle menu</label>
+  <ul class="nav__items">
+    
+      
+      
+        <li>
+          
+            <span class="nav__sub-title">Tech</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/ai/">AI</a></li>
+            
+              <li><a href="/categories/cloud/">Cloud</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <span class="nav__sub-title">Private</span>
+          
+
+          
+          <ul>
+            
+              <li><a href="/categories/business/">Business</a></li>
+            
+              <li><a href="/categories/blog/">Blog</a></li>
+            
+          </ul>
+          
+        </li>
+      
+        <li>
+          
+            <a href="/recent"><span class="nav__sub-title">Recent</span></a>
+          
+
+          
+        </li>
+      
+    
+  </ul>
+</nav>
+
+    
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="한국 AI를 세계로: strands-clova 오픈소스 개발 여정">
+    <meta itemprop="description" content="CLOVA Studio를 Strands Agents SDK에 통합하면서 겪은 오픈소스 기여의 실제 여정">
+    <meta itemprop="datePublished" content="2025-09-09T15:00:00+00:00">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="https://aidendef.github.io//development/opensource/ai/strands-clova-opensource-journey/" itemprop="url">한국 AI를 세계로: strands-clova 오픈소스 개발 여정
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> On this page</h4></header>
+              <ul class="toc__menu"><li><a href="#한국어-ai-글로벌-무대에-서다">한국어 AI, 글로벌 무대에 서다</a></li><li><a href="#1-시작-strands-agents-sdk와의-만남">1. 시작: Strands Agents SDK와의 만남</a><ul><li><a href="#strands-agents-sdk란">Strands Agents SDK란?</a></li><li><a href="#발견한-문제점">발견한 문제점</a></li></ul></li><li><a href="#2-도전-직접-통합-구현하기">2. 도전: 직접 통합 구현하기</a><ul><li><a href="#issue-802-생성">Issue #802 생성</a></li><li><a href="#기술적-구현-과정">기술적 구현 과정</a></li><li><a href="#핵심-기술적-도전-과제">핵심 기술적 도전 과제</a><ul><li><a href="#1-sse-server-sent-events-파싱">1. SSE (Server-Sent Events) 파싱</a></li><li><a href="#2-타입-시스템-호환성">2. 타입 시스템 호환성</a></li></ul></li><li><a href="#pr-803-제출">PR #803 제출</a></li></ul></li><li><a href="#3-전환점-메인테이너의-피드백">3. 전환점: 메인테이너의 피드백</a><ul><li><a href="#예상치-못한-방향-전환">예상치 못한 방향 전환</a></li></ul></li><li><a href="#4-재탄생-독립-패키지-개발">4. 재탄생: 독립 패키지 개발</a><ul><li><a href="#프로젝트-구조-설계">프로젝트 구조 설계</a></li><li><a href="#pyprojecttoml-설정">pyproject.toml 설정</a></li><li><a href="#github-actions-cicd">GitHub Actions CI/CD</a></li></ul></li><li><a href="#5-시행착오-문제-해결-과정">5. 시행착오: 문제 해결 과정</a><ul><li><a href="#python-버전-호환성-이슈">Python 버전 호환성 이슈</a></li><li><a href="#타입-체킹-오류">타입 체킹 오류</a></li></ul></li><li><a href="#6-완성-pypi-패키지-발행">6. 완성: PyPI 패키지 발행</a><ul><li><a href="#패키지-빌드">패키지 빌드</a></li><li><a href="#pypi-업로드">PyPI 업로드</a></li><li><a href="#최종-결과">최종 결과</a></li></ul></li><li><a href="#7-사용법-5분-만에-시작하기">7. 사용법: 5분 만에 시작하기</a><ul><li><a href="#설치">설치</a></li><li><a href="#기본-사용">기본 사용</a></li><li><a href="#스트리밍-예제">스트리밍 예제</a></li></ul></li><li><a href="#8-배운-교훈들">8. 배운 교훈들</a><ul><li><a href="#오픈소스는-코드-그-이상">오픈소스는 코드 그 이상</a></li><li><a href="#기술적-교훈">기술적 교훈</a></li><li><a href="#글로벌-프로젝트-참여">글로벌 프로젝트 참여</a></li></ul></li><li><a href="#마무리-작은-시작이-만드는-변화">마무리: 작은 시작이 만드는 변화</a></li><li><a href="#links">Links</a></li></ul>
+            </nav>
+          </aside>
+        
+        <h2 id="한국어-ai-글로벌-무대에-서다">한국어 AI, 글로벌 무대에 서다</h2>
+
+<p><strong>“왜 한국의 우수한 AI 기술이 글로벌 오픈소스 생태계에서는 찾아보기 힘들까?”</strong></p>
+
+<p>이 질문에서 시작된 프로젝트가 결국 PyPI 패키지 발행까지 이어진 여정을 공유합니다. 단순히 코드를 작성하는 것을 넘어, 오픈소스 커뮤니티와 소통하고, 피드백을 수용하며, 최종적으로 전 세계 개발자들이 사용할 수 있는 패키지를 만들기까지의 과정을 담았습니다.</p>
+
+<hr />
+
+<h2 id="1-시작-strands-agents-sdk와의-만남">1. 시작: Strands Agents SDK와의 만남</h2>
+
+<h3 id="strands-agents-sdk란">Strands Agents SDK란?</h3>
+
+<p><a href="https://github.com/strands-agents/sdk-python">Strands Agents SDK</a>는 AI 에이전트를 구축하기 위한 강력한 Python 프레임워크입니다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">strands</span> <span class="kn">import</span> <span class="n">Agent</span>
+<span class="kn">from</span> <span class="n">strands.models</span> <span class="kn">import</span> <span class="n">OpenAIModel</span>
+
+<span class="c1"># 다양한 AI 모델을 통합 인터페이스로 사용
+</span><span class="n">model</span> <span class="o">=</span> <span class="nc">OpenAIModel</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="sh">"</span><span class="s">your-key</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="nc">Agent</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke_async</span><span class="p">(</span><span class="sh">"</span><span class="s">Hello, world!</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>주요 특징:</p>
+<ul>
+  <li><strong>통합 인터페이스</strong>: OpenAI, Anthropic, Google 등 다양한 모델 지원</li>
+  <li><strong>도구(Tools) 시스템</strong>: 파일 읽기, 웹 검색 등 다양한 기능 통합</li>
+  <li><strong>스트리밍 지원</strong>: 실시간 응답 처리</li>
+  <li><strong>타입 안정성</strong>: 완벽한 타입 힌트 지원</li>
+</ul>
+
+<h3 id="발견한-문제점">발견한 문제점</h3>
+
+<p>Strands는 글로벌 AI 모델들을 훌륭하게 지원하지만, <strong>한국어에 특화된 모델 지원이 전무</strong>했습니다.</p>
+
+<p>CLOVA Studio는 네이버가 개발한 한국어 최적화 AI 모델로:</p>
+<ul>
+  <li>한국어 문맥과 뉘앙스를 정확하게 이해</li>
+  <li>한국 문화와 관습에 대한 깊은 이해</li>
+  <li>한국어-영어 번역 및 혼용 처리 능력</li>
+</ul>
+
+<p>이런 강점에도 불구하고 Strands 생태계에서는 사용할 수 없었습니다.</p>
+
+<hr />
+
+<h2 id="2-도전-직접-통합-구현하기">2. 도전: 직접 통합 구현하기</h2>
+
+<h3 id="issue-802-생성">Issue #802 생성</h3>
+
+<p>2025년 9월, 공식 저장소에 <a href="https://github.com/strands-agents/sdk-python/issues/802">이슈를 생성</a>했습니다:</p>
+
+<div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Title: Add CLOVA Studio model provider support for Korean language
+
+CLOVA Studio는 네이버의 한국어 AI 플랫폼으로, 
+한국어 처리에 특화된 강력한 모델을 제공합니다...
+</code></pre></div></div>
+
+<h3 id="기술적-구현-과정">기술적 구현 과정</h3>
+
+<p>SDK의 아키텍처를 분석하고, Model 추상 클래스를 상속받아 ClovaModel을 구현했습니다:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ClovaModel</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">CLOVA Studio model provider implementation.</span><span class="sh">"""</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
+        <span class="n">self</span><span class="p">,</span>
+        <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="sh">"</span><span class="s">HCX-005</span><span class="sh">"</span><span class="p">,</span>
+        <span class="n">api_key</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+        <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
+        <span class="n">max_tokens</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4096</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="c1"># CLOVA API 초기화
+</span>        <span class="n">self</span><span class="p">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">api_key</span> <span class="ow">or</span> <span class="n">os</span><span class="p">.</span><span class="nf">getenv</span><span class="p">(</span><span class="sh">"</span><span class="s">CLOVA_API_KEY</span><span class="sh">"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">self</span><span class="p">.</span><span class="n">api_key</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nc">ValueError</span><span class="p">(</span><span class="sh">"</span><span class="s">CLOVA API key is required</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="핵심-기술적-도전-과제">핵심 기술적 도전 과제</h3>
+
+<h4 id="1-sse-server-sent-events-파싱">1. SSE (Server-Sent Events) 파싱</h4>
+
+<p>CLOVA는 독특한 SSE 응답 형식을 사용했습니다. 일반적인 SSE와 달리 모든 이벤트가 단일 청크로 전송되어 커스텀 파서가 필요했습니다:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="k">def</span> <span class="nf">parse_sse_stream</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+    <span class="nb">buffer</span> <span class="o">=</span> <span class="sa">b</span><span class="sh">""</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="p">.</span><span class="nf">aiter_bytes</span><span class="p">():</span>
+        <span class="nb">buffer</span> <span class="o">+=</span> <span class="n">chunk</span>
+        <span class="n">events</span> <span class="o">=</span> <span class="nb">buffer</span><span class="p">.</span><span class="nf">split</span><span class="p">(</span><span class="sa">b</span><span class="sh">"</span><span class="se">\n\n</span><span class="sh">"</span><span class="p">)</span>
+        <span class="nb">buffer</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">events</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="c1"># CLOVA 특화 이벤트 파싱
+</span>            <span class="n">data</span> <span class="o">=</span> <span class="n">self</span><span class="p">.</span><span class="nf">parse_event_data</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">yield</span> <span class="n">data</span>
+</code></pre></div></div>
+
+<h4 id="2-타입-시스템-호환성">2. 타입 시스템 호환성</h4>
+
+<p>Strands의 엄격한 타입 시스템과 호환성을 유지하는 것이 중요했습니다:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">strands.types.streaming</span> <span class="kn">import</span> <span class="n">StreamEvent</span><span class="p">,</span> <span class="n">ContentBlockDelta</span>
+
+<span class="c1"># 올바른 타입 구조 사용
+</span><span class="n">delta</span><span class="p">:</span> <span class="n">ContentBlockDelta</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="n">content</span><span class="p">}</span>
+<span class="n">event</span><span class="p">:</span> <span class="n">ContentBlockDeltaEvent</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">delta</span><span class="sh">"</span><span class="p">:</span> <span class="n">delta</span><span class="p">}</span>
+<span class="k">yield</span> <span class="p">{</span><span class="sh">"</span><span class="s">contentBlockDelta</span><span class="sh">"</span><span class="p">:</span> <span class="n">event</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="pr-803-제출">PR #803 제출</h3>
+
+<p>구현을 완료하고 <a href="https://github.com/strands-agents/sdk-python/pull/803">PR #803</a>을 제출했습니다:</p>
+<ul>
+  <li>10개의 단위 테스트</li>
+  <li>8개의 통합 테스트</li>
+  <li>완벽한 문서화</li>
+  <li>CI/CD 통과</li>
+</ul>
+
+<hr />
+
+<h2 id="3-전환점-메인테이너의-피드백">3. 전환점: 메인테이너의 피드백</h2>
+
+<h3 id="예상치-못한-방향-전환">예상치 못한 방향 전환</h3>
+
+<p>PR을 제출한 후, 메인테이너 @yonib05로부터 중요한 피드백을 받았습니다:</p>
+
+<blockquote>
+  <p>“Thank you for this PR! While we’d love to include every great model provider, we need to be selective about adding to the core SDK. <strong>We’d recommend publishing as a standalone package on PyPI instead.</strong>”</p>
+</blockquote>
+
+<p>처음에는 실망스러웠지만, 곧 이것이 더 나은 방향임을 깨달았습니다:</p>
+<ul>
+  <li><strong>독립적인 버전 관리</strong>: SDK 릴리즈 주기에 종속되지 않음</li>
+  <li><strong>빠른 업데이트</strong>: 즉각적인 버그 수정과 기능 추가</li>
+  <li><strong>선택적 설치</strong>: 필요한 사용자만 설치</li>
+</ul>
+
+<hr />
+
+<h2 id="4-재탄생-독립-패키지-개발">4. 재탄생: 독립 패키지 개발</h2>
+
+<h3 id="프로젝트-구조-설계">프로젝트 구조 설계</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>strands-clova/
+├── src/strands_clova/
+│   ├── __init__.py       # 패키지 진입점
+│   ├── clova.py          # 핵심 구현
+│   └── py.typed          # 타입 힌트 지원
+├── tests/
+│   ├── unit/             # 단위 테스트
+│   └── integration/      # 통합 테스트
+├── examples/             # 사용 예제
+├── .github/workflows/    # CI/CD
+├── pyproject.toml        # 패키지 설정
+└── README.md            # 문서
+</code></pre></div></div>
+
+<h3 id="pyprojecttoml-설정">pyproject.toml 설정</h3>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[project]</span>
+<span class="py">name</span> <span class="p">=</span> <span class="s">"strands-clova"</span>
+<span class="py">version</span> <span class="p">=</span> <span class="s">"0.1.0"</span>
+<span class="py">description</span> <span class="p">=</span> <span class="s">"CLOVA Studio model provider for Strands Agents SDK"</span>
+<span class="py">requires-python</span> <span class="p">=</span> <span class="py">"&gt;</span><span class="p">=</span><span class="mf">3.10</span><span class="s">"</span><span class="err">
+</span><span class="py">dependencies</span> <span class="p">=</span> <span class="p">[</span>
+    <span class="py">"strands-agents&gt;</span><span class="p">=</span><span class="mf">1.7</span><span class="err">.</span><span class="mi">0</span><span class="s">",</span><span class="err">
+</span>    <span class="py">"httpx&gt;</span><span class="p">=</span><span class="mf">0.27</span><span class="err">.</span><span class="mi">0</span><span class="s">",</span><span class="err">
+</span>    <span class="py">"pydantic&gt;</span><span class="p">=</span><span class="mf">2.0</span><span class="err">.</span><span class="mi">0</span><span class="s">",</span><span class="err">
+</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="github-actions-cicd">GitHub Actions CI/CD</h3>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">name</span><span class="pi">:</span> <span class="s">CI</span>
+
+<span class="na">on</span><span class="pi">:</span>
+  <span class="na">push</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>
+  <span class="na">pull_request</span><span class="pi">:</span>
+    <span class="na">branches</span><span class="pi">:</span> <span class="pi">[</span> <span class="nv">main</span> <span class="pi">]</span>
+
+<span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span>
+    <span class="na">runs-on</span><span class="pi">:</span> <span class="s">ubuntu-latest</span>
+    <span class="na">strategy</span><span class="pi">:</span>
+      <span class="na">matrix</span><span class="pi">:</span>
+        <span class="na">python-version</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">3.10"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">3.11"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">3.12"</span><span class="pi">]</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="5-시행착오-문제-해결-과정">5. 시행착오: 문제 해결 과정</h2>
+
+<h3 id="python-버전-호환성-이슈">Python 버전 호환성 이슈</h3>
+
+<p>초기에는 Python 3.8+를 지원하려 했으나, GitHub Actions에서 실패:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ERROR: No matching distribution found for strands-agents==1.7.1 
+(requires Python &gt;=3.10)
+</code></pre></div></div>
+
+<p>해결: Python 3.10+로 요구사항 업데이트</p>
+
+<h3 id="타입-체킹-오류">타입 체킹 오류</h3>
+
+<p>mypy에서 수많은 타입 오류 발생:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 문제
+</span><span class="k">yield</span> <span class="p">{</span><span class="sh">"</span><span class="s">type</span><span class="sh">"</span><span class="p">:</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="n">content</span><span class="p">}</span>
+
+<span class="c1"># 해결
+</span><span class="n">delta</span><span class="p">:</span> <span class="n">ContentBlockDelta</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">:</span> <span class="n">content</span><span class="p">}</span>
+<span class="n">event</span><span class="p">:</span> <span class="n">ContentBlockDeltaEvent</span> <span class="o">=</span> <span class="p">{</span><span class="sh">"</span><span class="s">delta</span><span class="sh">"</span><span class="p">:</span> <span class="n">delta</span><span class="p">}</span>
+<span class="k">yield</span> <span class="p">{</span><span class="sh">"</span><span class="s">contentBlockDelta</span><span class="sh">"</span><span class="p">:</span> <span class="n">event</span><span class="p">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="6-완성-pypi-패키지-발행">6. 완성: PyPI 패키지 발행</h2>
+
+<h3 id="패키지-빌드">패키지 빌드</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python <span class="nt">-m</span> build
+</code></pre></div></div>
+
+<h3 id="pypi-업로드">PyPI 업로드</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>twine upload dist/<span class="k">*</span>
+</code></pre></div></div>
+
+<h3 id="최종-결과">최종 결과</h3>
+
+<p>✅ <strong>PyPI</strong>: https://pypi.org/project/strands-clova/<br />
+✅ <strong>GitHub</strong>: https://github.com/aidendef/strands-clova<br />
+✅ <strong>설치</strong>: <code class="language-plaintext highlighter-rouge">pip install strands-clova</code></p>
+
+<hr />
+
+<h2 id="7-사용법-5분-만에-시작하기">7. 사용법: 5분 만에 시작하기</h2>
+
+<h3 id="설치">설치</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>strands-agents strands-clova
+</code></pre></div></div>
+
+<h3 id="기본-사용">기본 사용</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">strands_clova</span> <span class="kn">import</span> <span class="n">ClovaModel</span>
+<span class="kn">from</span> <span class="n">strands</span> <span class="kn">import</span> <span class="n">Agent</span>
+
+<span class="c1"># CLOVA 모델 초기화
+</span><span class="n">model</span> <span class="o">=</span> <span class="nc">ClovaModel</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="sh">"</span><span class="s">your-clova-api-key</span><span class="sh">"</span><span class="p">,</span>  <span class="c1"># 또는 CLOVA_API_KEY 환경변수
+</span>    <span class="n">model</span><span class="o">=</span><span class="sh">"</span><span class="s">HCX-005</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">temperature</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span>
+    <span class="n">max_tokens</span><span class="o">=</span><span class="mi">2048</span>
+<span class="p">)</span>
+
+<span class="c1"># 에이전트 생성
+</span><span class="n">agent</span> <span class="o">=</span> <span class="nc">Agent</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">)</span>
+
+<span class="c1"># 한국어 처리
+</span><span class="n">response</span> <span class="o">=</span> <span class="k">await</span> <span class="n">agent</span><span class="p">.</span><span class="nf">invoke_async</span><span class="p">(</span><span class="sh">"</span><span class="s">한국의 전통 음식을 소개해주세요</span><span class="sh">"</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="n">message</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="스트리밍-예제">스트리밍 예제</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">model</span><span class="p">.</span><span class="nf">stream</span><span class="p">(</span><span class="sh">"</span><span class="s">AI가 미래에 미칠 영향은?</span><span class="sh">"</span><span class="p">):</span>
+    <span class="k">if</span> <span class="sh">"</span><span class="s">contentBlockDelta</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">event</span><span class="p">:</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="n">event</span><span class="p">[</span><span class="sh">"</span><span class="s">contentBlockDelta</span><span class="sh">"</span><span class="p">][</span><span class="sh">"</span><span class="s">delta</span><span class="sh">"</span><span class="p">]</span>
+        <span class="k">if</span> <span class="sh">"</span><span class="s">text</span><span class="sh">"</span> <span class="ow">in</span> <span class="n">delta</span><span class="p">:</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">delta</span><span class="p">[</span><span class="sh">"</span><span class="s">text</span><span class="sh">"</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="sh">""</span><span class="p">,</span> <span class="n">flush</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="8-배운-교훈들">8. 배운 교훈들</h2>
+
+<h3 id="오픈소스는-코드-그-이상">오픈소스는 코드 그 이상</h3>
+
+<ul>
+  <li>커뮤니티와의 소통: 메인테이너의 피드백을 긍정적으로 수용</li>
+  <li>유연한 사고: 직접 통합에서 독립 패키지로 방향 전환</li>
+  <li>문서화의 중요성: README, 예제, API 문서는 필수</li>
+</ul>
+
+<h3 id="기술적-교훈">기술적 교훈</h3>
+
+<ul>
+  <li>테스트의 중요성: 18개의 테스트가 안정성 보장</li>
+  <li>CI/CD 자동화: GitHub Actions로 품질 관리</li>
+  <li>타입 안정성: TypeScript처럼 Python도 타입 힌트 활용</li>
+</ul>
+
+<h3 id="글로벌-프로젝트-참여">글로벌 프로젝트 참여</h3>
+
+<ul>
+  <li>영어 문서화: 명확하고 간결한 영어 문서 작성</li>
+  <li>표준 준수: Python 패키징 표준 (PEP) 준수</li>
+  <li>라이선스: MIT 라이선스로 자유로운 사용 보장</li>
+</ul>
+
+<hr />
+
+<h2 id="마무리-작은-시작이-만드는-변화">마무리: 작은 시작이 만드는 변화</h2>
+
+<p>이 프로젝트는 단순한 기술적 도전을 넘어, <strong>한국 AI 기술을 글로벌 오픈소스 생태계에 통합</strong>하는 의미있는 작업이었습니다.</p>
+
+<p>strands-clova는 이제:</p>
+<ul>
+  <li>전 세계 개발자들이 한국어 AI를 쉽게 사용할 수 있는 다리</li>
+  <li>한국 개발자들이 Strands 생태계를 활용할 수 있는 도구</li>
+  <li>오픈소스 기여의 실제 사례</li>
+</ul>
+
+<p><strong>오픈소스 기여를 망설이고 계신가요?</strong></p>
+
+<p>시작은 작을 수 있습니다. 이슈 제기, 문서 개선, 버그 리포트… 모든 기여는 가치있습니다. 제 경험이 보여주듯, 때로는 거절당한 PR이 더 큰 기회로 이어질 수 있습니다.</p>
+
+<hr />
+
+<h2 id="links">Links</h2>
+
+<ul>
+  <li><strong>GitHub</strong>: <a href="https://github.com/aidendef/strands-clova">github.com/aidendef/strands-clova</a></li>
+  <li><strong>PyPI</strong>: <a href="https://pypi.org/project/strands-clova/">pypi.org/project/strands-clova</a></li>
+  <li><strong>Original PR</strong>: <a href="https://github.com/strands-agents/sdk-python/pull/803">PR #803</a></li>
+  <li><strong>Issue</strong>: <a href="https://github.com/strands-agents/sdk-python/issues/802">Issue #802</a></li>
+  <li><strong>Strands Agents SDK</strong>: <a href="https://github.com/strands-agents/sdk-python">github.com/strands-agents/sdk-python</a></li>
+</ul>
+
+<hr />
+
+<p><em>이 글이 도움이 되셨다면, GitHub에서 ⭐를 눌러주세요!</em></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#ai" class="page__taxonomy-item p-category" rel="tag">AI</a><span class="sep">, </span>
+    
+      <a href="/tags/#clova" class="page__taxonomy-item p-category" rel="tag">CLOVA</a><span class="sep">, </span>
+    
+      <a href="/tags/#github" class="page__taxonomy-item p-category" rel="tag">GitHub</a><span class="sep">, </span>
+    
+      <a href="/tags/#opensource" class="page__taxonomy-item p-category" rel="tag">OpenSource</a><span class="sep">, </span>
+    
+      <a href="/tags/#pypi" class="page__taxonomy-item p-category" rel="tag">PyPI</a><span class="sep">, </span>
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">Python</a><span class="sep">, </span>
+    
+      <a href="/tags/#strandsagents" class="page__taxonomy-item p-category" rel="tag">StrandsAgents</a><span class="sep">, </span>
+    
+      <a href="/tags/#%ED%95%9C%EA%B5%AD%EC%96%B4ai" class="page__taxonomy-item p-category" rel="tag">한국어AI</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#ai" class="page__taxonomy-item p-category" rel="tag">ai</a><span class="sep">, </span>
+    
+      <a href="/categories/#development" class="page__taxonomy-item p-category" rel="tag">development</a><span class="sep">, </span>
+    
+      <a href="/categories/#opensource" class="page__taxonomy-item p-category" rel="tag">opensource</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2025-09-09T15:00:00+00:00">September 9, 2025</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://x.com/intent/tweet?text=%ED%95%9C%EA%B5%AD+AI%EB%A5%BC+%EC%84%B8%EA%B3%84%EB%A1%9C%3A+strands-clova+%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4+%EA%B0%9C%EB%B0%9C+%EC%97%AC%EC%A0%95%20https%3A%2F%2Faidendef.github.io%2F%2Fdevelopment%2Fopensource%2Fai%2Fstrands-clova-opensource-journey%2F" class="btn btn--x" aria-label="Share on X" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on X">
+    <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faidendef.github.io%2F%2Fdevelopment%2Fopensource%2Fai%2Fstrands-clova-opensource-journey%2F" class="btn btn--facebook" aria-label="Share on Facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook">
+    <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+  </a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://aidendef.github.io//development/opensource/ai/strands-clova-opensource-journey/" class="btn btn--linkedin" aria-label="Share on LinkedIn" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn">
+    <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+  </a>
+
+  <a href="https://bsky.app/intent/compose?text=%ED%95%9C%EA%B5%AD+AI%EB%A5%BC+%EC%84%B8%EA%B3%84%EB%A1%9C%3A+strands-clova+%EC%98%A4%ED%94%88%EC%86%8C%EC%8A%A4+%EA%B0%9C%EB%B0%9C+%EC%97%AC%EC%A0%95%20https%3A%2F%2Faidendef.github.io%2F%2Fdevelopment%2Fopensource%2Fai%2Fstrands-clova-opensource-journey%2F" class="btn btn--bluesky" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Bluesky">
+    <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+  </a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/" class="pagination--pager" title="AWS 생성형 AI 활용 학습부터 자격증 취득까지">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  
+  <h2 class="page__related-title">You may also enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/aws_skill.webp" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tech/ai/cloud/AWS-%EC%83%9D%EC%84%B1%ED%98%95-AI-%ED%99%9C%EC%9A%A9-%ED%95%99%EC%8A%B5%EB%B6%80%ED%84%B0-%EC%9E%90%EA%B2%A9%EC%A6%9D-%EC%B7%A8%EB%93%9D%EA%B9%8C%EC%A7%80/" rel="permalink">AWS 생성형 AI 활용 학습부터 자격증 취득까지
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          3 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AWS 자격증을 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDV5OXFubHBnZ252ZGt6d21hcnVzZjNpZ21lN2UzdWc0MDBsdTFjbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/ABVK96HgZvWI9SBbXr/giphy.gif" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tech/ai/private/blog/AI-%EC%99%84%EC%A0%84-%EC%9E%90%EB%8F%99%ED%99%94-%EC%A0%88%EB%B0%98%EC%9D%80-%EC%9B%90%ED%95%98%EC%A7%80-%EC%95%8A%EB%8A%94%EB%8B%A4-%EC%9A%B0%EB%A6%AC%EA%B0%80-%EC%A7%84%EC%A7%9C-%EC%A4%80%EB%B9%84%ED%95%B4%EC%95%BC-%ED%95%A0-%EC%97%AD%EB%9F%89/" rel="permalink">AI 완전 자동화? 절반은 원하지 않는다 - 우리가 진짜 준비해야 할 역량
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          10 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">AI가 당신의 일을 뺏지 않는 이유: 스탠포드 대규모 연구가 밝힌 충격적 결과
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2ZuajZpdXpkcGVtbW03NjRianh5Nm56bWkxZmJ3OHV2bnh1czgxMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/6aQ3Hy4i90nGdRnG8i/giphy.gif" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tech/private/blog/%EA%B0%9C%EB%B0%9C%EC%9E%90_%EB%A7%88%EC%9D%B8%EB%93%9C/" rel="permalink">나, 내 팀원이 가졌으면 하는 개발자 마인드
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          less than 1 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">개발자 마인드를 알아보자
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src="/assets/images/post_img/langgraph8.png" alt="">
+      </div>
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/tech/ai/cloud/Agentic_Workflow_using_LangGraph_and_Bedrock(8)/" rel="permalink">Agentic_Workflow_using_LangGraph_and_Bedrock(8)
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">동적인 Breakpoint을 알아보자
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <footer class="site-footer">
+  <div style="max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 40px; font-size: 0.95rem;">
+
+    <!-- TECH 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">TECH</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/ai/" style="color: #222; text-decoration: none;">AI</a></li>
+        <li><a href="/categories/cloud/" style="color: #222; text-decoration: none;">Cloud</a></li>
+      </ul>
+    </div>
+
+    <!-- PRIVATE 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">PRIVATE</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/categories/business/" style="color: #222; text-decoration: none;">Business</a></li>
+        <li><a href="/categories/blog/" style="color: #222; text-decoration: none;">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- RECENT 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">RECENT</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="/recent/" style="color: #222; text-decoration: none;">최근 글 보기</a></li>
+      </ul>
+    </div>
+
+    <!-- LINK TREE 섹션 -->
+    <div>
+      <h4 style="margin-bottom: 10px; border-bottom: 1px solid #e0d6b9;">LINK TREE</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="mailto:aiden02095@gmail.com" style="color: #222; text-decoration: none;">aiden02095@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/yonggyu-kim-32650521a/" style="color: #222; text-decoration: none;">LinkedIn</a></li>
+        <li><a href="https://aidendef.github.io/" style="color: #222; text-decoration: none;">Blog</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=ko&view_op=list_works&gmla=AGd7smG0eu-Rlnn9AJ4_k5IHf5hgJ3-Ck637ZE18uzIghA-SpGhplBRaIpXg5MhAlW3gEtYmIjxE7PQbToDG_a_-Fb1yAhKHqAjEMYPwnc9DD2ObKD1tvrEEUEAe_jY&user=9Go7rwsAAAAJ" style="color: #222; text-decoration: none;">Google scholar Profile</a></li>
+        <li><a href="https://ieeexplore.ieee.org/author/395117798154712" style="color: #222; text-decoration: none;">IEEE Profile</a></li>
+        <li><a href="https://orcid.org/my-orcid?orcid=0000-0001-7038-8715" style="color: #222; text-decoration: none;">ORCID Profile</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div style="text-align: center; margin-top: 40px; color: #666;">
+    © 2025 Aiden의 든든한 Blog. All rights reserved.
+  </div>
+</footer>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
