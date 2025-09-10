@@ -1,0 +1,74 @@
+/* Sidebar TOC Styles */
+.sidebar-toc {
+  margin-top: 2em;
+  padding-top: 1em;
+  border-top: 1px solid #f2f3f3;
+}
+
+.sidebar-toc .nav__title {
+  margin: 0;
+  padding: 0.5rem 0;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.sidebar-toc .toc__menu {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
+  font-size: 0.75em;
+}
+
+.sidebar-toc .toc__menu li {
+  padding: 0.25em 0;
+}
+
+.sidebar-toc .toc__menu li.toc__sub-1 {
+  padding-left: 1em;
+}
+
+.sidebar-toc .toc__menu li.toc__sub-2 {
+  padding-left: 2em;
+}
+
+.sidebar-toc .toc__menu li.toc__sub-3 {
+  padding-left: 3em;
+}
+
+.sidebar-toc .toc__menu li.toc__sub-4 {
+  padding-left: 4em;
+}
+
+.sidebar-toc .toc__menu a {
+  display: block;
+  padding: 0.25rem 0;
+  color: #7a8288;
+  font-weight: normal;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.sidebar-toc .toc__menu a:hover,
+.sidebar-toc .toc__menu a:focus {
+  color: #3d4144;
+  font-weight: normal;
+}
+
+.sidebar-toc .toc__menu a.active {
+  color: #3d4144;
+  font-weight: bold;
+}
+
+/* Adjust main content width when TOC is in sidebar */
+.page-with-sidebar-toc {
+  @media (min-width: 64em) {
+    padding-right: 0;
+  }
+}
+
+/* Hide the right sidebar TOC area completely */
+.sidebar__right {
+  display: none !important;
+}
