@@ -69,7 +69,7 @@
   width: 200px !important;
   padding-right: 1em;
   z-index: 10;
-  background: white;
+  background: transparent;  /* Remove white background */
 }
 
 /* Fix sidebar navigation list styling */
